@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="description">
+  <meta name="google" content="notranslate" />
+  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+  
+  <link href="./assets/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="./assets/favicon.ico" rel="icon">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+      crossorigin="anonymous"
+    />
+
+ <!-- link Font Awesome -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+ integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+ crossorigin="anonymous" />
+
+  <title>Title page</title>  
+
+<!-- <link href="./main.a3f694c0.css" rel="stylesheet"> -->
+
+<link rel="stylesheet" href="./MyCourse.css">
+<link rel="stylesheet" href="/New folder/main.a3f694c0.css">
+
+<style>
+  .dropbtn {
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown:hover .dropbtn .user{
+      color: #5876FC;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 90px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content .choose {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content .choose:hover{
+      background-color: #5876FC; 
+      transition: all .5s;
+      color: #ffff;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .vertical-menu {
+  width: 200px; /* Set a width if you like */
+}
+
+.vertical-menu a {
+  background-color: #eee; /* Grey background color */
+  color: black; /* Black text color */
+  display: block; /* Make the links appear below each other */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+  background-color: #04AA6D; /* Add a green color to the "active/current" link */
+  color: white;
+}
+  </style>
+</head>
+
+<body>
+
+ <!-- Add your content of header -->
+<header>
+  <nav class="navbar  navbar-fixed-top navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle uarr collapsed" data-toggle="collapse" data-target="#navbar-collapse-uarr">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="./index.html" title="">
+          <img src="./assets/images/mashuptemplate.svg" class="navbar-logo-img" alt="">
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse-uarr">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/index.html" title="" class="active">Home</a></li>
+          <li>
+            <div class="dropdown" style="float:right;margin-top: 26px;">
+              <a href="/Subject/MyCourse.html" title="" style="color: #888;"> Subject</a>
+              <!-- <div class="dropdown-content" style="left:-20px;">
+                <a href="./MyCourse/MyCourse.html" class="choose" style="padding: 10px 0 7px 10px;">My Course</a>
+                <a href="#" class="choose" style="padding: 10px 0 7px 10px;">All Couse</a>
+                <a href="#" class="choose" style="padding: 10px 0 7px 10px;">Add Couse</a>
+              </div> -->
+            </div>
+          </li>
+          <!-- <li><a href="./pricing.html" title="" > Profile </a></li> -->
+          <li><a href="/Create/index..html" title="" >Đăng Ký</a></li>
+          <li><a href="/LoginUser/Login/index.html" title="">Đăng Nhập</a></li>
+          <li>
+            <div class="dropdown" style="float:right;">
+              <button class="dropbtn" style="background-color: #fff;">
+                  <a href="./download.html">
+                      <i class="fas fa-user-circle user" 
+                          style="font-size: 30px;
+                          padding-top: 24px;
+                          padding-left: 8px;">
+                      </i>
+                  </a>
+              </button>
+              <div class="dropdown-content" style="left:-12px;">
+              <a href="/Profile/index.html" class="choose">Profile</a>
+              <a href="#" class="choose">Log out</a>
+              </div>
+          </div>
+          </li>
+          <!-- <div class="dropdown" style="float:right;">
+            <button class="dropbtn" style="background-color: #fff;">
+                <a href="./download.html">
+                    
+                </a>
+            </button>
+            <div class="dropdown-content" style="left:-12px;">
+            <a href="./MyCourse.html" class="mc choose">My Course</a>
+            <a href="#" class="mc choose">All Couse</a>
+            <a href="#" class="mc choose">Add Couse</a>
+            </div>
+        </div> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<section class="KhuVucHoc">
+  <div>
+    <h3><b>Khu vực học tập</b></h3>
+    <button class="buttonCreate btn-success" style="border:none; float: right;">Create New Course</button>
+
+  </div>
+ 
+ 
+  <p>Khóa học, tài liệu mà bạn đăng ký sẽ được hiển thị dưới đây.</p>
+</section>
+
+<section class="MyCourse" style="margin-top: 20px;">
+  <div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'allCourse')"><b>Tất cả khóa học</b></button>
+    <button class="tablinks" onclick="openCity(event, 'myCourse')"><b>Của tôi</b></button>
+    <!-- <button class="tablinks" onclick="openCity(event, 'addCourse')"><b>Tạo mới khóa học</b></button> -->
+
+    <div class="search-container">
+      <form action="/action_page.php">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Tab content -->
+  
+  <div id="allCourse" class="tabcontent">
+    <div>
+      <button class="join" style="float: right; margin-top: 30px;">Register</button>
+      <img src="/assets/showcase_img_1.webp" alt="" style="width: 100px; height: 100px;">
+      <span>dầu gội đầu</span>  <hr>
+    </div >
+  
+    <div>
+      <button class="join" style="float: right; margin-top: 30px;">Register</button>
+      <img src="/assets/showcase_img_2.webp" alt="" style="width: 100px; height: 100px;">
+      <span>con rắn nè</span> 
+    </div>
+  </div>
+
+  <div id="myCourse" class="tabcontent">
+    <div>
+      <a class="join" href="/Content/index.html" style="float: right; margin-top: 30px;">Join Class</a>
+      <img src="/assets/showcase_img_1.webp" alt="" style="width: 100px; height: 100px;">
+      <span>dầu gội đầu</span> <hr>
+    </div>
+    <div>
+      <a class="join" href="/Content/index.html" style="float: right; margin-top: 30px;">Join Class</a>
+      <img src="/assets/showcase_img_2.webp" alt="" style="width: 100px; height: 100px;">
+      <span>dầu gội đầu</span> 
+    </div>
+  </div>
+  
+  <div id="addCourse" class="tabcontent">
+    <h3>Tokyo</h3>
+    <p>Tokyo is the capital of Japan.</p>
+  </div>
+</section>
+
+<script src="./MyCourse.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+    navActivePage();
+  });
+</script>
+
+<script type="text/javascript" src="./main.41beeca9.js"></script></body>
+
+</html>

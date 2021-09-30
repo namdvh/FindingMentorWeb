@@ -20,6 +20,7 @@ import javax.servlet.http.HttpSession;
 public class MainController extends HttpServlet {
 
     private static final String LOGIN = "LoginController";
+    private static final String LOGIN_PAGE = "login.html";
     private static final String ERROR = "error.jsp";
     private static final String LOGOUT = "LogoutController";
     private static final String CREATE = "CreateController";
@@ -31,8 +32,10 @@ public class MainController extends HttpServlet {
         try {
             String action = request.getParameter("action");
             if (action == null) {
-                url = action;
-            } else if ("Login".equals(action)) {
+               
+            }else if(action.equals("LoginPage")){
+                url = LOGIN_PAGE;
+            }else if ("Login".equals(action)) {
                 url = LOGIN;
             } else if ("Logout".equals(action)) {
                 url = LOGOUT;

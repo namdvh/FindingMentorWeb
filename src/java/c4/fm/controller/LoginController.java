@@ -30,8 +30,8 @@ public class LoginController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         try {
-            String UserID = request.getParameter("UserID");
-            String password = request.getParameter("Password");
+            String UserID = request.getParameter("your_name");
+            String password = request.getParameter("your_pass");
             UserDAO dao = new UserDAO();
             UserDTO user = dao.checkLogin(UserID, password);
             HttpSession session = request.getSession();
