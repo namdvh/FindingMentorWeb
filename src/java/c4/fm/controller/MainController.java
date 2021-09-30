@@ -29,9 +29,7 @@ public class MainController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         try {
-            //fanglong modify code
             String action = request.getParameter("action");
-
             if (action == null) {
                 url = action;
             } else if ("Login".equals(action)) {
