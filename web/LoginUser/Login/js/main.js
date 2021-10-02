@@ -7,7 +7,7 @@ class="form-submit" value="Cerfiticate"/>
 
 mentor.addEventListener("click", handleClickMentor);
 function handleClickMentor(){
-    if
+//    if
 }
 // document.body.addEventListener("click", function(event){
     
