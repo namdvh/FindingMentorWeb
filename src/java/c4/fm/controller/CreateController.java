@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class CreateController extends HttpServlet {
 
-     private static final String ERROR = "createUser.jsp";
+    private static final String ERROR = "createUser.jsp";
     private static final String SUCCESS = "login.html";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)

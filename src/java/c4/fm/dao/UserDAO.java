@@ -18,6 +18,7 @@ import javax.naming.NamingException;
  * @author MSI
  */
 public class UserDAO {
+
     public UserDTO checkLogin(String UserID, String password) throws SQLException, ClassNotFoundException, NamingException {
         UserDTO user = null;
         Connection conn = null;
@@ -40,8 +41,8 @@ public class UserDAO {
                     String PhoneNumber = rs.getString("PhoneNumber");
                     String Address = rs.getString("Address");
                     String Certificate = rs.getString("Certificate");
-                    String Status=rs.getString("Status");
-                    String BirthDay=rs.getString("BirthDay");
+                    String Status = rs.getString("Status");
+                    String BirthDay = rs.getString("BirthDay");
                     user = new UserDTO(UserID, Name, Email, RoleID, PhoneNumber, Address, "", Certificate, Status, BirthDay);
                 }
             }
@@ -59,7 +60,8 @@ public class UserDAO {
         }
         return user;
     }
-      public boolean insertUseNew(UserDTO user) throws SQLException, NamingException, ClassNotFoundException {
+
+    public boolean insertUseNew(UserDTO user) throws SQLException, NamingException, ClassNotFoundException {
         boolean check = false;
         Connection conn = null;
         PreparedStatement stm = null;
@@ -91,4 +93,38 @@ public class UserDAO {
         }
         return check;
     }
+
+    public boolean insertUserGoogle(UserDTO user) throws SQLException, NamingException, ClassNotFoundException {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement stm = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                String sql = "insert into tblUser(UserID, Name, Email, RoleID, PhoneNumber, Address, Password, Certificate, Status, BirthDay)"
+                        + " values(?,?,?,?,?,?,?,?,?,?)";
+                stm = conn.prepareStatement(sql);
+                stm.setString(1, user.getUserID());
+                stm.setString(2, user.getName());
+                stm.setString(3, user.getEmail());
+                stm.setString(4, user.getRoleID());
+                stm.setString(5, "");
+                stm.setString(6, "");
+                stm.setString(7, user.getPassword());
+                stm.setString(8, user.getCertificate());
+                stm.setString(9, "1");
+                stm.setString(10, "");
+                check = stm.executeUpdate() > 0;
+            }
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return check;
+    }
+
 }

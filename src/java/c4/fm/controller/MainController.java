@@ -24,6 +24,7 @@ public class MainController extends HttpServlet {
     private static final String ERROR = "error.jsp";
     private static final String LOGOUT = "LogoutController";
     private static final String CREATE = "CreateController";
+    private static final String CREATE_PAGE="createUser.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -41,6 +42,8 @@ public class MainController extends HttpServlet {
                 url = LOGOUT;
             } else if ("Create".equals(action)) {
                 url = CREATE;
+            }else if("CreatePage".equals(action)){
+                url=CREATE_PAGE;
             } else {
                 HttpSession session = request.getSession();
                 session.setAttribute("ERROR_MESSAGE", "function is not available");

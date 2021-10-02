@@ -21,6 +21,7 @@ public class UserDTO {
     private String certificate;
     private String status;
     private String birthday;
+    private String images;
 
     public UserDTO() {
     }
@@ -35,7 +36,29 @@ public class UserDTO {
         this.password = password;
         this.certificate = certificate;
         this.status = status;
+        this.birthday = birthday; 
+    }
+
+    public UserDTO(String userID, String name, String email, String roleID, String phoneNumber, String address, String password, String certificate, String status, String birthday, String images) {
+        this.userID = userID;
+        this.name = name;
+        this.email = email;
+        this.roleID = roleID;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.password = password;
+        this.certificate = certificate;
+        this.status = status;
         this.birthday = birthday;
+        this.images = images;
+    }
+
+    public String getImages() {
+        return images;
+    }
+
+    public void setImages(String images) {
+        this.images = images;
     }
 
     public String getUserID() {
