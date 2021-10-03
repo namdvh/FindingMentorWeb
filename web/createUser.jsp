@@ -38,22 +38,22 @@
                                 <div class="form-group">
                                     <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                     <input type="text" name="UserID" id="name" placeholder="User Name" required/>
-                                   User ID= ${requestScope.email}</br>
+                                    ${requestScope.email}</br>
                                 </div>
                                 <div class="form-group">
                                     <label for="email"><i class="zmdi zmdi-email"></i></label>
                                     <input type="email" name="Email" id="email" placeholder="Your Email" required/>
-                                  Email= ${requestScope.email}</br>
+                                   ${requestScope.email}</br>
                                 </div>
                                 <div class="form-group">
                                     <label for="pass"><i class="zmdi zmdi-lock"></i></label>
                                     <input type="password" name="Password" id="pass" placeholder="Password" required/>
-                                   passs: ${requestScope.id}</br>
+                                    ${requestScope.id}</br>
                                 </div>
                                 <div class="form-group">
                                     <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
                                     <input type="password" name="ConfirmPassword" id="re_pass" placeholder="Repeat your password" required/>
-                                    pass :${requestScope.id}</br>
+                                    ${requestScope.id}</br>
                                 </div>
                                 <!-- <div class="form-group">
                                     <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
@@ -88,7 +88,7 @@
                         </div>
                         <div class="signup-image">
                             <figure><img src="Create/images/signup-image.jpg" alt="sing up image"></figure>
-                            <a href="./index.html" class="signup-image-link">Home Page</a>
+                            <a href="user.jsp" class="signup-image-link">Home Page</a>
                         </div>
                     </div>
                 </div>

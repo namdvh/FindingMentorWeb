@@ -104,7 +104,7 @@
 
                     <div class="collapse navbar-collapse" id="navbar-collapse-uarr">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="./index.html" title="" class="active">Home</a></li>
+                            <li><a href="user.jsp" title="" class="active">Home</a></li>
                             <li>
                                 <div class="dropdown" style="float:right;margin-top: 26px;">
                                     <a href="./Subject/MyCourse.html " title="" style="color: #888;"> Subject</a>
@@ -115,17 +115,25 @@
                                     </div> -->
                                 </div>
                             </li>
-                            
+
                             <!-- LOGIN LOGOUT -->
-                            
-                            
+
+
                             <!-- <li><a href="./pricing.html" title="" > Profile </a></li> -->
-                            <li><a href="./Create/index..html" title="" >Đăng Ký</a></li>
-                            <li><a href="MainController?action=LoginPage" title="">Đăng Nhập</a></li>
+
+
+                            <c:if test="${sessionScope.LOGIN_USER == null}">
+                                <li><a href="createUser.jsp" title="" >Đăng Ký</a></li>
+                                <li><a href="MainController?action=LoginPage" title="">Đăng Nhập</a></li>
+
+                            </c:if>
+                                
                             <c:if test="${sessionScope.LOGIN_USER != null}">
-                            <p>Welcome, ${sessionScope.LOGIN_USER.name}</p>
+                                <p>Welcome, ${sessionScope.LOGIN_USER.name}</p>
                             </c:if>
                             <li>
+                                
+                                <!-- comment dropdown -->
                                 <div class="dropdown" style="float:right;">
                                     <button class="dropbtn" style="background-color: #fff;">
                                         <a href="./Profile/index.html">
