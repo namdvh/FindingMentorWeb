@@ -145,9 +145,10 @@
                                             </i>
                                         </a>
                                     </button>
+                                    <!-- comment fix here link to updateUser,jsp-->
                                     <div class="dropdown-content" style="left:-12px;">
-                                        <a href="/Profile/index.html" class="choose">Profile</a>
-                                        <a href="#" class="choose">Log out</a>
+                                        <a href="updateUser.jsp" class="choose">Profile</a>
+                                        <a href="MainController?action=Logout" class="choose">Log out</a>
                                     </div>
                                 </div>
                             </li>

@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
  */
 public class LogoutController extends HttpServlet {
 
-      private final static String SUCCESS = "login.html";
+      private final static String SUCCESS = "user.jsp";
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
