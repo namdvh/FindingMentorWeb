@@ -16,8 +16,6 @@ import javax.servlet.http.HttpSession;
  *
  * @author MSI
  */
-
-
 public class MainController extends HttpServlet {
 
     private static final String LOGIN = "LoginController";
@@ -25,7 +23,8 @@ public class MainController extends HttpServlet {
     private static final String ERROR = "error.jsp";
     private static final String LOGOUT = "LogoutController";
     private static final String CREATE = "CreateController";
-    private static final String CREATE_PAGE="createUser.jsp";
+    private static final String CREATE_PAGE = "createUser.jsp";
+    private static final String UPDATE_USER_PAGE = "UpdateUserController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -34,17 +33,19 @@ public class MainController extends HttpServlet {
         try {
             String action = request.getParameter("action");
             if (action == null) {
-               
-            }else if(action.equals("LoginPage")){
+
+            } else if (action.equals("LoginPage")) {
                 url = LOGIN_PAGE;
-            }else if ("Login".equals(action)) {
+            } else if ("Login".equals(action)) {
                 url = LOGIN;
             } else if ("Logout".equals(action)) {
                 url = LOGOUT;
             } else if ("Create".equals(action)) {
                 url = CREATE;
-            }else if("CreatePage".equals(action)){
-                url=CREATE_PAGE;
+            } else if ("CreatePage".equals(action)) {
+                url = CREATE_PAGE;
+            } else if ("UpdateUserPage".equals(action)) {
+                url = UPDATE_USER_PAGE;
             } else {
                 HttpSession session = request.getSession();
                 session.setAttribute("ERROR_MESSAGE", "function is not available");

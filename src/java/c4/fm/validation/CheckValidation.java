@@ -29,4 +29,13 @@ public class CheckValidation {
         java.util.regex.Matcher m = p.matcher(email);
         return m.matches();
     }
+     public static boolean isValidPhoneNumber(String phone) {
+         String regex = "^[0-9]{10}$";
+         Pattern p = Pattern.compile(regex);
+        if (phone == null){
+           return false;
+        }
+         Matcher m = p.matcher(phone);
+        return m.matches();
+    }
 }

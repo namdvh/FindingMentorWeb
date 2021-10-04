@@ -53,6 +53,19 @@ public class UserDTO {
         this.images = images;
     }
 
+    public UserDTO(String userID, String name, String email, String phoneNumber, String address, String birthday, String images) {
+        this.userID = userID;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.birthday = birthday;
+        this.images = images;
+    }
+
+  
+    
+
     public String getImages() {
         return images;
     }

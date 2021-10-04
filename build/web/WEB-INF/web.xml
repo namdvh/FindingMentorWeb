@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>UpdateUserController</servlet-name>
+        <servlet-class>c4.fm.controller.UpdateUserController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadInforController</servlet-name>
+        <servlet-class>c4.fm.controller.LoadInforController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CreateGoogleController</servlet-name>
         <url-pattern>/CreateGoogleController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateUserController</servlet-name>
+        <url-pattern>/UpdateUserController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadInforController</servlet-name>
+        <url-pattern>/LoadInforController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -45,7 +61,6 @@
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
     </servlet-mapping>
-    
     <welcome-file-list>
         <welcome-file>user.jsp</welcome-file>
     </welcome-file-list>
