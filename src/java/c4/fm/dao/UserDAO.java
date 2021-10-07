@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.naming.NamingException;
 
 /**
@@ -196,6 +198,44 @@ public class UserDAO {
             }
         }
         return user;
+    }
+    
+     public List<UserDTO> loadListUser() throws ClassNotFoundException, SQLException {
+        List<UserDTO> listUser = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                String sql = " select UserId, Name, Email, PhoneNumber, Address, BirthDay, Images"
+                        + " from tblUser";
+                stm = conn.prepareStatement(sql);
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    String UserId = rs.getString("UserId");
+                    String Name = rs.getString("Name");
+                    String Email = rs.getString("Email");
+                    String PhoneNumber = rs.getString("PhoneNumber");
+                    String Address = rs.getString("Address");
+                    String BirthDay = rs.getString("BirthDay");
+                    String Images = rs.getString("Images");
+                    UserDTO user = new UserDTO(UserId, Name, Email, PhoneNumber, Address, BirthDay, Images);
+                    listUser.add(user);
+                }
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return listUser;
     }
 
 }
