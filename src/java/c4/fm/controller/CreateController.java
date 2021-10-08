@@ -19,8 +19,6 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author MSI
  */
-
-
 public class CreateController extends HttpServlet {
 
     private static final String ERROR = "createUser.jsp";
@@ -29,11 +27,11 @@ public class CreateController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         String url = ERROR;
+        String url = ERROR;
         UserError userError = new UserError("", "", "", "", "", "", "", "", "");
         try {
             String UserID = request.getParameter("UserID");
-            String Email = request.getParameter("Email");
+            String Email = request.getParameter("UserID");
             String RoleID = request.getParameter("RoleID");
             String Password = request.getParameter("Password");
             String confirm = request.getParameter("ConfirmPassword");
@@ -43,13 +41,13 @@ public class CreateController extends HttpServlet {
                 userError.setUserIDError("UserID must from [2,10]!!");
                 check = false;
             }
-            if(CheckValidation.isValidEmailAddress(Email)!=true){
+            if (CheckValidation.isValidEmailAddress(Email) != true) {
 
                 userError.setEmailError("Email must have domain @123xxx.com");
                 check = false;
             }
 
-            if(CheckValidation.isValidPassword(Password)!=true){
+            if (CheckValidation.isValidPassword(Password) != true) {
                 userError.setPasswordError("Password must [8,...],1 Upper char,not contain space and at least 1 speacial chars");
                 check = false;
             }
@@ -59,12 +57,15 @@ public class CreateController extends HttpServlet {
             }
             if (check) {
                 UserDAO dao = new UserDAO();
-                UserDTO user = new UserDTO(UserID, "", Email, RoleID, "", "", Password, Certificate, "", "");
+                UserDTO user = new UserDTO(UserID, Email, Email, "US", "", "", Password, Certificate, "1", "");
                 boolean checkInsert = dao.insertUseNew(user);
                 if (checkInsert) {
                     url = SUCCESS;
-
                 }
+                if (RoleID.equals("MT")) {
+                    dao.RequestMentor(user);
+                }
+                
             } else {
                 request.setAttribute("USER_ERROR", userError);
             }
