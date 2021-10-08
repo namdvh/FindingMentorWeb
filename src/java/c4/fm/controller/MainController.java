@@ -26,6 +26,12 @@ public class MainController extends HttpServlet {
     private static final String CREATE_PAGE = "createUser.jsp";
     private static final String UPDATE_USER_PAGE = "UpdateUserController";
 
+    //Admin
+    private static final String LOAD_ADMIN_PAGE_SERVLET = "LoadAdminServlet";
+    private static final String ADDSUBJECT_ADMIN_SERVLET = "AddSubjectAdminServlet";
+    private static final String SEARCHSUBJECT_ADMIN_SERVLET = "SearchSubjectAdminServlet";
+    private static final String UPDATESUBJECTPAGE_ADMIN_SERVLET = "UpdateSubjectPageAdminServlet";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -46,7 +52,18 @@ public class MainController extends HttpServlet {
                 url = CREATE_PAGE;
             } else if ("UpdateUserPage".equals(action)) {
                 url = UPDATE_USER_PAGE;
-            } else {
+
+            }//BEGIN OF ADMIN
+            else if (action.equals("AddSubjectAdmin")) {
+                url = ADDSUBJECT_ADMIN_SERVLET;
+            } else if (action.equals("searchSubjectAdmin")) {
+                url = SEARCHSUBJECT_ADMIN_SERVLET;
+            } else if (action.equals("updateSubjectPageAdmin")) {
+                url = UPDATESUBJECTPAGE_ADMIN_SERVLET;
+            } else if (action.equals("LoadAdminPage")) {
+                url = LOAD_ADMIN_PAGE_SERVLET;
+            }//END OF ADMIN
+            else {
                 HttpSession session = request.getSession();
                 session.setAttribute("ERROR_MESSAGE", "function is not available");
             }

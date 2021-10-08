@@ -33,6 +33,17 @@ public class SubjectDTO implements Serializable{
         this.status = status;
     }
 
+    public SubjectDTO(String subjectName, String images, String userId, String categoryId, String description, boolean status) {
+        this.subjectName = subjectName;
+        this.images = images;
+        this.userId = userId;
+        this.categoryId = categoryId;
+        this.description = description;
+        this.status = status;
+    }
+    
+    
+
     public boolean isStatus() {
         return status;
     }

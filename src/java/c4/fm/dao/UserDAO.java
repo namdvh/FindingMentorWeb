@@ -199,8 +199,8 @@ public class UserDAO {
         }
         return user;
     }
-    
-     public List<UserDTO> loadListUser() throws ClassNotFoundException, SQLException {
+
+    public List<UserDTO> loadListUser() throws ClassNotFoundException, SQLException {
         List<UserDTO> listUser = new ArrayList<>();
         Connection conn = null;
         PreparedStatement stm = null;
@@ -209,7 +209,8 @@ public class UserDAO {
             conn = DBUtils.getConnection();
             if (conn != null) {
                 String sql = " select UserId, Name, Email, PhoneNumber, Address, BirthDay, Images"
-                        + " from tblUser";
+                        + " from tblUser \n"
+                        + "Where RoleID like 'MT'";
                 stm = conn.prepareStatement(sql);
                 rs = stm.executeQuery();
                 while (rs.next()) {

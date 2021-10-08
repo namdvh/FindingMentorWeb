@@ -62,6 +62,8 @@ public class UserDTO {
         this.birthday = birthday;
         this.images = images;
     }
+    
+    
 
   
     
