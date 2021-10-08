@@ -237,5 +237,32 @@ public class UserDAO {
         }
         return listUser;
     }
+     public boolean RequestMentor(UserDTO user) throws SQLException, NamingException, ClassNotFoundException {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement stm = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                String sql = "insert into tblRequestMentor(UserID, Name, Certificate, Description, Status)"
+                        + " values(?,?,?,?,?)";
+                stm = conn.prepareStatement(sql);
+                stm.setString(1, user.getUserID());
+                stm.setString(2, user.getEmail());
+                stm.setString(3, user.getCertificate());
+                stm.setString(4, "");
+                stm.setString(5, user.getStatus());
+                check = stm.executeUpdate() > 0;
+            }
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return check;
+    }
 
 }

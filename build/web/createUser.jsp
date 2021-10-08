@@ -41,11 +41,6 @@
                                     ${requestScope.email}</br>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                    <input type="email" name="Email" id="email" placeholder="Your Email" required/>
-                                   ${requestScope.email}</br>
-                                </div>
-                                <div class="form-group">
                                     <label for="pass"><i class="zmdi zmdi-lock"></i></label>
                                     <input type="password" name="Password" id="pass" placeholder="Password" required/>
                                     ${requestScope.id}</br>
