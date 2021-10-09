@@ -7,18 +7,6 @@
             <file>file:/D:/2021-SWP%20Project/FindingMentorWWeb-2/FindingMentorWeb/web/updateUser.jsp</file>
             <file>file:/D:/2021-SWP%20Project/FindingMentorWWeb-2/FindingMentorWeb/src/java/c4/fm/utils/DBUtils.java</file>
         </group>
-        <group>
-            <file>file:/F:/SWP/FindingMentor/FindingMentorWeb/src/java/c4/fm/user/UserError.java</file>
-            <file>file:/F:/SWP/FindingMentor/FindingMentorWeb/src/java/c4/fm/utils/DBUtils.java</file>
-            <file>file:/F:/SWP/FindingMentor/FindingMentorWeb/src/java/c4/fm/category/CategoryDTO.java</file>
-            <file>file:/F:/SWP/FindingMentor/FindingMentorWeb/web/createUser.jsp</file>
-            <file>file:/F:/SWP/FindingMentor/FindingMentorWeb/src/java/c4/fm/controller/CreateController.java</file>
-            <file>file:/F:/SWP/FindingMentor/FindingMentorWeb/src/java/c4/fm/category/CategoryDAO.java</file>
-            <file>file:/F:/SWP/FindingMentor/FindingMentorWeb/web/admin.jsp</file>
-            <file>file:/F:/SWP/FindingMentor/FindingMentorWeb/src/java/c4/fm/user/UserDTO.java</file>
-            <file>file:/F:/SWP/FindingMentor/FindingMentorWeb/src/java/c4/fm/controller/CreateGoogleController.java</file>
-            <file>file:/F:/SWP/FindingMentor/FindingMentorWeb/src/java/c4/fm/dao/UserDAO.java</file>
-            <file>file:/F:/SWP/FindingMentor/FindingMentorWeb/src/java/c4/fm/logingoole/Constant.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

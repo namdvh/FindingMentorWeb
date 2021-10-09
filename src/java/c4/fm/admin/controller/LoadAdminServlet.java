@@ -45,24 +45,21 @@ public class LoadAdminServlet extends HttpServlet {
         String url = ADMIN_PAGE;
         try {
             HttpSession session = request.getSession();
-            
+
             List<SubjectDTO> listSubject = null;
             SubjectDAO subjectDao = new SubjectDAO();
-            listSubject = subjectDao.listSubject();
+            listSubject = subjectDao.listSubjectAdmin();
             session.setAttribute("LIST_SUBJECT", listSubject);
-            
+
             UserDAO userDao = new UserDAO();
             List<UserDTO> listUser = null;
             listUser = userDao.loadListUser();
             session.setAttribute("LIST_USER", listUser);
-            
+
             CategoryDAO cateDao = new CategoryDAO();
             List<CategoryDTO> listCate = null;
             listCate = cateDao.loadListCate();
             session.setAttribute("LIST_CATE", listCate);
-            
-            
-            
 
         } catch (Exception e) {
             log("Error at LoadAdminServlet:" + e.toString());
