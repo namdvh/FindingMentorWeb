@@ -6,6 +6,8 @@
 package c4.fm.controller;
 
 import c4.fm.dao.UserDAO;
+import c4.fm.role.RoleDAO;
+import c4.fm.role.RoleDTO;
 import c4.fm.user.UserDTO;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -41,8 +43,14 @@ public class LoginController extends HttpServlet {
                 if ("AD".equals(RoleID)) {
                     url = ADMIN_PAGE;
                 } else if ("US".equals(RoleID)) {
+                    RoleDAO roleDao = new RoleDAO();
+                    RoleDTO role = roleDao.loadListRole(user.getRoleID());
+                    session.setAttribute("USER_ROLE", role);
                     url = USER_PAGE;
                 }else if("MT".equals(RoleID)){
+                    RoleDAO roleDao = new RoleDAO();
+                    RoleDTO role = roleDao.loadListRole(user.getRoleID());
+                    session.setAttribute("USER_ROLE", role);
                     url=MENTOR_PAGE;
                 }
                 else {

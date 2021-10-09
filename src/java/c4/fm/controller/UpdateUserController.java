@@ -6,6 +6,8 @@
 package c4.fm.controller;
 
 import c4.fm.dao.UserDAO;
+import c4.fm.images.ImageDAO;
+import c4.fm.images.ImageDTO;
 import c4.fm.user.UserDTO;
 import c4.fm.user.UserError;
 import c4.fm.validation.CheckValidation;
@@ -48,9 +50,10 @@ public class UpdateUserController extends HttpServlet {
             String Address = request.getParameter("Address");
             String BirthDay = request.getParameter("BirthDay");
             String Images = request.getParameter("Images");
+//            String urll = request.getParameter("url");
             boolean check = true;
             if (Name.length() < 1) {
-                userError.setNameError("Name can not black!!!");
+                userError.setNameError("Name can not blank!!!");
                 check = false;
             }
             if (CheckValidation.isValidEmailAddress(Email) != true) {
@@ -74,6 +77,9 @@ public class UpdateUserController extends HttpServlet {
                 UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
                 UserDAO usdao = new UserDAO();
                 UserDTO usdto = new UserDTO(user.getUserID(), Name, Email, PhoneNumber, Address, BirthDay, Images);
+                ImageDTO image = (ImageDTO) session.getAttribute("LOAD_IMAGE");
+                ImageDAO imgdao = new ImageDAO();
+                ImageDTO imgdto = new ImageDTO(url);
                 boolean checkupdate = usdao.updateUser(usdto);
                 if (checkupdate) {
                     url = SUCCESS;

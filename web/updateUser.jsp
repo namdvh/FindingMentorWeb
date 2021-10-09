@@ -29,8 +29,8 @@
 
         <title>Title page</title>  
 
-        <link href="app.css" rel="stylesheet">
-        <link href="Profile/New folder/main.a3f694c0.css" rel="stylesheet">
+        <link href="Profile/app.css" rel="stylesheet">
+        <link href="New folder/main.a3f694c0.css" rel="stylesheet">
 
         <!-- Style dropdown -->
         <style>
@@ -139,15 +139,14 @@
                                 <div class="account-settings">
                                     <div class="user-profile">
                                         <div class="user-avatar">
-                                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
+                                            <img src="assets/${sessionScope.LOGIN_USER.images}" alt="photo2">
                                         </div>
                                         <h3 class="user-name" style="">${sessionScope.LOGIN_USER.name}</h3>
                                         <h6 class="user-email" style="font-size: 13px;">${sessionScope.LOGIN_USER.email}</h6>
                                     </div>
                                     <div class="update">
                                         <h5>Update avatar</h5>
-                                        <p><input  type="file"  name="Images" value="${sessionScope.LOGIN_USER.images}"></p>
-                                        <!-- <p style="font-size: 13px;">I'm Yuki. Full Stack Designer I enjoy creating user-centric, delightful and human experiences.</p> -->
+                                        <p><input  type="file"  name="Images" value=""></p>
                                     </div>
                                 </div>
                             </div>
@@ -178,15 +177,21 @@
                                         <div class="form-group">
 
                                             <label for="phone">Phone</label>
-                                             <input type="tel" value="${sessionScope.LOGIN_USER.phoneNumber}" id="phone" pattern="[0-9]{10,10}" class="form-control" name="phone" placeholder="0123456789"  required>
-                                           
-                                          
+                                            <input type="tel" value="${sessionScope.LOGIN_USER.phoneNumber}" id="phone" pattern="[0-9]{10,10}" class="form-control" name="phone" placeholder="0123456789"  required>
+
+
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="website">Birthday</label>
                                             <input name="BirthDay" value="${sessionScope.LOGIN_USER.birthday}" type="date" class="form-control" id="website" placeholder="Birthday">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="website">Role</label>
+                                            <input name="roleName" value="${sessionScope.USER_ROLE.roleName}" type="text" readonly="" class="form-control" id="website" placeholder="">
                                         </div>
                                     </div>
                                 </div>
@@ -218,7 +223,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
