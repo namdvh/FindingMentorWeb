@@ -5,6 +5,8 @@
  */
 package c4.fm.dao;
 
+import c4.fm.role.RoleDAO;
+import c4.fm.role.RoleDTO;
 import c4.fm.user.UserDTO;
 import c4.fm.utils.DBUtils;
 import java.sql.Connection;
@@ -29,7 +31,7 @@ public class UserDAO {
         try {
             conn = DBUtils.getConnection();
             if (conn != null) {
-                String sql = " select Name, Email, RoleID, PhoneNumber, Address, Password, Certificate, Status, BirthDay"
+                String sql = " select Name, Email, RoleID, PhoneNumber, Address, Password, Certificate, Status, BirthDay, Images"
                         + " from tblUser"
                         + " where UserID =? and Password=? and Status='1' ";
                 stm = conn.prepareStatement(sql);
@@ -40,12 +42,16 @@ public class UserDAO {
                     String Name = rs.getString("Name");
                     String Email = rs.getString("Email");
                     String RoleID = rs.getString("RoleID");
+//                    RoleDAO roledao = new RoleDAO();
+//                    RoleDTO roledto = roledao.loadListRole(RoleID);
                     String PhoneNumber = rs.getString("PhoneNumber");
                     String Address = rs.getString("Address");
                     String Certificate = rs.getString("Certificate");
                     String Status = rs.getString("Status");
                     String BirthDay = rs.getString("BirthDay");
-                    user = new UserDTO(UserID, Name, Email, RoleID, PhoneNumber, Address, "", Certificate, Status, BirthDay);
+                    String Images = rs.getString("Images");
+                    
+                    user = new UserDTO(UserID, Name, Email, RoleID, PhoneNumber, Address, "", Certificate, Status, BirthDay, Images);
                 }
             }
 
@@ -263,6 +269,6 @@ public class UserDAO {
             }
         }
         return check;
-    }
-
+    } 
+    
 }

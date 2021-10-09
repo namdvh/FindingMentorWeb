@@ -5,11 +5,13 @@
  */
 package c4.fm.user;
 
+import java.io.Serializable;
+
 /**
  *
  * @author MSI
  */
-public class UserDTO {
+public class UserDTO implements Serializable{
 
     private String userID;
     private String name;
@@ -60,6 +62,10 @@ public class UserDTO {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.birthday = birthday;
+        this.images = images;
+    }
+
+    public UserDTO(String images) {
         this.images = images;
     }
 
