@@ -3,8 +3,9 @@
     Created on : Oct 3, 2021, 8:29:50 PM
     Author     : HuuToan
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +28,7 @@
               integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
               crossorigin="anonymous" />
 
-        <title>Title page</title>  
+        <title>Update Page</title>  
 
         <link href="Profile/app.css" rel="stylesheet">
         <link href="New folder/main.a3f694c0.css" rel="stylesheet">
@@ -101,22 +102,25 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="user.jsp" title="" class="active">Home</a></li>
                             <li><a href="/Subject/MyCourse.html" title="" > Subject</a></li>
-                            <!-- <li><a href="updateUser.jsp" title="" > Profile </a></li> -->
-                            <li><a href="createUser.jsp" title="" >Đăng Ký</a></li>
-                            <li><a href="MainController?action=LoginPage" title="">Đăng Nhập</a></li>
+                            <!-- <li><a href="updateUser.jsp" title="" > Profile </a></li> -->                     
+                            <c:if test="${sessionScope.LOGIN_USER == null}">
+                                <li><a href="createUser.jsp" title="" >Đăng Ký</a></li>
+                                <li><a href="MainController?action=LoginPage" title="">Đăng Nhập</a></li>
+
+                            </c:if>
+                                <!--chinh lai  avatar thanh taskbar luu y copy code -->
                             <li>
                                 <div class="dropdown" style="float:right;">
                                     <button class="dropbtn" style="background-color: #fff;">
                                         <a href="./download.html">
-                                            <i class="fas fa-user-circle user" 
-                                               style="font-size: 30px;
-                                               padding-top: 24px;
-                                               padding-left: 8px;">
-                                            </i>
+                                            <i > <img 
+                                                    style="border-radius: 50px; width: 62px; font-size: 30px; margin-top: 15px" src="assets/${sessionScope.LOGIN_USER.images}" alt="photo2"></i>          
                                         </a>
                                     </button>
                                     <div class="dropdown-content" style="left:-12px;">
+                                        <a ${sessionScope.LOGIN_USER.name} class="choose"></a>
                                         <a href="updateUser.jsp" class="choose">Profile</a>
+
                                         <a href="MainController?action=Logout" class="choose">Log out</a>
                                     </div>
                                 </div>
@@ -145,8 +149,8 @@
                                         <h6 class="user-email" style="font-size: 13px;">${sessionScope.LOGIN_USER.email}</h6>
                                     </div>
                                     <div class="update">
-                                        <h5>Update avatar</h5>
-                                        <p><input  type="file"  name="Images" value=""></p>
+
+                                        <p><input class="btn btn-success" style="font-size: 15px; margin-top: 35px"  type="file"  name="Images" value=""></p>
                                     </div>
                                 </div>
                             </div>
