@@ -183,8 +183,24 @@
                 </div>
             </div>
         </form>
-
         <c:set var="listChapter" value="${requestScope.LIST_CHAPTER}"/>
+        <c:forEach var="chapter" items="${listChapter}" varStatus="counter"> 
+            <c:set var="listContent" value="${chapter.list}"/>
+            <c:forEach var="itemContent" items="${listContent}" varStatus="i">
+                <form action="MainMentorController" method="POST">
+                    <div class="modal" id="updateContent${itemContent.contentID}">
+                        <div class="modal-content">
+                            <span class="close" onclick="closedX('updateContent${itemContent.contentID}')">X</span>
+                            <input type="hidden" name="UpdateContentID" value="${itemContent.contentID}" readonly="readonly" /><br>
+                            Content Name: <input type="text" name="UpdateContentName" value="${itemContent.contentName}" required=""/><br>
+                            Video URL: <input type="text" name="UpdateVideoURL" value="${itemContent.videoURL}" required=""/><br>
+                            Blog: <input type="text" name="UpdateBlog" value="${itemContent.blog}" required=""/><br>
+                            <input type="submit" value="UpdateContent" name="action" onclick="closeForm('updateContent${itemContent.contentID}')"/>
+                        </div>
+                    </div>
+                </form>
+            </c:forEach>
+        </c:forEach>
         <div class="areaStudy col-md-4">
             <div class="content ">
                 <div class="title">
@@ -226,19 +242,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
                             <c:forEach var="itemContent" items="${listContent}" varStatus="i">
                                 <a class="dropdown-item" href="#" onclick="loadVideoURL('${itemContent.videoURL}')">Bai ${i.count}: ${itemContent.contentName}</a>
-                                <button class="buttonEdit" onclick="openForm('updateContent${itemContent.contentID}')">EDIT CONTENT</button>
-                                <form action="MainMentorController" method="POST">
-                                    <div class="modal" id="updateContent${itemContent.contentID}">
-                                        <div class="modal-content">
-                                            <span class="close" onclick="closedX('updateContent${itemContent.contentID}')">X</span>
-                                            <input type="hidden" name="UpdateContentID" value="${itemContent.contentID}" readonly="readonly" /><br>
-                                            Content Name: <input type="text" name="UpdateContentName" value="${itemContent.contentName}" required=""/><br>
-                                            Video URL: <input type="text" name="UpdateVideoURL" value="${itemContent.videoURL}" required=""/><br>
-                                            Blog: <input type="text" name="UpdateBlog" value="${itemContent.blog}" required=""/><br>
-                                            <input type="submit" value="UpdateContent" name="action" onclick="closeForm('updateContent${itemContent.contentID}')"/>
-                                        </div>
-                                    </div>
-                                </form>
+                                <button class="buttonEdit" onclick="openForm('updateContent${itemContent.contentID}')" >EDIT CONTENT</button><br>
                             </c:forEach>
                         </div>
                     </div>
@@ -268,10 +272,7 @@
             }
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = function (event) {
-                var modal = document.getElementById(id);
-                if (event.target === modal) {
-                    modal.style.display = "none";
-                }
+                closedX(id);
             };
             function loadVideoURL(url) {
                 var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
