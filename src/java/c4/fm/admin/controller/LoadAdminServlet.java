@@ -12,7 +12,6 @@ import c4.fm.subject.SubjectDAO;
 import c4.fm.subject.SubjectDTO;
 import c4.fm.user.UserDTO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
