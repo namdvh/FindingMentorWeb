@@ -76,8 +76,8 @@ public class UserDAO {
         try {
             conn = DBUtils.getConnection();
             if (conn != null) {
-                String sql = "insert into tblUser(UserID, Name, Email, RoleID, PhoneNumber, Address, Password, Certificate, Status, BirthDay)"
-                        + " values(?,?,?,?,?,?,?,?,?,?)";
+                String sql = "insert into tblUser(UserID, Name, Email, RoleID, PhoneNumber, Address, Password, Certificate, Status, BirthDay, Images)"
+                        + " values(?,?,?,?,?,?,?,?,?,?,?)";
                 stm = conn.prepareStatement(sql);
                 stm.setString(1, user.getUserID());
                 stm.setString(2, "");
@@ -89,6 +89,7 @@ public class UserDAO {
                 stm.setString(8, user.getCertificate());
                 stm.setString(9, "1");
                 stm.setString(10, "");
+                stm.setString(11, "default.jpg");
                 check = stm.executeUpdate() > 0;
             }
         } finally {
@@ -109,8 +110,8 @@ public class UserDAO {
         try {
             conn = DBUtils.getConnection();
             if (conn != null) {
-                String sql = "insert into tblUser(UserID, Name, Email, RoleID, PhoneNumber, Address, Password, Certificate, Status, BirthDay)"
-                        + " values(?,?,?,?,?,?,?,?,?,?)";
+                String sql = "insert into tblUser(UserID, Name, Email, RoleID, PhoneNumber, Address, Password, Certificate, Status, BirthDay, Images)"
+                        + " values(?,?,?,?,?,?,?,?,?,?,?)";
                 stm = conn.prepareStatement(sql);
                 stm.setString(1, user.getUserID());
                 stm.setString(2, user.getName());
@@ -122,6 +123,7 @@ public class UserDAO {
                 stm.setString(8, user.getCertificate());
                 stm.setString(9, "1");
                 stm.setString(10, "");
+                stm.setString(11, "default.jpg");
                 check = stm.executeUpdate() > 0;
             }
         } finally {

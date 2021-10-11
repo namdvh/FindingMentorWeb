@@ -4,6 +4,7 @@
     Author     : MSI
 --%>
 
+<%@page import="c4.fm.user.UserError"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -38,17 +39,17 @@
                                 <div class="form-group">
                                     <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                     <input type="text" name="UserID" id="name" placeholder="User Name" required/>
-                                    ${requestScope.email}</br>
+                                    ${requestScope.USER_ERROR.getUserIDError()}</br>
                                 </div>
                                 <div class="form-group">
                                     <label for="pass"><i class="zmdi zmdi-lock"></i></label>
                                     <input type="password" name="Password" id="pass" placeholder="Password" required/>
-                                    ${requestScope.id}</br>
+                                    <a> ${requestScope.USER_ERROR.getPasswordError()}</a>
                                 </div>
                                 <div class="form-group">
                                     <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
                                     <input type="password" name="ConfirmPassword" id="re_pass" placeholder="Repeat your password" required/>
-                                    ${requestScope.id}</br>
+                                    <a> ${requestScope.USER_ERROR.getConfirmPasswordError()}</a>
                                 </div>
                                 <!-- <div class="form-group">
                                     <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
@@ -73,18 +74,32 @@
                                            class="form-submit" placeholder="Certificate" />
                                 </div>
 
-                                <div class="form-group form-button">
+                                <div class="form-group form-button">                                 
                                     <input type="submit" name="action" id="signup" class="form-submit" value="Create"/>
-                                </div>
-                                <div class="form-group form-button">
-                                    <input type="reset" name="Reset"/>
+                                    <input type="reset" name="action" id="signup" class="form-submit" value="Reset"/>
                                 </div>
                             </form>
                         </div>
                         <div class="signup-image">
                             <figure><img src="Create/images/signup-image.jpg" alt="sing up image"></figure>
                             <a href="user.jsp" class="signup-image-link">Home Page</a>
+                            <div class="social-login" style="margin-top: 10px; margin-left: 75px;" >
+                            <span class="social-label">Or login with</span>
+                            <ul class="socials">
+                                <li><a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8084/FindingMentor/LoginGoogleHandler&response_type=code
+                                       &client_id=380967411552-jeldl8hjr9a2ou8e3jkbvpcrinb3an5m.apps.googleusercontent.com&approval_prompt=force"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                            </ul>
                         </div>
+                        </div>
+<!--                        <div class="social-login">
+                            <span class="social-label">Or login with</span>
+                            <ul class="socials">
+
+                                <li><a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8084/FindingMentor/LoginGoogleHandler&response_type=code
+                                       &client_id=380967411552-jeldl8hjr9a2ou8e3jkbvpcrinb3an5m.apps.googleusercontent.com&approval_prompt=force"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                            </ul>
+                        </div>-->
+                                
                     </div>
                 </div>
             </section>
