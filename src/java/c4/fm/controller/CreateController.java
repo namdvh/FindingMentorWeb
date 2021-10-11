@@ -41,11 +41,11 @@ public class CreateController extends HttpServlet {
                 userError.setUserIDError("UserID must from [2,10]!!");
                 check = false;
             }
-            if (CheckValidation.isValidEmailAddress(Email) != true) {
-
-                userError.setEmailError("Email must have domain @123xxx.com");
-                check = false;
-            }
+//            if (CheckValidation.isValidEmailAddress(Email) != true) {
+//
+//                userError.setEmailError("Email must have domain @123xxx.com");
+//                check = false;
+//            }
 
             if (CheckValidation.isValidPassword(Password) != true) {
                 userError.setPasswordError("Password must [8,...],1 Upper char,not contain space and at least 1 speacial chars");
@@ -57,7 +57,8 @@ public class CreateController extends HttpServlet {
             }
             if (check) {
                 UserDAO dao = new UserDAO();
-                UserDTO user = new UserDTO(UserID, Email, Email, "US", "", "", Password, Certificate, "1", "");
+//                UserDTO user = new UserDTO(UserID, Email, Email, "US", "", "", Password, Certificate, "1", "");
+                UserDTO user=new UserDTO(UserID, Email, Email, "US", "", "", Password, Certificate, "1", "", "");
                 boolean checkInsert = dao.insertUseNew(user);
                 if (checkInsert) {
                     url = SUCCESS;

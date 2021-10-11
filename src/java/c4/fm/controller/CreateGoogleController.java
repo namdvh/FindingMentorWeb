@@ -28,7 +28,7 @@ public class CreateGoogleController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         String url = ERROR;
+        String url = ERROR;
         UserError userError = new UserError("", "", "", "", "", "", "", "", "");
         try {
             String UserID = request.getParameter("UserID");
@@ -42,7 +42,7 @@ public class CreateGoogleController extends HttpServlet {
                 userError.setUserIDError("UserID must from [2,30]!!");
                 check = false;
             }
-            if(CheckValidation.isValidEmailAddress(Email)!=true){
+            if (CheckValidation.isValidEmailAddress(Email) != true) {
 
                 userError.setEmailError("Email must have domain @123xxx.com");
                 check = false;
@@ -53,7 +53,8 @@ public class CreateGoogleController extends HttpServlet {
             }
             if (check) {
                 UserDAO dao = new UserDAO();
-                UserDTO user = new UserDTO(UserID, "", Email, RoleID, "", "", Password, Certificate, "", "");
+//                UserDTO user = new UserDTO(UserID, "", Email, RoleID, "", "", Password, Certificate, "", "");
+                UserDTO user = new UserDTO(UserID, "", Email, RoleID, "", "", Password, Certificate, "", "", "");
                 boolean checkInsert = dao.insertUseNew(user);
                 if (checkInsert) {
                     url = SUCCESS;
