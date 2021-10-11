@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Home Page</title>
         <meta charset="UTF-8">
         <meta content="IE=edge" http-equiv="X-UA-Compatible">
         <meta content="width=device-width,initial-scale=1" name="viewport">
@@ -79,12 +79,9 @@
                 display: block;
             }
 
-
-
         </style>
     </head>
     <body>
-        <h1>User</h1>
 
         <!-- Add your content of header -->
         <header>
@@ -101,7 +98,6 @@
                             <img src="./assets/images/mashuptemplate.svg" class="navbar-logo-img" alt="">
                         </a>
                     </div>
-
                     <div class="collapse navbar-collapse" id="navbar-collapse-uarr">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="user.jsp" title="" class="active">Home</a></li>
@@ -115,52 +111,56 @@
                                     </div> -->
                                 </div>
                             </li>
-
                             <!-- LOGIN LOGOUT -->
-
-
                             <!-- <li><a href="./pricing.html" title="" > Profile </a></li> -->
-
-
                             <c:if test="${sessionScope.LOGIN_USER == null}">
                                 <li><a href="createUser.jsp" title="" >Đăng Ký</a></li>
                                 <li><a href="MainController?action=LoginPage" title="">Đăng Nhập</a></li>
-
-                            </c:if>
-                                
-                            <c:if test="${sessionScope.LOGIN_USER != null}">
-                                <p>Welcome, ${sessionScope.LOGIN_USER.name}</p>
-                            </c:if>
-                            <li>
-                                
-                                <!-- comment dropdown -->
-                                <div class="dropdown" style="float:right;">
-                                    <button class="dropbtn" style="background-color: #fff;">
-                                        <a href="./Profile/index.html">
-                                            <i class="fas fa-user-circle user" 
-                                               style="font-size: 30px;
-                                               padding-top: 24px;
-                                               padding-left: 8px;
-                                               ">
-                                            </i>
-                                        </a>
-                                    </button>
-                                    <!-- comment fix here link to updateUser,jsp-->
-                                    <div class="dropdown-content" style="left:-12px;">
-                                        <a href="updateUser.jsp" class="choose">Profile</a>
-                                        <a href="MainController?action=Logout" class="choose">Log out</a>
+                                <li>                              
+                                    <!-- comment dropdown luc nay chua hien avata neu chua damng nhap -->
+                                    <div class="dropdown" style="float:right;">
+                                        <button class="dropbtn" style="background-color: #fff;">
+                                            <a href="./Profile/index.html">
+                                                <i class="fas fa-user-circle user" 
+                                                   style="font-size: 30px;
+                                                   padding-top: 24px;
+                                                   padding-left: 8px;
+                                                   ">
+                                                </i>
+                                            </a>
+                                        </button>
+                                        <!-- comment fix here link to updateUser,jsp-->
+                                        <div class="dropdown-content" style="left:-12px;">
+                                            <a href="updateUser.jsp" class="choose">Profile</a>
+                                            <a href="MainController?action=Logout" class="choose">Log out</a>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
+                                </li>
+                            </c:if>
+                              <!--khuc nay de hien avatar cho taskbar neu da dang nhap -->
+                            <c:if test="${sessionScope.LOGIN_USER != null}">
+                                <li>
+                                    <div class="dropdown" style="float:right;">
+                                        <button class="dropbtn" style="background-color: #fff;">
+                                            <a href="./download.html">
+                                                <i > <img 
+                                                        style="border-radius: 50px; width: 62px; font-size: 30px; margin-top: 15px" src="assets/${sessionScope.LOGIN_USER.images}" alt="photo2"></i>          
+                                            </a>
+                                        </button>
+                                        <div class="dropdown-content" style="left:-12px;">
+                                            <a ${sessionScope.LOGIN_USER.name} class="choose"></a>
+                                            <a href="updateUser.jsp" class="choose">Profile</a>
 
+                                            <a href="MainController?action=Logout" class="choose">Log out</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </c:if>           
                         </ul>
                     </div>
                 </div>
             </nav>
         </header>
-
-
-
         <div class="white-text-container background-image-container" style="background-image: url('./assets/images/img-home.jpg')">
             <div class="opacity"></div>
             <div class="container">

@@ -35,10 +35,10 @@ body {
     text-align: center;
     cursor: pointer;
 }
-.account-settings .update h5 {
+/*.account-settings .update h5 {
     margin: 0 0 15px 0;
     color: #007ae1;
-}
+}*/
 .account-settings .update p {
     font-size: 0.825rem;
 }
