@@ -175,14 +175,14 @@
             </div>
         </div>
 
-        <div class="section-container border-section-container">
+       <div class="section-container border-section-container">
             <div class="container">
                 <div class="col-lg-4 mb-4 col-sm-6">
-                    <div class="card">
+                    <div class="card_item card_item_custom">
                         <img src="./assets/zua1566722846.jpg" class="card-img-top" alt="...">
-                        <div class="cardx-body"> 
-                            <div class="cardx-title" >Top 1</div>
-                            <p class="card-text">môn học</p>
+                        <div class="cardx-body">
+                            <div class="cardx-name">Top 1</div>
+                            <p class="card-text">Senior Consultant - Strategy and Transactions - M&A Advisory tại EY Consulting</p>
                             <div class="dropdownb">
                                 <div class="detailButton">Chi tiết</div>
                                 <div class="dropdown-contentb">
@@ -196,29 +196,29 @@
                     </div>
                 </div>
                 <div class="col-lg-4 mb-4 col-sm-6">
-                    <div class="card">
+                    <div class="card_item card_item_custom">
                         <img src="./assets/zua1566722846.jpg" class="card-img-top" alt="...">
-                        <div class="cardx-body"> 
-                            <div class="cardx-title" >Top 1</div>
-                            <p class="card-text">môn học: toán</p>
+                        <div class="cardx-body">
+                            <div class="cardx-name">Tú đụ</div>
+                            <p class="card-text">Management Trainee tại Prudential Vietnam Assurance</p>
                             <div class="dropdownb">
                                 <div class="detailButton">Chi tiết</div>
                                 <div class="dropdown-contentb">
                                     <div class="inforbox">
                                         <h12>tên</h12><br>
-                                        <h113>Financial Advisory Associate - M&A Transaction Service tại Deloitte</h113><br>
+                                        <h113>Management Trainee tại Prudential Vietnam Assurance</h113><br>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>                
                 <div class="col-lg-4 mb-4 col-sm-6">
-                    <div class="card">
+                    <div class="card_item card_item_custom">
                         <img src="./assets/zua1566722846.jpg" class="card-img-top" alt="...">
-                        <div class="cardx-body"> 
-                            <div class="cardx-title" >Top 1</div>
-                            <p class="card-text">môn học</p>
+                        <div class="cardx-body">
+                            <div class="cardx-name">Top 1</div>
+                            <p class="card-text">Chief Technology Officer tại Mentor</p>
                             <div class="dropdownb">
                                 <div class="detailButton">Chi tiết</div>
                                 <div class="dropdown-contentb">
@@ -230,7 +230,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>            
             </div>
         </div>
     </div>
