@@ -5041,45 +5041,22 @@ textarea {
     font-size: 0.65rem;
 }
 
-.cardx-title{
-    color: #333333;
-    font-weight: 600;
-    position: relative;
-    width: fit-content;
-    margin-left: 70px;
-    
-    
-}
-.cardx-body{
-    margin-bottom: 10px;
-}
-
 .detailButton{
-    width: 200px;
+    width: 200%;
     text-align: center;
     background-color: #dfdfdf;
+    margin-right: auto;
+    margin-left: auto;
 }
 .inforbox{
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-bottom: 15px;
-    padding-top: 10px;
-    transition: ease-in 0.3s;
-    height: 100%;
+    padding: 20px;
     
 }
 
-
-.dropbtnb {
-    background-color: #04AA6D;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-  }
   
   .dropdownb {
-    position: absolute;
+    width: 50%;
+    margin: auto;
     display: inline-block;
   }
   
@@ -5087,8 +5064,9 @@ textarea {
     display: none;
     position: inherit;
     background-color: #f1f1f1;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
     z-index: 1;
+    width: 350px;
   }
   
   .dropdown-contentb a {
@@ -5131,4 +5109,55 @@ textarea {
 
 .slick-slider .slick-dots li {
     margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+.card_item_custom {
+    margin-bottom: 15px;
+    padding-top: 10px;
+    transition: ease-in 0.3s;
+    height: 100%;
+    border: 1px solid;
+}
+
+.card_item {
+    margin-bottom: 0px;
+    height: 310px;
+    border-radius: 8px;
+    position: relative;
+    background-color: #fff;
+    
+}
+.card-img-top{
+    width: 50%;
+    height: 50%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center;
+    object-position: center;
+    border: 1px solid #DDDDDD;
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cardx-name{
+    color: #333333;
+    font-weight: 600;
+    position: relative;
+    width: fit-content;
+    margin: auto;
+    
+}
+.cardx-body{
+    margin-bottom: 10px;
+}
+.card-text{
+    color: #444;
+    font-size: 15px;
+    text-align: center;
+    height: 70px;
 }
