@@ -1,5 +1,5 @@
 // ButtonChapter
-const button = document.querySelector(".buttonCreate");
+const buttonEdit = document.querySelector(".buttonCreate");
 const template = ` <div class="modal">
 <div class="modal-content">
   <form action="">
@@ -40,7 +40,7 @@ const template = ` <div class="modal">
 </div>
 </div>`
 
-button.addEventListener("click", handleClickButton);
+buttonEdit.addEventListener("click", handleClickButton);
 function handleClickButton(){
     document.body.insertAdjacentHTML("beforeend", template)
 };

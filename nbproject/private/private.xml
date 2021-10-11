@@ -7,6 +7,10 @@
             <file>file:/D:/2021-SWP%20Project/FindingMentorWWeb-2/FindingMentorWeb/web/updateUser.jsp</file>
             <file>file:/D:/2021-SWP%20Project/FindingMentorWWeb-2/FindingMentorWeb/src/java/c4/fm/utils/DBUtils.java</file>
         </group>
-        <group/>
+        <group>
+            <file>file:/D:/demo/FindingMentorWeb/web/newjsp.jsp</file>
+            <file>file:/D:/demo/FindingMentorWeb/web/mentor.jsp</file>
+            <file>file:/D:/demo/FindingMentorWeb/web/Content/index.html</file>
+        </group>
     </open-files>
 </project-private>
