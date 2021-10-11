@@ -38,9 +38,9 @@
                 <!-- Main Nav -->
                 <div id="navigation">
                     <ul>
-                        <li><a href="#" class="active"><span>Dashboard</span></a></li>
-                        <li><a href="mentorManagement.jsp"><span>Mentor Management</span></a></li>
-                        <li><a href="#"><span>User Management</span></a></li>
+                        <li><a href="MainController?action=LoadAdminPage" class="active"><span>Dashboard</span></a></li>
+                        <li><a href="MainController?action=LoadMentorPage"><span>Mentor Management</span></a></li>
+                        <li><a href="MainController?action=LoadUserPage"><span>User Management</span></a></li>
                         <li><a href="#"><span>Approve Mentor</span></a></li>
                     </ul>
                 </div>
@@ -142,6 +142,9 @@
                                             <c:if test="${requestScope.ADDSUBJECT_MSG != null}">
                                                 <label style="color: red">${requestScope.ADDSUBJECT_MSG}</label>
                                             </c:if>
+                                            <c:if test="${requestScope.UPDATE_MSG != null}">
+                                                <label style="color: red">${requestScope.UPDATE_MSG}</label>
+                                            </c:if>
 
 
                                         </p>
@@ -199,10 +202,12 @@
                                         <p> <span class="req">max 100 symbols</span>
                                             <label>Subject Name<span>(Required Field)</span></label>
                                             <input type="text" name="subjectName" class="field size1" value="${requestScope.UPDATE_SUBJECT.subjectName}" required=""/>
+                                            <input type="hidden" name="subjectId" value="${requestScope.UPDATE_SUBJECT.subjectId}">
                                         </p>
                                         <p> <span class="req">max 100 symbols</span>
                                             <label>Image<span>(Required Field)</span></label>
-                                            <input type="file" name="image" class="field size1" value="${requestScope.UPDATE_SUBJECT.subjectName}" required=""/>
+                                            <input type="file" name="image" class="field size1" value=""/>
+                                            <input type="hidden" name="oldImage" class="field size1" value="${requestScope.UPDATE_SUBJECT.images}"/>
                                         </p>
                                         <p class="inline-field">
                                             <label>Select Mentor</label>

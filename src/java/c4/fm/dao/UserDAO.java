@@ -5,8 +5,6 @@
  */
 package c4.fm.dao;
 
-import c4.fm.role.RoleDAO;
-import c4.fm.role.RoleDTO;
 import c4.fm.user.UserDTO;
 import c4.fm.utils.DBUtils;
 import java.sql.Connection;
@@ -50,7 +48,7 @@ public class UserDAO {
                     String Status = rs.getString("Status");
                     String BirthDay = rs.getString("BirthDay");
                     String Images = rs.getString("Images");
-                    
+
                     user = new UserDTO(UserID, Name, Email, RoleID, PhoneNumber, Address, "", Certificate, Status, BirthDay, Images);
                 }
             }
@@ -207,8 +205,8 @@ public class UserDAO {
         }
         return user;
     }
-    
-     public List<UserDTO> loadListUser() throws ClassNotFoundException, SQLException {
+
+    public List<UserDTO> loadListUser() throws ClassNotFoundException, SQLException {
         List<UserDTO> listUser = new ArrayList<>();
         Connection conn = null;
         PreparedStatement stm = null;
@@ -245,7 +243,8 @@ public class UserDAO {
         }
         return listUser;
     }
-     public boolean RequestMentor(UserDTO user) throws SQLException, NamingException, ClassNotFoundException {
+
+    public boolean RequestMentor(UserDTO user) throws SQLException, NamingException, ClassNotFoundException {
         boolean check = false;
         Connection conn = null;
         PreparedStatement stm = null;
@@ -271,6 +270,98 @@ public class UserDAO {
             }
         }
         return check;
-    } 
+    }
+
+    public List<UserDTO> listUserAdmin() throws ClassNotFoundException, SQLException {
+        List<UserDTO> listUser = new ArrayList<>();
+        
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = "select UserID, Name, Email, RoleID, PhoneNumber, Address, Password, Status, BirthDay, Images\n"
+                        + "from tblUser \n "
+                        + "Where RoleID like 'US'";
+                pst = con.prepareStatement(sql);
+                rs = pst.executeQuery();
+                while(rs.next()){
+                    String userId = rs.getString("UserID");
+                    String name = rs.getString("Name");
+                    String email = rs.getString("Email");
+                    String roleId = rs.getString("RoleID");
+                    String phoneNumber = rs.getString("PhoneNumber");
+                    String address = rs.getString("Address");
+                    String password = rs.getString("Password");
+                    boolean status = rs.getBoolean("Status");
+                    String birthday = rs.getString("BirthDay");
+                    String image = rs.getString("Images");
+                    
+                    UserDTO user = new UserDTO(userId, name, email, roleId, phoneNumber, address, password, "", String.valueOf(status), birthday, image);
+                    listUser.add(user);
+                }
+
+            }
+
+        } finally {
+            if(rs != null){
+                rs.close();
+            }
+            if(pst != null){
+                pst.close();
+            }
+            if(con != null){
+                pst.close();
+            }
+        }
+        return listUser;
+    }
     
+    public List<UserDTO> listMentorAdmin() throws ClassNotFoundException, SQLException {
+        List<UserDTO> listUser = new ArrayList<>();
+        
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = "select UserID, Name, Email, RoleID, PhoneNumber, Address, Password, Status, BirthDay, Images\n"
+                        + "from tblUser \n "
+                        + "Where RoleID like 'MT'";
+                pst = con.prepareStatement(sql);
+                rs = pst.executeQuery();
+                while(rs.next()){
+                    String userId = rs.getString("UserID");
+                    String name = rs.getString("Name");
+                    String email = rs.getString("Email");
+                    String roleId = rs.getString("RoleID");
+                    String phoneNumber = rs.getString("PhoneNumber");
+                    String address = rs.getString("Address");
+                    String password = rs.getString("Password");
+                    boolean status = rs.getBoolean("Status");
+                    String birthday = rs.getString("BirthDay");
+                    String image = rs.getString("Images");
+                    
+                    UserDTO user = new UserDTO(userId, name, email, roleId, phoneNumber, address, password, "", String.valueOf(status), birthday, image);
+                    listUser.add(user);
+                }
+
+            }
+
+        } finally {
+            if(rs != null){
+                rs.close();
+            }
+            if(pst != null){
+                pst.close();
+            }
+            if(con != null){
+                pst.close();
+            }
+        }
+        return listUser;
+    }
+
 }

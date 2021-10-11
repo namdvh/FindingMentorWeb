@@ -29,7 +29,7 @@ public class SubjectDAO implements Serializable {
             con = DBUtils.getConnection();
             if (con != null) {
                 String sql = "Select SubjectID, SubjectName, Images, UserId, CategoryID, Description, Status \n"
-                        + "from tblSubject";
+                        + "from tblSubject ";
                 pst = con.prepareStatement(sql);
                 rs = pst.executeQuery();
                 while (rs.next()) {
@@ -173,6 +173,42 @@ public class SubjectDAO implements Serializable {
 
         }
         return subject;
+    }
+
+    public boolean updateSubjectAdmin(SubjectDTO subject) throws SQLException, ClassNotFoundException {
+        Connection con = null;
+        PreparedStatement pst = null;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = "Update tblSubject\n"
+                        + "set SubjectName = ?, Images = ?, UserID = ?, CategoryID = ?,\n"
+                        + "Description = ?, Status = ?\n"
+                        + "Where SubjectID = ?";
+                pst = con.prepareStatement(sql);
+                pst.setString(1, subject.getSubjectName());
+                pst.setString(2, subject.getImages());
+                pst.setString(3, subject.getUserId());
+                pst.setString(4, subject.getCategoryId());
+                pst.setString(5, subject.getDescription());
+                pst.setBoolean(6, subject.isStatus());
+                pst.setInt(7, subject.getSubjectId());
+                if (pst.executeUpdate() > 0) {
+                    return true;
+                }
+            }
+
+        } finally {
+
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+
+            }
+
+        }
+        return false;
     }
 
 }

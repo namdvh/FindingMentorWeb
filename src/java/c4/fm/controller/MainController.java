@@ -29,8 +29,14 @@ public class MainController extends HttpServlet {
     //Admin
     private static final String LOAD_ADMIN_PAGE_SERVLET = "LoadAdminServlet";
     private static final String ADDSUBJECT_ADMIN_SERVLET = "AddSubjectAdminServlet";
+    //SEARCH
     private static final String SEARCHSUBJECT_ADMIN_SERVLET = "SearchSubjectAdminServlet";
+    //UPDATE
     private static final String UPDATESUBJECTPAGE_ADMIN_SERVLET = "UpdateSubjectPageAdminServlet";
+    private static final String UPDATESUBJECT_ADMIN_SERVLET = "UpdateSubjectAdminServlet";
+    
+    private static final String LOAD_USER_PAGE_SERVLET = "LoadUserPageServlet";
+    private static final String LOAD_MENTOR_PAGE_SERVLET = "LoadMentorPageServlet";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -61,6 +67,12 @@ public class MainController extends HttpServlet {
                 url = UPDATESUBJECTPAGE_ADMIN_SERVLET;
             } else if (action.equals("LoadAdminPage")) {
                 url = LOAD_ADMIN_PAGE_SERVLET;
+            } else if (action.equals("LoadUserPage")) {
+                url = LOAD_USER_PAGE_SERVLET;
+            } else if (action.equals("LoadMentorPage")) {
+                url = LOAD_MENTOR_PAGE_SERVLET;
+            } else if (action.equals("UpdateSubjectAdmin")){
+                url = UPDATESUBJECT_ADMIN_SERVLET;
             }//END OF ADMIN
             else {
                 HttpSession session = request.getSession();
