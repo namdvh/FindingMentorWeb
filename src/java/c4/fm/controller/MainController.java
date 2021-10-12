@@ -26,7 +26,7 @@ public class MainController extends HttpServlet {
     private static final String CREATE_PAGE = "createUser.jsp";
     private static final String UPDATE_USER_PAGE = "UpdateUserController";
 
-    //BEGIN OF ADMIN
+    //==============BEGIN OF ADMIN===================
     private static final String LOAD_ADMIN_PAGE_SERVLET = "LoadAdminServlet";
     private static final String ADDSUBJECT_ADMIN_SERVLET = "AddSubjectAdminServlet";
     private static final String SEARCHSUBJECT_ADMIN_SERVLET = "SearchSubjectAdminServlet";
@@ -44,7 +44,7 @@ public class MainController extends HttpServlet {
     private static final String SEARCHREQUEST_ADMIN_SERVLET = "SearchRequestAdminServlet";
     private static final String APPROVE_REQUEST_ADMIN_SERVLET = "ApproveRequestAdminServlet";
     private static final String DENAIL_REQUEST_ADMIN_SERVLET = "DenailRequestAdminServlet";
-    //END OF ADMIN
+    //=======================END OF ADMIN==========================
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
