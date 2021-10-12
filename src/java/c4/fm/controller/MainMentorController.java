@@ -5,65 +5,55 @@
  */
 package c4.fm.controller;
 
-import c4.fm.dao.UserDAO;
-import c4.fm.role.RoleDAO;
-import c4.fm.role.RoleDTO;
-import c4.fm.user.UserDTO;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author MSI
+ * @author hoang
  */
-public class LoginController extends HttpServlet {
+@WebServlet(name = "MainMentorController", urlPatterns = {"/MainMentorController"})
+public class MainMentorController extends HttpServlet {
 
-    private static final String ERROR = "error.jsp";
-    private static final String ADMIN_PAGE = "LoadAdminServlet";
-    private static final String USER_PAGE = "user.jsp";
-    private static final String MENTOR_PAGE="LoadChapterController";
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    private static final String CREATE_CHAPTER = "CreateChapterController";
+    private static final String CREATE_CONTENT = "CreateContentController";
+    private static final String UPDATE_CHAPTER = "UpdateChapterController";
+    private static final String UPDATE_CONTENT = "UpdateContentController";
+    private static final String PAGE = "mentor.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR;
+        String url = PAGE;
         try {
-            String UserID = request.getParameter("your_name");
-            String password = request.getParameter("your_pass");
-            UserDAO dao = new UserDAO();
-            UserDTO user = dao.checkLogin(UserID, password);
-            HttpSession session = request.getSession();
-            if (user != null) {
-                session.setAttribute("LOGIN_USER", user);
-                String RoleID = user.getRoleID();
-                if ("AD".equals(RoleID)) {
-                    url = ADMIN_PAGE;
-                } else if ("US".equals(RoleID)) {
-                    RoleDAO roleDao = new RoleDAO();
-                    RoleDTO role = roleDao.loadListRole(user.getRoleID());
-                    session.setAttribute("USER_ROLE", role);
-                    url = USER_PAGE;
-                }else if("MT".equals(RoleID)){
-                    RoleDAO roleDao = new RoleDAO();
-                    RoleDTO role = roleDao.loadListRole(user.getRoleID());
-                    session.setAttribute("USER_ROLE", role);
-                    url=MENTOR_PAGE;
-                }
-                else {
-                    session.setAttribute("ERROR_MESSAGE", "Your role is not support");
-                }
-            } else {
-                session.setAttribute("ERROR_MESSAGE", "Incorrect UserID or Password");
+            String action = request.getParameter("action");
+            if (action.equals("CreateChapter")) {
+                url = CREATE_CHAPTER;
+            } else if (action.equals("UpdateChapter")) {
+                url = UPDATE_CHAPTER;
+            } else if (action.equals("CreateContent")) {
+                url = CREATE_CONTENT;
+            } else if (action.equals("UpdateContent")) {
+                url = UPDATE_CONTENT;
             }
-            System.out.println(request.getParameter("code"));
         } catch (Exception e) {
-            log("Error at Login Controller" + e.toString());
+            e.printStackTrace();
         } finally {
-            response.sendRedirect(url);
+            request.getRequestDispatcher(url).forward(request, response);
         }
     }
 
