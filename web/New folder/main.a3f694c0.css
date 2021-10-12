@@ -3589,6 +3589,7 @@ tbody.collapse.in {
 }
 .navbar-brand > img {
     display: block;
+    height: 50px;
 }
 @media (min-width: 768px) {
     .navbar > .container-fluid .navbar-brand,

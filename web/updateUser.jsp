@@ -94,7 +94,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="user.jsp" title="">
-                            <img src="./assets/images/mashuptemplate.svg" class="navbar-logo-img" alt="">
+                            <img src="./assets/images/icon.jpg" class="navbar-logo-img" alt="">
                         </a>
                     </div>
 
@@ -113,8 +113,10 @@
                                 <div class="dropdown" style="float:right;">
                                     <button class="dropbtn" style="background-color: #fff;">
                                         <a href="updateUser.jsp">
-                                            <i > <img 
-                                                    style="border-radius: 50px; width: 62px; font-size: 30px; margin-top: 15px" src="assets/${sessionScope.LOGIN_USER.images}" alt="photo2"></i>          
+                                            <i>
+                                                 <!--style="border-radius: 50px; width: 62px; font-size: 30px; margin-top: 15px" src="assets/${sessionScope.LOGIN_USER.images}" alt="photo2"></i>-->   
+                                                <img style="border-radius: 50px; width: 62px; font-size: 30px; margin-top: 15px" src="data:image/jpg/png;base64,${sessionScope.LOGIN_USER.images}" alt="photo2">
+                                            </i>          
                                         </a>
                                     </button>
                                     <div class="dropdown-content" style="left:-12px;">
@@ -134,7 +136,7 @@
 
 
 
-        <form action="MainController">    
+        <form action="UpdateUserController" method="POST" enctype="multipart/form-data">  
             <div class="container">
                 <div class="row gutters">
                     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -143,7 +145,8 @@
                                 <div class="account-settings">
                                     <div class="user-profile">
                                         <div class="user-avatar">
-                                            <img src="assets/${sessionScope.LOGIN_USER.images}" alt="photo2">
+                                             <img src="data:image/jpg/png;base64,${sessionScope.LOGIN_USER.images}" alt="photo2">
+
                                         </div>
                                         <h3 class="user-name" style="">${sessionScope.LOGIN_USER.name}</h3>
                                         <h6 class="user-email" style="font-size: 13px;">${sessionScope.LOGIN_USER.email}</h6>

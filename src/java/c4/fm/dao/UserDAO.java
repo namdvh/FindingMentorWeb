@@ -7,11 +7,13 @@ package c4.fm.dao;
 
 import c4.fm.user.UserDTO;
 import c4.fm.utils.DBUtils;
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import javax.naming.NamingException;
 
@@ -21,7 +23,7 @@ import javax.naming.NamingException;
  */
 public class UserDAO {
 
-    public UserDTO checkLogin(String UserID, String password) throws SQLException, ClassNotFoundException, NamingException {
+  public UserDTO checkLogin(String UserID, String password) throws SQLException, ClassNotFoundException, NamingException {
         UserDTO user = null;
         Connection conn = null;
         PreparedStatement stm = null;
@@ -47,9 +49,10 @@ public class UserDAO {
                     String Certificate = rs.getString("Certificate");
                     String Status = rs.getString("Status");
                     String BirthDay = rs.getString("BirthDay");
-                    String Images = rs.getString("Images");
+                    byte[] tmp = rs.getBytes("Images");
+                    String base64Image = Base64.getEncoder().encodeToString(tmp);
 
-                    user = new UserDTO(UserID, Name, Email, RoleID, PhoneNumber, Address, "", Certificate, Status, BirthDay, Images);
+                    user = new UserDTO(UserID, Name, Email, RoleID, PhoneNumber, Address, "", Certificate, Status, BirthDay, base64Image);
                 }
             }
 
@@ -134,8 +137,7 @@ public class UserDAO {
         }
         return check;
     }
-
-    public boolean updateUser(UserDTO user) throws SQLException {
+     public boolean updateUser(UserDTO user,FileInputStream photo) throws SQLException {
         boolean check = false;
         Connection conn = null;
         PreparedStatement stm = null;
@@ -151,40 +153,8 @@ public class UserDAO {
                 stm.setString(3, user.getPhoneNumber());
                 stm.setString(4, user.getAddress());
                 stm.setString(5, user.getBirthday());
-                stm.setString(6, user.getImages());
+                stm.setBinaryStream(6, photo);
                 stm.setString(7, user.getUserID());
-                check = stm.executeUpdate() > 0;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (stm != null) {
-                stm.close();
-            }
-            if (conn != null) {
-                conn.close();
-            }
-        }
-        return check;
-    }
-
-    public boolean updateUserWithNoImages(UserDTO user) throws SQLException {
-        boolean check = false;
-        Connection conn = null;
-        PreparedStatement stm = null;
-        try {
-            conn = DBUtils.getConnection();
-            if (conn != null) {
-                String sql = " UPDATE tblUser "
-                        + " SET Name = ?, Email = ?, PhoneNumber = ?, Address = ?, BirthDay = ? "
-                        + " WHERE UserID = ? ";
-                stm = conn.prepareStatement(sql);
-                stm.setString(1, user.getName());
-                stm.setString(2, user.getEmail());
-                stm.setString(3, user.getPhoneNumber());
-                stm.setString(4, user.getAddress());
-                stm.setString(5, user.getBirthday());
-                stm.setString(6, user.getUserID());
                 check = stm.executeUpdate() > 0;
             }
         } catch (Exception e) {
@@ -220,8 +190,10 @@ public class UserDAO {
                     String PhoneNumber = rs.getString("PhoneNumber");
                     String Address = rs.getString("Address");
                     String BirthDay = rs.getString("BirthDay");
-                    String Images = rs.getString("Images");
-                    user = new UserDTO(UserID, Name, Email, PhoneNumber, Address, BirthDay, Images);
+//                    String Images = rs.getString("Images");
+                    byte[] tmp = rs.getBytes("Images");
+                    String base64Image = Base64.getEncoder().encodeToString(tmp);
+                    user = new UserDTO(UserID, Name, Email, PhoneNumber, Address, BirthDay, base64Image);
                 }
             }
         } finally {
@@ -238,6 +210,39 @@ public class UserDAO {
         return user;
     }
 
+    public boolean updateUserWithNoImages(UserDTO user) throws SQLException {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement stm = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                String sql = " UPDATE tblUser "
+                        + " SET Name = ?, Email = ?, PhoneNumber = ?, Address = ?, BirthDay = ? "
+                        + " WHERE UserID = ? ";
+                stm = conn.prepareStatement(sql);
+                stm.setString(1, user.getName());
+                stm.setString(2, user.getEmail());
+                stm.setString(3, user.getPhoneNumber());
+                stm.setString(4, user.getAddress());
+                stm.setString(5, user.getBirthday());
+                stm.setString(6, user.getUserID());
+                check = stm.executeUpdate() > 0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return check;
+    }
+
+   
     public List<UserDTO> loadListUser() throws ClassNotFoundException, SQLException {
         List<UserDTO> listUser = new ArrayList<>();
         Connection conn = null;
@@ -552,6 +557,40 @@ public class UserDAO {
                 check = stm.executeUpdate() > 0;
             }
         } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return check;
+    }
+
+    public boolean checkImage(String UserID, String Image) throws SQLException, ClassNotFoundException, NamingException {
+        UserDTO user = null;
+        Connection conn = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        boolean check = false;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                String sql = " select Images"
+                        + " from tblUser"
+                        + " where UserID = ? and Images = ? and Status= '1' ";
+                stm = conn.prepareStatement(sql);
+                stm.setString(1, UserID);
+                stm.setString(2, Image);
+                rs = stm.executeQuery();
+                if (rs.next()) {
+                    check = true;
+                }
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
             if (stm != null) {
                 stm.close();
             }
