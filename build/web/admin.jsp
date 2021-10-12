@@ -41,7 +41,7 @@
                         <li><a href="MainController?action=LoadAdminPage" class="active"><span>Dashboard</span></a></li>
                         <li><a href="MainController?action=LoadMentorPage"><span>Mentor Management</span></a></li>
                         <li><a href="MainController?action=LoadUserPage"><span>User Management</span></a></li>
-                        <li><a href="#"><span>Approve Mentor</span></a></li>
+                        <li><a href="MainController?action=LoadApprovePage"><span>Approve Mentor</span></a></li>
                     </ul>
                 </div>
                 <!-- End Main Nav -->
