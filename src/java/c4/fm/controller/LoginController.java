@@ -25,7 +25,7 @@ public class LoginController extends HttpServlet {
     private static final String ERROR = "error.jsp";
     private static final String ADMIN_PAGE = "LoadAdminServlet";
     private static final String USER_PAGE = "user.jsp";
-    private static final String MENTOR_PAGE="mentor.jsp";
+    private static final String MENTOR_PAGE="LoadChapterController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

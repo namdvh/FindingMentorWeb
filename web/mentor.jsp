@@ -213,16 +213,16 @@
                         <button class="btn btn-secondary dropdown-toggle chapter" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Chương ${counter.count}: ${chapter.chapterName}
                         </button>
-                        <button onclick="openForm('updateChapter${chapter.chapterID}')">EDIT</button>
-                        <button onclick="openForm('createContent${chapter.chapterID}')">+</button>
+                        <button onclick="openForm('updateChapter${counter.count}')">EDIT</button>
+                        <button onclick="openForm('createContent${counter.count}')">+</button>
                         <form action="MainMentorController" method="POST">
-                            <div class="modal" id="updateChapter${chapter.chapterID}">
+                            <div class="modal" id="updateChapter${counter.count}">
                                 <div class="modal-content">
-                                    <span class="close" onclick="closedX('updateChapter${chapter.chapterID}')">X</span><br>
-                                    <input type="hidden" name="UpdateChapterID" value="${chapter.chapterID}" readonly="readonly" /><br>
+                                    <span class="close" onclick="closedX('updateChapter${counter.count}')">X</span><br>
+                                    <input type="text" name="UpdateChapterID" value="${chapter.chapterID}" readonly="readonly" /><br>
                                     Chapter Name: <input type="text" name="UpdateChapterName" value="${chapter.chapterName}" required=""/><br>
                                     Description: <input type="text" name="UpdateDescription" value="${chapter.description}" /><br>
-                                    <input type="submit" value="UpdateChapter" name="action" onclick="closeForm('updateChapter${chapter.chapterID}')"/>
+                                    <input type="submit" value="UpdateChapter" name="action" onclick="closeForm('updateChapter${counter.count}')"/>
                                 </div>
                             </div>
                         </form>
