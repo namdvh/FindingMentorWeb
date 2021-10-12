@@ -35,7 +35,7 @@ public class LoadInforController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR; 
-        try {
+         try {
             HttpSession session = request.getSession();
             UserDTO usdto = (UserDTO) session.getAttribute("LOGIN_USER");
             String userID = usdto.getUserID();

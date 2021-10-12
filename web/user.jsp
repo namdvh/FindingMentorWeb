@@ -20,8 +20,8 @@
         <!-- Disable tap highlight on IE -->
         <meta name="msapplication-tap-highlight" content="no">
 
-        <link href="./assets/apple-touch-icon.png" rel="apple-touch-icon">
-        <link href="./assets/favicon.ico" rel="icon">
+        <link href="assets/apple-touch-icon.png" rel="apple-touch-icon">
+        <link href="assets/favicon.ico" rel="icon">
 
         <!-- link Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -95,7 +95,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="user.jsp" title="">
-                            <img src="./assets/images/mashuptemplate.svg" class="navbar-logo-img" alt="">
+                            <img src="assets/images/icon.jpg" class="navbar-logo-img" alt="">
                         </a>
                     </div>
                     <div class="collapse navbar-collapse" id="navbar-collapse-uarr">
@@ -143,8 +143,9 @@
                                     <div class="dropdown" style="float:right;">
                                         <button class="dropbtn" style="background-color: #fff;">
                                             <a href="updateUser.jsp">
-                                                <i > <img 
-                                                        style="border-radius: 50px; width: 62px; font-size: 30px; margin-top: 15px" src="assets/${sessionScope.LOGIN_USER.images}" alt="photo2"></i>          
+                                                <i>
+                                                 <img style="border-radius: 50px; width: 62px; font-size: 30px; margin-top: 15px" src="data:image/jpg/png;base64,${sessionScope.LOGIN_USER.images}" alt="photo2">
+                                            </i>       
                                             </a>
                                         </button>
                                         <div class="dropdown-content" style="left:-12px;">
