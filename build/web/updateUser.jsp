@@ -93,7 +93,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="./index.html" title="">
+                        <a class="navbar-brand" href="user.jsp" title="">
                             <img src="./assets/images/mashuptemplate.svg" class="navbar-logo-img" alt="">
                         </a>
                     </div>
@@ -112,7 +112,7 @@
                             <li>
                                 <div class="dropdown" style="float:right;">
                                     <button class="dropbtn" style="background-color: #fff;">
-                                        <a href="./download.html">
+                                        <a href="updateUser.jsp">
                                             <i > <img 
                                                     style="border-radius: 50px; width: 62px; font-size: 30px; margin-top: 15px" src="assets/${sessionScope.LOGIN_USER.images}" alt="photo2"></i>          
                                         </a>
@@ -221,9 +221,8 @@
                                 <div class="row gutters">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="text-right">
-                                            <button type="submit" id="submit" name="action" class="btn btn-secondary">Cancel</button>
+                              
                                             <button type="submit" id="submit" name="action" value="UpdateUserPage"   class="btnUpdate btn btn-primary">Update</button>
-
                                         </div>
                                     </div>
                                 </div>

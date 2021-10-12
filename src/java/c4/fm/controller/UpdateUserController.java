@@ -72,22 +72,36 @@ public class UpdateUserController extends HttpServlet {
                 userError.setBirthdayError("Your Birthday is invalid, please input again!");
                 check = false;
             }
+
             if (check) {
-                HttpSession session = request.getSession();
-                UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
-                UserDAO usdao = new UserDAO();
-                UserDTO usdto = new UserDTO(user.getUserID(), Name, Email, PhoneNumber, Address, BirthDay, Images);
-                ImageDTO image = (ImageDTO) session.getAttribute("LOAD_IMAGE");
-                ImageDAO imgdao = new ImageDAO();
-                ImageDTO imgdto = new ImageDTO(url);
-                boolean checkupdate = usdao.updateUser(usdto);
-                if (checkupdate) {
-                    url = SUCCESS;
-                    String msg = ("Update Successful");
-                    request.setAttribute("UPDATE_SUCCESS", msg);
-                } else {
-                    url = ERROR;
-                    request.setAttribute("UPDATE_ERROR", userError);
+                if (request.getParameter("Images") != null) {
+                    HttpSession session = request.getSession();
+                    UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
+                    UserDAO usdao = new UserDAO();
+                    UserDTO usdto = new UserDTO(user.getUserID(), Name, Email, PhoneNumber, Address, BirthDay, Images);
+                    boolean checkupdate = usdao.updateUser(usdto);
+                    if (checkupdate) {
+                        url = SUCCESS;
+                        String msg = ("Update Successful");
+                        request.setAttribute("UPDATE_SUCCESS", msg);
+                    } else {
+                        url = ERROR;
+                        request.setAttribute("UPDATE_ERROR", userError);
+                    }
+                }else {
+                    HttpSession session = request.getSession();
+                    UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
+                    UserDAO usdao = new UserDAO();
+                    UserDTO usdto = new UserDTO(user.getUserID(), Name, Email, PhoneNumber, Address, BirthDay);
+                    boolean checkupdate = usdao.updateUserWithNoImages(usdto);
+                    if (checkupdate) {
+                        url = SUCCESS;
+                        String msg = ("Update Successful");
+                        request.setAttribute("UPDATE_SUCCESS", msg);
+                    } else {
+                        url = ERROR;
+                        request.setAttribute("UPDATE_ERROR", userError);
+                    }
                 }
             }
 

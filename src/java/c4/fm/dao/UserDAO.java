@@ -167,6 +167,37 @@ public class UserDAO {
         }
         return check;
     }
+    public boolean updateUserWithNoImages(UserDTO user) throws SQLException {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement stm = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                String sql = " UPDATE tblUser "
+                        + " SET Name = ?, Email = ?, PhoneNumber = ?, Address = ?, BirthDay = ? "
+                        + " WHERE UserID = ? ";
+                stm = conn.prepareStatement(sql);
+                stm.setString(1, user.getName());
+                stm.setString(2, user.getEmail());
+                stm.setString(3, user.getPhoneNumber());
+                stm.setString(4, user.getAddress());
+                stm.setString(5, user.getBirthday());
+                stm.setString(6, user.getUserID());
+                check = stm.executeUpdate() > 0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return check;
+    }
 
     public UserDTO loadUser(String UserID) throws ClassNotFoundException, SQLException {
         UserDTO user = null;
@@ -296,12 +327,10 @@ public class UserDAO {
                     String password = rs.getString("Password");
                     boolean status = rs.getBoolean("Status");
                     String birthday = rs.getString("BirthDay");
-                    String image = rs.getString("Images");
-                    
+                    String image = rs.getString("Images");                 
                     UserDTO user = new UserDTO(userId, name, email, roleId, phoneNumber, address, password, "", String.valueOf(status), birthday, image);
                     listUser.add(user);
                 }
-
             }
 
         } finally {
@@ -347,9 +376,7 @@ public class UserDAO {
                     UserDTO user = new UserDTO(userId, name, email, roleId, phoneNumber, address, password, "", String.valueOf(status), birthday, image);
                     listUser.add(user);
                 }
-
             }
-
         } finally {
             if(rs != null){
                 rs.close();
@@ -363,5 +390,6 @@ public class UserDAO {
         }
         return listUser;
     }
+    
 
 }

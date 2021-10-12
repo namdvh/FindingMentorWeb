@@ -94,7 +94,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="./index.html" title="">
+                        <a class="navbar-brand" href="user.jsp" title="">
                             <img src="./assets/images/mashuptemplate.svg" class="navbar-logo-img" alt="">
                         </a>
                     </div>
@@ -120,7 +120,7 @@
                                     <!-- comment dropdown luc nay chua hien avata neu chua damng nhap -->
                                     <div class="dropdown" style="float:right;">
                                         <button class="dropbtn" style="background-color: #fff;">
-                                            <a href="./Profile/index.html">
+                                            <a href="login.html">
                                                 <i class="fas fa-user-circle user" 
                                                    style="font-size: 30px;
                                                    padding-top: 24px;
@@ -131,7 +131,7 @@
                                         </button>
                                         <!-- comment fix here link to updateUser,jsp-->
                                         <div class="dropdown-content" style="left:-12px;">
-                                            <a href="updateUser.jsp" class="choose">Profile</a>
+                                            <a href="login.html" class="choose">Profile</a>
                                             <a href="MainController?action=Logout" class="choose">Log out</a>
                                         </div>
                                     </div>
@@ -142,7 +142,7 @@
                                 <li>
                                     <div class="dropdown" style="float:right;">
                                         <button class="dropbtn" style="background-color: #fff;">
-                                            <a href="./download.html">
+                                            <a href="updateUser.jsp">
                                                 <i > <img 
                                                         style="border-radius: 50px; width: 62px; font-size: 30px; margin-top: 15px" src="assets/${sessionScope.LOGIN_USER.images}" alt="photo2"></i>          
                                             </a>
@@ -199,7 +199,7 @@
                     <div class="card_item card_item_custom">
                         <img src="./assets/zua1566722846.jpg" class="card-img-top" alt="...">
                         <div class="cardx-body">
-                            <div class="cardx-name">Tú đụ</div>
+                            <div class="cardx-name">Top 2</div>
                             <p class="card-text">Management Trainee tại Prudential Vietnam Assurance</p>
                             <div class="dropdownb">
                                 <div class="detailButton">Chi tiết</div>
@@ -217,7 +217,7 @@
                     <div class="card_item card_item_custom">
                         <img src="./assets/zua1566722846.jpg" class="card-img-top" alt="...">
                         <div class="cardx-body">
-                            <div class="cardx-name">Top 1</div>
+                            <div class="cardx-name">Top 3</div>
                             <p class="card-text">Chief Technology Officer tại Mentor</p>
                             <div class="dropdownb">
                                 <div class="detailButton">Chi tiết</div>
@@ -243,7 +243,6 @@
                     <section class="service">
                         <div class="service__content">
                             <div class="service__title">
-
                                 <h1>Subjects</h1>           
                             </div>
 

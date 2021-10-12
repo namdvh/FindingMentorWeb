@@ -70,7 +70,15 @@ public class UserDTO implements Serializable{
     
     //this is DTO
     
-    
+     public UserDTO(String userID, String name, String email, String phoneNumber, String address, String birthday) {
+        this.userID = userID;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.birthday = birthday;
+       
+    }
     
     
     
