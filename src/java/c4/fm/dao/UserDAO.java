@@ -274,7 +274,7 @@ public class UserDAO {
 
     public List<UserDTO> listUserAdmin() throws ClassNotFoundException, SQLException {
         List<UserDTO> listUser = new ArrayList<>();
-        
+
         Connection con = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -286,7 +286,7 @@ public class UserDAO {
                         + "Where RoleID like 'US'";
                 pst = con.prepareStatement(sql);
                 rs = pst.executeQuery();
-                while(rs.next()){
+                while (rs.next()) {
                     String userId = rs.getString("UserID");
                     String name = rs.getString("Name");
                     String email = rs.getString("Email");
@@ -297,7 +297,7 @@ public class UserDAO {
                     boolean status = rs.getBoolean("Status");
                     String birthday = rs.getString("BirthDay");
                     String image = rs.getString("Images");
-                    
+
                     UserDTO user = new UserDTO(userId, name, email, roleId, phoneNumber, address, password, "", String.valueOf(status), birthday, image);
                     listUser.add(user);
                 }
@@ -305,22 +305,22 @@ public class UserDAO {
             }
 
         } finally {
-            if(rs != null){
+            if (rs != null) {
                 rs.close();
             }
-            if(pst != null){
+            if (pst != null) {
                 pst.close();
             }
-            if(con != null){
+            if (con != null) {
                 pst.close();
             }
         }
         return listUser;
     }
-    
+
     public List<UserDTO> listMentorAdmin() throws ClassNotFoundException, SQLException {
         List<UserDTO> listUser = new ArrayList<>();
-        
+
         Connection con = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -332,7 +332,7 @@ public class UserDAO {
                         + "Where RoleID like 'MT'";
                 pst = con.prepareStatement(sql);
                 rs = pst.executeQuery();
-                while(rs.next()){
+                while (rs.next()) {
                     String userId = rs.getString("UserID");
                     String name = rs.getString("Name");
                     String email = rs.getString("Email");
@@ -343,7 +343,7 @@ public class UserDAO {
                     boolean status = rs.getBoolean("Status");
                     String birthday = rs.getString("BirthDay");
                     String image = rs.getString("Images");
-                    
+
                     UserDTO user = new UserDTO(userId, name, email, roleId, phoneNumber, address, password, "", String.valueOf(status), birthday, image);
                     listUser.add(user);
                 }
@@ -351,17 +351,187 @@ public class UserDAO {
             }
 
         } finally {
-            if(rs != null){
+            if (rs != null) {
                 rs.close();
             }
-            if(pst != null){
+            if (pst != null) {
                 pst.close();
             }
-            if(con != null){
+            if (con != null) {
                 pst.close();
             }
         }
         return listUser;
+    }
+
+    public List<UserDTO> searchMentorAdmin(String searchValue) throws ClassNotFoundException, SQLException {
+        List<UserDTO> listUser = new ArrayList<>();
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = "select UserID, Name, Email, RoleID, PhoneNumber, Address, Password, Status, BirthDay, Images\n"
+                        + "from tblUser \n "
+                        + "Where RoleID like 'MT' and UserID like ? ";
+                pst = con.prepareStatement(sql);
+                pst.setString(1, "%" + searchValue + "%");
+                rs = pst.executeQuery();
+                while (rs.next()) {
+                    String userId = rs.getString("UserID");
+                    String name = rs.getString("Name");
+                    String email = rs.getString("Email");
+                    String roleId = rs.getString("RoleID");
+                    String phoneNumber = rs.getString("PhoneNumber");
+                    String address = rs.getString("Address");
+                    String password = rs.getString("Password");
+                    boolean status = rs.getBoolean("Status");
+                    String birthday = rs.getString("BirthDay");
+                    String image = rs.getString("Images");
+
+                    UserDTO user = new UserDTO(userId, name, email, roleId, phoneNumber, address, password, "", String.valueOf(status), birthday, image);
+                    listUser.add(user);
+                }
+
+            }
+
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+                pst.close();
+            }
+        }
+        return listUser;
+    }
+
+    public List<UserDTO> searchUserAdmin(String searchValue) throws ClassNotFoundException, SQLException {
+        List<UserDTO> listUser = new ArrayList<>();
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = "select UserID, Name, Email, RoleID, PhoneNumber, Address, Password, Status, BirthDay, Images\n"
+                        + "from tblUser \n "
+                        + "Where RoleID like 'US' and UserID like ? ";
+                pst = con.prepareStatement(sql);
+                pst.setString(1, "%" + searchValue + "%");
+                rs = pst.executeQuery();
+                while (rs.next()) {
+                    String userId = rs.getString("UserID");
+                    String name = rs.getString("Name");
+                    String email = rs.getString("Email");
+                    String roleId = rs.getString("RoleID");
+                    String phoneNumber = rs.getString("PhoneNumber");
+                    String address = rs.getString("Address");
+                    String password = rs.getString("Password");
+                    boolean status = rs.getBoolean("Status");
+                    String birthday = rs.getString("BirthDay");
+                    String image = rs.getString("Images");
+
+                    UserDTO user = new UserDTO(userId, name, email, roleId, phoneNumber, address, password, "", String.valueOf(status), birthday, image);
+                    listUser.add(user);
+                }
+
+            }
+
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+                pst.close();
+            }
+        }
+        return listUser;
+    }
+
+    public boolean deleteUserStatusAdmin(String userId) throws SQLException, ClassNotFoundException {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement stm = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                String sql = " UPDATE tblUser "
+                        + " SET Status = ? \n"
+                        + " WHERE UserID = ? ";
+                stm = conn.prepareStatement(sql);
+                stm.setString(1, "False");
+                stm.setString(2, userId);
+                check = stm.executeUpdate() > 0;
+            }
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return check;
+    }
+    
+     public boolean activeUserStatusAdmin(String userId) throws SQLException, ClassNotFoundException {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement stm = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                String sql = " UPDATE tblUser "
+                        + " SET Status = ? \n"
+                        + " WHERE UserID = ? ";
+                stm = conn.prepareStatement(sql);
+                stm.setString(1, "True");
+                stm.setString(2, userId);
+                check = stm.executeUpdate() > 0;
+            }
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return check;
+    }
+     
+     public boolean updateUserRoleAdmin(String userId) throws SQLException, ClassNotFoundException {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement stm = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                String sql = " UPDATE tblUser "
+                        + " SET RoleID = ? \n"
+                        + " WHERE UserID = ? ";
+                stm = conn.prepareStatement(sql);
+                stm.setString(1, "MT");
+                stm.setString(2, userId);
+                check = stm.executeUpdate() > 0;
+            }
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return check;
     }
 
 }
