@@ -39,7 +39,7 @@
                         <li><a href="MainController?action=LoadAdminPage" ><span>Dashboard</span></a></li>
                         <li><a href="MainController?action=LoadMentorPage"class="active"><span>Mentor Management</span></a></li>
                         <li><a href="MainController?action=LoadUserPage"><span>User Management</span></a></li>
-                        <li><a href="#"><span>Approve Mentor</span></a></li>
+                        <li><a href="MainController?action=LoadApprovePage"><span>Approve Mentor</span></a></li>
                     </ul>
                 </div>
                 <!-- End Main Nav -->
@@ -64,25 +64,30 @@
                     <div id="content">
                         <!-- Box -->
                         <div class="box">
+                            <c:if test="${requestScope.DELETEUSER_MSG != null}">
+                                ${requestScope.DELETEUSER_MSG}
+                            </c:if>
                             <!-- Box Head -->
                             <div class="box-head">
-                                <h2 class="left">Current Mentor</h2>
-                                <div class="right">
-                                    <label>search Mentor</label>
-                                    <input type="text" class="field small-field" />
-                                    <input type="submit" class="button" value="search" />
-                                </div>
+                                <form action="MainController">
+                                    <h2 class="left">Current Mentor</h2>
+                                    <div class="right">
+                                        <label>Search Mentor</label>
+                                        <input type="text" name="searchValue" class="field small-field" />
+                                        <button class="button" type="submit" name="action" value="searchMentor">Search</button>
+                                    </div>
+                                </form>
                             </div>
                             <!-- End Box Head -->
                             <!-- Table -->
                             <div class="table">
                                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <c:if test="${sessionScope.LIST_MENTOR_ADMIN == null}">
+                                    <c:if test="${requestScope.LIST_MENTOR_ADMIN == null}">
                                         <tr>
                                             <th>Nothing to search</th>
                                         </tr>
                                     </c:if>
-                                    <c:if test="${sessionScope.LIST_MENTOR_ADMIN != null}">
+                                    <c:if test="${requestScope.LIST_MENTOR_ADMIN != null}">
                                         <tr>
                                             <th>user ID</th>
                                             <th>name</th>
@@ -97,7 +102,7 @@
                                             <th width="110" class="ac">Content Control</th>
                                         </tr>
 
-                                        <c:forEach var="s" items="${sessionScope.LIST_MENTOR_ADMIN}">
+                                        <c:forEach var="s" items="${requestScope.LIST_MENTOR_ADMIN}">
                                             <tr>
                                                 <th>${s.userID}</th>
                                                 <th>${s.name}</th>
@@ -108,10 +113,18 @@
                                                 <th>${s.password}</th>
                                                 <th>${s.status}</th>
                                                 <th>${s.birthday}</th>
-                                                <th></th>
                                                 <th>
-                                                    <a href="MainController?action=deleteUserAdmin" class="ico del">Delete</a>
-                                                    <a href="MainController?action=updateUserAdmin&userId=${s.userID}" class="ico edit">Edit</a>
+                                                    <img src="assets/${s.images}" width="50px" height="50px" alt="alt"/>
+                                                </th>
+                                                <th>
+                                                    <c:if test="${s.status eq 'true'}">
+                                                        <a href="MainController?action=deleteMentorAdmin&userId=${s.userID}" class="ico del">Delete</a>
+
+                                                    </c:if>
+                                                    <c:if test="${s.status eq 'false'}">
+                                                        <a href="MainController?action=ActiveMentorAdmin&userId=${s.userID}" class="ico edit">Active</a>
+
+                                                    </c:if>
                                                 </th>
 
                                             </tr>

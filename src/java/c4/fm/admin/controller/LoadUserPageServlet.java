@@ -43,13 +43,13 @@ private static final String USER_ADMIN_PAGE = "userManagement.jsp";
             HttpSession session = request.getSession();
             List<UserDTO> listUser = null;
             listUser = userDao.listUserAdmin();
-            session.setAttribute("LIST_USER_ADMIN", listUser);
+            request.setAttribute("LIST_USER_ADMIN", listUser);
             
             
         } catch (Exception e) {
             log("Error at LoadUserPageServlet:" + e.toString());
         }finally{
-            response.sendRedirect(url);
+            request.getRequestDispatcher(url).forward(request, response);
         }
     }
 

@@ -26,17 +26,25 @@ public class MainController extends HttpServlet {
     private static final String CREATE_PAGE = "createUser.jsp";
     private static final String UPDATE_USER_PAGE = "UpdateUserController";
 
-    //Admin
+    //==============BEGIN OF ADMIN===================
     private static final String LOAD_ADMIN_PAGE_SERVLET = "LoadAdminServlet";
     private static final String ADDSUBJECT_ADMIN_SERVLET = "AddSubjectAdminServlet";
-    //SEARCH
     private static final String SEARCHSUBJECT_ADMIN_SERVLET = "SearchSubjectAdminServlet";
-    //UPDATE
     private static final String UPDATESUBJECTPAGE_ADMIN_SERVLET = "UpdateSubjectPageAdminServlet";
     private static final String UPDATESUBJECT_ADMIN_SERVLET = "UpdateSubjectAdminServlet";
-    
     private static final String LOAD_USER_PAGE_SERVLET = "LoadUserPageServlet";
     private static final String LOAD_MENTOR_PAGE_SERVLET = "LoadMentorPageServlet";
+    private static final String SEARCHMENTOR_ADMIN_SERVLET = "SearchMentorAdminServlet";
+    private static final String SEARCHUSER_ADMIN_SERVLET = "SearchUserAdminServlet";
+    private static final String DELETE_USER_ADMIN_SERVLET = "DeleteUserAdminServlet";
+    private static final String ACTIVE_USER_ADMIN_SERVLET = "ActiveUserAdminServlet";
+    private static final String DELETE_MENTOR_ADMIN_SERVLET = "DeleteMentorAdminServlet";
+    private static final String ACTIVE_MENTOR_ADMIN_SERVLET = "ActiveMentorAdminServlet";
+    private static final String LOAD_APPROVE_PAGE = "LoadApprovePageServlet";
+    private static final String SEARCHREQUEST_ADMIN_SERVLET = "SearchRequestAdminServlet";
+    private static final String APPROVE_REQUEST_ADMIN_SERVLET = "ApproveRequestAdminServlet";
+    private static final String DENAIL_REQUEST_ADMIN_SERVLET = "DenailRequestAdminServlet";
+    //=======================END OF ADMIN==========================
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -58,7 +66,7 @@ public class MainController extends HttpServlet {
                 url = CREATE_PAGE;
             } else if ("UpdateUserPage".equals(action)) {
                 url = UPDATE_USER_PAGE;
-            } //BEGIN OF ADMIN
+            } //================BEGIN OF ADMIN============================
             else if (action.equals("AddSubjectAdmin")) {
                 url = ADDSUBJECT_ADMIN_SERVLET;
             } else if (action.equals("searchSubjectAdmin")) {
@@ -71,9 +79,29 @@ public class MainController extends HttpServlet {
                 url = LOAD_USER_PAGE_SERVLET;
             } else if (action.equals("LoadMentorPage")) {
                 url = LOAD_MENTOR_PAGE_SERVLET;
-            } else if (action.equals("UpdateSubjectAdmin")){
+            } else if (action.equals("UpdateSubjectAdmin")) {
                 url = UPDATESUBJECT_ADMIN_SERVLET;
-            }//END OF ADMIN
+            } else if (action.equals("searchMentor")) {
+                url = SEARCHMENTOR_ADMIN_SERVLET;
+            } else if (action.equals("SearchUser")) {
+                url = SEARCHUSER_ADMIN_SERVLET;
+            } else if (action.equals("deleteUserAdmin")) {
+                url = DELETE_USER_ADMIN_SERVLET;
+            } else if (action.equals("ActiveUserAdmin")) {
+                url = ACTIVE_USER_ADMIN_SERVLET;
+            } else if (action.equals("deleteMentorAdmin")) {
+                url = DELETE_MENTOR_ADMIN_SERVLET;
+            } else if (action.equals("ActiveMentorAdmin")) {
+                url = ACTIVE_MENTOR_ADMIN_SERVLET;
+            } else if (action.equals("LoadApprovePage")) {
+                url = LOAD_APPROVE_PAGE;
+            } else if (action.equals("SearchRequest")) {
+                url = SEARCHREQUEST_ADMIN_SERVLET;
+            } else if (action.equals("ApproveRequest")) {
+                url = APPROVE_REQUEST_ADMIN_SERVLET;
+            } else if (action.equals("DenailRequest")) {
+                url = DENAIL_REQUEST_ADMIN_SERVLET;
+            } //=====================END OF ADMIN==========================
             else {
                 HttpSession session = request.getSession();
                 session.setAttribute("ERROR_MESSAGE", "function is not available");
