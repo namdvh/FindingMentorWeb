@@ -20,7 +20,8 @@ import java.util.List;
  * @author HuuToan
  */
 public class RegisterSubjectDAO implements Serializable{
-      public int registerSubjectUser(RegisterSubjectDTO sjdto) throws SQLException, ClassNotFoundException {
+      public boolean registerSubjectUser(int subjectID, String userID, String name) throws SQLException, ClassNotFoundException {
+        boolean check = false;
         Connection conn = null;
         PreparedStatement stm = null;
         ResultSet rs = null;
@@ -29,11 +30,12 @@ public class RegisterSubjectDAO implements Serializable{
             if (conn != null) {
                 String sql = " INSERT INTO tblRegister values(?,?,'1',?) ";
 
-                stm.setInt(1, sjdto.getSubjectID());
-                stm.setString(2, sjdto.getUserID());
-                stm.setString(3, sjdto.getName());
-                rs = stm.executeQuery();
-                return stm.executeUpdate();
+                stm.setInt(1, subjectID);
+                stm.setString(2, userID);
+                stm.setString(3, name);
+                 if (stm.executeUpdate() > 0) {
+                    check = true;
+                }
             }
         } finally {
             if (rs != null) {
@@ -46,7 +48,7 @@ public class RegisterSubjectDAO implements Serializable{
                 conn.close();
             }
         }
-        return -1;
+        return check;
     }
 
     public List<SubjectDTO> listSubject() throws SQLException, ClassNotFoundException {
@@ -57,7 +59,7 @@ public class RegisterSubjectDAO implements Serializable{
         try {
             con = DBUtils.getConnection();
             if (con != null) {
-                String sql = "Select SubjectID, SubjectName, Images, UserId, CategoryID, Description, Status \n"
+                String sql = "Select SubjectID, SubjectName, Images, UserID, CategoryID, Description, Status \n"
                         + "from tblSubject";
                 pst = con.prepareStatement(sql);
                 rs = pst.executeQuery();
@@ -65,7 +67,7 @@ public class RegisterSubjectDAO implements Serializable{
                     int subjectId = Integer.parseInt(rs.getString("SubjectID"));
                     String subjectName = rs.getString("SubjectName");
                     String images = rs.getString("Images");
-                    String userId = rs.getString("UserId");
+                    String userId = rs.getString("UserID");
                     String categoryId = rs.getString("CategoryID");
                     String description = rs.getString("Description");
                     boolean status = rs.getBoolean("Status");
