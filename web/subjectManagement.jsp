@@ -169,24 +169,24 @@
                     Subject</a
                 >
             </div>                                 
-            <c:if test="${sessionScope.LOGIN_USER != null}">
 
-                <div class="dropdown" style="float:left; margin-right: 100px">
-                    <button class="dropbtn" style="background-color: #fff;">
-                        <a href="updateUser.jsp">
-                            <i>
-                                <img style="border-radius: 30px; width: 60px; height: 60px; font-size: 30px; margin-top: 15px" src="${sessionScope.LOGIN_USER.images}" alt="photo2">
-                            </i>      
-                        </a>
-                    </button>
-                    <div class="dropdown-content" style="left:0px; width: 150px">
-                        <a   class="choose">${sessionScope.LOGIN_USER.name}</a>
-                        <a  href="updateUser.jsp" class="choose">Profile</a>
-                        <a  href="MainController?action=Logout"  class="choose">Log out</a>
-                    </div>
+
+            <div class="dropdown" style="float:left; margin-right: 100px">
+                <button class="dropbtn" style="background-color: #fff;">
+                    <a href="updateUser.jsp">
+                        <i>
+                            <img style="border-radius: 30px; width: 60px; height: 60px; font-size: 30px; margin-top: 15px" src="${sessionScope.LOGIN_USER.images}" alt="photo2">
+                        </i>      
+                    </a>
+                </button>
+                <div class="dropdown-content" style="left:0px; width: 150px">
+                    <a   class="choose">${sessionScope.LOGIN_USER.name}</a>
+                    <a  href="updateUser.jsp" class="choose">Profile</a>
+                    <a  href="MainController?action=Logout"  class="choose">Log out</a>
                 </div>
+            </div>
 
-            </c:if>  
+
 
         </nav>
 
@@ -202,9 +202,11 @@
                 <button class="tablinks" onclick="openCity(event, 'allCourse')">
                     <b>Tất cả khóa học</b>
                 </button>
-                <button class="tablinks" onclick="openCity(event, 'myCourse')">
-                    <b>Của tôi</b>
-                </button>
+                <c:if test="${sessionScope.LOGIN_USER != null}">
+                    <button class="tablinks" onclick="openCity(event, 'myCourse')">
+                        <b>Của tôi</b>
+                    </button>
+                </c:if> 
                 <!-- <button class="tablinks" onclick="openCity(event, 'addCourse')"><b>Tạo mới khóa học</b></button> -->
 
                 <div class="search-container">
