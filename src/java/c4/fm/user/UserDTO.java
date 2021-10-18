@@ -67,6 +67,17 @@ public class UserDTO implements Serializable{
         this.birthday = birthday;
         this.images = images;
     }
+
+    public UserDTO(String userID, String name, String email, String roleID, String phoneNumber, String address, String birthday, String images) {
+        this.userID = userID;
+        this.name = name;
+        this.email = email;
+        this.roleID = roleID;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.birthday = birthday;
+        this.images = images;
+    }
     
     //this is DTO
     
@@ -79,24 +90,11 @@ public class UserDTO implements Serializable{
         this.birthday = birthday;
        
     }
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
 
     public UserDTO(String images) {
         this.images = images;
     }
-
-  
     
-
     public String getImages() {
         return images;
     }

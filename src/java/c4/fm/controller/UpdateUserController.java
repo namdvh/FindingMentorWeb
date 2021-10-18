@@ -10,11 +10,7 @@ import c4.fm.user.UserDTO;
 import c4.fm.user.UserError;
 import c4.fm.validation.CheckValidation;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
@@ -22,10 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileItemFactory;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileUtils;
 
 /**
@@ -60,12 +52,9 @@ public class UpdateUserController extends HttpServlet {
             String Address = request.getParameter("Address");
             String BirthDay = request.getParameter("BirthDay");
 //            String Images = request.getParameter("Images");            
-            Part part = request.getPart("Images");
-            String filename = part.getSubmittedFileName();
-            String realPath = request.getServletContext().getRealPath("/") + "images" + File.separator + filename;
-            System.out.println(realPath);
-            File file = new File(realPath);
-            FileUtils.copyInputStreamToFile(part.getInputStream(), file);
+            Part newPart = request.getPart("ProfileImage");
+            
+            System.out.println(newPart);
 //            request.setAttribute("IMG", "images" + File.separator + filename);
             boolean check = true;
             if (Name.length() < 1) {
@@ -88,11 +77,23 @@ public class UpdateUserController extends HttpServlet {
                 userError.setBirthdayError("Your Birthday is invalid, please input again!");
                 check = false;
             }
+
             if (check) {
                 HttpSession session = request.getSession();
                 UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
                 UserDAO usdao = new UserDAO();
-                UserDTO usdto = new UserDTO(user.getUserID(), Name, Email, PhoneNumber, Address, BirthDay, "images" + File.separator + filename);
+                String pathImage = "";
+                if (!newPart.getSubmittedFileName().isEmpty()) {
+                    String filename = user.getUserID() + ".jpg";
+                    pathImage = "Images_Profile" + File.separator + filename;
+                    String realPath = request.getServletContext().getRealPath("/") + pathImage;
+                    File file = new File(realPath);
+                    FileUtils.copyInputStreamToFile(newPart.getInputStream(), file);
+                } else {
+                    UserDTO oldUser = usdao.getUserInfo(user.getUserID());
+                    pathImage = oldUser.getImages();
+                }
+                UserDTO usdto = new UserDTO(user.getUserID(), Name, Email, PhoneNumber, Address, BirthDay, pathImage);
                 boolean checkupdate = usdao.updateUser(usdto);
                 if (checkupdate) {
                     url = SUCCESS;

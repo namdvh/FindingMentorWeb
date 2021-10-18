@@ -68,6 +68,52 @@ public class UserDAO {
         }
         return user;
     }
+ 
+ 
+ 
+ public UserDTO getUserInfo(String UserID) throws SQLException, ClassNotFoundException, NamingException {
+        UserDTO user = null;
+        Connection conn = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                String sql = " select Name, Email, RoleID, PhoneNumber, Address, Password, Certificate, Status, BirthDay, Images"
+                        + " from tblUser"
+                        + " where UserID =? and Status='1' ";
+                stm = conn.prepareStatement(sql);
+                stm.setString(1, UserID);
+                rs = stm.executeQuery();
+                if (rs.next()) {
+                    String Name = rs.getString("Name");
+                    String Email = rs.getString("Email");
+                    String RoleID = rs.getString("RoleID");
+                    String PhoneNumber = rs.getString("PhoneNumber");
+                    String Address = rs.getString("Address");
+                    String Certificate = rs.getString("Certificate");
+                    String Status = rs.getString("Status");
+                    String BirthDay = rs.getString("BirthDay");
+                    String Images = rs.getString("Images");
+
+                    user = new UserDTO(UserID, Name, Email, RoleID, PhoneNumber, Address, "", Certificate, Status, BirthDay, Images);
+                }
+            }
+
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return user;
+    }
+
 
     public boolean insertUseNew(UserDTO user) throws SQLException, NamingException, ClassNotFoundException {
         boolean check = false;
@@ -177,7 +223,7 @@ public class UserDAO {
         try {
             conn = DBUtils.getConnection();
             if (conn != null) {
-                String sql = " select Name, Email, PhoneNumber, Address, BirthDay, Images"
+                String sql = " select Name, Email, RoleID, PhoneNumber, Address, BirthDay, Images"
                         + " from tblUser "
                         + " where UserID = ? ";
                 stm = conn.prepareStatement(sql);
@@ -186,11 +232,12 @@ public class UserDAO {
                 if (rs.next()) {
                     String Name = rs.getString("Name");
                     String Email = rs.getString("Email");
+                    String roleID = rs.getString("RoleID");
                     String PhoneNumber = rs.getString("PhoneNumber");
                     String Address = rs.getString("Address");
                     String BirthDay = rs.getString("BirthDay");
                     String Images = rs.getString("Images");
-                    user = new UserDTO(UserID, Name, Email, PhoneNumber, Address, BirthDay, Images);
+                    user = new UserDTO(UserID, Name, Email, roleID, PhoneNumber, Address, BirthDay, Images);
                 }
             }
         } finally {

@@ -57,7 +57,7 @@ public class CreateContentController extends HttpServlet {
                 }
             }
         } catch (Exception e) {
-            log("Error at CreateContentController:" + e.toString());
+            log("Error at create content" + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

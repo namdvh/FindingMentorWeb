@@ -57,7 +57,9 @@
                 <div class="modal fade" id="editContent${itemContent.contentID}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
-                            <form action="MainMentorController" method="POST" onsubmit="">
+                            <form action="MainMentorController" method="POST">
+                                <input type="hidden" name="SubjectID" value="${sessionScope.SUBJECT_ID}" />
+                                <input type="hidden" name="SubjectName" value="${sessionScope.SUBJECT_NAME}" />
                                 <input type="hidden" name="UpdateContentID" value="${itemContent.contentID}" readonly="readonly" /><br>
                                 <div class="modal-header">
                                     <h5 class="modal-title">Edit Content</h5>
@@ -104,6 +106,8 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <form action="MainMentorController" method="POST" onsubmit="">
+                                <input type="hidden" name="SubjectID" value="${sessionScope.SUBJECT_ID}" />
+                                <input type="hidden" name="SubjectName" value="${sessionScope.SUBJECT_NAME}" />
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLongTitle">Create Chapter</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -113,7 +117,7 @@
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="fullName">Subject Name</label>
-                                        <input type="text" class="form-control" id="fullName" value="${requestScope.SUBJECT_NAME}" readonly="">
+                                        <input type="text" class="form-control" id="fullName" value="${sessionScope.SUBJECT_NAME}" readonly="">
                                     </div>
                                     <div class="form-group">
                                         <label for="fullName">Chapter Name:</label>
@@ -143,6 +147,8 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <form action="MainMentorController" method="POST" onsubmit="">
+                                        <input type="hidden" name="SubjectID" value="${sessionScope.SUBJECT_ID}" />
+                                        <input type="hidden" name="SubjectName" value="${sessionScope.SUBJECT_NAME}" />
                                         <input type="hidden" name="NewContentChapterID" value="${chapter.chapterID}" readonly="readonly" /><br>
                                         <div class="modal-header">
                                             <h5 class="modal-title">Create Content</h5>
@@ -186,7 +192,9 @@
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <form action="MainMentorController" method="POST" onsubmit="">
-                                        <input type="hidden" name="UpdateChapterID" value="${chapter.chapterID}" readonly="readonly" /><br>
+                                        <input type="hidden" name="SubjectID" value="${sessionScope.SUBJECT_ID}" />
+                                        <input type="hidden" name="SubjectName" value="${sessionScope.SUBJECT_NAME}" />
+                                        <input type="text" name="UpdateChapterID" value="${chapter.chapterID}" readonly="readonly" /><br>
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLongTitle">Update Chapter</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">

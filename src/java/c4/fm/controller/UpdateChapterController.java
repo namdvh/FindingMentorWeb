@@ -56,7 +56,7 @@ public class UpdateChapterController extends HttpServlet {
                 }
             }
         } catch (Exception e) {
-            log("Error at UpdateChapterController:" + e.toString());
+            log("Error at update chapter" + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

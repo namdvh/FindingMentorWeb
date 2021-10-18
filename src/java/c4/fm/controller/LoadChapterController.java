@@ -45,26 +45,22 @@ public class LoadChapterController extends HttpServlet {
         String url = PAGE;
         try {
             HttpSession session = request.getSession();
-            UserDTO loginUser = (UserDTO) session.getAttribute("LOGIN_USER");
-            if (loginUser == null || !"MT".equals(loginUser.getRoleID())) {
-                url = PAGELOGIN;
-            } else {
-                int subjectID = Integer.parseInt(request.getParameter("SubjectID"));
-                String subjectName = request.getParameter("SubjectName");
-                ChapterDAO chapterDAO = new ChapterDAO();
-                List<ChapterDTO> listChapter = chapterDAO.LoadListChapter(subjectID);
-                ContentDAO contentDAO = new ContentDAO();
-                for (ChapterDTO chapter : listChapter) {
-                    List<ContentDTO> listContent = contentDAO.LoadListContent(chapter.getChapterID());
-                    if (listContent != null) {
-                        chapter.setList(listContent);
-                    }
+            int subjectID = Integer.parseInt(request.getParameter("SubjectID"));
+            String subjectName = request.getParameter("SubjectName");
+            session.setAttribute("SUBJECT_ID", subjectID);
+            session.setAttribute("SUBJECT_NAME", subjectName);
+            ChapterDAO chapterDAO = new ChapterDAO();
+            List<ChapterDTO> listChapter = chapterDAO.LoadListChapter(subjectID);
+            ContentDAO contentDAO = new ContentDAO();
+            for (ChapterDTO chapter : listChapter) {
+                List<ContentDTO> listContent = contentDAO.LoadListContent(chapter.getChapterID());
+                if (listContent != null) {
+                    chapter.setList(listContent);
                 }
-                request.setAttribute("LIST_CHAPTER", listChapter);
-                request.setAttribute("SUBJECT_NAME", subjectName);
             }
+            request.setAttribute("LIST_CHAPTER", listChapter);
         } catch (Exception e) {
-            log("Error at LoadChapterController:" + e.toString());
+            log("Error at load detail subject" + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

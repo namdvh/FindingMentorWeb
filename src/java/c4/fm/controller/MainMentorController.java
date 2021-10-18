@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -54,7 +55,7 @@ public class MainMentorController extends HttpServlet {
                 url = LOAD_CHAPTER_CONTENT;
             }
         } catch (Exception e) {
-            log("Error at MainMentorController:" + e.toString());
+            log("Error at main mentor controller" + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

@@ -57,7 +57,7 @@ public class UpdateContentController extends HttpServlet {
                 }
             }
         } catch (Exception e) {
-            log("Error at UpdateContentController:" + e.toString());
+            log("Error at update content" + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

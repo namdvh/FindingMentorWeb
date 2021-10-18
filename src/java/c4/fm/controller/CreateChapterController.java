@@ -49,7 +49,7 @@ public class CreateChapterController extends HttpServlet {
                 url = PAGELOGIN;
             } else {
                 ChapterDAO dao = new ChapterDAO();
-                int subjectID = Integer.parseInt(request.getParameter("SubjectID"));
+                int subjectID = (int) session.getAttribute("SUBJECT_ID");
                 String chapterName = request.getParameter("NewChapterName");
                 String description = request.getParameter("NewDescription");
                 boolean check = dao.CreateNewChapter(chapterName, description, subjectID);
@@ -58,7 +58,7 @@ public class CreateChapterController extends HttpServlet {
                 }
             }
         } catch (Exception e) {
-            log("Error at CreateChapterController:" + e.toString());
+            log("Error at create chapter" + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
