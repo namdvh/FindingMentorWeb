@@ -19,11 +19,11 @@ import javax.naming.NamingException;
 
 /**
  *
- * @author MSI
+ * @author HuuToannn
  */
 public class UserDAO {
 
-  public UserDTO checkLogin(String UserID, String password) throws SQLException, ClassNotFoundException, NamingException {
+ public UserDTO checkLogin(String UserID, String password) throws SQLException, ClassNotFoundException, NamingException {
         UserDTO user = null;
         Connection conn = null;
         PreparedStatement stm = null;
@@ -49,10 +49,9 @@ public class UserDAO {
                     String Certificate = rs.getString("Certificate");
                     String Status = rs.getString("Status");
                     String BirthDay = rs.getString("BirthDay");
-                    byte[] tmp = rs.getBytes("Images");
-                    String base64Image = Base64.getEncoder().encodeToString(tmp);
+                    String Images = rs.getString("Images");
 
-                    user = new UserDTO(UserID, Name, Email, RoleID, PhoneNumber, Address, "", Certificate, Status, BirthDay, base64Image);
+                    user = new UserDTO(UserID, Name, Email, RoleID, PhoneNumber, Address, "", Certificate, Status, BirthDay, Images);
                 }
             }
 
@@ -90,7 +89,7 @@ public class UserDAO {
                 stm.setString(8, user.getCertificate());
                 stm.setString(9, "1");
                 stm.setString(10, "");
-                stm.setString(11, "default.jpg");
+                stm.setString(11, "images\\mat-na1-ohay-tv-90395.jpg");
                 check = stm.executeUpdate() > 0;
             }
         } finally {
@@ -124,7 +123,7 @@ public class UserDAO {
                 stm.setString(8, user.getCertificate());
                 stm.setString(9, "1");
                 stm.setString(10, "");
-                stm.setString(11, "default.jpg");
+                stm.setString(11, "images\\mat-na1-ohay-tv-90395.jpg");
                 check = stm.executeUpdate() > 0;
             }
         } finally {
@@ -137,7 +136,7 @@ public class UserDAO {
         }
         return check;
     }
-     public boolean updateUser(UserDTO user,FileInputStream photo) throws SQLException {
+    public boolean updateUser(UserDTO user) throws SQLException {
         boolean check = false;
         Connection conn = null;
         PreparedStatement stm = null;
@@ -153,7 +152,7 @@ public class UserDAO {
                 stm.setString(3, user.getPhoneNumber());
                 stm.setString(4, user.getAddress());
                 stm.setString(5, user.getBirthday());
-                stm.setBinaryStream(6, photo);
+                stm.setString(6, user.getImages());
                 stm.setString(7, user.getUserID());
                 check = stm.executeUpdate() > 0;
             }
@@ -190,10 +189,8 @@ public class UserDAO {
                     String PhoneNumber = rs.getString("PhoneNumber");
                     String Address = rs.getString("Address");
                     String BirthDay = rs.getString("BirthDay");
-//                    String Images = rs.getString("Images");
-                    byte[] tmp = rs.getBytes("Images");
-                    String base64Image = Base64.getEncoder().encodeToString(tmp);
-                    user = new UserDTO(UserID, Name, Email, PhoneNumber, Address, BirthDay, base64Image);
+                    String Images = rs.getString("Images");
+                    user = new UserDTO(UserID, Name, Email, PhoneNumber, Address, BirthDay, Images);
                 }
             }
         } finally {

@@ -1,3 +1,9 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 .KhuVucHoc {
   margin-top: 30px;
   margin-left: 17px;
@@ -176,7 +182,7 @@
     font-size: 16px;
     line-height: 1;
   }
-  .modal {
+/*  .modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -214,7 +220,7 @@
     background-color: #6a5af9;
     color: white;
     cursor: pointer;
-  }
+  }*/
   .button {
     display: block;
     width: 150px;
@@ -227,7 +233,7 @@
   
   body {
     margin: 0;
-    padding-top: 40px;
+  
     color: #2e323c;
     background: #f5f6fa;
     position: relative;

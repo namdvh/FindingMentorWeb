@@ -8,6 +8,26 @@
         <servlet-name>LoadInforController</servlet-name>
         <servlet-class>c4.fm.controller.LoadInforController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoadSubjectController</servlet-name>
+        <servlet-class>c4.fm.controller.LoadSubjectController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EnrollCourseController</servlet-name>
+        <servlet-class>c4.fm.controller.EnrollCourseController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchController</servlet-name>
+        <servlet-class>c4.fm.controller.SearchController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShowEnrolledSubjectController</servlet-name>
+        <servlet-class>c4.fm.controller.ShowEnrolledSubjectController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShowAllSubjectController</servlet-name>
+        <servlet-class>c4.fm.controller.ShowAllSubjectController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CreateGoogleController</servlet-name>
         <url-pattern>/CreateGoogleController</url-pattern>
@@ -19,6 +39,26 @@
     <servlet-mapping>
         <servlet-name>LoadInforController</servlet-name>
         <url-pattern>/LoadInforController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadSubjectController</servlet-name>
+        <url-pattern>/LoadSubjectController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EnrollCourseController</servlet-name>
+        <url-pattern>/EnrollCourseController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchController</servlet-name>
+        <url-pattern>/SearchController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowEnrolledSubjectController</servlet-name>
+        <url-pattern>/ShowEnrolledSubjectController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowAllSubjectController</servlet-name>
+        <url-pattern>/ShowAllSubjectController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

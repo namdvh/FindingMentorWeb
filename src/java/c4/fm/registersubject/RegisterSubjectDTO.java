@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author HuuToan
  */
 public class RegisterSubjectDTO implements Serializable{
-     private int subjectID;
+    private int subjectID;
     private String userID;
     boolean status;
     private String name;

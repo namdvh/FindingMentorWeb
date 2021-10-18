@@ -83,7 +83,7 @@
     <body>
 
         <!-- Add your content of header -->
-        <header>
+         <header>
             <nav class="navbar  navbar-fixed-top navbar-default">
                 <div class="container">
                     <div class="navbar-header">
@@ -93,41 +93,68 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="user.jsp" title="">
-                            <img src="./assets/images/icon.jpg" class="navbar-logo-img" alt="">
+                        <a style="margin-left: -160px" class="navbar-brand" href="user.jsp" title="">
+                            <img src="assets/images/icon.jpg" class="navbar-logo-img" alt="">
                         </a>
                     </div>
-
                     <div class="collapse navbar-collapse" id="navbar-collapse-uarr">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="user.jsp" title="" class="active">Home</a></li>
-                            <li><a href="/Subject/MyCourse.html" title="" > Subject</a></li>
-                            <!-- <li><a href="updateUser.jsp" title="" > Profile </a></li> -->                     
+                            <li>
+                                <div class="dropdown" style="float:right;margin-top: 26px;">
+                                 <a href="MainController?action=ShowAll"  style="color: #888;"> Subject</a>
+                                    <!-- <div class="dropdown-content" style="left:-20px;">
+                                      <a href="./MyCourse.html" class="choose" style="padding: 10px 0 7px 10px;">My Course</a>
+                                      <a href="#" class="choose" style="padding: 10px 0 7px 10px;">All Couse</a>
+                                      <a href="#" class="choose" style="padding: 10px 0 7px 10px;">Add Couse</a>
+                                    </div> -->
+                                </div>
+                            </li>
+                            <!-- LOGIN LOGOUT -->
+                            <!-- <li><a href="./pricing.html" title="" > Profile </a></li> -->
                             <c:if test="${sessionScope.LOGIN_USER == null}">
                                 <li><a href="createUser.jsp" title="" >Đăng Ký</a></li>
                                 <li><a href="MainController?action=LoginPage" title="">Đăng Nhập</a></li>
-
-                            </c:if>
-                                <!--chinh lai  avatar thanh taskbar luu y copy code -->
-                            <li>
-                                <div class="dropdown" style="float:right;">
-                                    <button class="dropbtn" style="background-color: #fff;">
-                                        <a href="updateUser.jsp">
-                                            <i>
-                                                 <!--style="border-radius: 50px; width: 62px; font-size: 30px; margin-top: 15px" src="assets/${sessionScope.LOGIN_USER.images}" alt="photo2"></i>-->   
-                                                <img style="border-radius: 50px; width: 62px; font-size: 30px; margin-top: 15px" src="data:image/jpg/png;base64,${sessionScope.LOGIN_USER.images}" alt="photo2">
-                                            </i>          
-                                        </a>
-                                    </button>
-                                    <div class="dropdown-content" style="left:-12px;">
-                                        <a ${sessionScope.LOGIN_USER.name} class="choose"></a>
-                                        <a href="updateUser.jsp" class="choose">Profile</a>
-
-                                        <a href="MainController?action=Logout" class="choose">Log out</a>
+                                <li>                              
+                                    <!-- comment dropdown luc nay chua hien avata neu chua damng nhap -->
+                                    <div class="dropdown" style="float:right;">
+                                        <button class="dropbtn" style="background-color: #fff;">
+                                            <a href="login.html">
+                                                <i class="fas fa-user-circle user" 
+                                                   style="font-size: 30px;
+                                                   padding-top: 24px;
+                                                   padding-left: 8px;
+                                                   ">
+                                                </i>
+                                            </a>
+                                        </button>
+                                        <!-- comment fix here link to updateUser,jsp-->
+                                        <div class="dropdown-content" style="left:-12px;">
+                                            <a href="login.html" class="choose">Profile</a>
+                                            <a href="MainController?action=Logout" class="choose">Log out</a>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-
+                                </li>
+                            </c:if>
+                              <!--khuc nay de hien avatar cho taskbar neu da dang nhap -->
+                            <c:if test="${sessionScope.LOGIN_USER != null}">
+                                <li>
+                                    <div class="dropdown" style="float:right;">
+                                        <button class="dropbtn" style="background-color: #fff;">
+                                            <a href="updateUser.jsp">
+                                                <i>
+                                                 <img style="border-radius: 30px; width: 60px; height: 60px; font-size: 30px; margin-top: 15px" src="${sessionScope.LOGIN_USER.images}" alt="photo2">
+                                                </i>       
+                                            </a>
+                                        </button>
+                                        <div class="dropdown-content" style="left:-12px;">
+                                            <a class="choose">${sessionScope.LOGIN_USER.name}</a>
+                                            <a href="updateUser.jsp" class="choose">Profile</a>
+                                            <a href="MainController?action=Logout" class="choose">Log out</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </c:if>           
                         </ul>
                     </div>
                 </div>
@@ -136,7 +163,7 @@
 
 
 
-        <form action="UpdateUserController" method="POST" enctype="multipart/form-data">  
+       <form action="UpdateUserController" method="POST" enctype="multipart/form-data">
             <div class="container">
                 <div class="row gutters">
                     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -145,15 +172,14 @@
                                 <div class="account-settings">
                                     <div class="user-profile">
                                         <div class="user-avatar">
-                                             <img src="data:image/jpg/png;base64,${sessionScope.LOGIN_USER.images}" alt="photo2">
-
+                                            <img src="${sessionScope.LOGIN_USER.images}" alt="photo2">
                                         </div>
                                         <h3 class="user-name" style="">${sessionScope.LOGIN_USER.name}</h3>
                                         <h6 class="user-email" style="font-size: 13px;">${sessionScope.LOGIN_USER.email}</h6>
                                     </div>
                                     <div class="update">
 
-                                        <p><input class="btn btn-success" style="font-size: 15px; margin-top: 35px"  type="file"  name="Images" value=""></p>
+                                        <p><input class="btn btn-success" style="font-size: 15px; margin-top: 35px"  type="file" id="image" name="Images" value=""></p>
                                     </div>
                                 </div>
                             </div>
@@ -198,7 +224,7 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="website">Role</label>
-                                            <input name="roleName" value="${sessionScope.USER_ROLE.roleName}" type="text" readonly="" class="form-control" id="website" placeholder="">
+                                            <input name="roleName" value="${sessionScope.LOGIN_USER.roleID}" type="text" readonly="" class="form-control" id="website" placeholder="">
                                         </div>
                                     </div>
                                 </div>
@@ -223,9 +249,9 @@
 
                                 <div class="row gutters">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <div class="text-right">
-                              
-                                            <button type="submit" id="submit" name="action" value="UpdateUserPage"   class="btnUpdate btn btn-primary">Update</button>
+                                        <div class="text-right">                                       
+                                            <button type="submit"  name="action" value="UpdateUserPage"  class="btnUpdate btn btn-primary">Update</button>
+
                                         </div>
                                     </div>
                                 </div>

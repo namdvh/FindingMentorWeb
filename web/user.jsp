@@ -1,7 +1,7 @@
 <%-- 
     Document   : user
     Created on : Sep 30, 2021, 10:37:09 AM
-    Author     : cunpl
+    Author     : toannh
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -94,7 +94,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="user.jsp" title="">
+                        <a style="margin-left: -160px" class="navbar-brand" href="user.jsp" title="">
                             <img src="assets/images/icon.jpg" class="navbar-logo-img" alt="">
                         </a>
                     </div>
@@ -103,7 +103,7 @@
                             <li><a href="user.jsp" title="" class="active">Home</a></li>
                             <li>
                                 <div class="dropdown" style="float:right;margin-top: 26px;">
-                                    <a href="./Subject/MyCourse.html " title="" style="color: #888;"> Subject</a>
+                                 <a href="MainController?action=ShowAll"  style="color: #888;"> Subject</a>
                                     <!-- <div class="dropdown-content" style="left:-20px;">
                                       <a href="./MyCourse.html" class="choose" style="padding: 10px 0 7px 10px;">My Course</a>
                                       <a href="#" class="choose" style="padding: 10px 0 7px 10px;">All Couse</a>
@@ -144,14 +144,13 @@
                                         <button class="dropbtn" style="background-color: #fff;">
                                             <a href="updateUser.jsp">
                                                 <i>
-                                                 <img style="border-radius: 50px; width: 62px; font-size: 30px; margin-top: 15px" src="data:image/jpg/png;base64,${sessionScope.LOGIN_USER.images}" alt="photo2">
-                                            </i>       
+                                                 <img style="border-radius: 30px; width: 60px; height: 60px; font-size: 30px; margin-top: 15px" src="${sessionScope.LOGIN_USER.images}" alt="photo2">
+                                                </i>       
                                             </a>
                                         </button>
                                         <div class="dropdown-content" style="left:-12px;">
-                                            <a ${sessionScope.LOGIN_USER.name} class="choose"></a>
+                                            <a class="choose">${sessionScope.LOGIN_USER.name}</a>
                                             <a href="updateUser.jsp" class="choose">Profile</a>
-
                                             <a href="MainController?action=Logout" class="choose">Log out</a>
                                         </div>
                                     </div>
