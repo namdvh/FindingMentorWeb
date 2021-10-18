@@ -1,69 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="description" name="description" />
+    <meta name="google" content="notranslate" />
+    <meta
+      content="Mashup templates have been developped by Orson.io team"
+      name="author"
+    />
 
-<head>
-  <meta charset="UTF-8">
-  <meta content="IE=edge" http-equiv="X-UA-Compatible">
-  <meta content="width=device-width,initial-scale=1" name="viewport">
-  <meta content="description" name="description">
-  <meta name="google" content="notranslate" />
-  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no" />
 
-  <!-- Disable tap highlight on IE -->
-  <meta name="msapplication-tap-highlight" content="no">
-  
-  <link href="./assets/apple-touch-icon.png" rel="apple-touch-icon">
-  <link href="./assets/favicon.ico" rel="icon">
+    <link href="./assets/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="./assets/favicon.ico" rel="icon" />
 
+    <!-- link Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <!-- boot -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
 
- <!-- link Font Awesome -->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
- integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
- crossorigin="anonymous" />
- <!-- boot -->
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <title>Title page</title>
 
-  <title>Title page</title>  
+    <!-- <link href="./main.a3f694c0.css" rel="stylesheet" /> -->
 
-<link href="./main.a3f694c0.css" rel="stylesheet">
+    <link rel="stylesheet" href="./app.css" />
+  </head>
+  <body>
+    <div class="areaStudy col-md-4">
+      <div class="content" >
+        <div class="title" style="display: flex;  margin: 10px 10px;">
+          <a class="back" href="/Subject/MyCourse.html">Back</a>
+          <span><h2>Nội dung bài học</h2></span>   
 
-<link rel="stylesheet" href="./app.css">
+             <!-- Button  Create Chapter -->
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createChapter" >
+            Creater Chapter
+          </button>
 
+<!-- Modal -->
 
-
-</head>
-<body>
-  <div class="areaStudy col-md-4">
-      <div class="content ">
-          <div class="title">
-              <a class="back" href="/Subject/MyCourse.html" >Back</a>
-             <span><h2>Nội dung bài học</h2></span> 
-             <a class="buttonPlus buttonCreate fa fa-plus"></a>
-          </div>
-
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle chapter" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Chương 1: Biến và các kiểu dữ liệu thường gặp
-            </button>
-         
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Bài 1: 2 cách chèn Javascript vào HTML</a>
-              <a class="dropdown-item" href="#">Bài 2: Tìm hiểu hàm console.log</a>
-              <a class="dropdown-item" href="#">Bài 3: Kiến thức về biến cần nắm</a>
+          
+        
+        </div>
+        <div class="modal fade" id="createChapter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Create Chapter</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <div class="form-group">
+                      <label for="fullName">Content Name</label>
+                      <input type="text" class="form-control" id="fullName" placeholder="Content Name">
+                  </div>
+                <div class="form-group">
+                    <label for="fullName">Chapter Name</label>
+                    <input type="text" class="form-control" id="fullName" placeholder="Chapter Name">
+                </div>
+                <div class="form-group">
+                    <label for="fullName">Name Subject</label>
+                    <input type="text" class="form-control" id="fullName" placeholder="Name Subject">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
             </div>
           </div>
-      </div>
-      
-  </div>
-  <div class="video col-md-8">
-        
-    <iframe  src="https://www.youtube.com/embed/tgbNymZ7vqY">
-    </iframe>
-          </div>
+        </div>
+               <!-- Button  Create Chapter -->
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle chapter"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Chương 1: Biến và các kiểu dữ liệu thường gặp
+          </button>
+           <!-- Button Plus Create Content -->
+           <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#createContent">
+             +
+           </button>
+           <!-- Modal -->
+           <div class="modal fade" id="createContent" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+             <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                   <div class="modal-header">
+                       <h5 class="modal-title">Create Content</h5>
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                         </button>
+                     </div>
+                 <div class="modal-body">
+                   <div class="container-fluid">
 
-          <script src="./content.js"></script>
-  <!-- BOOTSTRAP -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-</body>
+                    <div class="form-group">
+                    <label for="fullName">Content Name</label>
+                      <input type="text" class="form-control" id="fullName" placeholder="Content Name">
+                    </div>
+
+                    <div class="form-group">
+                    <label for="fullName">Video Url</label>
+                    <input type="text" class="form-control" id="fullName" placeholder="Video Url">
+                    </div>
+
+                    <div class="form-group">
+                  <label for="fullName">Blog</label>
+                  <input type="text" class="form-control" id="fullName" placeholder="Blog">
+                  </div>
+                   </div>
+                 </div>
+                 <div class="modal-footer">
+                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                   <button type="button" class="btn btn-primary">Create Content</button>
+                 </div>
+               </div>
+             </div>
+           </div>
+   <!-- Button Plus Create Content -->
+         
+           <!-- Update Chapte -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateChapter">
+  Edit
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="updateChapter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Update Chapter</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="fullName">Chapter Name</label>
+          <input type="text" class="form-control" id="fullName" placeholder="Chapter Name">
+          </div>
+          <div class="form-group">
+            <label for="fullName">Description</label>
+            <input type="text" class="form-control" id="fullName" placeholder="Description">
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Update Chapter</button>
+      </div>
+    </div>
+  </div>
+</div>
+            <!-- Update Chapte -->
+
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#"
+                  >Bài 1: 2 cách chèn Javascript vào HTML
+                  <!-- Button trigger modal -->
+                  
+                  <!-- Edit Bài học -->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editCourse">
+                    Edit
+                  </button>
+          </div>
+          <div class="modal fade" id="editCourse" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title">Edit Content</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <div class="modal-body">
+                  <div class="container-fluid">
+                    <div class="form-group">
+                      <label for="fullName">Content Name</label>
+                      <input type="text" class="form-control" id="fullName" placeholder="Content Name">
+                      </div>
+                      <div class="form-group">
+                        <label for="fullName">Video Url</label>
+                        <input type="text" class="form-control" id="fullName" placeholder="Video Url">
+                        </div>
+                        <div class="form-group">
+                          <label for="fullName">Blog</label>
+                          <input type="text" class="form-control" id="fullName" placeholder="Blog">
+                          </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+       <!-- Edit Bài học -->
+    <div  class="video ">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Br4xUFy9OGc" ></iframe>
+    </div>
+
+    <!-- <script src="./content.js"></script> -->
+    <!-- BOOTSTRAP -->
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"
+  ></script>
+
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"
+  ></script>
+    <!-- Button trigger modal -->
+    <script>
+      $('#exampleModal').on('show.bs.modal', event => {
+        var button = $(event.relatedTarget);
+        var modal = $(this);
+        // Use above variables to manipulate the DOM
+      });
+
+    </script>
+  </body>
 </html>

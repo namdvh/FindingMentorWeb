@@ -9,25 +9,30 @@ import c4.fm.dao.UserDAO;
 import c4.fm.user.UserDTO;
 import c4.fm.user.UserError;
 import c4.fm.validation.CheckValidation;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.io.FileUtils;
 
 /**
  *
  * @author HuuToan
  */
+@MultipartConfig
 public class UpdateUserController extends HttpServlet {
 
     private static final String ERROR = "updateUser.jsp";
@@ -46,64 +51,22 @@ public class UpdateUserController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
-         UserError userError = new UserError("", "", "", "", "", "", "", "", "");
+        UserError userError = new UserError("", "", "", "", "", "", "", "", "");
         try {
             CheckValidation valid = new CheckValidation();
-            String Name = "";
-            String Email = "";
-            String PhoneNumber = "";
-            String Address = "";
-            String BirthDay = "";
-            FileInputStream photo = null;
-
-            boolean isMultiPart = ServletFileUpload.isMultipartContent(request);
-            if (!isMultiPart) {
-
-            } else {
-                FileItemFactory factory = new DiskFileItemFactory();
-                ServletFileUpload upload = new ServletFileUpload(factory);
-                List items = null;
-                try {
-                    items = upload.parseRequest(request);
-                } catch (org.apache.commons.fileupload.FileUploadException e) {
-                    e.printStackTrace();
-                }
-                Iterator iter = items.iterator();
-                Hashtable params = new Hashtable();
-                String fileName = null;
-                // gui count =3;
-                while (iter.hasNext()) {
-                    FileItem item = (FileItem) iter.next();
-                    if (item.isFormField()) {
-                        params.put(item.getFieldName(), item.getString());
-                        String inputName = item.getFieldName();
-
-                        if (inputName.equalsIgnoreCase("Name")) {
-                            Name = item.getString();
-                        }
-
-                        if (inputName.equalsIgnoreCase("Email")) {
-                            Email = item.getString();
-                        }
-                        if (inputName.equalsIgnoreCase("phone")) {
-                            PhoneNumber = item.getString();
-                        }
-                        if (inputName.equalsIgnoreCase("BirthDay")) {
-                            BirthDay = item.getString();
-                        }
-                        if (inputName.equalsIgnoreCase("Address")) {
-
-                            Address = item.getString();
-                        }
-
-                    } else {
-
-                        photo = (FileInputStream) item.getInputStream();           
-                    }
-                }
-
-            }
-//            String urll = request.getParater("url");
+            String Name = request.getParameter("Name");
+            String Email = request.getParameter("Email");
+            String PhoneNumber = request.getParameter("phone");
+            String Address = request.getParameter("Address");
+            String BirthDay = request.getParameter("BirthDay");
+//            String Images = request.getParameter("Images");            
+            Part part = request.getPart("Images");
+            String filename = part.getSubmittedFileName();
+            String realPath = request.getServletContext().getRealPath("/") + "images" + File.separator + filename;
+            System.out.println(realPath);
+            File file = new File(realPath);
+            FileUtils.copyInputStreamToFile(part.getInputStream(), file);
+//            request.setAttribute("IMG", "images" + File.separator + filename);
             boolean check = true;
             if (Name.length() < 1) {
                 userError.setNameError("Name can not blank!!!");
@@ -129,8 +92,8 @@ public class UpdateUserController extends HttpServlet {
                 HttpSession session = request.getSession();
                 UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
                 UserDAO usdao = new UserDAO();
-                UserDTO usdto = new UserDTO(user.getUserID(), Name, Email, PhoneNumber, Address, BirthDay, "");
-                boolean checkupdate = usdao.updateUser(usdto,photo);
+                UserDTO usdto = new UserDTO(user.getUserID(), Name, Email, PhoneNumber, Address, BirthDay, "images" + File.separator + filename);
+                boolean checkupdate = usdao.updateUser(usdto);
                 if (checkupdate) {
                     url = SUCCESS;
                     String msg = ("Update Successful");

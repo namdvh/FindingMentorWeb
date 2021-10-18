@@ -7,6 +7,7 @@ package c4.fm.controller;
 
 import c4.fm.dao.ChapterDAO;
 import c4.fm.subject.ChapterDTO;
+import c4.fm.user.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -35,23 +36,30 @@ public class CreateChapterController extends HttpServlet {
      */
     private static final String ERROR = "mentor.jsp";
     private static final String SUCCESS = "LoadChapterController";
-    
+    private static final String PAGELOGIN = "login.html";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         try {
-            ChapterDAO dao = new ChapterDAO();
-            int subjectID = 0;
-            String chapterName = request.getParameter("NewChapterName");
-            String description = request.getParameter("NewDescription");
-            boolean check = dao.CreateNewChapter(chapterName, description, subjectID);
-            if (check) {
-                url = SUCCESS;
+            HttpSession session = request.getSession();
+            UserDTO loginUser = (UserDTO) session.getAttribute("LOGIN_USER");
+            if (loginUser == null || !"MT".equals(loginUser.getRoleID())) {
+                url = PAGELOGIN;
+            } else {
+                ChapterDAO dao = new ChapterDAO();
+                int subjectID = Integer.parseInt(request.getParameter("SubjectID"));
+                String chapterName = request.getParameter("NewChapterName");
+                String description = request.getParameter("NewDescription");
+                boolean check = dao.CreateNewChapter(chapterName, description, subjectID);
+                if (check) {
+                    url = SUCCESS;
+                }
             }
         } catch (Exception e) {
-            e.printStackTrace();
-        }finally {
+            log("Error at CreateChapterController:" + e.toString());
+        } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
     }

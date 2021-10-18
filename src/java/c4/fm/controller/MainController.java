@@ -25,6 +25,11 @@ public class MainController extends HttpServlet {
     private static final String CREATE = "CreateController";
     private static final String CREATE_PAGE = "createUser.jsp";
     private static final String UPDATE_USER_PAGE = "UpdateUserController";
+    private static final String LOAD_SUBJECT_PAGE = "LoadSubjectController";
+    private static final String SHOW_ALL_COURSE = "ShowAllSubjectController";
+    private static final String SEARCH_COURSE = "SearchController";
+    private static final String SHOW_COURSE_ENROLLED = "ShowEnrolledSubjectController";
+    private static final String ENROLL_COURSE = "EnrollCourseController";
 
     //==============BEGIN OF ADMIN===================
     private static final String LOAD_ADMIN_PAGE_SERVLET = "LoadAdminServlet";
@@ -64,6 +69,16 @@ public class MainController extends HttpServlet {
                 url = CREATE;
             } else if ("CreatePage".equals(action)) {
                 url = CREATE_PAGE;
+            } else if ("LoadSubjectPage".equals(action)) {
+                url = LOAD_SUBJECT_PAGE;
+            } else if ("ShowAll".equals(action)) {
+                url = SHOW_ALL_COURSE;
+            } else if ("Search".equals(action)) {
+                url = SEARCH_COURSE;
+            } else if ("ShowEnrolled".equals(action)) {
+                url = SHOW_COURSE_ENROLLED;
+            } else if ("Enroll".equals(action)) {
+                url = ENROLL_COURSE;
             } else if ("UpdateUserPage".equals(action)) {
                 url = UPDATE_USER_PAGE;
             } //================BEGIN OF ADMIN============================

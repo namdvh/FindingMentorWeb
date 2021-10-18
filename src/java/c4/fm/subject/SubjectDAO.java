@@ -210,6 +210,7 @@ public class SubjectDAO implements Serializable {
         }
         return false;
     }
+
     public SubjectDTO CourseDetail(int SubjectID) throws SQLException, ClassNotFoundException {
         SubjectDTO dto = null;
         Connection con = null;
@@ -243,5 +244,213 @@ public class SubjectDAO implements Serializable {
         }
         return dto;
     }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    public SubjectDTO loadSubject(int subjectID) throws SQLException, ClassNotFoundException {
+        SubjectDTO subject = null;
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = "Select SubjectID, SubjectName, Images, UserID, CategoryID, Description, Status \n"
+                        + " from tblSubject"
+                        + " where SubjectID = ? AND Status = '1' ";
+                pst = con.prepareStatement(sql);
+                pst.setInt(1, subjectID);
+                rs = pst.executeQuery();
+                while (rs.next()) {
+                    int subjectId = Integer.parseInt(rs.getString("SubjectID"));
+                    String subjectName = rs.getString("SubjectName");
+                    String images = rs.getString("Images");
+                    String userId = rs.getString("UserId");
+                    String categoryId = rs.getString("CategoryID");
+                    String description = rs.getString("Description");
+                    boolean status = rs.getBoolean("Status");
+                    subject = new SubjectDTO(subjectId, subjectName, images, userId, categoryId, description, status);
+                }
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+
+        }
+        return subject;
+    }
+    ///////////////////////////////////
+
+    public List<SubjectDTO> ShowAllSubject() throws ClassNotFoundException, SQLException {
+        List<SubjectDTO> listSubject = new ArrayList<>();
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = "select SubjectID,SubjectName,Images,UserID,CategoryID,Description,Status \n"
+                        + "from tblSubject \n "
+                        + "Where Status = '1' ";
+                pst = con.prepareStatement(sql);
+                rs = pst.executeQuery();
+                while (rs.next()) {
+                    int subjectId = Integer.parseInt(rs.getString("SubjectID"));
+                    String subjectName = rs.getString("SubjectName");
+                    String images = rs.getString("Images");
+                    String userId = rs.getString("UserID");
+                    String categoryId = rs.getString("CategoryID");
+                    String description = rs.getString("Description");
+                    boolean status = rs.getBoolean("Status");
+                    SubjectDTO subject = new SubjectDTO(subjectId, subjectName, images, userId, categoryId, description, status);
+                    listSubject.add(subject);
+                }
+
+            }
+
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+                pst.close();
+            }
+        }
+        return listSubject;
+    }
+
+    public List<SubjectDTO> SearchSubject(String searchValue) throws ClassNotFoundException, SQLException {
+        List<SubjectDTO> listSubject = new ArrayList<>();
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = "select SubjectID,SubjectName,Images,UserID,CategoryID,Description,Status \n"
+                        + " from tblSubject \n "
+                        + " Where SubjectName like ";
+                pst = con.prepareStatement(sql);
+                pst.setString(1, "%" + searchValue + "%");
+                rs = pst.executeQuery();
+                while (rs.next()) {
+                    int subjectId = Integer.parseInt(rs.getString("SubjectID"));
+                    String subjectName = rs.getString("SubjectName");
+                    String images = rs.getString("Images");
+                    String userId = rs.getString("UserID");
+                    String categoryId = rs.getString("CategoryID");
+                    String description = rs.getString("Description");
+                    boolean status = rs.getBoolean("Status");
+                    SubjectDTO subject = new SubjectDTO(subjectId, subjectName, images, userId, categoryId, description, status);
+                    listSubject.add(subject);
+                }
+
+            }
+
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+                pst.close();
+            }
+        }
+        return listSubject;
+    }
+
+    public List<SubjectDTO> ShowEnrollSubject(String searchValue, String userID) throws ClassNotFoundException, SQLException {
+        List<SubjectDTO> listSubject = new ArrayList<>();
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = "select SubjectID,SubjectName,Images,UserID,CategoryID,Description,Status \n"
+                        + " from tblSubject \n "
+                        + " SubjectName like  ? and UserID = ? ";
+                pst = con.prepareStatement(sql);
+                pst.setString(1, "%" + searchValue + "%");
+                pst.setString(2, userID);
+                rs = pst.executeQuery();
+                while (rs.next()) {
+                    int subjectId = Integer.parseInt(rs.getString("SubjectID"));
+                    String subjectName = rs.getString("SubjectName");
+                    String images = rs.getString("Images");
+                    String userId = rs.getString("UserID");
+                    String categoryId = rs.getString("CategoryID");
+                    String description = rs.getString("Description");
+                    boolean status = rs.getBoolean("Status");
+                    SubjectDTO subject = new SubjectDTO(subjectId, subjectName, images, userId, categoryId, description, status);
+                    listSubject.add(subject);
+                }
+
+            }
+
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+                pst.close();
+            }
+        }
+        return listSubject;
+    }
+
+    public List<SubjectDTO> listSubjectMentor(String userID) throws SQLException, ClassNotFoundException {
+        List<SubjectDTO> listSubject = new ArrayList<>();
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = "Select SubjectID, SubjectName, Images, CategoryID, Description, Status \n"
+                        + "from tblSubject \n"
+                        + "Where UserID = ? ";
+                pst = con.prepareStatement(sql);
+                pst.setString(1, userID);
+                rs = pst.executeQuery();
+                while (rs.next()) {
+                    int subjectId = Integer.parseInt(rs.getString("SubjectID"));
+                    String subjectName = rs.getString("SubjectName");
+                    String images = rs.getString("Images");
+                    String categoryId = rs.getString("CategoryID");
+                    String description = rs.getString("Description");
+                    boolean status = rs.getBoolean("Status");
+                    SubjectDTO subject = new SubjectDTO(subjectId, subjectName, images, userID, categoryId, description, status);
+                    listSubject.add(subject);
+                }
+            }
+
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+
+            }
+
+        }
+        return listSubject;
+    }
 }

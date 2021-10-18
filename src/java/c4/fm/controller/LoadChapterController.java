@@ -9,6 +9,7 @@ import c4.fm.dao.ChapterDAO;
 import c4.fm.dao.ContentDAO;
 import c4.fm.subject.ChapterDTO;
 import c4.fm.subject.ContentDTO;
+import c4.fm.user.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -36,24 +37,34 @@ public class LoadChapterController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     private static final String PAGE = "mentor.jsp";
+    private static final String PAGELOGIN = "login.html";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = PAGE;
         try {
-            int subjectID = 0;
-            ChapterDAO chapterDAO = new ChapterDAO();
-            List<ChapterDTO> listChapter = chapterDAO.LoadListChapter(subjectID);
-            ContentDAO contentDAO = new ContentDAO();
-            for (ChapterDTO chapter : listChapter) {
-                List<ContentDTO> listContent = contentDAO.LoadListContent(chapter.getChapterID());
-                if (listContent != null) {
-                    chapter.setList(listContent);
+            HttpSession session = request.getSession();
+            UserDTO loginUser = (UserDTO) session.getAttribute("LOGIN_USER");
+            if (loginUser == null || !"MT".equals(loginUser.getRoleID())) {
+                url = PAGELOGIN;
+            } else {
+                int subjectID = Integer.parseInt(request.getParameter("SubjectID"));
+                String subjectName = request.getParameter("SubjectName");
+                ChapterDAO chapterDAO = new ChapterDAO();
+                List<ChapterDTO> listChapter = chapterDAO.LoadListChapter(subjectID);
+                ContentDAO contentDAO = new ContentDAO();
+                for (ChapterDTO chapter : listChapter) {
+                    List<ContentDTO> listContent = contentDAO.LoadListContent(chapter.getChapterID());
+                    if (listContent != null) {
+                        chapter.setList(listContent);
+                    }
                 }
+                request.setAttribute("LIST_CHAPTER", listChapter);
+                request.setAttribute("SUBJECT_NAME", subjectName);
             }
-            request.setAttribute("LIST_CHAPTER", listChapter);
         } catch (Exception e) {
-            e.printStackTrace();
+            log("Error at LoadChapterController:" + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
