@@ -29,7 +29,7 @@ public class RegisterSubjectDAO implements Serializable{
             conn = c4.fm.utils.DBUtils.getConnection();
             if (conn != null) {
                 String sql = " INSERT INTO tblRegister values(?,?,'1',?) ";
-
+                stm = conn.prepareStatement(sql);
                 stm.setInt(1, subjectID);
                 stm.setString(2, userID);
                 stm.setString(3, name);

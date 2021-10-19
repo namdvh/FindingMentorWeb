@@ -7,12 +7,14 @@ package c4.fm.controller;
 
 import c4.fm.registersubject.RegisterSubjectDAO;
 import c4.fm.registersubject.RegisterSubjectDTO;
+import c4.fm.user.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -38,20 +40,23 @@ public class EnrollCourseController extends HttpServlet {
         String url = ERROR;
         try {
             RegisterSubjectDAO dao = new RegisterSubjectDAO();
-            RegisterSubjectDTO dto = new RegisterSubjectDTO(Integer.parseInt(""), "", true, "");
-            int subjectID = Integer.parseInt(request.getParameter("SubjectID"));
+            RegisterSubjectDTO dto = new RegisterSubjectDTO();
+            int subjectID = Integer.parseInt(request.getParameter("subjectId"));
             String userID = request.getParameter("UserID");
-            boolean Satus = true;
-            String Name = request.getParameter("Name");
+            HttpSession session = request.getSession();
+            UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
+
+            String Name = user.getName();
+
             boolean check = dao.registerSubjectUser(subjectID, userID, Name);
-            if(check){
+            if (check) {
                 url = SUCCESS;
             }
-           
+
         } catch (Exception e) {
-            log("Error at EnrollCourseController"+e.toString());
-            
-        }finally{
+            log("Error at EnrollCourseController" + e.toString());
+
+        } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
     }
@@ -94,5 +99,4 @@ public class EnrollCourseController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }

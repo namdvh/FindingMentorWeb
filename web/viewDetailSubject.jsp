@@ -199,69 +199,36 @@
             
             
       
-            <div>
-             
+       
+            <div>               
                     <div>
                         <!--button Detail-->
                         <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
-                          
-                            <a style="color: white" href="MainController?action=Enroll&subjectId=${load.subjectId}">  Register  </a>
+
+                            <a style="color: white" href="MainController?action=Enroll&subjectId=${ViewPage.subjectId}&UserID=${ViewPage.userId}">  Register  </a>
                         </button>
 
                         <!-- Modal -->
                         <div style="display: flex;">
-                            
-                       
-                       
-                        <img
-                            src="${images}"
-                            alt=""
-                            style="width: 100px; height: 100px"
-                            
-                            />
-                        <ul style="margin-left: 10px">                
-                                <p>${subjectName}</p>                         
-                                <p>${description}</p>
-                        </ul>
-                        
-                         </div>
-                    </div> <hr>
-           
-            </div> 
-      
-            
-            
 
-            <!-- tu cho nay tro di la phan cua My course-->  
-             <div id="allCourse" class="tabcontent">
-                <c:forEach items="${allSubject}" var="load">
-                    <div>
-                        <!--button Detail-->
-                        <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
-                          
-                            <a style="color: white" href="MainController?action=LoadSubjectPage&subjectId=${load.subjectId}">  Join class  </a>
-                        </button>
 
-                        <!-- Modal -->
-                        <div style="display: flex;">
-                            
-                       
-                       
-                        <img
-                            src="${load.images}"
-                            alt=""
-                            style="width: 100px; height: 100px"
-                            
-                            />
-                        <ul style="margin-left: 10px">                
-                                <p>${load.subjectName}</p>                         
-                                <p>${load.description}</p>
-                        </ul>
-                        
-                         </div>
-                    </div> <hr>
-               </c:forEach>
+
+                            <img
+                                src="${ViewPage.images}"
+                                alt=""
+                                style="width: 100px; height: 100px"
+
+                                />
+                            <ul style="margin-left: 10px">                
+                                <p>${ViewPage.subjectName}</p>                         
+                                <p>${ViewPage.description}</p>
+                            </ul>
+
+                        </div>
+                    </div>              
             </div> 
+        
+
 
 <!--            <div id="myCourse" class="tabcontent">
               

@@ -253,7 +253,7 @@ public class SubjectDAO implements Serializable {
             con = DBUtils.getConnection();
             if (con != null) {
                 String sql = "Select SubjectID, SubjectName, Images, UserID, CategoryID, Description, Status \n"
-                        + " from tblSubject"
+                        + " from tblSubject "
                         + " where SubjectID = ? AND Status = '1' ";
                 pst = con.prepareStatement(sql);
                 pst.setInt(1, subjectID);
@@ -262,7 +262,7 @@ public class SubjectDAO implements Serializable {
                     int subjectId = Integer.parseInt(rs.getString("SubjectID"));
                     String subjectName = rs.getString("SubjectName");
                     String images = rs.getString("Images");
-                    String userId = rs.getString("UserId");
+                    String userId = rs.getString("UserID");
                     String categoryId = rs.getString("CategoryID");
                     String description = rs.getString("Description");
                     boolean status = rs.getBoolean("Status");

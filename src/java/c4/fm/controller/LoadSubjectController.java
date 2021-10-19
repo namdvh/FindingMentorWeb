@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class LoadSubjectController extends HttpServlet {
     private static final String LOAD_PAGE = "viewDetailSubject.jsp";
+    private static final String ERROR ="error.jsp";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -32,12 +34,13 @@ public class LoadSubjectController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = LOAD_PAGE;
+        String url = ERROR;
         try {
-            int subjectId = Integer.parseInt(request.getParameter("subjectId"));
+             int subjectId = Integer.parseInt(request.getParameter("subjectId"));
             SubjectDAO subjectDao = new SubjectDAO();
             SubjectDTO subject = subjectDao.loadSubject(subjectId);
             request.setAttribute("ViewPage", subject);
+            url = LOAD_PAGE;
 
         } catch (Exception e) {
             log("Errot at LoadSubjectController:" + e.toString());
