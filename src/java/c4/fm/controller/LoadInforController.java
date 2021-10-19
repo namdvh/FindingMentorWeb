@@ -20,8 +20,10 @@ import javax.servlet.http.HttpSession;
  * @author HuuToan
  */
 public class LoadInforController extends HttpServlet {
-        private static final String LOAD ="updateUser.jsp";
-        private static final String ERROR ="error.jsp";
+
+    private static final String LOAD = "updateUser.jsp";
+    private static final String ERROR = "error.jsp";
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,8 +36,8 @@ public class LoadInforController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR; 
-         try {
+        String url = ERROR;
+        try {
             HttpSession session = request.getSession();
             UserDTO usdto = (UserDTO) session.getAttribute("LOGIN_USER");
             String userID = usdto.getUserID();
@@ -44,11 +46,12 @@ public class LoadInforController extends HttpServlet {
             session.setAttribute("LOGIN_USER", usdto);
             url = LOAD;
         } catch (Exception e) {
-            log("Error at LoadController: "+e.toString());
-        }finally{
+            log("Error at LoadController: " + e.toString());
+        } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

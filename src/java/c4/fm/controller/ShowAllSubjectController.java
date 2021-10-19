@@ -7,6 +7,7 @@ package c4.fm.controller;
 
 import c4.fm.subject.SubjectDAO;
 import c4.fm.subject.SubjectDTO;
+import c4.fm.user.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -14,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -32,16 +34,23 @@ public class ShowAllSubjectController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-         try {
+        try {
+            HttpSession session = request.getSession();
+            UserDTO loginUser = (UserDTO) session.getAttribute("LOGIN_USER");
             SubjectDAO dao = new SubjectDAO();
-            List<SubjectDTO> list  = dao.ShowAllSubject();
-            
+            List<SubjectDTO> list = dao.ShowAllSubject();
+            if (loginUser.getRoleID().equals("US")) {
+                //ham test show list enroll subject
+                List<SubjectDTO> listSubjectMentor = dao.listSubjectMentor(loginUser.getUserID());
+                request.setAttribute("LIST_USER_SUBJECT", listSubjectMentor);
+            } else if (loginUser.getRoleID().equals("MT")) {
+                List<SubjectDTO> listSubjectMentor = dao.listSubjectMentor(loginUser.getUserID());
+                request.setAttribute("LIST_MENTOR_SUBJECT", listSubjectMentor);
+            }
             request.setAttribute("allSubject", list);
-            
         } catch (Exception e) {
-            log("Error at show all subject"+ e.getMessage());
-        }finally{
+            log("Error at show all subject" + e.getMessage());
+        } finally {
             request.getRequestDispatcher("subjectManagement.jsp").forward(request, response);
         }
     }

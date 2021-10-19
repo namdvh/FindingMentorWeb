@@ -58,15 +58,9 @@ public class UpdateUserController extends HttpServlet {
             String Email = request.getParameter("Email");
             String PhoneNumber = request.getParameter("phone");
             String Address = request.getParameter("Address");
-            String BirthDay = request.getParameter("BirthDay");
-//            String Images = request.getParameter("Images");            
-            Part part = request.getPart("Images");
-            String filename = part.getSubmittedFileName();
-            String realPath = request.getServletContext().getRealPath("/") + "images" + File.separator + filename;
-            System.out.println(realPath);
-            File file = new File(realPath);
-            FileUtils.copyInputStreamToFile(part.getInputStream(), file);
-//            request.setAttribute("IMG", "images" + File.separator + filename);
+            String BirthDay = request.getParameter("BirthDay");         
+            Part newPart = request.getPart("ProfileImage");
+            System.out.println(newPart);
             boolean check = true;
             if (Name.length() < 1) {
                 userError.setNameError("Name can not blank!!!");
@@ -92,7 +86,18 @@ public class UpdateUserController extends HttpServlet {
                 HttpSession session = request.getSession();
                 UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
                 UserDAO usdao = new UserDAO();
-                UserDTO usdto = new UserDTO(user.getUserID(), Name, Email, PhoneNumber, Address, BirthDay, "images" + File.separator + filename);
+                String pathImage = "";
+                if (!newPart.getSubmittedFileName().isEmpty()) {
+                    String filename = user.getUserID() + ".jpg";
+                    pathImage = "Images_Profile" + File.separator + filename;
+                    String realPath = request.getServletContext().getRealPath("/") + pathImage;
+                    File file = new File(realPath);
+                    FileUtils.copyInputStreamToFile(newPart.getInputStream(), file);
+                } else {
+                    UserDTO oldUser = usdao.getUserInfo(user.getUserID());
+                    pathImage = oldUser.getImages();
+                }
+                UserDTO usdto = new UserDTO(user.getUserID(), Name, Email, PhoneNumber, Address, BirthDay, pathImage);
                 boolean checkupdate = usdao.updateUser(usdto);
                 if (checkupdate) {
                     url = SUCCESS;
@@ -103,7 +108,6 @@ public class UpdateUserController extends HttpServlet {
                     request.setAttribute("UPDATE_ERROR", userError);
                 }
             }
-
         } catch (Exception e) {
             log("Error at update user" + e.toString());
         } finally {
