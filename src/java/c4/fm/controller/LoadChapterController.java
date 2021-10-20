@@ -9,6 +9,7 @@ import c4.fm.dao.ChapterDAO;
 import c4.fm.dao.ContentDAO;
 import c4.fm.subject.ChapterDTO;
 import c4.fm.subject.ContentDTO;
+import c4.fm.user.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -36,12 +37,18 @@ public class LoadChapterController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     private static final String PAGE = "mentor.jsp";
+    private static final String PAGELOGIN = "login.html";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = PAGE;
         try {
-            int subjectID = 0;
+            HttpSession session = request.getSession();
+            int subjectID = Integer.parseInt(request.getParameter("SubjectID"));
+            String subjectName = request.getParameter("SubjectName");
+            session.setAttribute("SUBJECT_ID", subjectID);
+            session.setAttribute("SUBJECT_NAME", subjectName);
             ChapterDAO chapterDAO = new ChapterDAO();
             List<ChapterDTO> listChapter = chapterDAO.LoadListChapter(subjectID);
             ContentDAO contentDAO = new ContentDAO();
@@ -53,7 +60,7 @@ public class LoadChapterController extends HttpServlet {
             }
             request.setAttribute("LIST_CHAPTER", listChapter);
         } catch (Exception e) {
-            e.printStackTrace();
+            log("Error at load detail subject" + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

@@ -210,6 +210,7 @@ public class SubjectDAO implements Serializable {
         }
         return false;
     }
+
     public SubjectDTO CourseDetail(int SubjectID) throws SQLException, ClassNotFoundException {
         SubjectDTO dto = null;
         Connection con = null;
@@ -243,8 +244,9 @@ public class SubjectDAO implements Serializable {
         }
         return dto;
     }
- //////////////////////////////////////////////////////////////////////////////////////////////////////////
-     public SubjectDTO loadSubject(int subjectID) throws SQLException, ClassNotFoundException {
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public SubjectDTO loadSubject(int subjectID) throws SQLException, ClassNotFoundException {
         SubjectDTO subject = null;
         Connection con = null;
         PreparedStatement pst = null;
@@ -266,7 +268,7 @@ public class SubjectDAO implements Serializable {
                     String categoryId = rs.getString("CategoryID");
                     String description = rs.getString("Description");
                     boolean status = rs.getBoolean("Status");
-                    subject = new SubjectDTO(subjectId, subjectName, images, userId, categoryId, description, status);     
+                    subject = new SubjectDTO(subjectId, subjectName, images, userId, categoryId, description, status);
                 }
             }
         } finally {
@@ -283,9 +285,9 @@ public class SubjectDAO implements Serializable {
         }
         return subject;
     }
-     ///////////////////////////////////
-     
-       public List<SubjectDTO> ShowAllSubject() throws ClassNotFoundException, SQLException {
+    ///////////////////////////////////
+
+    public List<SubjectDTO> ShowAllSubject() throws ClassNotFoundException, SQLException {
         List<SubjectDTO> listSubject = new ArrayList<>();
         Connection con = null;
         PreparedStatement pst = null;
@@ -325,6 +327,7 @@ public class SubjectDAO implements Serializable {
         }
         return listSubject;
     }
+
     public List<SubjectDTO> SearchSubject(String searchValue) throws ClassNotFoundException, SQLException {
         List<SubjectDTO> listSubject = new ArrayList<>();
         Connection con = null;
@@ -366,6 +369,7 @@ public class SubjectDAO implements Serializable {
         }
         return listSubject;
     }
+
     public List<SubjectDTO> ShowEnrollSubject(String searchValue, String userID) throws ClassNotFoundException, SQLException {
         List<SubjectDTO> listSubject = new ArrayList<>();
         Connection con = null;
@@ -407,6 +411,46 @@ public class SubjectDAO implements Serializable {
             }
         }
         return listSubject;
-    }    
+    }
 
+    public List<SubjectDTO> listSubjectMentor(String userID) throws SQLException, ClassNotFoundException {
+        List<SubjectDTO> listSubject = new ArrayList<>();
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = "Select SubjectID, SubjectName, Images, CategoryID, Description, Status \n"
+                        + "from tblSubject \n"
+                        + "Where UserID = ? ";
+                pst = con.prepareStatement(sql);
+                pst.setString(1, userID);
+                rs = pst.executeQuery();
+                while (rs.next()) {
+                    int subjectId = Integer.parseInt(rs.getString("SubjectID"));
+                    String subjectName = rs.getString("SubjectName");
+                    String images = rs.getString("Images");
+                    String categoryId = rs.getString("CategoryID");
+                    String description = rs.getString("Description");
+                    boolean status = rs.getBoolean("Status");
+                    SubjectDTO subject = new SubjectDTO(subjectId, subjectName, images, userID, categoryId, description, status);
+                    listSubject.add(subject);
+                }
+            }
+
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+
+            }
+
+        }
+        return listSubject;
+    }
 }
