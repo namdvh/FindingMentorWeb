@@ -5,8 +5,10 @@
  */
 package c4.fm.controller;
 
+import c4.fm.registersubject.RegisterSubjectDAO;
 import c4.fm.subject.SubjectDAO;
 import c4.fm.subject.SubjectDTO;
+import c4.fm.user.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -20,8 +22,11 @@ import javax.servlet.http.HttpSession;
  * @author HuuToan
  */
 public class LoadSubjectController extends HttpServlet {
+
     private static final String LOAD_PAGE = "viewDetailSubject.jsp";
-    private static final String ERROR ="error.jsp";
+    private static final String ERROR = "error.jsp";
+    private static final String SUCCESS = "studentStudyPage.jsp";
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,12 +40,22 @@ public class LoadSubjectController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
+        boolean check = true;
+        HttpSession session = request.getSession();
+        UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
+        int subjectId = Integer.parseInt(request.getParameter("subjectId"));
+        SubjectDAO subjectDao = new SubjectDAO();
+        RegisterSubjectDAO registerDao = new RegisterSubjectDAO();
+
         try {
-             int subjectId = Integer.parseInt(request.getParameter("subjectId"));
-            SubjectDAO subjectDao = new SubjectDAO();
-            SubjectDTO subject = subjectDao.loadSubject(subjectId);
-            request.setAttribute("ViewPage", subject);
-            url = LOAD_PAGE;
+            check = registerDao.checkValidRegister(user.getUserID(), subjectId);
+            if (check == true) {
+                url = SUCCESS;
+            } else {
+                SubjectDTO dto = subjectDao.loadSubject(subjectId);
+                request.setAttribute("ViewPage", dto);
+                url = LOAD_PAGE;
+            }
 
         } catch (Exception e) {
             log("Errot at LoadSubjectController:" + e.toString());

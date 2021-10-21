@@ -453,4 +453,44 @@ public class SubjectDAO implements Serializable {
         }
         return listSubject;
     }
+    public List<SubjectDTO> ShowEnrollSubject(String userID) throws ClassNotFoundException, SQLException {
+        List<SubjectDTO> listSubject = new ArrayList<>();
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = "select tblSubject.SubjectID, SubjectName, Images, tblSubject.UserID, CategoryID, [Description], tblSubject.Status \n"
+                        + " from tblSubject,tblRegister  \n "
+                        + " where tblRegister.SubjectID = tblSubject.SubjectID and tblRegister.UserID = ? ";
+                pst = con.prepareStatement(sql);          
+                pst.setString(1, userID);
+                rs = pst.executeQuery();
+                while (rs.next()) {
+                    int subjectId = Integer.parseInt(rs.getString("SubjectID"));
+                    String subjectName = rs.getString("SubjectName");
+                    String images = rs.getString("Images");
+                    String userId = rs.getString("UserID");
+                    String categoryId = rs.getString("CategoryID");
+                    String description = rs.getString("Description");
+                    boolean status = rs.getBoolean("Status");
+                    SubjectDTO subject = new SubjectDTO(subjectId, subjectName, images, userId, categoryId, description, status);
+                    listSubject.add(subject);
+                }
+            }
+
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+                pst.close();
+            }
+        }
+        return listSubject;
+    }    
 }
