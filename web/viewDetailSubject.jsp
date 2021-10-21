@@ -153,103 +153,96 @@
                 class="collapse navbar-collapse"
                 id="navbarNav"
                 >
-<!--                <ul style="justify-content: flex-end" class="navbar-nav">                    -->
-                    <a
-                        style="color: #888; margin-left: 12px; text-decoration: none"
-                        href="user.jsp"
-                        title=""
-                        class="active"
-                        >Home</a
-                    >                                    
-                    <a
-                        href="subjectManagement.jsp"
-                        title=""
-                        style="color: #888; margin-left: 12px; text-decoration: none"
-                        >
-                        Subject</a
+                <!--                <ul style="justify-content: flex-end" class="navbar-nav">                    -->
+                <a
+                    style="color: #888; margin-left: 12px; text-decoration: none"
+                    href="user.jsp"
+                    title=""
+                    class="active"
+                    >Home</a
+                >                                    
+                <a
+                    href="subjectManagement.jsp"
+                    title=""
+                    style="color: #888; margin-left: 12px; text-decoration: none"
                     >
+                    Subject</a
+                >
             </div>                                 
             <c:if test="${sessionScope.LOGIN_USER != null}">
-                
-                    <div class="dropdown" style="float:left; margin-right: 100px">
-                        <button class="dropbtn" style="background-color: #fff;">
-                            <a href="updateUser.jsp">
-                                <i>
-                                   <img style="border-radius: 30px; width: 60px; height: 60px; font-size: 30px; margin-top: 15px" src="${sessionScope.LOGIN_USER.images}" alt="photo2">
-                               </i>     
-                            </a>
-                        </button>
-                        <div class="dropdown-content" style="left:0px; width: 150px">
-                            <a   class="choose">${sessionScope.LOGIN_USER.name}</a>
-                            <a  href="updateUser.jsp" class="choose">Profile</a>
-                            <a  href="MainController?action=Logout"  class="choose">Log out</a>
-                        </div>
+
+                <div class="dropdown" style="float:left; margin-right: 100px">
+                    <button class="dropbtn" style="background-color: #fff;">
+                        <a href="updateUser.jsp">
+                            <i>
+                                <img style="border-radius: 30px; width: 60px; height: 60px; font-size: 30px; margin-top: 15px" src="${sessionScope.LOGIN_USER.images}" alt="photo2">
+                            </i>     
+                        </a>
+                    </button>
+                    <div class="dropdown-content" style="left:0px; width: 150px">
+                        <a   class="choose">${sessionScope.LOGIN_USER.name}</a>
+                        <a  href="updateUser.jsp" class="choose">Profile</a>
+                        <a  href="MainController?action=Logout"  class="choose">Log out</a>
                     </div>
-                
+                </div>
+
             </c:if>  
 
         </nav>
 
-      
+
 
         <section class="MyCourse" style="margin-top: 20px">
-            
+
 
             <!-- Tab content -->
-            
-            
-      
-       
             <div>               
-                    <div>
-                        <!--button Detail-->
-                        <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
+                <div>
+                    <!--button Detail-->
+                    <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
 
-                            <a style="color: white" href="MainController?action=Enroll&subjectId=${ViewPage.subjectId}&UserID=${ViewPage.userId}">  Register  </a>
-                        </button>
+                        <a style="color: white" href="MainController?action=Enroll&subjectId=${ViewPage.subjectId}&status=0">  Register  </a>
+                    </button>
 
-                        <!-- Modal -->
-                        <div style="display: flex;">
-
-
-
-                            <img
-                                src="${ViewPage.images}"
-                                alt=""
-                                style="width: 100px; height: 100px"
-
-                                />
-                            <ul style="margin-left: 10px">                
-                                <p>${ViewPage.subjectName}</p>                         
-                                <p>${ViewPage.description}</p>
-                            </ul>
-
-                        </div>
-                    </div>              
-            </div> 
-        
-
-
-<!--            <div id="myCourse" class="tabcontent">
-              
-                    <div>
-                        <a
-                            class="join"
-                            href="studentStudyPage.jsp"
-                            style="float: right; margin-top: 30px"
-
-                            >Join Class</a
-                        >
+                    <!-- Modal -->
+                    <div style="display: flex;">
                         <img
-                            src="/assets/showcase_img_1.webp"
+                            src="${ViewPage.images}"
                             alt=""
                             style="width: 100px; height: 100px"
+
                             />
-                        <span>dầu gội đầu</span>
-                        <hr/>
+                        <ul style="margin-left: 10px">                
+                            <p>${ViewPage.subjectName}</p>                         
+                            <p>${ViewPage.description}</p>
+                        </ul>
+
                     </div>
-                  
-            </div>-->
+                </div>              
+            </div> 
+
+
+
+            <!--            <div id="myCourse" class="tabcontent">
+                          
+                                <div>
+                                    <a
+                                        class="join"
+                                        href="studentStudyPage.jsp"
+                                        style="float: right; margin-top: 30px"
+            
+                                        >Join Class</a
+                                    >
+                                    <img
+                                        src="/assets/showcase_img_1.webp"
+                                        alt=""
+                                        style="width: 100px; height: 100px"
+                                        />
+                                    <span>dầu gội đầu</span>
+                                    <hr/>
+                                </div>
+                              
+                        </div>-->
 
 
         </section>
@@ -290,9 +283,9 @@
 
         <script type="text/javascript"  src="Subject/MyCourse.js"></script>
         <script>
-                    document.addEventListener("DOMContentLoaded", function (event) {
-                        navActivePage();
-                    });
+      document.addEventListener("DOMContentLoaded", function (event) {
+          navActivePage();
+      });
         </script>
         <script>
             $('#exampleModal').on('show.bs.modal', event => {

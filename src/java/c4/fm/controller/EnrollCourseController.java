@@ -22,8 +22,9 @@ import javax.servlet.http.HttpSession;
  */
 public class EnrollCourseController extends HttpServlet {
 
+   
     private static final String SUCCESS = "studentStudyPage.jsp";
-    private static final String ERROR = "error.jsp";
+    private static final String ERROR = "ShowAllSubjectController";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,22 +38,25 @@ public class EnrollCourseController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR;
+          String url = ERROR;
+        boolean check = false;
+        RegisterSubjectDAO dao = new RegisterSubjectDAO();
+        RegisterSubjectDTO dto = new RegisterSubjectDTO();
+        int subjectID = Integer.parseInt(request.getParameter("subjectId"));
+        String warning = request.getParameter("status");
+        HttpSession session = request.getSession();
+        UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
         try {
-            RegisterSubjectDAO dao = new RegisterSubjectDAO();
-            RegisterSubjectDTO dto = new RegisterSubjectDTO();
-            int subjectID = Integer.parseInt(request.getParameter("subjectId"));
-            String userID = request.getParameter("UserID");
-            HttpSession session = request.getSession();
-            UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
-
-            String Name = user.getName();
-
-            boolean check = dao.registerSubjectUser(subjectID, userID, Name);
-            if (check) {
+            if(warning.contains("0")){
+                check = dao.checkValidRegister(user.getUserID(), subjectID);
+                if(check = false){
+                    dao.registerSubjectUser(subjectID, user.getUserID(), user.getName());
+                    url = SUCCESS; // sua? cho nay vi code chay tam bay
+                }     
+            }
+            if(warning.contains("1")){
                 url = SUCCESS;
             }
-
         } catch (Exception e) {
             log("Error at EnrollCourseController" + e.toString());
 

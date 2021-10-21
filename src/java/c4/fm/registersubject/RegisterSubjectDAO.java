@@ -126,4 +126,38 @@ public class RegisterSubjectDAO implements Serializable{
         }
         return listsubject ;
     }
+     public boolean checkValidRegister (String UserID, int SubjectID) throws SQLException, ClassNotFoundException{
+        boolean check = false;
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+             con = DBUtils.getConnection();
+             if (con != null) {
+                String sql = " select SubjectID, UserID, Status, Name "
+                        + "from tblRegister "
+                        + "where Status = '1' AND SubjectID = ? AND UserID = ? ";
+                pst = con.prepareStatement(sql);
+                pst.setInt(1, SubjectID);
+                pst.setString(2, UserID);
+                rs = pst.executeQuery();
+                if (rs.next()) {
+                    check = true;
+                }
+             }          
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+             if (rs != null) {
+                rs.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return check;
+    }
 }
