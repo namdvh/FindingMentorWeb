@@ -7,7 +7,10 @@
             <file>file:/D:/demo/FindingMentorWeb/web/mentor.jsp</file>
         </group>
         <group name="2021 - JAVA WEB HOADNT">
+            <file>file:/D:/2021-SWP%20Project/FindingMentorWeb/src/java/c4/fm/controller/MainController.java</file>
             <file>file:/D:/2021-SWP%20Project/FindingMentorWeb/web/subjectManagement.jsp</file>
+            <file>file:/D:/2021-SWP%20Project/FindingMentorWeb/src/java/c4/fm/controller/LogoutController.java</file>
+            <file>file:/D:/2021-SWP%20Project/FindingMentorWeb/src/java/c4/fm/controller/ShowAllSubjectController.java</file>
         </group>
     </open-files>
 </project-private>
