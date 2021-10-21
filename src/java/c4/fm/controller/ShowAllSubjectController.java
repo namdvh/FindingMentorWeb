@@ -41,7 +41,7 @@ public class ShowAllSubjectController extends HttpServlet {
             UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
             String userID = user.getUserID();
             List<SubjectDTO> listEnrolled = dao.ShowEnrollSubject(userID);
-            
+//            String hahha;
             request.setAttribute("listEnrolled", listEnrolled);            
             request.setAttribute("allSubject", list);
             
