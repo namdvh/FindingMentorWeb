@@ -81,9 +81,8 @@
     </head>
 
     <body>
-
         <!-- Add your content of header -->
-         <header>
+        <header>
             <nav class="navbar  navbar-fixed-top navbar-default">
                 <div class="container">
                     <div class="navbar-header">
@@ -102,12 +101,7 @@
                             <li><a href="user.jsp" title="" class="active">Home</a></li>
                             <li>
                                 <div class="dropdown" style="float:right;margin-top: 26px;">
-                                 <a href="MainController?action=ShowAll"  style="color: #888;"> Subject</a>
-                                    <!-- <div class="dropdown-content" style="left:-20px;">
-                                      <a href="./MyCourse.html" class="choose" style="padding: 10px 0 7px 10px;">My Course</a>
-                                      <a href="#" class="choose" style="padding: 10px 0 7px 10px;">All Couse</a>
-                                      <a href="#" class="choose" style="padding: 10px 0 7px 10px;">Add Couse</a>
-                                    </div> -->
+                                    <a href="MainController?action=ShowAll"  style="color: #888;"> Subject</a>
                                 </div>
                             </li>
                             <!-- LOGIN LOGOUT -->
@@ -136,14 +130,14 @@
                                     </div>
                                 </li>
                             </c:if>
-                              <!--khuc nay de hien avatar cho taskbar neu da dang nhap -->
+                            <!--khuc nay de hien avatar cho taskbar neu da dang nhap -->
                             <c:if test="${sessionScope.LOGIN_USER != null}">
                                 <li>
                                     <div class="dropdown" style="float:right;">
                                         <button class="dropbtn" style="background-color: #fff;">
                                             <a href="updateUser.jsp">
                                                 <i>
-                                                 <img style="border-radius: 30px; width: 60px; height: 60px; font-size: 30px; margin-top: 15px" src="${sessionScope.LOGIN_USER.images}" alt="photo2">
+                                                    <img style="border-radius: 30px; width: 60px; height: 60px; font-size: 30px; margin-top: 15px" src="${sessionScope.LOGIN_USER.images}" alt="photo2">
                                                 </i>       
                                             </a>
                                         </button>
@@ -160,10 +154,10 @@
                 </div>
             </nav>
         </header>
-
-
-
-       <form action="UpdateUserController" method="POST" enctype="multipart/form-data">
+        <c:if test="${sessionScope.LOGIN_USER == null}">
+            <c:redirect url="login.jsp"/>
+        </c:if>
+        <form action="UpdateUserController" method="POST" enctype="multipart/form-data">
             <div class="container">
                 <div class="row gutters">
                     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -178,8 +172,7 @@
                                         <h6 class="user-email" style="font-size: 13px;">${sessionScope.LOGIN_USER.email}</h6>
                                     </div>
                                     <div class="update">
-
-                                        <p><input class="btn btn-success" style="font-size: 15px; margin-top: 35px"  type="file" id="image" name="Images" value=""></p>
+                                        <p><input class="btn btn-success" style="font-size: 15px; margin-top: 35px"  type="file" name="ProfileImage"></p>
                                     </div>
                                 </div>
                             </div>
@@ -196,23 +189,18 @@
                                         <div class="form-group">
                                             <label for="fullName">Full Name</label>
                                             <input name="Name" value="${sessionScope.LOGIN_USER.name}" type="text" class="form-control" id="fullName" placeholder="Enter full name" >
-
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="eMail">Email</label>
                                             <input name="Email" value="${sessionScope.LOGIN_USER.email}" type="email" class="form-control" id="email" placeholder="Enter email ID">
-
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-
                                             <label for="phone">Phone</label>
                                             <input type="tel" value="${sessionScope.LOGIN_USER.phoneNumber}" id="phone" pattern="[0-9]{10,10}" class="form-control" name="phone" placeholder="0123456789"  required>
-
-
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -229,24 +217,13 @@
                                     </div>
                                 </div>
                                 <div class="row gutters">
-                                    <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <h6 class="mt-3 mb-2 text-primary">Address</h6>
-                                    </div> -->
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="Street">Address</label>
                                             <input name="Address" value="${sessionScope.LOGIN_USER.address}" type="name" class="form-control" id="Street" placeholder="Enter Address">
                                         </div>
-                                    </div>
-                                    <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="ciTy">City</label>
-                                            <input type="name" class="form-control" id="ciTy" placeholder="Enter City">
-                                        </div>
-                                    </div> -->                                 
+                                    </div>                               
                                 </div>
-
-
                                 <div class="row gutters">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="text-right">                                       
@@ -288,21 +265,6 @@
 
                     $("#email").on("input", validate);
         </script>
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
-        
-        <script>
-          (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-              (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-              m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-          })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-          ga('create', 'UA-XXXXX-X', 'auto');
-          ga('send', 'pageview');
-        </script>
-        
-        --> 
         <script type="text/javascript" src="/New folder/main.41beeca9.js"></script></body>
 
 </html>

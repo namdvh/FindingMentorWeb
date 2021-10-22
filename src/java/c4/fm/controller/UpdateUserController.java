@@ -10,11 +10,8 @@ import c4.fm.user.UserDTO;
 import c4.fm.user.UserError;
 import c4.fm.validation.CheckValidation;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.List;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
@@ -22,15 +19,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileItemFactory;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileUtils;
 
 /**
  *
- * @author HuuToan
+ * @author hoang
  */
 @MultipartConfig
 public class UpdateUserController extends HttpServlet {
@@ -52,9 +45,6 @@ public class UpdateUserController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         UserError userError = new UserError("", "", "", "", "", "", "", "", "");
-        HttpSession session = request.getSession();
-        UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
-        UserDAO usdao = new UserDAO();
         try {
             CheckValidation valid = new CheckValidation();
             String Name = request.getParameter("Name");
@@ -62,14 +52,7 @@ public class UpdateUserController extends HttpServlet {
             String PhoneNumber = request.getParameter("phone");
             String Address = request.getParameter("Address");
             String BirthDay = request.getParameter("BirthDay");
-//            String Images = request.getParameter("Images");            
-            Part part = request.getPart("Images");
-            String filename = user.getUserID()+".jpg";
-            String realPath = request.getServletContext().getRealPath("/") + "Profile" + File.separator + filename;
-            System.out.println(realPath);
-            File file = new File(realPath);
-            FileUtils.copyInputStreamToFile(part.getInputStream(), file);
-//            request.setAttribute("IMG", "images" + File.separator + filename);
+            Part newPart = request.getPart("ProfileImage");
             boolean check = true;
             if (Name.length() < 1) {
                 userError.setNameError("Name can not blank!!!");
@@ -92,7 +75,21 @@ public class UpdateUserController extends HttpServlet {
                 check = false;
             }
             if (check) {
-                UserDTO usdto = new UserDTO(user.getUserID(), Name, Email, PhoneNumber, Address, BirthDay, "Profile" + File.separator + filename);
+                HttpSession session = request.getSession();
+                UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
+                UserDAO usdao = new UserDAO();
+                String pathImage = "";
+                if (!newPart.getSubmittedFileName().isEmpty()) {
+                    String filename = user.getUserID() + ".jpg";
+                    pathImage = "Images_Profile" + File.separator + filename;
+                    String realPath = request.getServletContext().getRealPath("/") + pathImage;
+                    File file = new File(realPath);
+                    FileUtils.copyInputStreamToFile(newPart.getInputStream(), file);
+                } else {
+                    UserDTO oldUser = usdao.getUserInfo(user.getUserID());
+                    pathImage = oldUser.getImages();
+                }
+                UserDTO usdto = new UserDTO(user.getUserID(), Name, Email, PhoneNumber, Address, BirthDay, pathImage);
                 boolean checkupdate = usdao.updateUser(usdto);
                 if (checkupdate) {
                     url = SUCCESS;
@@ -103,7 +100,6 @@ public class UpdateUserController extends HttpServlet {
                     request.setAttribute("UPDATE_ERROR", userError);
                 }
             }
-
         } catch (Exception e) {
             log("Error at update user" + e.toString());
         } finally {
@@ -149,5 +145,4 @@ public class UpdateUserController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }

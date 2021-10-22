@@ -25,13 +25,12 @@ public class LoginController extends HttpServlet {
     private static final String ERROR = "error.jsp";
     private static final String ADMIN_PAGE = "LoadAdminServlet";
     private static final String USER_PAGE = "user.jsp";
-    private static final String MENTOR_PAGE="LoadChapterController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
-         try {
+        try {
             String UserID = request.getParameter("your_name");
             String password = request.getParameter("your_pass");
             UserDAO dao = new UserDAO();
@@ -47,13 +46,12 @@ public class LoginController extends HttpServlet {
                     RoleDTO role = roleDao.loadListRole(user.getRoleID());
                     session.setAttribute("USER_ROLE", role);
                     url = USER_PAGE;
-                }else if("MT".equals(RoleID)){
+                } else if ("MT".equals(RoleID)) {
                     RoleDAO roleDao = new RoleDAO();
                     RoleDTO role = roleDao.loadListRole(user.getRoleID());
                     session.setAttribute("USER_ROLE", role);
-                    url=MENTOR_PAGE;
-                }
-                else {
+                    url = USER_PAGE;
+                } else {
                     session.setAttribute("ERROR_MESSAGE", "Your role is not support");
                 }
             } else {

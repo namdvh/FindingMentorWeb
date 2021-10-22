@@ -206,7 +206,6 @@
                     <b>Của tôi</b>
                 </button>
                 <!-- <button class="tablinks" onclick="openCity(event, 'addCourse')"><b>Tạo mới khóa học</b></button> -->
-
                 <div class="search-container">
                     <form action="/action_page.php">
                         <input type="text" placeholder="Search.." name="search" />
@@ -214,97 +213,67 @@
                     </form>
                 </div>
             </div>
-
             <!-- Tab content -->
-
-
-
             <div id="allCourse" class="tabcontent">
                 <c:forEach items="${allSubject}" var="load">
                     <div>
                         <!--button Detail-->
                         <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
-
                             <a style="color: white" href="MainController?action=LoadSubjectPage&subjectId=${load.subjectId}">  Detail  </a>
                         </button>
-
                         <!-- Modal -->
                         <div style="display: flex;">
-
-
-
                             <img
                                 src="${load.images}"
                                 alt=""
                                 style="width: 100px; height: 100px"
-
                                 />
                             <ul style="margin-left: 10px">                
                                 <p>${load.subjectName}</p>                         
                                 <p>${load.description}</p>
                             </ul>
-
                         </div>
                     </div> <hr>
                 </c:forEach>
             </div> 
-
-
-
-
-            <!-- tu cho nay tro di la phan cua My course-->  
-            <div id="allCourse" class="tabcontent">
-                <c:forEach items="${allSubject}" var="load">
-                    <div>
-                        <!--button Detail-->
-                        <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
-
-                            <a style="color: white" href="MainController?action=LoadSubjectPage&subjectId=${load.subjectId}">  Join class  </a>
-                        </button>
-
-                        <!-- Modal -->
-                        <div style="display: flex;">
-
-
-
-                            <img
-                                src="${load.images}"
-                                alt=""
-                                style="width: 100px; height: 100px"
-
-                                />
-                            <ul style="margin-left: 10px">                
-                                <p>${load.subjectName}</p>                         
-                                <p>${load.description}</p>
-                            </ul>
-
+            <!-- tu cho nay tro di la phan cua My course--> 
+            <c:if test="${sessionScope.LOGIN_USER eq null || sessionScope.LOGIN_USER.roleID ne 'US'}"> 
+                <div id="myCourse" class="tabcontent">
+                    <c:set var="listSubject" value="${requestScope.LIST_MENTOR_SUBJECT}"/>
+                    <c:forEach var="subject" items="${listSubject}">
+                        <div>
+                            <form action="MainMentorController" method="POST">
+                                <button type="submit" class="join" style="float: right; margin-top: 30px" name="action" value="EditSubject">Edit Subject</button>
+                                <input type="hidden" name="SubjectID" value="${subject.subjectId}" />
+                                <input type="hidden" name="SubjectName" value="${subject.subjectName}" />
+                                <img src="${subject.images}" alt="" style="width: 100px; height: 100px"/>
+                                <span>${subject.subjectName}</span>
+                                <hr />
+                            </form>
                         </div>
-                    </div> <hr>
-                </c:forEach>
-            </div> 
-
-            <!--            <div id="myCourse" class="tabcontent">
-                          
-                                <div>
-                                    <a
-                                        class="join"
-                                        href="studentStudyPage.jsp"
-                                        style="float: right; margin-top: 30px"
-            
-                                        >Join Class</a
-                                    >
-                                    <img
-                                        src="/assets/showcase_img_1.webp"
-                                        alt=""
-                                        style="width: 100px; height: 100px"
-                                        />
-                                    <span>dầu gội đầu</span>
-                                    <hr/>
-                                </div>
-                              
-                        </div>-->
-
-
+                    </c:forEach>
+                </div>
+            </c:if>
+            <!--list course da join cua student-->
+            <c:if test="${sessionScope.LOGIN_USER eq null || sessionScope.LOGIN_USER.roleID ne 'MT'}"> 
+                <div id="myCourse" class="tabcontent">
+                    <c:set var="listSubject" value="${requestScope.LIST_USER_SUBJECT}"/>
+                    <c:forEach var="subject" items="${listSubject}">
+                        <div>
+                            <!--them controller vao form-->
+                            <form action="" method="POST">
+                                <button type="submit" class="join" style="float: right; margin-top: 30px" name="action" value="JoinCourse">Join Course</button>
+                                <input type="hidden" name="SubjectID" value="${subject.subjectId}" />
+                                <input type="hidden" name="SubjectName" value="${subject.subjectName}" />
+                                <!--them anh-->
+                                <img src="assets/showcase_img_1.webp" alt="" style="width: 100px; height: 100px"/>
+                                <span>${subject.subjectName}</span>
+                                <hr />
+                            </form>
+                        </div>
+                    </c:forEach>
+                </div>
+            </c:if>
         </section>
 
         <script src="MyCourse.js"></script>

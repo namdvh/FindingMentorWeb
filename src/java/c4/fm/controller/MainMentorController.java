@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -30,6 +31,7 @@ public class MainMentorController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     private static final String CREATE_CHAPTER = "CreateChapterController";
+    private static final String LOAD_CHAPTER_CONTENT = "LoadChapterController";
     private static final String CREATE_CONTENT = "CreateContentController";
     private static final String UPDATE_CHAPTER = "UpdateChapterController";
     private static final String UPDATE_CONTENT = "UpdateContentController";
@@ -49,9 +51,11 @@ public class MainMentorController extends HttpServlet {
                 url = CREATE_CONTENT;
             } else if (action.equals("UpdateContent")) {
                 url = UPDATE_CONTENT;
+            } else if (action.equals("EditSubject")) {
+                url = LOAD_CHAPTER_CONTENT;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log("Error at main mentor controller" + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
