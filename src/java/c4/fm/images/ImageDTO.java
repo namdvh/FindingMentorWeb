@@ -11,6 +11,8 @@ package c4.fm.images;
  */
 public class ImageDTO {
     private String url;
+    int so;
+    String hinhanh;
 
     public ImageDTO(String url) {
         this.url = url;
