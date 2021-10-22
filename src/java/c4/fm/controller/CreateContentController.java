@@ -6,6 +6,7 @@
 package c4.fm.controller;
 
 import c4.fm.dao.ContentDAO;
+import c4.fm.user.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -32,23 +34,30 @@ public class CreateContentController extends HttpServlet {
      */
     private static final String ERROR = "mentor.jsp";
     private static final String SUCCESS = "LoadChapterController";
+    private static final String PAGELOGIN = "login.html";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         try {
-            int chapterID = Integer.parseInt(request.getParameter("NewContentChapterID"));
-            ContentDAO dao = new ContentDAO();
-            String contentName = request.getParameter("contentName");
-            String videoURL = request.getParameter("videoURL");
-            String blog = request.getParameter("blog");
-            boolean check = dao.CreateNewContent(contentName, chapterID, videoURL, blog);
-            if (check) {
-                url = SUCCESS;
+            HttpSession session = request.getSession();
+            UserDTO loginUser = (UserDTO) session.getAttribute("LOGIN_USER");
+            if (loginUser == null || !"MT".equals(loginUser.getRoleID())) {
+                url = PAGELOGIN;
+            } else {
+                int chapterID = Integer.parseInt(request.getParameter("NewContentChapterID"));
+                ContentDAO dao = new ContentDAO();
+                String contentName = request.getParameter("contentName");
+                String videoURL = request.getParameter("videoURL");
+                String blog = request.getParameter("blog");
+                boolean check = dao.CreateNewContent(contentName, chapterID, videoURL, blog);
+                if (check) {
+                    url = SUCCESS;
+                }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log("Error at create content" + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

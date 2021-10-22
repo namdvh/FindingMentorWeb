@@ -6,6 +6,7 @@
 package c4.fm.controller;
 
 import c4.fm.dao.ContentDAO;
+import c4.fm.user.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -32,24 +34,31 @@ public class UpdateContentController extends HttpServlet {
      */
     private static final String ERROR = "mentor.jsp";
     private static final String SUCCESS = "LoadChapterController";
-    
+    private static final String PAGELOGIN = "login.html";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         try {
-            ContentDAO dao = new ContentDAO();
-            int contentID = Integer.parseInt(request.getParameter("UpdateContentID"));
-            String contentName = request.getParameter("UpdateContentName");
-            String videoURL = request.getParameter("UpdateVideoURL");
-            String blog = request.getParameter("UpdateBlog");
-            boolean check = dao.UpdateNewContent(contentID, contentName, videoURL, blog);
-            if (check) {
-                url = SUCCESS;
+            HttpSession session = request.getSession();
+            UserDTO loginUser = (UserDTO) session.getAttribute("LOGIN_USER");
+            if (loginUser == null || !"MT".equals(loginUser.getRoleID())) {
+                url = PAGELOGIN;
+            } else {
+                ContentDAO dao = new ContentDAO();
+                int contentID = Integer.parseInt(request.getParameter("UpdateContentID"));
+                String contentName = request.getParameter("UpdateContentName");
+                String videoURL = request.getParameter("UpdateVideoURL");
+                String blog = request.getParameter("UpdateBlog");
+                boolean check = dao.UpdateNewContent(contentID, contentName, videoURL, blog);
+                if (check) {
+                    url = SUCCESS;
+                }
             }
         } catch (Exception e) {
-            e.printStackTrace();
-        }finally {
+            log("Error at update content" + e.toString());
+        } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
     }

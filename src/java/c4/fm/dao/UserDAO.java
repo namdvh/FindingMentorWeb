@@ -23,7 +23,7 @@ import javax.naming.NamingException;
  */
 public class UserDAO {
 
- public UserDTO checkLogin(String UserID, String password) throws SQLException, ClassNotFoundException, NamingException {
+    public UserDTO checkLogin(String UserID, String password) throws SQLException, ClassNotFoundException, NamingException {
         UserDTO user = null;
         Connection conn = null;
         PreparedStatement stm = null;
@@ -44,6 +44,49 @@ public class UserDAO {
                     String RoleID = rs.getString("RoleID");
 //                    RoleDAO roledao = new RoleDAO();
 //                    RoleDTO roledto = roledao.loadListRole(RoleID);
+                    String PhoneNumber = rs.getString("PhoneNumber");
+                    String Address = rs.getString("Address");
+                    String Certificate = rs.getString("Certificate");
+                    String Status = rs.getString("Status");
+                    String BirthDay = rs.getString("BirthDay");
+                    String Images = rs.getString("Images");
+
+                    user = new UserDTO(UserID, Name, Email, RoleID, PhoneNumber, Address, "", Certificate, Status, BirthDay, Images);
+                }
+            }
+
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return user;
+    }
+
+    public UserDTO getUserInfo(String UserID) throws SQLException, ClassNotFoundException, NamingException {
+        UserDTO user = null;
+        Connection conn = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                String sql = " select Name, Email, RoleID, PhoneNumber, Address, Password, Certificate, Status, BirthDay, Images"
+                        + " from tblUser"
+                        + " where UserID =? and Status='1' ";
+                stm = conn.prepareStatement(sql);
+                stm.setString(1, UserID);
+                rs = stm.executeQuery();
+                if (rs.next()) {
+                    String Name = rs.getString("Name");
+                    String Email = rs.getString("Email");
+                    String RoleID = rs.getString("RoleID");
                     String PhoneNumber = rs.getString("PhoneNumber");
                     String Address = rs.getString("Address");
                     String Certificate = rs.getString("Certificate");
@@ -136,6 +179,7 @@ public class UserDAO {
         }
         return check;
     }
+
     public boolean updateUser(UserDTO user) throws SQLException {
         boolean check = false;
         Connection conn = null;
@@ -240,7 +284,6 @@ public class UserDAO {
         return check;
     }
 
-   
     public List<UserDTO> loadListUser() throws ClassNotFoundException, SQLException {
         List<UserDTO> listUser = new ArrayList<>();
         Connection conn = null;
