@@ -9,16 +9,21 @@ import c4.fm.dao.UserDAO;
 import c4.fm.user.UserDTO;
 import c4.fm.user.UserError;
 import c4.fm.validation.CheckValidation;
+import java.io.File;
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+import org.apache.commons.io.FileUtils;
 
 /**
  *
  * @author MSI
  */
+@MultipartConfig
 public class CreateController extends HttpServlet {
 
     private static final String ERROR = "createUser.jsp";
@@ -35,7 +40,13 @@ public class CreateController extends HttpServlet {
             String RoleID = request.getParameter("RoleID");
             String Password = request.getParameter("Password");
             String confirm = request.getParameter("ConfirmPassword");
-            String Certificate = request.getParameter("Certificate");
+//            String Certificate = request.getParameter("Certificate");
+            Part part = request.getPart("Certificate");
+            String filename = UserID+".jpg";
+            String realPath = request.getServletContext().getRealPath("/") + "CV" + File.separator + filename;
+            System.out.println(realPath);
+            File file = new File(realPath);
+            FileUtils.copyInputStreamToFile(part.getInputStream(), file);
             boolean check = true;
             if (UserID.length() > 20 || UserID.length() < 2) {
                 userError.setUserIDError("UserID must from [2,10]!!");
@@ -58,7 +69,7 @@ public class CreateController extends HttpServlet {
             if (check) {
                 UserDAO dao = new UserDAO();
 //                UserDTO user = new UserDTO(UserID, Email, Email, "US", "", "", Password, Certificate, "1", "");
-                UserDTO user=new UserDTO(UserID, Email, Email, "US", "", "", Password, Certificate, "1", "", "");
+                UserDTO user=new UserDTO(UserID, Email, Email, "US", "", "", Password, "CV" + File.separator + filename, "1", "", "");
                 boolean checkInsert = dao.insertUseNew(user);
                 if (checkInsert) {
                     url = SUCCESS;

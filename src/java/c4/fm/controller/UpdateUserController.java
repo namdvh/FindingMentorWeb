@@ -52,6 +52,9 @@ public class UpdateUserController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         UserError userError = new UserError("", "", "", "", "", "", "", "", "");
+        HttpSession session = request.getSession();
+        UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
+        UserDAO usdao = new UserDAO();
         try {
             CheckValidation valid = new CheckValidation();
             String Name = request.getParameter("Name");
@@ -61,8 +64,8 @@ public class UpdateUserController extends HttpServlet {
             String BirthDay = request.getParameter("BirthDay");
 //            String Images = request.getParameter("Images");            
             Part part = request.getPart("Images");
-            String filename = part.getSubmittedFileName();
-            String realPath = request.getServletContext().getRealPath("/") + "images" + File.separator + filename;
+            String filename = user.getUserID()+".jpg";
+            String realPath = request.getServletContext().getRealPath("/") + "Profile" + File.separator + filename;
             System.out.println(realPath);
             File file = new File(realPath);
             FileUtils.copyInputStreamToFile(part.getInputStream(), file);
@@ -89,10 +92,7 @@ public class UpdateUserController extends HttpServlet {
                 check = false;
             }
             if (check) {
-                HttpSession session = request.getSession();
-                UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
-                UserDAO usdao = new UserDAO();
-                UserDTO usdto = new UserDTO(user.getUserID(), Name, Email, PhoneNumber, Address, BirthDay, "images" + File.separator + filename);
+                UserDTO usdto = new UserDTO(user.getUserID(), Name, Email, PhoneNumber, Address, BirthDay, "Profile" + File.separator + filename);
                 boolean checkupdate = usdao.updateUser(usdto);
                 if (checkupdate) {
                     url = SUCCESS;

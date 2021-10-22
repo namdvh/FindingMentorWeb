@@ -35,7 +35,7 @@
                         <div class="signup-form">
                             <h2 class="form-title hide">Sign up</h2>
 
-                            <form action="MainController" method="POST" class="register-form" id="register-form">
+                            <form action="CreateController" method="POST" class="register-form" id="register-form" enctype="multipart/form-data"> 
                                 <div class="form-group">
                                     <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                     <input type="text" name="UserID" id="name" placeholder="User Name" required/>
@@ -69,7 +69,7 @@
                                 </div>
 
                                 <div id="cerfiticate" class="form-group form-button" style="margin: 0; display: none;">
-                                    <input type="text" name="Certificate"  
+                                    <input type="file" name="Certificate"  
                                            style="padding: 12px 19px; background: linear-gradient(45deg, #FA5F1E, #F4939A);" 
                                            class="form-submit" placeholder="Certificate" />
                                 </div>
