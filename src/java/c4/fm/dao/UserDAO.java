@@ -177,7 +177,7 @@ public class UserDAO {
         try {
             conn = DBUtils.getConnection();
             if (conn != null) {
-                String sql = " select Name, Email, PhoneNumber, Address, BirthDay, Images"
+                String sql = " select Name, Email, RoleID, PhoneNumber, Address, BirthDay, Images"
                         + " from tblUser "
                         + " where UserID = ? ";
                 stm = conn.prepareStatement(sql);
@@ -186,6 +186,7 @@ public class UserDAO {
                 if (rs.next()) {
                     String Name = rs.getString("Name");
                     String Email = rs.getString("Email");
+                    String roleID = rs.getString("RoleID");
                     String PhoneNumber = rs.getString("PhoneNumber");
                     String Address = rs.getString("Address");
                     String BirthDay = rs.getString("BirthDay");

@@ -39,6 +39,8 @@ public class MainMentorController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = PAGE;
+        String lol = "dcnksjvksdbvkbsdkvgbvbskbvfdklbvfdk";
+        //dit con me may thg lol
         try {
             String action = request.getParameter("action");
             if (action.equals("CreateChapter")) {
