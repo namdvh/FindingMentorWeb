@@ -101,7 +101,7 @@ public class UpdateUserController extends HttpServlet {
                 }
             }
         } catch (Exception e) {
-            log("Error at update user" + e.toString());
+            e.printStackTrace();
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

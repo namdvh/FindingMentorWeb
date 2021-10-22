@@ -44,7 +44,7 @@ public class LoadInforController extends HttpServlet {
             session.setAttribute("LOGIN_USER", usdto);
             url = LOAD;
         } catch (Exception e) {
-            log("Error at LoadController: "+e.toString());
+            e.printStackTrace();
         }finally{
             request.getRequestDispatcher(url).forward(request, response);
         }
