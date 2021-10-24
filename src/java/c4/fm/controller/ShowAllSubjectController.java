@@ -35,23 +35,20 @@ public class ShowAllSubjectController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try {
-            HttpSession session = request.getSession();
-            UserDTO loginUser = (UserDTO) session.getAttribute("LOGIN_USER");
+         try {
             SubjectDAO dao = new SubjectDAO();
-            List<SubjectDTO> list = dao.ShowAllSubject();
-            if (loginUser.getRoleID().equals("US")) {
-                //ham test show list enroll subject
-                List<SubjectDTO> listSubjectMentor = dao.listSubjectMentor(loginUser.getUserID());
-                request.setAttribute("LIST_USER_SUBJECT", listSubjectMentor);
-            } else if (loginUser.getRoleID().equals("MT")) {
-                List<SubjectDTO> listSubjectMentor = dao.listSubjectMentor(loginUser.getUserID());
-                request.setAttribute("LIST_MENTOR_SUBJECT", listSubjectMentor);
-            }
+            List<SubjectDTO> list  = dao.ShowAllSubject();
+            HttpSession session = request.getSession();
+            UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
+            String userID = user.getUserID();
+            List<SubjectDTO> listEnrolled = dao.ShowEnrollSubject(userID);
+//            String hahha;
+            request.setAttribute("listEnrolled", listEnrolled);            
             request.setAttribute("allSubject", list);
+            
         } catch (Exception e) {
-            log("Error at show all subject" + e.getMessage());
-        } finally {
+            log("Error at show all subject"+ e.getMessage());
+        }finally{
             request.getRequestDispatcher("subjectManagement.jsp").forward(request, response);
         }
     }

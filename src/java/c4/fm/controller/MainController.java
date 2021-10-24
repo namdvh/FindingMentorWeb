@@ -17,8 +17,7 @@ import javax.servlet.http.HttpSession;
  * @author MSI
  */
 public class MainController extends HttpServlet {
-
-    private static final String LOGIN = "LoginController";
+ private static final String LOGIN = "LoginController";
     private static final String LOGIN_PAGE = "login.html";
     private static final String ERROR = "error.jsp";
     private static final String LOGOUT = "LogoutController";
@@ -54,7 +53,7 @@ public class MainController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR;
+         String url = ERROR;
         try {
             String action = request.getParameter("action");
             if (action == null) {

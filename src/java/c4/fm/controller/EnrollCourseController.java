@@ -7,12 +7,14 @@ package c4.fm.controller;
 
 import c4.fm.registersubject.RegisterSubjectDAO;
 import c4.fm.registersubject.RegisterSubjectDTO;
+import c4.fm.user.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -20,9 +22,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class EnrollCourseController extends HttpServlet {
 
+  
     private static final String SUCCESS = "studentStudyPage.jsp";
-    private static final String ERROR = "error.jsp";
-
+    private static final String ERROR = "ShowAllSubjectController";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,23 +37,30 @@ public class EnrollCourseController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR;
+      
+          String url = ERROR;
+        boolean check = false;
+        RegisterSubjectDAO dao = new RegisterSubjectDAO();
+        RegisterSubjectDTO dto = new RegisterSubjectDTO();
+        int subjectID = Integer.parseInt(request.getParameter("subjectId"));
+        String warning = request.getParameter("status");
+        HttpSession session = request.getSession();
+        UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
         try {
-            RegisterSubjectDAO dao = new RegisterSubjectDAO();
-            RegisterSubjectDTO dto = new RegisterSubjectDTO(Integer.parseInt(""), "", true, "");
-            int subjectID = Integer.parseInt(request.getParameter("SubjectID"));
-            String userID = request.getParameter("UserID");
-            boolean Satus = true;
-            String Name = request.getParameter("Name");
-            boolean check = dao.registerSubjectUser(subjectID, userID, Name);
-            if(check){
+            if(warning.contains("0")){
+                check = dao.checkValidRegister(user.getUserID(), subjectID);
+                if(check = false){
+                    dao.registerSubjectUser(subjectID, user.getUserID(), user.getName());
+                    url = SUCCESS; // sua? cho nay vi code chay tam bay
+                }     
+            }
+            if(warning.contains("1")){
                 url = SUCCESS;
             }
-           
         } catch (Exception e) {
-            log("Error at EnrollCourseController"+e.toString());
-            
-        }finally{
+            log("Error at EnrollCourseController" + e.toString());
+
+        } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
     }
