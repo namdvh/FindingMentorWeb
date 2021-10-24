@@ -35,19 +35,17 @@ public class ShowEnrolledSubjectController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-          try {
-            String search = request.getParameter("txtSearch");
+           try {         
             SubjectDAO dao = new SubjectDAO();
             HttpSession session = request.getSession();
             UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
             String userID = user.getUserID();
-            List<SubjectDTO> listEnrolled = dao.ShowEnrollSubject(search, userID);
-            
+            List<SubjectDTO> listEnrolled = dao.ShowEnrollSubject(userID);          
             request.setAttribute("listEnrolled", listEnrolled);
         } catch (Exception e) {
             log("Error at show list enroll"+ e.getMessage());
         }finally{
-            request.getRequestDispatcher("Subject/MyCourse.html").forward(request, response);
+            request.getRequestDispatcher("subjectManagement.jsp").forward(request, response);
         }
     }
 
