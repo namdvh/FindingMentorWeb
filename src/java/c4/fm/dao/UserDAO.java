@@ -235,7 +235,7 @@ public class UserDAO {
                     String Address = rs.getString("Address");
                     String BirthDay = rs.getString("BirthDay");
                     String Images = rs.getString("Images");
-                    user = new UserDTO(UserID, Name, Email, PhoneNumber, Address, BirthDay, Images);
+                    user = new UserDTO(UserID, Name, Email, roleID, PhoneNumber, Address, BirthDay, Images);
                 }
             }
         } finally {
@@ -293,7 +293,8 @@ public class UserDAO {
             conn = DBUtils.getConnection();
             if (conn != null) {
                 String sql = " select UserId, Name, Email, PhoneNumber, Address, BirthDay, Images"
-                        + " from tblUser";
+                        + " from tblUser"
+                        + " where RoleID = 'MT'";
                 stm = conn.prepareStatement(sql);
                 rs = stm.executeQuery();
                 while (rs.next()) {
