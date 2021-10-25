@@ -40,8 +40,7 @@ public class LoadChapterStudentController extends HttpServlet {
         String url = ERROR;
         try {
             HttpSession session = request.getSession();
-            int subjectID = Integer.parseInt(request.getParameter("SubjectID"));
-            String subjectName = request.getParameter("SubjectName");     
+            int subjectID = Integer.parseInt(request.getParameter("subjectId"));   
             ChapterDAO chapterDAO = new ChapterDAO();
             List<ChapterDTO> listChapter = chapterDAO.LoadListChapter(subjectID);
             ContentDAO contentDAO = new ContentDAO();
@@ -49,6 +48,7 @@ public class LoadChapterStudentController extends HttpServlet {
                 List<ContentDTO> listContent = contentDAO.LoadListContent(chapter.getChapterID());
                 if (listContent != null) {
                     chapter.setList(listContent);
+                    url = PAGE;
                 }
             }
             request.setAttribute("LIST_CHAPTER", listChapter);
