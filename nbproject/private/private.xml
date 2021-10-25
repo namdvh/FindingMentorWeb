@@ -7,8 +7,19 @@
             <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/New%20folder%20(3)/FindingMentorWeb/src/java/c4/fm/utils/DBUtils.java</file>
         </group>
         <group name="2021 - JAVA WEB HOADNT">
-            <file>file:/D:/2021-SWP%20Project/FindingMentorWeb/src/java/c4/fm/utils/DBUtils.java</file>
-            <file>file:/D:/2021-SWP%20Project/FindingMentorWeb/web/subjectManagement.jsp</file>
+            <file>file:/D:/GIT%20HUB%20SWP391/FindingMentorWeb/web/mentorManagement.jsp</file>
+            <file>file:/D:/GIT%20HUB%20SWP391/FindingMentorWeb/web/mentor.jsp</file>
+            <file>file:/D:/GIT%20HUB%20SWP391/FindingMentorWeb/src/java/c4/fm/controller/LoadChapterStudentController.java</file>
+            <file>file:/D:/GIT%20HUB%20SWP391/FindingMentorWeb/src/java/c4/fm/controller/ShowAllSubjectController.java</file>
+            <file>file:/D:/GIT%20HUB%20SWP391/FindingMentorWeb/src/java/c4/fm/registersubject/RegisterSubjectDAO.java</file>
+            <file>file:/D:/GIT%20HUB%20SWP391/FindingMentorWeb/web/viewDetailSubject.jsp</file>
+            <file>file:/D:/GIT%20HUB%20SWP391/FindingMentorWeb/src/java/c4/fm/controller/MainController.java</file>
+            <file>file:/D:/GIT%20HUB%20SWP391/FindingMentorWeb/web/Content/index.html</file>
+            <file>file:/D:/GIT%20HUB%20SWP391/FindingMentorWeb/web/studentStudyPage.jsp</file>
+            <file>file:/D:/GIT%20HUB%20SWP391/FindingMentorWeb/web/subjectManagement.jsp</file>
+            <file>file:/D:/GIT%20HUB%20SWP391/FindingMentorWeb/src/java/c4/fm/dao/ContentDAO.java</file>
+            <file>file:/D:/GIT%20HUB%20SWP391/FindingMentorWeb/src/java/c4/fm/dao/ChapterDAO.java</file>
+            <file>file:/D:/GIT%20HUB%20SWP391/FindingMentorWeb/src/java/c4/fm/controller/EnrollCourseController.java</file>
         </group>
     </open-files>
 </project-private>

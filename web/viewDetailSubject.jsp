@@ -201,7 +201,7 @@
                     <!--button Detail-->
                     <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
 
-                        <a style="color: white" href="MainController?action=Enroll&subjectId=${ViewPage.subjectId}&status=0">  Register  </a>
+                        <a style="color: white" href="MainController?action=Enroll&subjectId=${ViewPage.subjectId}">  Register  </a>
                     </button>
 
                     <!-- Modal -->

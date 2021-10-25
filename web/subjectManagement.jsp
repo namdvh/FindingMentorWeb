@@ -230,9 +230,13 @@
             <div id="allCourse" class="tabcontent">
                 <c:forEach items="${allSubject}" var="load">
                     <div>
+                        <!--button join class-->
+                         <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
+                            <a style="color: white" href="MainController?action=Enroll&subjectId=${load.subjectId}">  Join class  </a>                          
+                         </button> 
                         <!--button Detail-->
-                        <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
-
+                        </br>
+                        <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">                          
                             <a style="color: white" href="MainController?action=LoadSubjectPage&subjectId=${load.subjectId}">  Detail  </a>
                         </button>
 
@@ -263,8 +267,8 @@
                     <div>
                         <!--button Detail-->
                         <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
-
-                            <a style="color: white" href="MainController?action=Enroll&subjectId=${list.subjectId}&status=1">  Join class  </a>
+                            
+                            <a style="color: white" href="MainController?action=Enroll&subjectId=${list.subjectId}">  Join class  </a>
                         </button>
 
                         <!-- Modal -->
