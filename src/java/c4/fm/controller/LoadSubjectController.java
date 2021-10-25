@@ -24,7 +24,7 @@ import javax.servlet.http.HttpSession;
 public class LoadSubjectController extends HttpServlet {
     private static final String LOAD_PAGE = "viewDetailSubject.jsp";
     private static final String ERROR = "error.jsp";
-    private static final String SUCCESS = "studentStudyPage.jsp";
+ 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -44,17 +44,10 @@ public class LoadSubjectController extends HttpServlet {
         int subjectId = Integer.parseInt(request.getParameter("subjectId"));
         SubjectDAO subjectDao = new SubjectDAO();
         RegisterSubjectDAO registerDao = new RegisterSubjectDAO();
-
-        try {
-            check = registerDao.checkValidRegister(user.getUserID(), subjectId);
-            if (check == true) {
-                url = SUCCESS;
-            } else {
+        try {        
                 SubjectDTO dto = subjectDao.loadSubject(subjectId);
                 request.setAttribute("ViewPage", dto);
                 url = LOAD_PAGE;
-            }
-
         } catch (Exception e) {
             log("Errot at LoadSubjectController:" + e.toString());
         } finally {

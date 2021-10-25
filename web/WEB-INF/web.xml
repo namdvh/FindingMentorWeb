@@ -28,6 +28,10 @@
         <servlet-name>UpdateUserController</servlet-name>
         <servlet-class>c4.fm.controller.UpdateUserController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoadChapterStudentController</servlet-name>
+        <servlet-class>c4.fm.controller.LoadChapterStudentController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CreateGoogleController</servlet-name>
         <url-pattern>/CreateGoogleController</url-pattern>
@@ -59,6 +63,10 @@
     <servlet-mapping>
         <servlet-name>UpdateUserController</servlet-name>
         <url-pattern>/UpdateUserController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadChapterStudentController</servlet-name>
+        <url-pattern>/LoadChapterStudentController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

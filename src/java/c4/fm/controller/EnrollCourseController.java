@@ -23,7 +23,7 @@ import javax.servlet.http.HttpSession;
 public class EnrollCourseController extends HttpServlet {
 
   
-    private static final String SUCCESS = "studentStudyPage.jsp";
+    private static final String SUCCESS = "LoadChapterStudentController";
     private static final String ERROR = "ShowAllSubjectController";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,20 +43,18 @@ public class EnrollCourseController extends HttpServlet {
         RegisterSubjectDAO dao = new RegisterSubjectDAO();
         RegisterSubjectDTO dto = new RegisterSubjectDTO();
         int subjectID = Integer.parseInt(request.getParameter("subjectId"));
-        String warning = request.getParameter("status");
+      
         HttpSession session = request.getSession();
         UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
         try {
-            if(warning.contains("0")){
+           
                 check = dao.checkValidRegister(user.getUserID(), subjectID);
-                if(check = false){
+                if(check == false){
                     dao.registerSubjectUser(subjectID, user.getUserID(), user.getName());
                     url = SUCCESS; // sua? cho nay vi code chay tam bay
-                }     
-            }
-            if(warning.contains("1")){
+                }                
                 url = SUCCESS;
-            }
+            
         } catch (Exception e) {
             log("Error at EnrollCourseController" + e.toString());
 

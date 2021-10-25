@@ -17,7 +17,8 @@ import javax.servlet.http.HttpSession;
  * @author MSI
  */
 public class MainController extends HttpServlet {
- private static final String LOGIN = "LoginController";
+
+    private static final String LOGIN = "LoginController";
     private static final String LOGIN_PAGE = "login.html";
     private static final String ERROR = "error.jsp";
     private static final String LOGOUT = "LogoutController";
@@ -29,6 +30,7 @@ public class MainController extends HttpServlet {
     private static final String SEARCH_COURSE = "SearchController";
     private static final String SHOW_COURSE_ENROLLED = "ShowEnrolledSubjectController";
     private static final String ENROLL_COURSE = "EnrollCourseController";
+    private static final String LOAD_CHAPTER_STUDENT = "LoadChapterStudentController";
 
     //==============BEGIN OF ADMIN===================
     private static final String LOAD_ADMIN_PAGE_SERVLET = "LoadAdminServlet";
@@ -53,7 +55,7 @@ public class MainController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         String url = ERROR;
+        String url = ERROR;
         try {
             String action = request.getParameter("action");
             if (action == null) {
@@ -78,6 +80,8 @@ public class MainController extends HttpServlet {
                 url = SHOW_COURSE_ENROLLED;
             } else if ("Enroll".equals(action)) {
                 url = ENROLL_COURSE;
+            } else if ("LoadChapterStudent".equals(action)) {
+                url = LOAD_CHAPTER_STUDENT;
             } else if ("UpdateUserPage".equals(action)) {
                 url = UPDATE_USER_PAGE;
             } //================BEGIN OF ADMIN============================
