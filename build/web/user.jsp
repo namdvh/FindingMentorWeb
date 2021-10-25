@@ -78,10 +78,91 @@
             .dropdown:hover .dropdown-content {
                 display: block;
             }
+            /************************* FOOTER *************************/
+            .footer {
+                color: #ffff;
+                background-color: #78036eba;;
+            }
+
+            .footer__media {
+                display: flex;
+                width: 74%;
+                margin: 0 auto;
+                padding-top: 4rem;
+            }
+            .footer__contact {
+                line-height: 2.4rem;
+            }
+
+            .footer__contact a {
+                text-decoration: none;
+                color: #ffff;
+                padding: 3rem 0;
+            }
+
+            .footer__media h3 {
+                padding-bottom: 2.5rem;
+            }
+
+            .location {
+                display: flex;
+                /* justify-content: center; */
+                line-height: 2.4rem;
+            }
+
+            .phone {
+                margin: 1rem 0;
+            }
+            .item {
+                margin-right: 7rem;
+            }
+
+            .item i {
+                margin-right: 1rem;
+                color: #fdc800;
+            }
+
+            .footer__featuredLinks {
+                margin-right: 24rem;
+            }
+
+            .footer__featuredLinks p {
+                line-height: 3rem;
+            }
+
+            .footer__quickLinks p {
+                line-height: 3rem;
+            }
+
+            .hr {
+                width: 75%;
+                margin: 0 auto;
+
+            }
+
+            .footer__privacy {
+                display: flex;
+                width: 80%;
+                margin: 0 auto;
+                padding-left: 4rem;
+            }
+
+            .footer__privacy p:first-child {
+                margin-right: 60rem;
+            }
+
+            footer__privacy p:last-child {
+                padding-left: 6rem;
+            }
+
+            #pivacy {
+                padding: 0 3.5rem;
+            }
+            /************** END FOOTER **************/
 
         </style>
     </head>
-    <body>
+    <body style="background-color: #e9dcdc">
 
         <!-- Add your content of header -->
         <header>
@@ -100,10 +181,10 @@
                     </div>
                     <div class="collapse navbar-collapse" id="navbar-collapse-uarr">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="user.jsp" title="" class="active">Home</a></li>
+                            <li><a href="user.jsp" style="font-size: 25px; font-weight: 700" title="" class="active">Home</a></li>
                             <li>
-                                <div class="dropdown" style="float:right;margin-top: 26px;">
-                                 <a href="MainController?action=ShowAll"  style="color: #888;"> Subject</a>
+                                <div class="dropdown" style="float:right;margin-top: 22px; font-size: 20px; font-weight: 700">
+                                    <a href="MainController?action=ShowAll"  style="color: #888;"> Subject</a>
                                     <!-- <div class="dropdown-content" style="left:-20px;">
                                       <a href="./MyCourse.html" class="choose" style="padding: 10px 0 7px 10px;">My Course</a>
                                       <a href="#" class="choose" style="padding: 10px 0 7px 10px;">All Couse</a>
@@ -137,14 +218,14 @@
                                     </div>
                                 </li>
                             </c:if>
-                              <!--khuc nay de hien avatar cho taskbar neu da dang nhap -->
+                            <!--khuc nay de hien avatar cho taskbar neu da dang nhap -->
                             <c:if test="${sessionScope.LOGIN_USER != null}">
                                 <li>
                                     <div class="dropdown" style="float:right;">
                                         <button class="dropbtn" style="background-color: #fff;">
                                             <a href="updateUser.jsp">
                                                 <i>
-                                                 <img style="border-radius: 30px; width: 60px; height: 60px; font-size: 30px; margin-top: 15px" src="${sessionScope.LOGIN_USER.images}" alt="photo2">
+                                                    <img style="border-radius: 50%; width: 45px; height: 45px; font-size: 30px; margin-top: 15px; margin-left: 15px;" src="${sessionScope.LOGIN_USER.images}" alt="photo2">
                                                 </i>       
                                             </a>
                                         </button>
@@ -175,7 +256,7 @@
             </div>
         </div>
 
-       <div class="section-container border-section-container">
+        <div class="section-container border-section-container">
             <div class="container">
                 <div class="col-lg-4 mb-4 col-sm-6">
                     <div class="card_item card_item_custom">
@@ -289,144 +370,83 @@
                             </div>
                         </div>
                     </section>
-
-                    <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                        
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active" style="width: 50px; height:100px">
-                                <img class="img-responsive" src="./assets/HTML5-là-gì-Ưu-diểm-nổi-bật-của-HTML5.jpg" alt="First slide" >
-                            </div>
-                            <div class="item" style="width: 50px; height:100px">
-                                <img class="img-responsive" src="./assets/cover-a1d5b40.png" alt="Second slide" style="width: 50px; height:100px; object-fit: contain;">
-                            </div>
-                            <div class="item" style="width: 50px; height:100px">
-                                <img class="img-responsive" src="./assets/cafedevn_css.jpg" alt="Third slide" >
-                            </div>
-                        </div>
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-                    </div> -->
-
-
                 </div>
             </div>
         </div>
     </div>
 
+    <footer>
+        <div class="footer">
+            <div class="footer__media">
+                <div class="footer__contact item">
+                    <h3 style="color: white; font-weight: bold; font-size: 25px">
+                        Contact Us
+                    </h3>
+                    <div class="location" >
+                        <i class="fas fa-map-marker-alt" ></i>
+                        <p>
+                            <a href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+FPT+TP.+HCM/@10.8414899,106.8078577,17z/data=!3m1!4b1!4m5!3m4!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8414846!4d106.8100464">
+                                Lô E2a-7, Đường D1, Khu Công Nghệ Cao, Long Thạnh Mỹ, <br/> 
+                                Thành Phố Thủ Đức, Thành phố Hồ Chí Minh 700000, <br/>Việt Nam
+                            </a>
 
-    <!-- <div class="section-container background-color-container white-text-container">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="text-center">
-                        <h2>Vivamus laoreet</h2>
-                        <p> Auctor augue mauris augue neque. Posuere lorem ipsum dolor sit amet consectetur adipiscing. Porta non
-                            pulvinar neque laoreet. Viverra ipsum nunc aliquet bibendum. Iaculis urna id volutpat lacus. Turpis
-                            egestas pretium aenean pharetra magna ac. Id cursus metus aliquam eleifend mi. </p>
-                        <a href="./download.html" title="" class="btn btn-primary btn-lg">Download</a>
+
+                        </p>
+                    </div>
+                    <div class="phone">
+                        <i class="fas fa-phone-alt"></i>
+                        <a style="font-weight: bold; font-size: 15px"
+                           >+84 2873 0055 88</a
+                        >
+                    </div>
+                    <div class="email">
+                        <i class="far fa-envelope-open"></i>
+                        <a style="font-weight: bold; font-size: 15px"
+                           >toannhse140397@fpt.edu.vn</a
+                        >
                     </div>
                 </div>
-            </div>
-         </div>
-     </div> -->
 
-    <!-- <div class="section-container">
-       <div class="container">
-           <div class="row">                   
-               <div class="col-md-7">
-                   <img class="img-responsive" src="./assets/images/img-06.png" alt="">
-               </div>
-   
-               <div class="col-md-5">
-                   <ul class="features">
-                       <li>
-                           <h3>Dui augue</h3>
-                           <p>Auctor augue mauris augue neque. Posuere lorem ipsum dolor sit amet consectetur adipiscing.
-                           </p>
-                       </li>
-                       <li>
-                           <h3>Malesuada</h3>
-                           <p>Auctor augue mauris augue neque. Posuere lorem ipsum dolor sit amet consectetur adipiscing.
-                           </p>
-                       </li>
-                       <li>
-                           <h3>Bibendum</h3>
-                           <p>Auctor augue mauris augue neque. Posuere lorem ipsum dolor sit amet consectetur adipiscing.
-                           </p>
-                       </li>
-                   </ul>
-               </div>
-           
-   
-                 
-               <div class="row">
-                   <div class="col-md-4">
-                           <img class="img-responsive page-base-image" src="./assets/images/logo-01.png" alt="">
-   
-                   </div>
-                   <div class="col-md-4">
-                           <img class="img-responsive page-base-image" src="./assets/images/logo-02.png" alt="">
-                   </div>
-                   <div class="col-md-4">
-                           <img class="img-responsive page-base-image" src="./assets/images/logo-03.png" alt="">
-                   </div>
-               </div>
-               
-           </div>
-       </div>
-   </div> -->
+                <div class="footer__featuredLinks item">
+                    <h3 style="color: white; font-weight: bold; font-size: 25px">
+                        Featured Links
+                    </h3>
+                    <p>Graduation</p>
+                    <p>Admissions</p>
+                   
+                    <p>International</p>
+                    <p>Courses</p>
+                </div>
 
-
-
-
-
-
-    <!-- <footer>
-        <div class="section-container footer-container">
-            <div class="container">
-                <div class="row">
-                        <div class="col-md-4">
-                            <h4>About us</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet consectetur dolor</p>
-                        </div>
-    
-                        <div class="col-md-4">
-                            <h4>Do you like ? Share this !</h4>
-                            <p>
-                                <a href="https://facebook.com/" class="social-round-icon white-round-icon fa-icon" title="">
-                                <i class="fa fa-facebook" aria-hidden="true"></i>
-                              </a>
-                              <a href="https://twitter.com/" class="social-round-icon white-round-icon fa-icon" title="">
-                                <i class="fa fa-twitter" aria-hidden="true"></i>
-                              </a>
-                              <a href="https://www.linkedin.com/" class="social-round-icon white-round-icon fa-icon" title="">
-                                <i class="fa fa-linkedin" aria-hidden="true"></i>
-                              </a>
-                            </p>
-                            <p><small>© Untitled | Website created with <a href="http://www.mashup-template.com/" class="link-like-text" title="Create website with free html template">Mashup Template</a>/<a href="http://www.unsplash.com/" class="link-like-text" title="Beautiful Free Images">Unsplash</a></small></p>    
-                        </div>
-    
-                        <div class="col-md-4">
-                            <h4>Subscribe to newsletter</h4>
-                            
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <input type="text" class="form-control footer-input-text">
-                                    <div class="input-group-btn">
-                                        <button type="button" class="btn btn-primary btn-newsletter ">OK</button>
-                                    </div>
-                                </div>
-                            </div>
-    
-    
-                        </div>
+                <div class="footer__quickLinks item">
+                    <h3 style="color: white; font-weight: bold; font-size: 25px">
+                        Quick Links
+                    </h3>
+                    <p><a href="MainController?action=Load" style="color: white">Home</a></p>
+                    <p>About</p>
+                    <p>Services</p>
+                    <p>Blog</p>
+                    <p>Contact</p>
                 </div>
             </div>
+
+            <div class="hr">
+                <hr style="color: #454545" />
+            </div>
+
+            <div class="footer__privacy">
+                <p>© 2021 C4. All rights reserved</p>
+                <p id="pivacy">Privacy policy</p>
+                <p>Terms of service</p>
+            </div>
         </div>
-    </footer> -->
+    </footer>
+    <!--end off footer-->  
+
+
+
+
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function (event) {
@@ -434,20 +454,9 @@
         });
     </script>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
-    
-    <script>
-      (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-          (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date(); a = s.createElement(o),
-          m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-      ga('create', 'UA-XXXXX-X', 'auto');
-      ga('send', 'pageview');
-    </script>
-    
-    -->
+
+
+
 
     <script type="text/javascript" src="./main.41beeca9.js"></script>
 
