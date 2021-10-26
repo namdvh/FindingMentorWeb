@@ -12,6 +12,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     </head>
     <body>
         <!-- Header -->
@@ -34,14 +36,7 @@
                 </div>
                 <!-- End Logo + Top Nav -->
                 <!-- Main Nav -->
-                <div id="navigation">
-                    <ul>
-                        <li><a href="MainController?action=LoadAdminPage" ><span>Dashboard</span></a></li>
-                        <li><a href="MainController?action=LoadMentorPage"><span>Mentor Management</span></a></li>
-                        <li><a href="MainController?action=LoadUserPage"><span>User Management</span></a></li>
-                        <li><a href="MainController?action=LoadApprovePage"class="active"><span>Approve Mentor</span></a></li>
-                    </ul>
-                </div>
+
                 <!-- End Main Nav -->
             </div>
         </div>
@@ -141,7 +136,33 @@
                     </div>
                     <!-- End Content -->
                     <!-- Sidebar -->
+                    <div id="sidebar">
+                        <!-- Box -->
+                        <div class="box">
+                            <!-- Box Head -->
+                            <div class="list-group">
+                                <a href="MainController?action=LoadAdminPage" class="list-group-item list-group-item-action ">
+                                    Dashboard
+                                </a>
+                                <a href="MainController?action=LoadMentorPage" class="list-group-item list-group-item-action">Mentor Management</a>
+                                <a href="MainController?action=LoadUserPage" class="list-group-item list-group-item-action ">User Management</a>
+                                <a href="MainController?action=LoadApprovePage" class="list-group-item list-group-item-action active">Approve Mentor</a>
+                                <a href="MainController?action=addSubjectPage" class="list-group-item list-group-item-action ">Add Subject</a>
+                            </div>
+                            <!-- End Box Head-->
+                            <div class="box-content"> 
+                                <div class="cl">&nbsp;</div>
+                                <!-- Sort -->
+                                <div class="sort">
 
+
+                                </div>
+
+                                <!-- End Sort -->
+                            </div>
+                        </div>
+                        <!-- End Box -->
+                    </div>
                     <!-- End Sidebar -->
                     <div class="cl">&nbsp;</div>
                 </div>

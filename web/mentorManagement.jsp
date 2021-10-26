@@ -12,6 +12,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     </head>
     <body>
         <!-- Header -->
@@ -34,14 +36,7 @@
                 </div>
                 <!-- End Logo + Top Nav -->
                 <!-- Main Nav -->
-                <div id="navigation">
-                    <ul>
-                        <li><a href="MainController?action=LoadAdminPage" ><span>Dashboard</span></a></li>
-                        <li><a href="MainController?action=LoadMentorPage"class="active"><span>Mentor Management</span></a></li>
-                        <li><a href="MainController?action=LoadUserPage"><span>User Management</span></a></li>
-                        <li><a href="MainController?action=LoadApprovePage"><span>Approve Mentor</span></a></li>
-                    </ul>
-                </div>
+
                 <!-- End Main Nav -->
             </div>
         </div>
@@ -80,62 +75,56 @@
                             </div>
                             <!-- End Box Head -->
                             <!-- Table -->
-                            <div class="table">
-                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <c:if test="${requestScope.LIST_MENTOR_ADMIN == null}">
+                            <table class="table table-striped" border="0" cellspacing="0" cellpadding="0">
+                                <c:if test="${requestScope.LIST_MENTOR_ADMIN == null}">
+                                    <tr>
+                                        <th>Nothing to search</th>
+                                    </tr>
+                                </c:if>
+                                <c:if test="${requestScope.LIST_MENTOR_ADMIN != null}">
+                                    <tr>
+                                        <th>name</th>
+                                        <th>email</th>
+                                        <th>phone Number</th>
+                                        <th>address</th>
+                                        <th>password</th>
+                                        <th>status</th>
+                                        <th>birthday</th>
+                                        <th>images</th>
+                                        <th width="110" class="ac">Content Control</th>
+                                    </tr>
+
+                                    <c:forEach var="s" items="${requestScope.LIST_MENTOR_ADMIN}">
                                         <tr>
-                                            <th>Nothing to search</th>
+                                            <th>${s.name}</th>
+                                            <th>${s.email}</th>
+                                            <th>${s.phoneNumber}</th>
+                                            <th>${s.address}</th>
+                                            <th>${s.password}</th>
+                                            <th>${s.status}</th>
+                                            <th>${s.birthday}</th>
+                                            <th>
+                                                <img src="assets/${s.images}" width="50px" height="50px" alt="alt"/>
+                                            </th>
+                                            <th>
+                                                <c:if test="${s.status eq 'true'}">
+                                                    <a href="MainController?action=deleteMentorAdmin&userId=${s.userID}" class="ico del">Delete</a>
+
+                                                </c:if>
+                                                <c:if test="${s.status eq 'false'}">
+                                                    <a href="MainController?action=ActiveMentorAdmin&userId=${s.userID}" class="ico edit">Active</a>
+
+                                                </c:if>
+                                            </th>
+
                                         </tr>
-                                    </c:if>
-                                    <c:if test="${requestScope.LIST_MENTOR_ADMIN != null}">
-                                        <tr>
-                                            <th>user ID</th>
-                                            <th>name</th>
-                                            <th>email</th>
-                                            <th>role ID</th>
-                                            <th>phone Number</th>
-                                            <th>address</th>
-                                            <th>password</th>
-                                            <th>status</th>
-                                            <th>birthday</th>
-                                            <th>images</th>
-                                            <th width="110" class="ac">Content Control</th>
-                                        </tr>
+                                    </c:forEach>
+                                </c:if>
 
-                                        <c:forEach var="s" items="${requestScope.LIST_MENTOR_ADMIN}">
-                                            <tr>
-                                                <th>${s.userID}</th>
-                                                <th>${s.name}</th>
-                                                <th>${s.email}</th>
-                                                <th>${s.roleID}</th>
-                                                <th>${s.phoneNumber}</th>
-                                                <th>${s.address}</th>
-                                                <th>${s.password}</th>
-                                                <th>${s.status}</th>
-                                                <th>${s.birthday}</th>
-                                                <th>
-                                                    <img src="assets/${s.images}" width="50px" height="50px" alt="alt"/>
-                                                </th>
-                                                <th>
-                                                    <c:if test="${s.status eq 'true'}">
-                                                        <a href="MainController?action=deleteMentorAdmin&userId=${s.userID}" class="ico del">Delete</a>
+                            </table>
+                            <!-- Pagging -->
 
-                                                    </c:if>
-                                                    <c:if test="${s.status eq 'false'}">
-                                                        <a href="MainController?action=ActiveMentorAdmin&userId=${s.userID}" class="ico edit">Active</a>
-
-                                                    </c:if>
-                                                </th>
-
-                                            </tr>
-                                        </c:forEach>
-                                    </c:if>
-
-                                </table>
-                                <!-- Pagging -->
-
-                                <!-- End Pagging -->
-                            </div>
+                            <!-- End Pagging -->
                             <!-- Table -->
                         </div>
                         <!-- End Box -->
@@ -145,6 +134,33 @@
                     </div>
                     <!-- End Content -->
                     <!-- Sidebar -->
+                    <div id="sidebar">
+                        <!-- Box -->
+                        <div class="box">
+                            <!-- Box Head -->
+                            <div class="list-group">
+                                <a href="MainController?action=LoadAdminPage" class="list-group-item list-group-item-action ">
+                                    Dashboard
+                                </a>
+                                <a href="MainController?action=LoadMentorPage" class="list-group-item list-group-item-action  active">Mentor Management</a>
+                                <a href="MainController?action=LoadUserPage" class="list-group-item list-group-item-action ">User Management</a>
+                                <a href="MainController?action=LoadApprovePage" class="list-group-item list-group-item-action">Approve Mentor</a>
+                                <a href="MainController?action=addSubjectPage" class="list-group-item list-group-item-action ">Add Subject</a>
+                            </div>
+                            <!-- End Box Head-->
+                            <div class="box-content"> 
+                                <div class="cl">&nbsp;</div>
+                                <!-- Sort -->
+                                <div class="sort">
+
+
+                                </div>
+
+                                <!-- End Sort -->
+                            </div>
+                        </div>
+                        <!-- End Box -->
+                    </div>
 
                     <!-- End Sidebar -->
                     <div class="cl">&nbsp;</div>

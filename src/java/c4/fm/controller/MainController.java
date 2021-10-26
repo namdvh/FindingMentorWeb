@@ -53,6 +53,7 @@ public class MainController extends HttpServlet {
     private static final String SEARCHREQUEST_ADMIN_SERVLET = "SearchRequestAdminServlet";
     private static final String APPROVE_REQUEST_ADMIN_SERVLET = "ApproveRequestAdminServlet";
     private static final String DENAIL_REQUEST_ADMIN_SERVLET = "DenailRequestAdminServlet";
+    private static final String ADDSUBJECTPAGE = "AddSubjectPageServlet";
     //=======================END OF ADMIN==========================
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -94,7 +95,10 @@ public class MainController extends HttpServlet {
                 url = ADDSUBJECT_ADMIN_SERVLET;
             } else if (action.equals("searchSubjectAdmin")) {
                 url = SEARCHSUBJECT_ADMIN_SERVLET;
-            } else if (action.equals("updateSubjectPageAdmin")) {
+            } else if (action.equals("addSubjectPage")){
+                url = ADDSUBJECTPAGE;
+            }
+            else if (action.equals("updateSubjectPageAdmin")) {
                 url = UPDATESUBJECTPAGE_ADMIN_SERVLET;
             } else if (action.equals("LoadAdminPage")) {
                 url = LOAD_ADMIN_PAGE_SERVLET;

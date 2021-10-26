@@ -12,6 +12,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     </head>
     <body>
         <!-- Header -->
@@ -34,14 +36,6 @@
                 </div>
                 <!-- End Logo + Top Nav -->
                 <!-- Main Nav -->
-                <div id="navigation">
-                    <ul>
-                        <li><a href="MainController?action=LoadAdminPage" ><span>Dashboard</span></a></li>
-                        <li><a href="MainController?action=LoadMentorPage"><span>Mentor Management</span></a></li>
-                        <li><a href="MainController?action=LoadUserPage"class="active"><span>User Management</span></a></li>
-                        <li><a href="MainController?action=LoadApprovePage"><span>Approve Mentor</span></a></li>
-                    </ul>
-                </div>
                 <!-- End Main Nav -->
             </div>
         </div>
@@ -82,8 +76,7 @@
                             </div>
                             <!-- End Box Head -->
                             <!-- Table -->
-                            <div class="table">
-                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <table class="table table-striped" width="100%" border="0" cellspacing="0" cellpadding="0">
                                     <c:if test="${requestScope.LIST_USER_ADMIN == null}">
                                         <tr>
                                             <th>Nothing to search</th>
@@ -99,7 +92,6 @@
                                             <th>role ID</th>
                                             <th>phone Number</th>
                                             <th>address</th>
-                                            <th>password</th>
                                             <th>status</th>
                                             <th>birthday</th>
                                             <th>images</th>
@@ -117,7 +109,6 @@
                                                 <th>${s.roleID}</th>
                                                 <th>${s.phoneNumber}</th>
                                                 <th>${s.address}</th>
-                                                <th>${s.password}</th>
                                                 <th>${s.status}</th>
                                                 <th>${s.birthday}</th>
                                                 <th>
@@ -142,7 +133,6 @@
                                 <!-- Pagging -->
 
                                 <!-- End Pagging -->
-                            </div>
                             <!-- Table -->
                         </div>
                         <!-- End Box -->
@@ -152,7 +142,33 @@
                     </div>
                     <!-- End Content -->
                     <!-- Sidebar -->
+                    <div id="sidebar">
+                        <!-- Box -->
+                        <div class="box">
+                            <!-- Box Head -->
+                            <div class="list-group">
+                                <a href="MainController?action=LoadAdminPage" class="list-group-item list-group-item-action ">
+                                    Dashboard
+                                </a>
+                                <a href="MainController?action=LoadMentorPage" class="list-group-item list-group-item-action">Mentor Management</a>
+                                <a href="MainController?action=LoadUserPage" class="list-group-item list-group-item-action  active">User Management</a>
+                                <a href="MainController?action=LoadApprovePage" class="list-group-item list-group-item-action">Approve Mentor</a>
+                                <a href="MainController?action=addSubjectPage" class="list-group-item list-group-item-action ">Add Subject</a>
+                            </div>
+                            <!-- End Box Head-->
+                            <div class="box-content"> 
+                                <div class="cl">&nbsp;</div>
+                                <!-- Sort -->
+                                <div class="sort">
 
+
+                                </div>
+
+                                <!-- End Sort -->
+                            </div>
+                        </div>
+                        <!-- End Box -->
+                    </div>
                     <!-- End Sidebar -->
                     <div class="cl">&nbsp;</div>
                 </div>
