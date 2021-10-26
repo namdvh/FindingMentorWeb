@@ -12,6 +12,7 @@ import c4.fm.subject.SubjectDAO;
 import c4.fm.subject.SubjectDTO;
 import c4.fm.user.UserDTO;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,12 +23,12 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author cunpl
+ * @author Fangl
  */
-@WebServlet(name = "LoadAdminServlet", urlPatterns = {"/LoadAdminServlet"})
-public class LoadAdminServlet extends HttpServlet {
+@WebServlet(name = "AddSubjectPageServlet", urlPatterns = {"/AddSubjectPageServlet"})
+public class AddSubjectPageServlet extends HttpServlet {
 
-    private static final String ADMIN_PAGE = "admin.jsp";
+    private static final String ADDSUBJECT_ADMIN = "addSubject.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,7 +42,7 @@ public class LoadAdminServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ADMIN_PAGE;
+        String url = ADDSUBJECT_ADMIN;
         try {
             HttpSession session = request.getSession();
 
@@ -61,7 +62,7 @@ public class LoadAdminServlet extends HttpServlet {
             session.setAttribute("LIST_CATE", listCate);
             
         } catch (Exception e) {
-            log("Error at LoadAdminServlet:" + e.toString());
+            log("Error at AddSubjectPageServlet:" + e.toString());
         } finally {
             response.sendRedirect(url);
         }

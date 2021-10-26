@@ -44,19 +44,19 @@ h3 a{ text-decoration: none; }
 
 .shell { width:988px; margin:0 auto; }
 
-#header { height:89px; background:url(images/header.gif); white-space:nowrap; }
+#header { height:89px; background:#005bff; white-space:nowrap; }
 #header h1{ float:left; display:inline; padding-top:12px; }
 #top-navigation { float:right; white-space:nowrap; color:#fff; padding-top:15px; }
 #top-navigation a{ color:#fff; }
-#top-navigation span{ color:#dca598; }
-#top { height:53px; }
+#top-navigation span{ color:#fff; }
+#top { height:53px;  }
 
-#navigation { height:36px;}
+#navigation {}
 #navigation ul{ list-style-type: none;}
-#navigation ul li{ float:left; display:inline; margin-right:2px;}
+#navigation ul li{ }
 #navigation ul li a,
-#navigation ul li a span { float:left; height:36px; background:url(images/tab.gif) no-repeat 0 0; padding:0 0 0 15px;}
-#navigation ul li a span { background-position:right 0; padding:0 15px 0 0;}
+#navigation ul li a span { float:left; height:36px; background:url(images/tab.gif) no-repeat 0 0; width: 100%}
+#navigation ul li a span { background-position:right 0;}
 #navigation ul li a { line-height:36px; color:#907525; text-decoration: none; }
 
 #navigation ul li a.active,
@@ -80,14 +80,14 @@ h3 a{ text-decoration: none; }
 
 
 .table {}
-.table th{ background:#fffdfa url(images/th.gif) repeat-x 0 0; color:#818181; text-align: left; padding:7px 10px; border-bottom:solid 1px #d2d1cb;}
-.table td{ background:#fbfcfc;  border-bottom:solid 1px #e0e0e0; padding:8px 10px; }
-.table tr.odd td{ background:#f8f8f8; }
-.table tr:hover td{ background:#fff9e1; }
+.table th{ color:#818181; text-align: left; padding:7px 10px; border-bottom:solid 1px #d2d1cb;}
+.table td{  border-bottom:solid 1px #e0e0e0; padding:8px 10px; }
+.table tr.odd td{  }
+.table tr:hover td{ }
 .table a.ico{ }
 
 .box { background:#fbfcfc; height:100%; padding:1px; margin-bottom:20px; }
-.box-head { background:#ba4c32; height:32px; color:#fff; padding: 0 10px; line-height:32px; white-space:nowrap; border-bottom:solid 1px #fff; }
+.box-head { background: #005bff; height:32px; color:#fff; padding: 0 10px; line-height:32px; white-space:nowrap; border-bottom:solid 1px #fff; }
 .box-head .right{ padding-top:5px; line-height:13px;}
 .box-head .right label,
 .box-head .right input { float:left; }
@@ -141,7 +141,7 @@ textarea.size1 { height:180px; }
 .add-button:hover { color:#333;}
 
 
-#footer { height:44px; background:url(images/footer.gif); line-height:44px; color:#fff;}
+#footer { height:44px; background-color: #005bff ; line-height:44px; color:#fff;}
 #footer a{ color:#fff; }
 
 
