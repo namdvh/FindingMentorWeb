@@ -124,7 +124,7 @@
                 background-color: #04aa6d; /* Add a green color to the "active/current" link */
                 color: white;
             }
-             /************************* FOOTER *************************/
+            /************************* FOOTER *************************/
             .footer {
                 color: #ffff;
                 background-color: #78036eba;;
@@ -302,10 +302,10 @@
 
 
             <c:if test="${MESSAGE != null}">
-                 <div class="alert">
-                <span class="closebtn" onclick="this.parentElement.style.display = 'none';">&times;</span> 
-                <strong>${MESSAGE}</strong> 
-                 </div>
+                <div class="alert">
+                    <span class="closebtn" onclick="this.parentElement.style.display = 'none';">&times;</span> 
+                    <strong>${MESSAGE}</strong> 
+                </div>
             </c:if>  
 
             <div id="allCourse" class="tabcontent" style="display: block">
@@ -313,18 +313,18 @@
                     <div>
                         <!--button join class-->
                         <div>
-                            
-                       
-                         <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
-                            <a style="color: white" href="MainController?action=Enroll&subjectId=${load.subjectId}">  Join class  </a>                          
-                             
-                         </button> 
-                        <!--button Detail-->
-                       
-                        <button  style="float: right ; margin-top: 30px; margin-right: 10px;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">                          
-                            <a style="color: white" href="MainController?action=LoadSubjectPage&subjectId=${load.subjectId}">  Detail  </a>
-                        </button>
-                         </div>
+
+
+                            <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
+                                <a style="color: white" href="MainController?action=Enroll&subjectId=${load.subjectId}">  Join class  </a>                          
+
+                            </button> 
+                            <!--button Detail-->
+
+                            <button  style="float: right ; margin-top: 30px; margin-right: 10px;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">                          
+                                <a style="color: white" href="MainController?action=LoadSubjectPage&subjectId=${load.subjectId}">  Detail  </a>
+                            </button>
+                        </div>
 
                         <!-- Modal -->
                         <div style="display: flex;">
@@ -349,11 +349,26 @@
 
             <!-- tu cho nay tro di la phan cua My course-->  
             <div id="myCourse" class="tabcontent">
+                <c:set var="listSubject" value="${requestScope.LIST_MENTOR_SUBJECT}"/>
+                <c:forEach var="subject" items="${listSubject}">
+                    <div>
+                        <form action="MainMentorController" method="POST">
+                            <button type="submit" class="join" style="float: right; margin-top: 30px" name="action" value="EditSubject">Edit Subject</button>
+                            <input type="hidden" name="SubjectID" value="${subject.subjectId}" />
+                            <input type="hidden" name="SubjectName" value="${subject.subjectName}" />
+                            <img src="${subject.images}" alt="" style="width: 100px; height: 100px"/>
+                            <span>${subject.subjectName}</span>
+                            <hr />
+                        </form>
+                    </div>
+                </c:forEach>
+            </div>
+            <div id="myCourse" class="tabcontent">
                 <c:forEach items="${listEnrolled}" var="list">
                     <div>
                         <!--button Detail-->
                         <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
-                            
+
                             <a style="color: white" href="MainController?action=Enroll&subjectId=${list.subjectId}">  Join class  </a>
                         </button>
 
@@ -374,74 +389,74 @@
                 </c:forEach>
             </div> 
         </section>
-<!--start of footer-->
- <footer>
-        <div class="footer">
-            <div class="footer__media">
-                <div class="footer__contact item">
-                    <h3 style="color: white; font-weight: bold; font-size: 25px">
-                        Contact Us
-                    </h3>
-                    <div class="location" >
-                        <i class="fas fa-map-marker-alt" ></i>
-                        <p>
-                            <a href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+FPT+TP.+HCM/@10.8414899,106.8078577,17z/data=!3m1!4b1!4m5!3m4!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8414846!4d106.8100464">
-                                Lô E2a-7, Đường D1, Khu Công Nghệ Cao, Long Thạnh Mỹ, <br/> 
-                                Thành Phố Thủ Đức, Thành phố Hồ Chí Minh 700000, <br/>Việt Nam
-                            </a>
+        <!--start of footer-->
+        <footer>
+            <div class="footer">
+                <div class="footer__media">
+                    <div class="footer__contact item">
+                        <h3 style="color: white; font-weight: bold; font-size: 25px">
+                            Contact Us
+                        </h3>
+                        <div class="location" >
+                            <i class="fas fa-map-marker-alt" ></i>
+                            <p>
+                                <a href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+FPT+TP.+HCM/@10.8414899,106.8078577,17z/data=!3m1!4b1!4m5!3m4!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8414846!4d106.8100464">
+                                    Lô E2a-7, Đường D1, Khu Công Nghệ Cao, Long Thạnh Mỹ, <br/> 
+                                    Thành Phố Thủ Đức, Thành phố Hồ Chí Minh 700000, <br/>Việt Nam
+                                </a>
 
 
-                        </p>
+                            </p>
+                        </div>
+                        <div class="phone">
+                            <i class="fas fa-phone-alt"></i>
+                            <a style="font-weight: bold; font-size: 15px"
+                               >+84 2873 0055 88</a
+                            >
+                        </div>
+                        <div class="email">
+                            <i class="far fa-envelope-open"></i>
+                            <a style="font-weight: bold; font-size: 15px"
+                               >toannhse140397@fpt.edu.vn</a
+                            >
+                        </div>
                     </div>
-                    <div class="phone">
-                        <i class="fas fa-phone-alt"></i>
-                        <a style="font-weight: bold; font-size: 15px"
-                           >+84 2873 0055 88</a
-                        >
+
+                    <div class="footer__featuredLinks item">
+                        <h3 style="color: white; font-weight: bold; font-size: 25px">
+                            Featured Links
+                        </h3>
+                        <p>Graduation</p>
+                        <p>Admissions</p>
+                        <p>Book Store</p>
+                        <p>International</p>
+                        <p>Courses</p>
                     </div>
-                    <div class="email">
-                        <i class="far fa-envelope-open"></i>
-                        <a style="font-weight: bold; font-size: 15px"
-                           >toannhse140397@fpt.edu.vn</a
-                        >
+
+                    <div class="footer__quickLinks item">
+                        <h3 style="color: white; font-weight: bold; font-size: 25px">
+                            Quick Links
+                        </h3>
+                        <p>Home</p>
+                        <p>About</p>
+                        <p>Services</p>
+                        <p>Blog</p>
+                        <p>Contact</p>
                     </div>
                 </div>
 
-                <div class="footer__featuredLinks item">
-                    <h3 style="color: white; font-weight: bold; font-size: 25px">
-                        Featured Links
-                    </h3>
-                    <p>Graduation</p>
-                    <p>Admissions</p>
-                    <p>Book Store</p>
-                    <p>International</p>
-                    <p>Courses</p>
+                <div class="hr">
+                    <hr style="color: #454545" />
                 </div>
 
-                <div class="footer__quickLinks item">
-                    <h3 style="color: white; font-weight: bold; font-size: 25px">
-                        Quick Links
-                    </h3>
-                    <p>Home</p>
-                    <p>About</p>
-                    <p>Services</p>
-                    <p>Blog</p>
-                    <p>Contact</p>
+                <div class="footer__privacy">
+                    <p>© 2021 C4. All rights reserved</p>
+                    <p id="pivacy">Privacy policy</p>
+                    <p>Terms of service</p>
                 </div>
             </div>
-
-            <div class="hr">
-                <hr style="color: #454545" />
-            </div>
-
-            <div class="footer__privacy">
-                <p>© 2021 C4. All rights reserved</p>
-                <p id="pivacy">Privacy policy</p>
-                <p>Terms of service</p>
-            </div>
-        </div>
-    </footer>
-  <!--end off footer-->        
+        </footer>
+        <!--end off footer-->        
         <script src="MyCourse.js"></script>
 
         <!--        <script
@@ -478,9 +493,29 @@
 
         <script type="text/javascript"  src="Subject/MyCourse.js"></script>
         <script>
-                    document.addEventListener("DOMContentLoaded", function (event) {
-                        navActivePage();
-                    });
+                        document.addEventListener("DOMContentLoaded", function (event) {
+                            navActivePage();
+                        });
+                        function openCity(evt, cityName) {
+                            // Declare all variables
+                            var i, tabcontent, tablinks;
+
+                            // Get all elements with class="tabcontent" and hide them
+                            tabcontent = document.getElementsByClassName("tabcontent");
+                            for (i = 0; i < tabcontent.length; i++) {
+                                tabcontent[i].style.display = "none";
+                            }
+
+                            // Get all elements with class="tablinks" and remove the class "active"
+                            tablinks = document.getElementsByClassName("tablinks");
+                            for (i = 0; i < tablinks.length; i++) {
+                                tablinks[i].className = tablinks[i].className.replace(" active", "");
+                            }
+
+                            // Show the current tab, and add an "active" class to the button that opened the tab
+                            document.getElementById(cityName).style.display = "block";
+                            evt.currentTarget.className += " active";
+                        }
         </script>
         <script>
             $('#exampleModal').on('show.bs.modal', event => {
