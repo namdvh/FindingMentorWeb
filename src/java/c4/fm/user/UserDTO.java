@@ -24,10 +24,13 @@ public class UserDTO implements Serializable{
     private String status;
     private String birthday;
     private String images;
-
+    private int stars; 
+    
     public UserDTO() {
     }
-
+    public UserDTO(int stars) {
+        this.stars = stars;
+    }
     public UserDTO(String userID, String name, String email, String roleID, String phoneNumber, String address, String password, String certificate, String status, String birthday) {
         this.userID = userID;
         this.name = name;
@@ -90,23 +93,51 @@ public class UserDTO implements Serializable{
         this.birthday = birthday;
        
     }
-    
-    
-    
-    
-    
-    
+     public UserDTO(String userID, String name, String email, String roleID, String phoneNumber, String address, String password, String certificate, String status, String birthday, String images, int stars) {
+        this.userID = userID;
+        this.name = name;
+        this.email = email;
+        this.roleID = roleID;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.password = password;
+        this.certificate = certificate;
+        this.status = status;
+        this.birthday = birthday;
+        this.images = images;
+        this.stars = stars;
+    }
 
-    
-    
+     
+    public UserDTO(String name, String email, String roleID, String phoneNumber, String address, String password, String certificate, String status, String birthday, String images, int stars) {
+        this.name = name;
+        this.email = email;
+        this.roleID = roleID;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.password = password;
+        this.certificate = certificate;
+        this.status = status;
+        this.birthday = birthday;
+        this.images = images;
+        this.stars = stars;
+    }
+
+    public int getStars() {
+        return stars;
+    }
+
+    public void setStars(int stars) {
+        this.stars = stars;
+    }
     
 
     public UserDTO(String images) {
         this.images = images;
     }
-
-  
     
+    
+
 
     public String getImages() {
         return images;

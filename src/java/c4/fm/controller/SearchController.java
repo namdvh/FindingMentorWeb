@@ -21,28 +21,28 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class SearchController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    private static final String SUCCESS = "LoadHomeController";
+    private static final String ERROR = "error.jsp";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try{
+        String URL = ERROR;
+        try {
             String searchValue = request.getParameter("txtSearch");
             SubjectDAO dao = new SubjectDAO();
             List<SubjectDTO> listSearch = dao.SearchSubject(searchValue);
-            
-            request.setAttribute("search", listSearch);
-        }catch (Exception e){
-            log("Error at Search Controller"+ e.getMessage());
-        }finally{
-            request.getRequestDispatcher("user/jsp").forward(request, response);
+            if (listSearch != null) {
+                request.setAttribute("search", listSearch);
+                URL = SUCCESS;
+            }else{
+                request.setAttribute("MESS", "Not Found");
+            }
+
+        } catch (Exception e) {
+            log("Error at Search Controller" + e.getMessage());
+        } finally {
+            request.getRequestDispatcher(URL).forward(request, response);
         }
     }
 

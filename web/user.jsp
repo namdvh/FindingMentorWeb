@@ -78,6 +78,51 @@
             .dropdown:hover .dropdown-content {
                 display: block;
             }
+            /************************* card subject *************************/
+            .card {
+                position: relative;
+            }
+
+            .tooltip {
+                position: absolute;
+            }
+
+            .tooltip-text {
+                position: absolute;
+                top: 0;
+                left: 23%;
+                transform: translate(65%, -195%);
+                background-color: #3d6ef7;
+                padding: 20px 40px;
+                display: block;
+                color: white;
+                border-radius: 20px;
+            }
+
+            .cardd {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                max-width: 300px;
+                margin: auto;
+                text-align: center;
+                margin-bottom: 35px;
+            }
+
+            .title {
+                color: grey;
+                font-size: 18px;
+            }
+
+            a {
+                text-decoration: none;
+                font-size: 22px;
+                color: black;
+            }
+
+            button:hover,
+            a:hover {
+                opacity: 0.7;
+            }
+            /************************* End card *************************/
             /************************* FOOTER *************************/
             .footer {
                 color: #ffff;
@@ -175,13 +220,13 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a style="margin-left: -160px" class="navbar-brand" href="user.jsp" title="">
+                        <a style="margin-left: -160px" class="navbar-brand" href="MainController?action=Load" title="">
                             <img src="assets/images/icon.jpg" class="navbar-logo-img" alt="">
                         </a>
                     </div>
                     <div class="collapse navbar-collapse" id="navbar-collapse-uarr">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="user.jsp" style="font-size: 25px; font-weight: 700" title="" class="active">Home</a></li>
+                            <li><a href="MainController?action=Load" style="font-size: 25px; font-weight: 700" title="" class="active">Home</a></li>
                             <li>
                                 <div class="dropdown" style="float:right;margin-top: 22px; font-size: 20px; font-weight: 700">
                                     <a href="MainController?action=ShowAll"  style="color: #888;"> Subject</a>
@@ -245,31 +290,31 @@
         <div class="white-text-container background-image-container" style="background-image: url('./assets/images/img-home.jpg')">
             <div class="opacity"></div>
             <div class="container">
-                <div class="row">
-
-                    <div class="col-md-6">
-
-                        <input type="text" class="input" placeholder="Search" style="width: 100%;">
+                <form action="MainController" method="POST">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" name="txtSearch" class="input" placeholder="Search" style="width: 50%;">
+                            <button type="submit" name="action" value="Search"><i class="fa fa-search"></i></button>
+                            <!--<input type="submit" value="Search" name="action">-->
+                        </div>
                     </div>
-
-                </div>
+                </form>
             </div>
         </div>
-
         <div class="section-container border-section-container">
             <div class="container">
                 <div class="col-lg-4 mb-4 col-sm-6">
                     <div class="card_item card_item_custom">
-                        <img src="./assets/zua1566722846.jpg" class="card-img-top" alt="...">
+                        <img src="${requestScope.rank1.images}"style="border-radius: 50%" class="card-img-top" alt="...">
                         <div class="cardx-body">
-                            <div class="cardx-name">Top 1</div>
-                            <p class="card-text">Senior Consultant - Strategy and Transactions - M&A Advisory tại EY Consulting</p>
+                            <div class="cardx-name" style="font-size: 25px;">Top 1</div>
+                            <p class="card-text" style="height: 40px">${requestScope.rank1.name}</p>
                             <div class="dropdownb">
-                                <div class="detailButton">Chi tiết</div>
+                                <div class="detailButton" style="background-color: #d7d9d7;font-size: 25px">Chi tiết</div>
                                 <div class="dropdown-contentb">
-                                    <div class="inforbox">
-                                        <h12>tên</h12><br>
-                                        <h113>Financial Advisory Associate - M&A Transaction Service tại Deloitte</h113><br>
+                                    <div class="inforbox" style="background-color: #f9f9f9">
+                                        <h12>contact: ${requestScope.rank1.phoneNumber}</h12><br>
+                                        <h113>Email: ${requestScope.rank1.email}</h113><br>
                                     </div>
                                 </div>
                             </div>
@@ -278,16 +323,16 @@
                 </div>
                 <div class="col-lg-4 mb-4 col-sm-6">
                     <div class="card_item card_item_custom">
-                        <img src="./assets/zua1566722846.jpg" class="card-img-top" alt="...">
+                        <img src="${requestScope.rank2.images}" style="border-radius: 50%" class="card-img-top" alt="...">
                         <div class="cardx-body">
-                            <div class="cardx-name">Top 2</div>
-                            <p class="card-text">Management Trainee tại Prudential Vietnam Assurance</p>
+                            <div class="cardx-name" style="font-size: 25px;">Top 2</div>
+                            <p class="card-text" style="height: 40px">${requestScope.rank2.name}</p>
                             <div class="dropdownb">
-                                <div class="detailButton">Chi tiết</div>
+                                <div class="detailButton" style="background-color: #d7d9d7;font-size: 25px">Chi tiết</div>
                                 <div class="dropdown-contentb">
-                                    <div class="inforbox">
-                                        <h12>tên</h12><br>
-                                        <h113>Management Trainee tại Prudential Vietnam Assurance</h113><br>
+                                    <div class="inforbox" style="background-color: #f9f9f9">
+                                        <h12>contact: ${requestScope.rank2.phoneNumber}</h12><br>
+                                        <h113>Email: ${requestScope.rank2.email}</h113><br>
                                     </div>
                                 </div>
                             </div>
@@ -296,189 +341,230 @@
                 </div>                
                 <div class="col-lg-4 mb-4 col-sm-6">
                     <div class="card_item card_item_custom">
-                        <img src="./assets/zua1566722846.jpg" class="card-img-top" alt="...">
+                        <img src="${requestScope.rank3.images}" style="border-radius: 50%" class="card-img-top" alt="...">
                         <div class="cardx-body">
-                            <div class="cardx-name">Top 3</div>
-                            <p class="card-text">Chief Technology Officer tại Mentor</p>
+                            <div class="cardx-name" style="font-size: 25px;">Top 3</div>
+                            <p class="card-text" style="height: 40px">${requestScope.rank2.name}</p>
                             <div class="dropdownb">
-                                <div class="detailButton">Chi tiết</div>
-                                <div class="dropdown-contentb">
-                                    <div class="inforbox">
-                                        <h12>tên</h12><br>
-                                        <h113>Financial Advisory Associate - M&A Transaction Service tại Deloitte</h113><br>
+                                <div class="detailButton" style="background-color: #d7d9d7;font-size: 25px">Chi tiết</div>
+                                <div class="dropdown-contentb" >
+                                    <div class="inforbox" style="background-color: #f9f9f9">
+                                        <h12>contact: ${requestScope.rank3.phoneNumber}</h12><br>
+                                        <h113>Email: ${requestScope.rank3.email}</h113><br>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>            
+                </div>
             </div>
-        </div>
-    </div>
-
-    <div class="section-container">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-
-                    <section class="service">
-                        <div class="service__content">
-                            <div class="service__title">
-                                <h1>Subjects</h1>           
-                            </div>
-
-                            <div class="service__slider">
-                                <div class="slick-slider">
-                                    <div class="item">
-                                        <i class="fa fa-dice-d6"></i>
-                                        <p>
-                                            APP MOBILE<br>DEVELOPMENT
-                                        </p>
-                                    </div>
-
-                                    <div class="item">
-                                        <i class="fab fa-autoprefixer"></i>
-                                        <p>
-                                            DIGITAL<br> MARKETING
-                                        </p>
-                                    </div>
-                                    <div class="item">
-                                        <i class="fab fa-500px"></i>
-                                        <p>
-                                            SEO &amp; CONTENT <br>WRITING
-                                        </p>
-                                    </div>
-                                    <div class="item">
-                                        <i class="fa fa-blog"></i>
-                                        <p>
-                                            WEBSITE<br>DEVELOPMENT
-                                        </p>
-                                    </div>
-                                    <div class="item">
-                                        <i class="fab fa-battle-net"></i>
-                                        <p>
-                                            SEO &amp; CONTENT <br>WRITING
-                                        </p>
-                                    </div>
-                                    <div class="item">
-                                        <i class="fa fa-memory"></i>
-                                        <p>
-                                            APP MOBILE<br>DEVELOPMENT
-                                        </p>
-                                    </div>
+            <c:if test="${sessionScope.LOGIN_USER == null}">
+                <div class="section-container white-text-container" style='margin-top: 45px;'>
+                    <div class="container">  
+                        <c:forEach items="${requestScope.search}" var="all">
+                            <div class="col-lg-3 mb-3 col-sm-6">
+                                <div class="cardd" style=" padding-top: 10px; background-color: #f9f9f9">
+                                    <img src="${all.images}" alt="John" style="max-height:  100px" />
+                                    <h1>${all.subjectName}</h1>
+                                    <p class="title">${all.description}</p>
+                                    <p>Harvard University</p>
+                                    <button  class="btn btn-success">
+                                        <a style="color: white" href="login.html">Join Class</a>
+                                    </button>
+                                    <button  class="btn btn-success">
+                                        <a style="color: white" href="login.html"> Detail </a>
+                                    </button>
                                 </div>
                             </div>
+                        </c:forEach>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${sessionScope.LOGIN_USER != null}">
+                <div class="section-container white-text-container" style='margin-top: 45px;'>
+                    <div class="container">  
+                        <c:forEach items="${requestScope.search}" var="all">
+                            <div class="col-lg-3 mb-3 col-sm-6">
+                                <div class="cardd" style=" padding-top: 10px; background-color: #f9f9f9">
+                                    <img src="${all.images}" alt="John" style="max-height:  100px" />
+                                    <h1>${all.subjectName}</h1>
+                                    <p class="title">${all.description}</p>
+                                    <p>Harvard University</p>
+                                    <button  class="btn btn-success">
+                                        <a style="color: white" href="MainController?action=Enroll&subjectId=${all.subjectId}">Join Class</a>
+                                    </button>
+                                    <button  class="btn btn-success">
+                                        <a style="color: white" href="MainController?action=LoadSubjectPage&subjectId=${all.subjectId}">  Detail </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+            </c:if>
+            <div class="section-container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+
+                            <section class="service">
+                                <div class="service__content">
+                                    <div class="service__title">
+                                        <h1>Subjects</h1>           
+                                    </div>
+
+                                    <div class="service__slider">
+                                        <div class="slick-slider">
+                                            <div class="item">
+                                                <i class="fa fa-dice-d6"></i>
+                                                <p>
+                                                    APP MOBILE<br>DEVELOPMENT
+                                                </p>
+                                            </div>
+
+                                            <div class="item">
+                                                <i class="fab fa-autoprefixer"></i>
+                                                <p>
+                                                    DIGITAL<br> MARKETING
+                                                </p>
+                                            </div>
+                                            <div class="item">
+                                                <i class="fab fa-500px"></i>
+                                                <p>
+                                                    SEO &amp; CONTENT <br>WRITING
+                                                </p>
+                                            </div>
+                                            <div class="item">
+                                                <i class="fa fa-blog"></i>
+                                                <p>
+                                                    WEBSITE<br>DEVELOPMENT
+                                                </p>
+                                            </div>
+                                            <div class="item">
+                                                <i class="fab fa-battle-net"></i>
+                                                <p>
+                                                    SEO &amp; CONTENT <br>WRITING
+                                                </p>
+                                            </div>
+                                            <div class="item">
+                                                <i class="fa fa-memory"></i>
+                                                <p>
+                                                    APP MOBILE<br>DEVELOPMENT
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
-                    </section>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <footer>
-        <div class="footer">
-            <div class="footer__media">
-                <div class="footer__contact item">
-                    <h3 style="color: white; font-weight: bold; font-size: 25px">
-                        Contact Us
-                    </h3>
-                    <div class="location" >
-                        <i class="fas fa-map-marker-alt" ></i>
-                        <p>
-                            <a href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+FPT+TP.+HCM/@10.8414899,106.8078577,17z/data=!3m1!4b1!4m5!3m4!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8414846!4d106.8100464">
-                                Lô E2a-7, Đường D1, Khu Công Nghệ Cao, Long Thạnh Mỹ, <br/> 
-                                Thành Phố Thủ Đức, Thành phố Hồ Chí Minh 700000, <br/>Việt Nam
-                            </a>
+        <footer>
+            <div class="footer">
+                <div class="footer__media">
+                    <div class="footer__contact item">
+                        <h3 style="color: white; font-weight: bold; font-size: 25px">
+                            Contact Us
+                        </h3>
+                        <div class="location" >
+                            <i class="fas fa-map-marker-alt" ></i>
+                            <p>
+                                <a href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+FPT+TP.+HCM/@10.8414899,106.8078577,17z/data=!3m1!4b1!4m5!3m4!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8414846!4d106.8100464">
+                                    Lô E2a-7, Đường D1, Khu Công Nghệ Cao, Long Thạnh Mỹ, <br/> 
+                                    Thành Phố Thủ Đức, Thành phố Hồ Chí Minh 700000, <br/>Việt Nam
+                                </a>
 
 
-                        </p>
+                            </p>
+                        </div>
+                        <div class="phone">
+                            <i class="fas fa-phone-alt"></i>
+                            <a style="font-weight: bold; font-size: 15px"
+                               >+84 2873 0055 88</a
+                            >
+                        </div>
+                        <div class="email">
+                            <i class="far fa-envelope-open"></i>
+                            <a style="font-weight: bold; font-size: 15px"
+                               >toannhse140397@fpt.edu.vn</a
+                            >
+                        </div>
                     </div>
-                    <div class="phone">
-                        <i class="fas fa-phone-alt"></i>
-                        <a style="font-weight: bold; font-size: 15px"
-                           >+84 2873 0055 88</a
-                        >
+
+                    <div class="footer__featuredLinks item">
+                        <h3 style="color: white; font-weight: bold; font-size: 25px">
+                            Featured Links
+                        </h3>
+                        <p>Graduation</p>
+                        <p>Admissions</p>
+
+                        <p>International</p>
+                        <p>Courses</p>
                     </div>
-                    <div class="email">
-                        <i class="far fa-envelope-open"></i>
-                        <a style="font-weight: bold; font-size: 15px"
-                           >toannhse140397@fpt.edu.vn</a
-                        >
+
+                    <div class="footer__quickLinks item">
+                        <h3 style="color: white; font-weight: bold; font-size: 25px">
+                            Quick Links
+                        </h3>
+                        <p><a href="MainController?action=Load" style="color: white">Home</a></p>
+                        <p>About</p>
+                        <p>Services</p>
+                        <p>Blog</p>
+                        <p>Contact</p>
                     </div>
                 </div>
 
-                <div class="footer__featuredLinks item">
-                    <h3 style="color: white; font-weight: bold; font-size: 25px">
-                        Featured Links
-                    </h3>
-                    <p>Graduation</p>
-                    <p>Admissions</p>
-                   
-                    <p>International</p>
-                    <p>Courses</p>
+                <div class="hr">
+                    <hr style="color: #454545" />
                 </div>
 
-                <div class="footer__quickLinks item">
-                    <h3 style="color: white; font-weight: bold; font-size: 25px">
-                        Quick Links
-                    </h3>
-                    <p><a href="MainController?action=Load" style="color: white">Home</a></p>
-                    <p>About</p>
-                    <p>Services</p>
-                    <p>Blog</p>
-                    <p>Contact</p>
+                <div class="footer__privacy">
+                    <p>© 2021 C4. All rights reserved</p>
+                    <p id="pivacy">Privacy policy</p>
+                    <p>Terms of service</p>
                 </div>
             </div>
-
-            <div class="hr">
-                <hr style="color: #454545" />
-            </div>
-
-            <div class="footer__privacy">
-                <p>© 2021 C4. All rights reserved</p>
-                <p id="pivacy">Privacy policy</p>
-                <p>Terms of service</p>
-            </div>
-        </div>
-    </footer>
-    <!--end off footer-->  
+        </footer>
+        <!--end off footer-->  
 
 
 
 
 
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function (event) {
-            navActivePage();
-        });
-    </script>
-
-
-
-
-
-    <script type="text/javascript" src="./main.41beeca9.js"></script>
-
-    <!-- JQUERY  -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
-    <!-- SLICK CAROUSEL  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" ></script>
-
-    <!-- HANDLE SLICK CAROUSEL -->
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.slick-slider').slick({
-                //settings
-                infinite: true,
-                slidesToShow: 5,
-                slidesToScroll: 1,
-                autoplay: true,
-                dots: true,
-                arrows: false,
+        <script>
+            document.addEventListener("DOMContentLoaded", function (event) {
+                navActivePage();
             });
-        });
-    </script>
+        </script>
 
-</body>
+
+
+
+
+        <script type="text/javascript" src="./main.41beeca9.js"></script>
+
+        <!-- JQUERY  -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+        <!-- SLICK CAROUSEL  -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" ></script>
+
+        <!-- HANDLE SLICK CAROUSEL -->
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.slick-slider').slick({
+                    //settings
+                    infinite: true,
+                    slidesToShow: 5,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    dots: true,
+                    arrows: false,
+                });
+            });
+        </script>
+
+    </body>
 </html>

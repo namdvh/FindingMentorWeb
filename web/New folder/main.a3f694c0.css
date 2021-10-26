@@ -4734,7 +4734,7 @@ body {
     margin-bottom: 30px;
 }
 .background-color-container {
-    background-color: #0c0633;
+    background-color: #e9dcdc;
     padding: 60px 0;
 }
 .border-section-container {
@@ -5042,123 +5042,125 @@ textarea {
     font-size: 0.65rem;
 }
 
-.detailButton{
-    width: 200%;
-    text-align: center;
-    background-color: #dfdfdf;
-    margin-right: auto;
-    margin-left: auto;
+.detailButton {
+  width: 200%;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
 }
-.inforbox{
-    padding: 20px;
-    
+.inforbox {
+  padding: 20px;
+  background-color: #3d6ef7;
 }
 
-  
-  .dropdownb {
-    width: 50%;
-    margin: auto;
-    display: inline-block;
-  }
-  
-  .dropdown-contentb {
-    display: none;
-    position: inherit;
-    background-color: #f1f1f1;
-    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
-    z-index: 1;
-    width: 350px;
-  }
-  
-  .dropdown-contentb a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  .dropdown-contentb a:hover {background-color: #ddd;}
+.dropdownb {
+  width: 50%;
+  margin: auto;
+  display: inline-block;
+}
 
-.dropdownb:hover .dropdown-contentb {display: block;}
+.dropdown-contentb {
+  display: none;
+  position: inherit;
+  background-color: #f1f1f1;
+  box-shadow: 12px 12px 2px 1px rgb(152 152 152 / 20%);
+  z-index: 1;
+  width: 350px;
+}
 
-.dropdownb:hover .dropbtnb {background-color: #3e8e41;}
+.dropdown-contentb a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-contentb a:hover {
+  background-color: #ddd;
+}
+
+.dropdownb:hover .dropdown-contentb {
+  display: block;
+}
+
+.dropdownb:hover .dropbtnb {
+  background-color: #3e8e41;
+}
 
 .service__slider .slick-slider .item::after {
-    /* bắt buộc phải có content */
-    content: '';
-    background-color: #e62b4a;
-    display: block;
-    height: 0;
-    width: 3px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transition: all .5s;
+  /* bắt buộc phải có content */
+  content: "";
+  background-color: #e62b4a;
+  display: block;
+  height: 0;
+  width: 3px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: all 0.5s;
 }
 
-.service__slider .slick-slider .item:hover::after{
-    height: 100%;
+.service__slider .slick-slider .item:hover::after {
+  height: 100%;
 }
 
 .slick-slider .slick-dots button::before {
-    color: #fff;
-    font-size: 0.6rem;
+  color: #fff;
+  font-size: 0.6rem;
 }
 
 .slick-slider .slick-dots li.slick-active button::before {
-    color: #e62b4a;
+  color: #e62b4a;
 }
 
 .slick-slider .slick-dots li {
-    margin: 0;
+  margin: 0;
 }
 
 * {
-    box-sizing: border-box;
-  }
+  box-sizing: border-box;
+}
 
 .card_item_custom {
-    margin-bottom: 15px;
-    padding-top: 10px;
-    transition: ease-in 0.3s;
-    height: 100%;
-    border: 1px solid;
+  margin-bottom: 15px;
+  padding-top: 10px;
+  transition: ease-in 0.3s;
+  height: 100%;
+  border: 1px solid;
 }
 
 .card_item {
-    margin-bottom: 0px;
-    height: 310px;
-    border-radius: 8px;
-    position: relative;
-    background-color: #fff;
+  margin-bottom: 0px;
+  height: 310px;
+  border-radius: 8px;
+  position: relative;
+  background-color: #fff;
+}
+.card-img-top {
     
+  width: 50%;
+  height: 50%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  border: 1px solid #dddddd;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
-.card-img-top{
-    width: 50%;
-    height: 50%;
-    -o-object-fit: cover;
-    object-fit: cover;
-    -o-object-position: center;
-    object-position: center;
-    border: 1px solid #DDDDDD;
-    border-radius: 50%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.cardx-name {
+  color: #333333;
+  font-weight: 600;
+  position: relative;
+  width: fit-content;
+  margin: auto;
 }
-.cardx-name{
-    color: #333333;
-    font-weight: 600;
-    position: relative;
-    width: fit-content;
-    margin: auto;
-    
+.cardx-body {
+  margin-bottom: 10px;
 }
-.cardx-body{
-    margin-bottom: 10px;
-}
-.card-text{
-    color: #444;
-    font-size: 15px;
-    text-align: center;
-    height: 70px;
+.card-text {
+  color: #444;
+  font-size: 15px;
+  text-align: center;
+  height: 40px;
 }
