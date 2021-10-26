@@ -35,19 +35,21 @@ public class ShowAllSubjectController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         try {
+        try {
             SubjectDAO dao = new SubjectDAO();
-            List<SubjectDTO> list  = dao.ShowAllSubject();
+            List<SubjectDTO> list = dao.ShowAllSubject();
             HttpSession session = request.getSession();
             UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
             String userID = user.getUserID();
             List<SubjectDTO> listEnrolled = dao.ShowEnrollSubject(userID);
-            request.setAttribute("listEnrolled", listEnrolled);            
+            request.setAttribute("listEnrolled", listEnrolled);
+            List<SubjectDTO> listSubjectMentor = dao.listSubjectMentor(userID);
+            request.setAttribute("LIST_MENTOR_SUBJECT", listSubjectMentor);
             request.setAttribute("allSubject", list);
-            
+
         } catch (Exception e) {
-            log("Error at show all subject"+ e.getMessage());
-        }finally{
+            log("Error at show all subject" + e.getMessage());
+        } finally {
             request.getRequestDispatcher("subjectManagement.jsp").forward(request, response);
         }
     }
