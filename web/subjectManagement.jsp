@@ -214,7 +214,7 @@
             style="background: #f5f6fa"
             class="navbar navbar-expand-lg navbar-light bg-light"
             >
-            <a style="margin-left: 75px"  href="user.jsp">
+            <a style="margin-left: 75px"  href="MainController?action=Load">
                 <img src="assets/images/icon.jpg" height="50px" width="50px" >
             </a>
             <button

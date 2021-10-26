@@ -7,6 +7,7 @@ package c4.fm.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author MSI
  */
+@WebServlet(name = "MainController", urlPatterns = {"/MainController"})
 public class MainController extends HttpServlet {
 
     private static final String LOGIN = "LoginController";
@@ -24,6 +26,7 @@ public class MainController extends HttpServlet {
     private static final String LOGOUT = "LogoutController";
     private static final String CREATE = "CreateController";
     private static final String CREATE_PAGE = "createUser.jsp";
+    private static final String LOAD = "LoadHomeController";
     private static final String UPDATE_USER_PAGE = "UpdateUserController";
     private static final String LOAD_SUBJECT_PAGE = "LoadSubjectController";
     private static final String SHOW_ALL_COURSE = "ShowAllSubjectController";
@@ -55,11 +58,13 @@ public class MainController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR;
+        String url = LOAD;
         try {
             String action = request.getParameter("action");
             if (action == null) {
 
+            }else if (action.equals("ERROR")) {
+                url = ERROR;
             } else if (action.equals("LoginPage")) {
                 url = LOGIN_PAGE;
             } else if ("Login".equals(action)) {

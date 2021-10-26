@@ -642,5 +642,58 @@ public class UserDAO {
         }
         return check;
     }
+    public List<UserDTO> ShowRank() throws ClassNotFoundException, SQLException {
+        List<UserDTO> ListUser = new ArrayList<>();
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = "select top 3 tblUser.UserID,Name,Email,RoleID,PhoneNumber,Address,Password,Status,BirthDay,Images,Stars\n"
+                        + "from tblFeedBack\n"
+                        + "inner join tblUser on tblFeedBack.UserID = tblUser.UserID \n"
+                        + "order by tblFeedBack.Stars desc ";
+                pst = con.prepareStatement(sql);
+                rs = pst.executeQuery();
+                while (rs.next()) {
+                    String userID = rs.getString("UserID");
+                    String name = rs.getString("Name");
+                    String email = rs.getString("Email");
+                    String roleId = rs.getString("RoleID");
+                    String phoneNumber = rs.getString("PhoneNumber");
+                    String address = rs.getString("Address");
+                    String password = rs.getString("Password");
+                    boolean status = rs.getBoolean("Status");
+                    String birthday = rs.getString("BirthDay");
+                    String image = rs.getString("Images");
+                    int stars = rs.getInt("Stars");
+                    UserDTO user = new UserDTO(userID,name, email, roleId, phoneNumber, address, password, image, image, birthday, image, stars);
+                    ListUser.add(user);
+                }
+            }
+
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+                pst.close();
+            }
+        }
+        return ListUser;
+    }
+
+    public static void main(String[] args) {
+        try {
+            UserDAO dao = new UserDAO();
+    
+
+        } catch (Exception e) {
+        }
+    }
 
 }

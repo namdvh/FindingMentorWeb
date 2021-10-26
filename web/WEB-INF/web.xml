@@ -32,6 +32,10 @@
         <servlet-name>LoadChapterStudentController</servlet-name>
         <servlet-class>c4.fm.controller.LoadChapterStudentController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoadHomeController</servlet-name>
+        <servlet-class>c4.fm.controller.LoadHomeController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CreateGoogleController</servlet-name>
         <url-pattern>/CreateGoogleController</url-pattern>
@@ -67,6 +71,10 @@
     <servlet-mapping>
         <servlet-name>LoadChapterStudentController</servlet-name>
         <url-pattern>/LoadChapterStudentController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadHomeController</servlet-name>
+        <url-pattern>/LoadHomeController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -110,6 +118,6 @@
         <url-pattern>/LoginController</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>user.jsp</welcome-file>
+        <welcome-file>MainController</welcome-file>
     </welcome-file-list>
 </web-app>
