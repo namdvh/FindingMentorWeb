@@ -112,7 +112,7 @@
                                                 <th>${s.status}</th>
                                                 <th>${s.birthday}</th>
                                                 <th>
-                                                    <img src="assets/${s.images}" width="50px" height="50px" alt="alt"/>
+                                                    <img src="${s.images}" width="50px" height="50px" alt="alt"/>
                                                 </th>
                                                 <th>
                                                     <c:if test="${s.status eq 'true'}">
