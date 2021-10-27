@@ -76,169 +76,17 @@
             .dropdown:hover .dropdown-content {
                 display: block;
             }
-              /************************* FOOTER *************************/
-      .footer {
-        color: #ffff;
-        background-color: #78036eba;;
-      }
-
-      .footer__media {
-        display: flex;
-        width: 74%;
-        margin: 0 auto;
-        padding-top: 4rem;
-      }
-      .footer__contact {
-        line-height: 2.4rem;
-      }
-
-      .footer__contact a {
-        text-decoration: none;
-        color: #ffff;
-        padding: 3rem 0;
-      }
-
-      .footer__media h3 {
-        padding-bottom: 2.5rem;
-      }
-
-      .location {
-        display: flex;
-        /* justify-content: center; */
-        line-height: 2.4rem;
-      }
-
-      .phone {
-        margin: 1rem 0;
-      }
-      .item {
-        margin-right: 7rem;
-      }
-
-      .item i {
-        margin-right: 1rem;
-        color: #fdc800;
-      }
-
-      .footer__featuredLinks {
-        margin-right: 24rem;
-      }
-
-      .footer__featuredLinks p {
-        line-height: 3rem;
-      }
-
-      .footer__quickLinks p {
-        line-height: 3rem;
-      }
-
-      .hr {
-        width: 75%;
-        margin: 0 auto;
-       
-      }
-
-      .footer__privacy {
-        display: flex;
-        width: 80%;
-        margin: 0 auto;
-        padding-left: 4rem;
-      }
-
-      .footer__privacy p:first-child {
-        margin-right: 60rem;
-      }
-
-      footer__privacy p:last-child {
-        padding-left: 6rem;
-      }
-
-      #pivacy {
-        padding: 0 3.5rem;
-      }
-      /************** END FOOTER **************/
-
+    
         </style>
     </head>
-
     <body>
         <!-- Add your content of header -->
-        <header>
-            <nav class="navbar  navbar-fixed-top navbar-default">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle uarr collapsed" data-toggle="collapse" data-target="#navbar-collapse-uarr">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a style="margin-left: -160px" class="navbar-brand" href="user.jsp" title="">
-                            <img src="assets/images/icon.jpg" class="navbar-logo-img" alt="">
-                        </a>
-                    </div>
-                    <div class="collapse navbar-collapse" id="navbar-collapse-uarr">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="user.jsp" title="" class="active">Home</a></li>
-                            <li>
-                                <div class="dropdown" style="float:right;margin-top: 26px;">
-                                    <a href="MainController?action=ShowAll"  style="color: #888;"> Subject</a>
-                                </div>
-                            </li>
-                            <!-- LOGIN LOGOUT -->
-                            <!-- <li><a href="./pricing.html" title="" > Profile </a></li> -->
-                            <c:if test="${sessionScope.LOGIN_USER == null}">
-                                <li><a href="createUser.jsp" title="" >Đăng Ký</a></li>
-                                <li><a href="MainController?action=LoginPage" title="">Đăng Nhập</a></li>
-                                <li>                              
-                                    <!-- comment dropdown luc nay chua hien avata neu chua damng nhap -->
-                                    <div class="dropdown" style="float:right;">
-                                        <button class="dropbtn" style="background-color: #fff;">
-                                            <a href="login.html">
-                                                <i class="fas fa-user-circle user" 
-                                                   style="font-size: 30px;
-                                                   padding-top: 24px;
-                                                   padding-left: 8px;
-                                                   ">
-                                                </i>
-                                            </a>
-                                        </button>
-                                        <!-- comment fix here link to updateUser,jsp-->
-                                        <div class="dropdown-content" style="left:-12px;">
-                                            <a href="login.html" class="choose">Profile</a>
-                                            <a href="MainController?action=Logout" class="choose">Log out</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </c:if>
-                            <!--khuc nay de hien avatar cho taskbar neu da dang nhap -->
-                            <c:if test="${sessionScope.LOGIN_USER != null}">
-                                <li>
-                                    <div class="dropdown" style="float:right;">
-                                        <button class="dropbtn" style="background-color: #fff;">
-                                            <a href="updateUser.jsp">
-                                                <i>
-                                                    <img style="border-radius: 30px; width: 60px; height: 60px; font-size: 30px; margin-top: 15px" src="${sessionScope.LOGIN_USER.images}" alt="photo2">
-                                                </i>       
-                                            </a>
-                                        </button>
-                                        <div class="dropdown-content" style="left:-12px;">
-                                            <a class="choose">${sessionScope.LOGIN_USER.name}</a>
-                                            <a href="updateUser.jsp" class="choose">Profile</a>
-                                            <a href="MainController?action=Logout" class="choose">Log out</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </c:if>           
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
+        <jsp:include page="headerTemplate.jsp"></jsp:include>
+       <!--end of header-->
         <c:if test="${sessionScope.LOGIN_USER == null}">
             <c:redirect url="login.jsp"/>
         </c:if>
-        <form action="UpdateUserController" method="POST" enctype="multipart/form-data">
+        <form action="UpdateUserController" method="POST" enctype="multipart/form-data"  >
             <div class="container">
                 <div class="row gutters">
                     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -253,7 +101,7 @@
                                         <h6 class="user-email" style="font-size: 13px;">${sessionScope.LOGIN_USER.email}</h6>
                                     </div>
                                     <div class="update">
-                                        <p><input class="btn btn-success" style="font-size: 15px; margin-top: 35px"  type="file" name="ProfileImage"></p>
+                                        <p><input class="btn btn-success" style="font-size: 12px; margin-top: 35px"  type="file" name="ProfileImage"></p>
                                     </div>
                                 </div>
                             </div>
@@ -263,8 +111,7 @@
                         <div class="card h-100">
                             <div class="card-body">
                                 <div class="row gutters">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <h6 class="mb-2 text-primary">Personal Details</h6>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">                                        
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
@@ -320,72 +167,7 @@
             </div>
         </form>
 <!--start of footer-->
- <footer>
-        <div class="footer">
-            <div class="footer__media">
-                <div class="footer__contact item">
-                    <h3 style="color: white; font-weight: bold; font-size: 25px">
-                        Contact Us
-                    </h3>
-                    <div class="location" >
-                        <i class="fas fa-map-marker-alt" ></i>
-                        <p>
-                            <a href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+FPT+TP.+HCM/@10.8414899,106.8078577,17z/data=!3m1!4b1!4m5!3m4!1s0x31752731176b07b1:0xb752b24b379bae5e!8m2!3d10.8414846!4d106.8100464">
-                                Lô E2a-7, Đường D1, Khu Công Nghệ Cao, Long Thạnh Mỹ, <br/> 
-                                Thành Phố Thủ Đức, Thành phố Hồ Chí Minh 700000, <br/>Việt Nam
-                            </a>
-
-
-                        </p>
-                    </div>
-                    <div class="phone">
-                        <i class="fas fa-phone-alt"></i>
-                        <a style="font-weight: bold; font-size: 15px"
-                           >+84 2873 0055 88</a
-                        >
-                    </div>
-                    <div class="email">
-                        <i class="far fa-envelope-open"></i>
-                        <a style="font-weight: bold; font-size: 15px"
-                           >toannhse140397@fpt.edu.vn</a
-                        >
-                    </div>
-                </div>
-
-                <div class="footer__featuredLinks item">
-                    <h3 style="color: white; font-weight: bold; font-size: 25px">
-                        Featured Links
-                    </h3>
-                    <p>Graduation</p>
-                    <p>Admissions</p>
-                    <p>Book Store</p>
-                    <p>International</p>
-                    <p>Courses</p>
-                </div>
-
-                <div class="footer__quickLinks item">
-                    <h3 style="color: white; font-weight: bold; font-size: 25px">
-                        Quick Links
-                    </h3>
-                    <p>Home</p>
-                    <p>About</p>
-                    <p>Services</p>
-                    <p>Blog</p>
-                    <p>Contact</p>
-                </div>
-            </div>
-
-            <div class="hr">
-                <hr style="color: #454545" />
-            </div>
-
-            <div class="footer__privacy">
-                <p>© 2021 C4. All rights reserved</p>
-                <p id="pivacy">Privacy policy</p>
-                <p>Terms of service</p>
-            </div>
-        </div>
-    </footer>
+<jsp:include page="footerTemplate.jsp"></jsp:include>
   <!--end off footer-->                                         
         <script>
             document.addEventListener("DOMContentLoaded", function (event) {
