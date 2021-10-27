@@ -41,21 +41,13 @@
         </div>
         <!-- End Header -->
         <!-- Container -->
-        <div id="container">
-            <div class="shell">
-
-                <!-- Message OK -->
-
-                <!-- End Message OK -->
-                <!-- Message Error -->
-
-                <!-- End Message Error -->
-                <br />
+        <div class="container">
+            <div class="row">
                 <!-- Main -->
                 <div id="main">
                     <div class="cl">&nbsp;</div>
                     <!-- Content -->
-                    <div id="content">
+                    <div id="content" style="width:992px">
                         <!-- Box -->
                         <div class="box">
                             <c:if test="${requestScope.DELETEUSER_MSG != null}">
@@ -142,9 +134,10 @@
                     </div>
                     <!-- End Content -->
                     <!-- Sidebar -->
-                    <div id="sidebar">
+                   
                         <!-- Box -->
-                        <div class="box">
+                        <span style="display: flex; justify-content: flex-end; ">
+                        <div class="box" style="margin-left: 25px">
                             <!-- Box Head -->
                             <div class="list-group">
                                 <a href="MainController?action=LoadAdminPage" class="list-group-item list-group-item-action ">
@@ -156,21 +149,13 @@
                                 <a href="MainController?action=addSubjectPage" class="list-group-item list-group-item-action ">Add Subject</a>
                             </div>
                             <!-- End Box Head-->
-                            <div class="box-content"> 
-                                <div class="cl">&nbsp;</div>
-                                <!-- Sort -->
-                                <div class="sort">
-
-
-                                </div>
-
-                                <!-- End Sort -->
-                            </div>
+                          
                         </div>
+                            </span>
                         <!-- End Box -->
-                    </div>
+                  
                     <!-- End Sidebar -->
-                    <div class="cl">&nbsp;</div>
+                    
                 </div>
                 <!-- Main -->
             </div>

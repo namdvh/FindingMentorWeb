@@ -86,7 +86,7 @@ h3 a{ text-decoration: none; }
 .table tr:hover td{ }
 .table a.ico{ }
 
-.box { background:#fbfcfc; height:100%; padding:1px; margin-bottom:20px; }
+.box { background:#fbfcfc; height:100%;  margin-bottom:20px; }
 .box-head { background: #005bff; height:32px; color:#fff; padding: 0 10px; line-height:32px; white-space:nowrap; border-bottom:solid 1px #fff; }
 .box-head .right{ padding-top:5px; line-height:13px;}
 .box-head .right label,

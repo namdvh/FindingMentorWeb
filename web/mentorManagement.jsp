@@ -42,8 +42,10 @@
         </div>
         <!-- End Header -->
         <!-- Container -->
-        <div id="container">
-            <div class="shell">
+        <div class="container">
+            <div class="row">
+                
+            
 
                 <!-- Message OK -->
 
@@ -51,12 +53,12 @@
                 <!-- Message Error -->
 
                 <!-- End Message Error -->
-                <br />
+                
                 <!-- Main -->
-                <div id="main">
-                    <div class="cl">&nbsp;</div>
+                <div id="main" >
+                    <!--<div class="cl">&nbsp;</div>-->
                     <!-- Content -->
-                    <div id="content">
+                    <div id="content" style="width: 938px" >
                         <!-- Box -->
                         <div class="box">
                             <c:if test="${requestScope.DELETEUSER_MSG != null}">
@@ -121,23 +123,23 @@
                                     </c:forEach>
                                 </c:if>
 
-                            </table>
-                            <!-- Pagging -->
-
-                            <!-- End Pagging -->
-                            <!-- Table -->
-                        </div>
-                        <!-- End Box -->
-                        <!-- Box -->
-
-                        <!-- End Box -->
-                    </div>
-                    <!-- End Content -->
-                    <!-- Sidebar -->
-                    <div id="sidebar">
-                        <!-- Box -->
-                        <div class="box">
+                                       
                             <!-- Box Head -->
+                         
+                          
+                      
+                            </table>
+                               
+                                
+                           
+              
+                          
+                        </div>
+                
+                    </div>
+                    
+                 <span style="display: flex; justify-content: flex-end; ">
+                                <div class="box" style="margin-left: 15px">
                             <div class="list-group">
                                 <a href="MainController?action=LoadAdminPage" class="list-group-item list-group-item-action ">
                                     Dashboard
@@ -147,24 +149,11 @@
                                 <a href="MainController?action=LoadApprovePage" class="list-group-item list-group-item-action">Approve Mentor</a>
                                 <a href="MainController?action=addSubjectPage" class="list-group-item list-group-item-action ">Add Subject</a>
                             </div>
-                            <!-- End Box Head-->
-                            <div class="box-content"> 
-                                <div class="cl">&nbsp;</div>
-                                <!-- Sort -->
-                                <div class="sort">
+                                        </div>
+                                </span>
 
-
-                                </div>
-
-                                <!-- End Sort -->
-                            </div>
-                        </div>
-                        <!-- End Box -->
-                    </div>
-
-                    <!-- End Sidebar -->
-                    <div class="cl">&nbsp;</div>
                 </div>
+               
                 <!-- Main -->
             </div>
         </div>
