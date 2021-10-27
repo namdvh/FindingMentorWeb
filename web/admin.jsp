@@ -98,7 +98,7 @@
                                                 <th><input type="hidden" name="subjectId" value="${s.subjectId}"></th>
                                                 <th>${s.subjectName}</th>
                                                 <th>
-                                                    <img src="assets/${s.images}" width="50px" height="50px" alt="alt"/>
+                                                    <img src="${s.images}" width="50px" height="50px" alt="alt"/>
                                                 </th>
                                                 <th>${s.userId}</th>
                                                 <th>${s.categoryId}</th>

@@ -69,7 +69,7 @@
                             <!-- Table -->
                             <div class="box">
 
-                                <form action="MainController" method="post">
+                                <form action="AddSubjectAdminServlet" method="post" enctype="multipart/form-data">
                                     <div class="box-head">
                                         <h2>Add New Subject</h2>
                                     </div>
@@ -139,7 +139,7 @@
                             <!-- Box Head -->
 
                             <!-- End Box Head -->
-                            <form action="MainController" method="post">
+                            <form action="AddSubjectAdminServlet" method="POST" enctype="multipart/form-data>
 
                                 <c:if test="${requestScope.UPDATE_SUBJECT != null}">
                                     <div class="box-head">

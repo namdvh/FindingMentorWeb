@@ -5,19 +5,26 @@
  */
 package c4.fm.admin.controller;
 
+import c4.fm.dao.UserDAO;
 import c4.fm.subject.SubjectDAO;
 import c4.fm.subject.SubjectDTO;
+import c4.fm.user.UserDTO;
+import java.io.File;
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+import org.apache.commons.io.FileUtils;
 
 /**
  *
  * @author cunpl
  */
+@MultipartConfig
 @WebServlet(name = "AddSubjectAdminServlet", urlPatterns = {"/AddSubjectAdminServlet"})
 public class AddSubjectAdminServlet extends HttpServlet {
     private static final String ADMIN_PAGE = "LoadAdminServlet";
@@ -36,13 +43,23 @@ public class AddSubjectAdminServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String url = ADMIN_PAGE;
         try {
+            UserDAO usdao = new UserDAO();
             String SubjectName = request.getParameter("subjectName");
-            String Image = request.getParameter("image");
+//            String Image = request.getParameter("image");
+            Part part = request.getPart("image");
+            
             String UserId = request.getParameter("userId");
             String CategoryId = request.getParameter("categoryId");
             boolean status = Boolean.parseBoolean(request.getParameter("status"));
             String Description = request.getParameter("description");
-            SubjectDTO subject = new SubjectDTO(SubjectName, Image, UserId, CategoryId, Description, status);
+            
+            String filename = SubjectName+".jpg";
+            String realPath = request.getServletContext().getRealPath("/") + "SubjectImage" + File.separator + filename;
+            System.out.println(realPath);
+            File file = new File(realPath);
+            FileUtils.copyInputStreamToFile(part.getInputStream(), file);
+            
+            SubjectDTO subject = new SubjectDTO(SubjectName, "SubjectImage" + File.separator + filename, UserId, CategoryId, Description, status);
             
             SubjectDAO subjectDao = new SubjectDAO();
             String msg = "";

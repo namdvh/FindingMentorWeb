@@ -153,8 +153,8 @@ textarea.size1 { height:180px; }
 .msg-error p{ background-color:#f3c598; border:solid 1px #e8b084; color:#ba4c32; background-image:url(images/msg-error.gif);  }
 
 /*** CSS3 ***/
-.box { -moz-border-radius:5px; -webkit-border-radius:5px; -moz-box-shadow: 0 0 6px #978f6c; -webkit-box-shadow: 0 0 6px #978f6c;}
-.box-head { -moz-border-radius-topleft:5px; -moz-border-radius-topright:5px; -webkit-border-top-left-radius:5px; -webkit-border-top-right-radius:5px; }
+.box { -moz-border-radius:5px; -webkit-border-radius:5px; -moz-box-shadow: 0 0 6px #978f6c; -webkit-box-shadow: 0 0 6px #978f6c;margin-top: 60px;padding-top: 0px;}
+.box-head { -moz-border-radius-topleft:5px; -moz-border-radius-topright:5px; -webkit-border-top-left-radius:5px; -webkit-border-top-right-radius:5px; height: 50px}
 
 .field, .button { -moz-border-radius:4px; -webkit-border-radius:4px; }
 .small-field, .button, .pagging a { -moz-border-radius:3px; -webkit-border-radius:3px; }

@@ -106,7 +106,7 @@
                                                 </th>
                                                 <th>${s.userId}</th>
                                                 <th>${s.name}</th>
-                                                <th> <img src="${s.certificate}" width="100px"> </th>
+                                                <th> <img src="${s.certificate}" width="150px"> </th>
                                                 <th>${s.description}</th>
                                                 <th>${s.status}</th>
                                                 <th>
