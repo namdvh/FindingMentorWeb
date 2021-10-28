@@ -47,6 +47,7 @@
         <link rel="stylesheet" href="Content-after/app.css">
     </head>
     <body>
+        <jsp:include page="headerTemplate.jsp"></jsp:include>
         <c:if test="${sessionScope.LOGIN_USER eq null || sessionScope.LOGIN_USER.roleID ne 'MT'}">
             <c:redirect url="login.html"></c:redirect>
         </c:if>
@@ -242,6 +243,7 @@
                 </div> 
             </div>
         </div>
+        <jsp:include page="footerTemplate.jsp"></jsp:include>
         <script
             src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
