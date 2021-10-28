@@ -93,148 +93,155 @@
                 </div>
             </c:forEach>
         </c:forEach>
-        <div class="areaStudy col-md-4">
-            <div class="content" >
-                <div class="title" style="display: flex;">
-                    <a style="margin-right: 15px;" class="btn btn-success" href="user.jsp">Back</a>
-                    <span><h2>Nội dung bài học</h2></span>   
-                    <button style="margin-left: 15px;" type="button" class="btn btn-success" data-toggle="modal" data-target="#createChapter" >
-                        Creater Chapter
-                    </button>
-                </div>
-                <div class="modal fade" id="createChapter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <form action="MainMentorController" method="POST" onsubmit="">
-                                <input type="hidden" name="SubjectID" value="${sessionScope.SUBJECT_ID}" />
-                                <input type="hidden" name="SubjectName" value="${sessionScope.SUBJECT_NAME}" />
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Create Chapter</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <label for="fullName">Subject Name</label>
-                                        <input type="text" class="form-control" id="fullName" value="${sessionScope.SUBJECT_NAME}" readonly="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="fullName">Chapter Name:</label>
-                                        <input type="text" class="form-control" id="fullName" placeholder="Chapter Name" name="NewChapterName" value="" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="fullName">Description:</label>
-                                        <input type="text" class="form-control" id="fullName" placeholder="Description" name="NewDescription" value="">
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary" value="CreateChapter" name="action">Create</button>
-                                </div>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-                <c:forEach var="chapter" items="${listChapter}" varStatus="counter">
-                    <div style="margin-bottom: 15px;" class="dropdown">
-                        <button  class="btn btn-secondary dropdown-toggle chapter" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Chương ${counter.count}: ${chapter.chapterName}
+        <c:set var="listChapter" value="${requestScope.LIST_CHAPTER}"/>
+        <div class="">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="d-flex justify-content-between mb-3">
+                        <a  class="btn btn-success btn-sm rounded-0" href="user.jsp">Back</a>
+                        <span><h2>Nội dung bài học</h2></span>   
+                        <button  type="button" class="btn btn-success btn-sm rounded-0" data-toggle="modal" data-target="#createChapter" >
+                            Creater Chapter
                         </button>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#createContent${counter.count}">+</button>
-                        <div class="modal fade" id="createContent${counter.count}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <form action="MainMentorController" method="POST" onsubmit="">
-                                        <input type="hidden" name="SubjectID" value="${sessionScope.SUBJECT_ID}" />
-                                        <input type="hidden" name="SubjectName" value="${sessionScope.SUBJECT_NAME}" />
-                                        <input type="hidden" name="NewContentChapterID" value="${chapter.chapterID}" readonly="readonly" /><br>
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Create Content</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
+                    </div>
+                    <div class="modal fade" id="createChapter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <form action="MainMentorController" method="POST" onsubmit="">
+                                    <input type="hidden" name="SubjectID" value="${sessionScope.SUBJECT_ID}" />
+                                    <input type="hidden" name="SubjectName" value="${sessionScope.SUBJECT_NAME}" />
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Create Chapter</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="fullName">Subject Name</label>
+                                            <input type="text" class="form-control" id="fullName" value="${sessionScope.SUBJECT_NAME}" readonly="">
                                         </div>
-                                        <div class="modal-body">
-                                            <div class="container-fluid">
-                                                <div class="form-group">
-                                                    <label for="fullName">Content Name:</label>
-                                                    <input type="text" class="form-control" id="fullName" placeholder="Content Name" name="contentName" value="" required="">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="fullName">Video Url:</label>
-                                                    <input type="url" class="form-control" id="fullName" placeholder="Video Url" name="videoURL" value="" required="">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="fullName">Blog:</label>
-                                                    <input type="text" class="form-control" id="fullName" name="blog" value="" placeholder="Blog">
-                                                </div>
-                                            </div>
+                                        <div class="form-group">
+                                            <label for="fullName">Chapter Name:</label>
+                                            <input type="text" class="form-control" id="fullName" placeholder="Chapter Name" name="NewChapterName" value="" required="">
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary" value="CreateContent" name="action">Create</button>
+                                        <div class="form-group">
+                                            <label for="fullName">Description:</label>
+                                            <input type="text" class="form-control" id="fullName" placeholder="Description" name="NewDescription" value="">
                                         </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary" value="CreateChapter" name="action">Create</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                        <!-- Button Plus Create Content -->
-                        <!-- Update Chapter -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateChapter${counter.count}">
-                            Edit
-                        </button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="updateChapter${counter.count}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <form action="MainMentorController" method="POST" onsubmit="">
-                                        <input type="hidden" name="SubjectID" value="${sessionScope.SUBJECT_ID}" />
-                                        <input type="hidden" name="SubjectName" value="${sessionScope.SUBJECT_NAME}" />
-                                        <input type="text" name="UpdateChapterID" value="${chapter.chapterID}" readonly="readonly" /><br>
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Update Chapter</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="form-group">
-                                                <label for="fullName">Chapter Name:</label>
-                                                <input type="text" class="form-control" id="fullName" placeholder="Chapter Name" name="UpdateChapterName" value="${chapter.chapterName}" required="">
+                    </div>
+                    <div style="height : 476px; overflow-y: auto; overflow-x: hidden">
+                        <div class="list-group">
+                            <div>
+                                <c:forEach var="chapter" items="${listChapter}" varStatus="counter">
+                                    <div class=" list-group-item list-group-item-action d-flex" data-toggle="collapse" href="#multiCollapseExample1_${counter.count}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1_${counter.count}">
+                                        <a style="text-decoration: none; color: black" class="align-self-center mr-auto font-weight-bold" >Chương ${counter.count}: ${chapter.chapterName}</a>
+                                        <button type="button" class="btn btn-danger btn-sm mr-2" data-toggle="modal" data-target="#createContent${counter.count}">+</button>
+                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updateChapter${counter.count}">
+                                            Edit
+                                        </button>
+                                    </div>
+                                    <div class="modal fade" id="createContent${counter.count}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <form action="MainMentorController" method="POST" onsubmit="">
+                                                    <input type="hidden" name="SubjectID" value="${sessionScope.SUBJECT_ID}" />
+                                                    <input type="hidden" name="SubjectName" value="${sessionScope.SUBJECT_NAME}" />
+                                                    <input type="text" name="NewContentChapterID" value="${chapter.chapterID}" readonly="readonly" /><br>
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Create Content</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="container-fluid">
+                                                            <div class="form-group">
+                                                                <label for="fullName">Content Name:</label>
+                                                                <input type="text" class="form-control" id="fullName" placeholder="Content Name" name="contentName" value="" required="">
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="fullName">Video Url:</label>
+                                                                <input type="url" class="form-control" id="fullName" placeholder="Video Url" name="videoURL" value="" required="">
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="fullName">Blog:</label>
+                                                                <input type="text" class="form-control" id="fullName" name="blog" value="" placeholder="Blog">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary" value="CreateContent" name="action">Create</button>
+                                                    </div>
+                                                </form>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="fullName">Description:</label>
-                                                <input type="text" class="form-control" id="fullName" placeholder="Description" name="UpdateDescription" value="${chapter.description}">
+                                        </div>
+                                    </div>
+                                    <div class="modal fade" id="updateChapter${counter.count}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <form action="MainMentorController" method="POST" onsubmit="">
+                                                    <input type="hidden" name="SubjectID" value="${sessionScope.SUBJECT_ID}" />
+                                                    <input type="hidden" name="SubjectName" value="${sessionScope.SUBJECT_NAME}" />
+                                                    <input type="hidden" name="UpdateChapterID" value="${chapter.chapterID}" readonly="readonly" /><br>
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">Update Chapter</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <label for="fullName">Chapter Name:</label>
+                                                            <input type="text" class="form-control" id="fullName" placeholder="Chapter Name" name="UpdateChapterName" value="${chapter.chapterName}" required="">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="fullName">Description:</label>
+                                                            <input type="text" class="form-control" id="fullName" placeholder="Description" name="UpdateDescription" value="${chapter.description}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary" value="UpdateChapter" name="action">Save</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary" value="UpdateChapter" name="action">Save</button>
-                                        </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                    <div class="collapse multi-collapse pl-4 mt-1 " id="multiCollapseExample1_${counter.count}">
+                                        <c:set var="listContent" value="${chapter.list}"/>
+                                        <c:forEach var="itemContent" items="${listContent}" varStatus="i">
+                                            <div style="border-radius: 0rem;" class=" m-0 pb-1 card card-body border-bottom ">
+                                                <a style="text-decoration: none; color: black" href="#" onclick="loadVideoURL('${itemContent.videoURL}')">
+                                                    Bài ${i.count}: ${itemContent.contentName}
+                                                </a>
+                                                <p class="card-text"><a href="#" class="badge badge-warning" data-toggle="modal" data-target="#editContent${itemContent.contentID}">Edit</a></p>
+                                            </div>
+                                        </c:forEach>
+                                    </div>
+                                </c:forEach>
                             </div>
-                        </div>
-                        <c:set var="listContent" value="${chapter.list}"/>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <c:forEach var="itemContent" items="${listContent}" varStatus="i">
-                                <a class="dropdown-item" onclick="loadVideoURL('${itemContent.videoURL}')">Bài ${i.count}: ${itemContent.contentName}
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editContent${itemContent.contentID}">Edit</button>
-                                </a>
-                            </c:forEach>
+
                         </div>
                     </div>
-                </c:forEach>
+                </div>
+                <div class="video col-md-8">
+                    <iframe  id="loadVideo" src="" frameborder="0" allowfullscreen style=" border: solid 4px #37474F">
+                    </iframe>
+                </div> 
             </div>
         </div>
-        <div class="video col-md-8">
-            <iframe  id="loadVideo" src="" frameborder="0" allowfullscreen style=" border: solid 4px #37474F">
-            </iframe>
-        </div>          
         <script
             src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -253,11 +260,11 @@
         ></script>
         <!-- Button trigger modal -->
         <script>
-                                    $('#exampleModal').on('show.bs.modal', event => {
-                                        var button = $(event.relatedTarget);
-                                        var modal = $(this);
-                                        // Use above variables to manipulate the DOM
-                                    });
+                                                    $('#exampleModal').on('show.bs.modal', event => {
+                                                        var button = $(event.relatedTarget);
+                                                        var modal = $(this);
+                                                        // Use above variables to manipulate the DOM
+                                                    });
         </script>
         <!--load video-->
         <script>
@@ -312,3 +319,4 @@
         </script>
     </body>
 </html>
+
