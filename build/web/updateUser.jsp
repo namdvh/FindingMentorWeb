@@ -76,7 +76,10 @@
             .dropdown:hover .dropdown-content {
                 display: block;
             }
-    
+            
+            .form-group .form-control {
+                font-size: 15px;
+            }
         </style>
     </head>
     <body>
@@ -109,7 +112,7 @@
                     </div>
                     <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                         <div class="card h-100">
-                            <div class="card-body">
+                            <div class="card-body" style="font-size: 18px">
                                 <div class="row gutters">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">                                        
                                     </div>
@@ -155,7 +158,7 @@
                                 <div class="row gutters">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="text-right">                                       
-                                            <button type="submit"  name="action" value="UpdateUserPage"  class="btnUpdate btn btn-primary">Update</button>
+                                            <button type="submit" style="font-size: 15px" name="action" value="UpdateUserPage"  class="btnUpdate btn btn-primary">Update</button>
 
                                         </div>
                                     </div>

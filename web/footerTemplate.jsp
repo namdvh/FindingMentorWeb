@@ -153,7 +153,7 @@
     </head>
     <body>
       <!--********************* INSTRUCTION__INFORMATION *********************-->
-    <section class="instruction__information" style="background-color: #141415">
+    <section class="instruction__information" style="background-color: #141415; margin-top: 150px">
       <div class="container">
         <div class="row">
           <div class="col-lg-4">

@@ -58,7 +58,7 @@
                 <div id="main">
                     <div class="cl">&nbsp;</div>
                     <!-- Content -->
-                    <div id="content">
+                    <div id="content" style="width: 763px">
                         <!-- Box -->
                         <div class="box">
                             <!-- Box Head -->
@@ -195,7 +195,7 @@
                     <!-- Sidebar -->
                     <div id="sidebar">
                         <!-- Box -->
-                        <div class="box">
+                        <div class="box" style="margin-left: 15px">
                             <!-- Box Head -->
                             
 

@@ -46,8 +46,8 @@
         </div>
 
 
-        <div id="container">
-            <div class="shell">
+        <div class="container">
+            <div class="row">
 
                 <!-- Message OK -->
 
@@ -55,14 +55,14 @@
                 <!-- Message Error -->
 
                 <!-- End Message Error -->
-                <br />
+    
                 <!-- Main -->
                 <div id="main">
-                    <div class="cl">&nbsp;</div>
+            
                     <!-- Content -->
                     <div id="content">
                         <!-- Box -->
-                        <div class="box">
+                       
                             <!-- Box Head -->
 
                             <!-- End Box Head -->
@@ -123,28 +123,34 @@
                                             <textarea name="description" class="field size1" rows="10" cols="30" required=""></textarea>
                                         </p>
                                     </div>
+                                         
                                     <!-- End Form -->
                                     <!-- Form Buttons -->
                                     <div class="buttons">
                                         <input type="submit" name="action" class="button" value="AddSubjectAdmin" />
                                     </div>
+                                    </form>
                                     <!-- End Form Buttons -->
-                                </form>
+                           
                             </div>
                             <!-- Table -->
-                        </div>
+                      
                         <!-- End Box -->
                         <!-- Box -->
-                        <div class="box">
+                    
+                        </div>
+                    
+                        
                             <!-- Box Head -->
 
-                            <!-- End Box Head -->
-                            <form action="AddSubjectAdminServlet" method="POST" enctype="multipart/form-data>
-
-                                <c:if test="${requestScope.UPDATE_SUBJECT != null}">
+                            <c:if test="${requestScope.UPDATE_SUBJECT != null}">
                                     <div class="box-head">
                                         <h2>Update Subject</h2>
-                                    </div>
+                            <!-- End Box Head -->
+                            <form action="AddSubjectAdminServlet" method="POST" enctype="multipart/form-data">
+                               
+                                 
+                                 
                                     <!-- Form -->
                                     <div class="form">
 
@@ -193,6 +199,7 @@
                                             <textarea name="description" class="field size1" rows="10" cols="30" required="" >${requestScope.UPDATE_SUBJECT.description}</textarea>
                                         </p>
                                     </div>
+                                
                                     <!-- End Form -->
                                     <!-- Form Buttons -->
                                     <div class="buttons">
@@ -200,16 +207,19 @@
                                         <input type="submit" name="action" class="button" value="UpdateSubjectAdmin" />
                                     </div>
                                     <!-- End Form Buttons -->
+                                    </form>
                                 </c:if>
-                            </form>
-                        </div>
+                            
+
+                                
+                      
                         <!-- End Box -->
-                    </div>
+              
                     <!-- End Content -->
                     <!-- Sidebar -->
-                    <div id="sidebar">
+                    <span style="display: flex; justify-content: flex-end; ">
                         <!-- Box -->
-                        <div class="box">
+                        <div class="box" style="margin-left: 15px">
                             <!-- Box Head -->
 
 
@@ -226,26 +236,19 @@
                                 <a href="MainController?action=addSubjectPage" class="list-group-item list-group-item-action active">Add Subject</a>
                             </div>
                             <!-- End Box Head-->
-                            <div class="box-content"> 
-                                <div class="cl">&nbsp;</div>
-                                <!-- Sort -->
-                                <div class="sort">
-
-
-                                </div>
-
-                                <!-- End Sort -->
-                            </div>
+                    
                         </div>
+                      </span>
+                          </div>
                         <!-- End Box -->
                     </div>
                     <!-- End Sidebar -->
-                    <div class="cl">&nbsp;</div>
+                   
                 </div>
 
                 <!-- Main -->
-            </div>
-        </div>
+          
+        
         <div id="footer">
             <div class="shell"> <span class="left">&copy; 2021 - Company Four Class</span> <span class="right"> Design by <a href="http://chocotemplates.com">Chocotemplates.com</a> </span> </div>
         </div>
