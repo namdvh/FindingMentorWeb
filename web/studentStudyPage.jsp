@@ -158,13 +158,15 @@
                                     aria-haspopup="true"
                                     aria-expanded="false"
                                     >
-                                    ${chapter.chapterName}
+                                    <a href="MainController?action=LoadContentStudent&chapterID=${chapter.chapterID}">
+                                          ${chapter.chapterName}
+                                    </a>
+                                  
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-                                    <c:set var="listContent" value="${requestScope.LIST_CHAPTER.list}"/>
+                                    <c:set var="listContent" value="${requestScope.LIST_CONTENT}"/>
                                     <c:forEach var="content" items="${listContent}" varStatus="i">
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="MainController?action=LoadContentStudent">
                                             ${content.contentName}
                                         </a>
                                     </c:forEach>

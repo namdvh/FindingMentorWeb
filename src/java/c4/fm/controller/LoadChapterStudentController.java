@@ -23,8 +23,11 @@ import javax.servlet.http.HttpSession;
  * @author HuuToan
  */
 public class LoadChapterStudentController extends HttpServlet {
+
     private static final String PAGE = "studentStudyPage.jsp";
     private static final String ERROR = "error.jsp";
+    private static final String SUCCESS = "LoadContentStudentController";
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -40,18 +43,13 @@ public class LoadChapterStudentController extends HttpServlet {
         String url = ERROR;
         try {
             HttpSession session = request.getSession();
-            int subjectID = Integer.parseInt(request.getParameter("subjectId"));   
+            int subjectID = Integer.parseInt(request.getParameter("subjectId"));
             ChapterDAO chapterDAO = new ChapterDAO();
             List<ChapterDTO> listChapter = chapterDAO.LoadListChapter(subjectID);
-            ContentDAO contentDAO = new ContentDAO();
-            for (ChapterDTO chapter : listChapter) {
-                List<ContentDTO> listContent = contentDAO.LoadListContent(chapter.getChapterID());
-                if (listContent != null) {
-                    chapter.setList(listContent);
-                    url = PAGE;
-                }
+            if (listChapter != null) {
+                url = SUCCESS;
+                request.setAttribute("LIST_CHAPTER", listChapter);
             }
-            request.setAttribute("LIST_CHAPTER", listChapter);
         } catch (Exception e) {
             log("Error LoadChapterStudentController" + e.toString());
         } finally {
