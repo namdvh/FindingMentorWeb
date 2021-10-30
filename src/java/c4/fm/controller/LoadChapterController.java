@@ -37,7 +37,7 @@ public class LoadChapterController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     private static final String PAGE = "mentor.jsp";
-    private static final String PAGELOGIN = "login.html";
+    private static final String PAGELOGIN = "login.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

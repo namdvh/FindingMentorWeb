@@ -7,22 +7,28 @@ package c4.fm.admin.controller;
 
 import c4.fm.subject.SubjectDAO;
 import c4.fm.subject.SubjectDTO;
+import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
-import javax.security.auth.Subject;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
+import org.apache.commons.io.FileUtils;
 
 /**
  *
  * @author cunpl
  */
+
 @WebServlet(name = "UpdateSubjectAdminServlet", urlPatterns = {"/UpdateSubjectAdminServlet"})
+@MultipartConfig
 public class UpdateSubjectAdminServlet extends HttpServlet {
-private static final String ADMIN_PAGE = "MainController?action=LoadAdminPage";
+
+    private static final String ADMIN_PAGE = "MainController?action=LoadAdminPage";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,28 +46,42 @@ private static final String ADMIN_PAGE = "MainController?action=LoadAdminPage";
         try {
             int subjectId = Integer.parseInt(request.getParameter("subjectId"));
             String subjectName = request.getParameter("subjectName");
-            String image = request.getParameter("image");
+//            String image = request.getParameter("image");
+            Part newPart = request.getPart("image");
             String userId = request.getParameter("userId");
             String categoryId = request.getParameter("categoryId");
             boolean status = Boolean.parseBoolean(request.getParameter("status"));
             String description = request.getParameter("description");
-            if (image.equals("")) {
-                image = request.getParameter("oldImage");
+            
+            HttpSession session = request.getSession();
+            SubjectDTO sj=(SubjectDTO) session.getAttribute("SUB");
+            SubjectDAO sjdao=new SubjectDAO();
+            String pathImage="";
+            if(!newPart.getSubmittedFileName().isEmpty()){
+                String filename = subjectName + ".jpg";
+                pathImage="SubjectImage"+File.separator+filename;
+                String realPath = request.getServletContext().getRealPath("/") + pathImage;
+                File file = new File(realPath);
+                FileUtils.copyInputStreamToFile(newPart.getInputStream(), file);
+            }else{
+                SubjectDTO oldsubject=sjdao.getSubjectAdmin(sj.getSubjectId());
+                pathImage=oldsubject.getImages();
             }
-            SubjectDTO subject = new SubjectDTO(subjectId, subjectName, image, userId, categoryId, description, status);
+//            if (image.equals("")) {
+//                image = request.getParameter("oldImage");
+//            }
+            SubjectDTO subject = new SubjectDTO(subjectId, subjectName, pathImage, userId, categoryId, description, status);
             SubjectDAO subjectDao = new SubjectDAO();
             String msg = "";
-            if(subjectDao.updateSubjectAdmin(subject)){
+            if (subjectDao.updateSubjectAdmin(subject)) {
                 msg = "Update Success!";
             }
             request.setAttribute("UPDATE_MSG", msg);
-            
-            
-                
+
         } catch (Exception e) {
             log("Error at UpdateSubjectAdminServlet:" + e.toString());
         } finally {
-              request.getRequestDispatcher(url).forward(request, response);
+            request.getRequestDispatcher(url).forward(request, response);
         }
     }
 

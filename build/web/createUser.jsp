@@ -38,7 +38,7 @@
                             <form action="CreateController" method="POST" class="register-form" id="register-form" enctype="multipart/form-data"> 
                                 <div class="form-group">
                                     <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="UserID" id="name" placeholder="User Name" required/>
+                                    <input type="text" name="UserID" id="name" placeholder="User Name" required value="${requestScope.UserID}"/>
                                     ${requestScope.USER_ERROR.getUserIDError()}</br>
                                 </div>
                                 <div class="form-group">

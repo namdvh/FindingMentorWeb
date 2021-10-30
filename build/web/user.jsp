@@ -211,10 +211,10 @@
                                     <p class="title">${all.description}</p>
                                     <p>Harvard University</p>
                                     <button  class="btn btn-success">
-                                        <a style="color: white" href="login.html">Join Class</a>
+                                        <a style="color: white" href="login.jsp">Join Class</a>
                                     </button>
                                     <button  class="btn btn-success">
-                                        <a style="color: white" href="login.html"> Detail </a>
+                                        <a style="color: white" href="login.jsp"> Detail </a>
                                     </button>
                                 </div>
                             </div>

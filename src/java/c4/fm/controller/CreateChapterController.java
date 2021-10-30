@@ -36,7 +36,7 @@ public class CreateChapterController extends HttpServlet {
      */
     private static final String ERROR = "mentor.jsp";
     private static final String SUCCESS = "LoadChapterController";
-    private static final String PAGELOGIN = "login.html";
+    private static final String PAGELOGIN = "login.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
