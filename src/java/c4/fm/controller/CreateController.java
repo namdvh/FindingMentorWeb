@@ -27,7 +27,7 @@ import org.apache.commons.io.FileUtils;
 public class CreateController extends HttpServlet {
 
     private static final String ERROR = "createUser.jsp";
-    private static final String SUCCESS = "login.html";
+    private static final String SUCCESS = "login.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -79,7 +79,9 @@ public class CreateController extends HttpServlet {
                 }
                 
             } else {
+                request.setAttribute("UserID",UserID);
                 request.setAttribute("USER_ERROR", userError);
+                
             }
         } catch (Exception e) {
             log("Error at CreateController:" + e.toString());

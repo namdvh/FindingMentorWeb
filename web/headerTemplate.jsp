@@ -180,7 +180,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="login.html">Login</a>
+                                <a class="nav-link" href="login.jsp">Login</a>
                             </li>
                         </c:if>
                         <c:if test="${sessionScope.LOGIN_USER != null}">                           

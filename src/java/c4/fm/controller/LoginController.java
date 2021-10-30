@@ -22,7 +22,7 @@ import javax.servlet.http.HttpSession;
  */
 public class LoginController extends HttpServlet {
 
-    private static final String ERROR = "error.jsp";
+    private static final String ERROR = "login.jsp";
     private static final String ADMIN_PAGE = "LoadAdminServlet";
     private static final String USER_PAGE = "LoadHomeController";
 

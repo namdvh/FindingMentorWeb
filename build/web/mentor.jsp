@@ -49,7 +49,7 @@
     <body>
         <jsp:include page="headerTemplate.jsp"></jsp:include>
         <c:if test="${sessionScope.LOGIN_USER eq null || sessionScope.LOGIN_USER.roleID ne 'MT'}">
-            <c:redirect url="login.html"></c:redirect>
+            <c:redirect url="login.jsp"></c:redirect>
         </c:if>
         <c:set var="listChapter" value="${requestScope.LIST_CHAPTER}"/>
         <c:forEach var="chapter" items="${listChapter}"> 

@@ -46,7 +46,7 @@ public class LoginGoogleHandler extends HttpServlet {
             String code = request.getParameter("code");
             System.out.println(request.getParameter("code"));
             if (code == null || code.isEmpty()) {
-                RequestDispatcher dis = request.getRequestDispatcher("login.html");
+                RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
                 dis.forward(request, response);
             } else {
                 String accessToken = GoogleUtils.getToken(code);

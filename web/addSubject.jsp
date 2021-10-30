@@ -147,10 +147,7 @@
                                     <div class="box-head">
                                         <h2>Update Subject</h2>
                             <!-- End Box Head -->
-                            <form action="AddSubjectAdminServlet" method="POST" enctype="multipart/form-data">
-                               
-                                 
-                                 
+                            <form action="UpdateSubjectAdminServlet" method="post" enctype="multipart/form-data">  
                                     <!-- Form -->
                                     <div class="form">
 
@@ -207,8 +204,8 @@
                                         <input type="submit" name="action" class="button" value="UpdateSubjectAdmin" />
                                     </div>
                                     <!-- End Form Buttons -->
-                                    </form>
                                 </c:if>
+                                    </form>
                             
 
                                 
