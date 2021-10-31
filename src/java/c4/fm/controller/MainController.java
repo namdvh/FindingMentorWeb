@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
 public class MainController extends HttpServlet {
 
     private static final String LOGIN = "LoginController";
-    private static final String LOGIN_PAGE = "login.jsp";
+    private static final String LOGIN_PAGE = "login.html";
     private static final String ERROR = "error.jsp";
     private static final String LOGOUT = "LogoutController";
     private static final String CREATE = "CreateController";
@@ -34,7 +34,6 @@ public class MainController extends HttpServlet {
     private static final String SHOW_COURSE_ENROLLED = "ShowEnrolledSubjectController";
     private static final String ENROLL_COURSE = "EnrollCourseController";
     private static final String LOAD_CHAPTER_STUDENT = "LoadChapterStudentController";
-    private static final String LOAD_CONTENT_STUDENT = "LoadContentStudentController";
 
     //==============BEGIN OF ADMIN===================
     private static final String LOAD_ADMIN_PAGE_SERVLET = "LoadAdminServlet";
@@ -88,8 +87,6 @@ public class MainController extends HttpServlet {
             } else if ("Enroll".equals(action)) {
                 url = ENROLL_COURSE;
             } else if ("LoadChapterStudent".equals(action)) {
-                url = LOAD_CHAPTER_STUDENT;
-            } else if ("LoadContentStudent".equals(action)) {
                 url = LOAD_CHAPTER_STUDENT;
             } else if ("UpdateUserPage".equals(action)) {
                 url = UPDATE_USER_PAGE;

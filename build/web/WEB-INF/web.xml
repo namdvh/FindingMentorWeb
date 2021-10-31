@@ -36,10 +36,6 @@
         <servlet-name>LoadHomeController</servlet-name>
         <servlet-class>c4.fm.controller.LoadHomeController</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>LoadContentStudentController</servlet-name>
-        <servlet-class>c4.fm.controller.LoadContentStudentController</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>CreateGoogleController</servlet-name>
         <url-pattern>/CreateGoogleController</url-pattern>
@@ -79,10 +75,6 @@
     <servlet-mapping>
         <servlet-name>LoadHomeController</servlet-name>
         <url-pattern>/LoadHomeController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LoadContentStudentController</servlet-name>
-        <url-pattern>/LoadContentStudentController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
