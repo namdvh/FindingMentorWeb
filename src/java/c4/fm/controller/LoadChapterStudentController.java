@@ -24,9 +24,8 @@ import javax.servlet.http.HttpSession;
  */
 public class LoadChapterStudentController extends HttpServlet {
 
-    private static final String PAGE = "studentStudyPage.jsp";
     private static final String ERROR = "error.jsp";
-    private static final String SUCCESS = "LoadContentStudentController";
+    private static final String SUCCESS = "studentStudyPage.jsp";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,18 +39,24 @@ public class LoadChapterStudentController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR;
+        String url = SUCCESS;
         try {
             HttpSession session = request.getSession();
             int subjectID = Integer.parseInt(request.getParameter("subjectId"));
+
+
             ChapterDAO chapterDAO = new ChapterDAO();
             List<ChapterDTO> listChapter = chapterDAO.LoadListChapter(subjectID);
-            if (listChapter != null) {
-                url = SUCCESS;
-                request.setAttribute("LIST_CHAPTER", listChapter);
+            ContentDAO contentDAO = new ContentDAO();
+            for (ChapterDTO chapter : listChapter) {
+                List<ContentDTO> listContent = contentDAO.LoadListContent(chapter.getChapterID());
+                if (listContent != null) {
+                    chapter.setList(listContent);
+                }
             }
+            request.setAttribute("LIST_CHAPTER", listChapter);
         } catch (Exception e) {
-            log("Error LoadChapterStudentController" + e.toString());
+            log("Error at load detail subject" + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
