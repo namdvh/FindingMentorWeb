@@ -45,6 +45,7 @@
 
         <!--<link href="New folder/main.a3f694c0.css" rel="stylesheet">-->
         <link rel="stylesheet" href="Content-after/app.css">
+        
         <style>
             @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
             #rating {
@@ -87,6 +88,7 @@
     </head>
     <body>
         <jsp:include page="headerTemplate.jsp"></jsp:include>
+        
         <c:if test="${sessionScope.LOGIN_USER eq null || sessionScope.LOGIN_USER.roleID ne 'US'}">
             <c:redirect url="login.html"></c:redirect>
         </c:if>
@@ -95,7 +97,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="d-flex justify-content-between mb-3">
-                        <a  class="btn btn-success btn-sm rounded-0" href="user.jsp">Back</a>
+                        <a  class="btn btn-success btn-sm rounded-0" href="MainController?action=ShowAll">Back</a>
                         <span><h2>Nội dung bài học</h2></span>   
                     </div>
                     <div style="height : 476px; overflow-y: auto; overflow-x: hidden">

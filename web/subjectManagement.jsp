@@ -63,6 +63,11 @@
         <link rel="stylesheet" href="Subject/MyCourse.css" />
 
         <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
             .dropbtn {
                 font-size: 16px;
                 border: none;
@@ -283,7 +288,7 @@
                     </c:forEach>
                 </c:if>
             </div>
-          
+
 
         </section>
         <!--start of footer-->

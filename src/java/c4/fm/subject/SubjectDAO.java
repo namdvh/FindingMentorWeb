@@ -5,6 +5,7 @@
  */
 package c4.fm.subject;
 
+import c4.fm.user.UserDTO;
 import c4.fm.utils.DBUtils;
 import java.io.Serializable;
 import java.sql.Connection;
@@ -493,4 +494,43 @@ public class SubjectDAO implements Serializable {
         }
         return listSubject;
     }    
+    //ham load mentor
+     public SubjectDTO loadMentor(int subjectID) throws SQLException, ClassNotFoundException {
+        SubjectDTO subject = null;
+        UserDTO user = null;
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = "SELECT   s.SubjectID, s.UserID, u.Name, u.Images "
+                        + " FROM tblSubject s "
+                        + " INNER JOIN tblUser u ON s.UserID = u.UserID "
+                        + " WHERE s.SubjectID = ? ";
+                pst = con.prepareStatement(sql);
+                pst.setInt(1, subjectID);
+                rs = pst.executeQuery();
+                while (rs.next()) {
+                    int subjectId = Integer.parseInt(rs.getString("SubjectID"));
+                    String UserID = rs.getString("UserID");
+                    String images = rs.getString("Images");
+                    String Name = rs.getString("Name");           
+                    subject = new SubjectDTO(subjectId, UserID);
+                    user = new UserDTO(Name, images);
+                }
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return subject;
+    }
 }

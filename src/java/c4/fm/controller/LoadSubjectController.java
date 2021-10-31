@@ -41,12 +41,15 @@ public class LoadSubjectController extends HttpServlet {
         boolean check = true;
         HttpSession session = request.getSession();
         UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
+        SubjectDTO sjdto = (SubjectDTO) session.getAttribute("LOAD_SUBJECT");
         int subjectId = Integer.parseInt(request.getParameter("subjectId"));
         SubjectDAO subjectDao = new SubjectDAO();
         RegisterSubjectDAO registerDao = new RegisterSubjectDAO();
         try {        
                 SubjectDTO dto = subjectDao.loadSubject(subjectId);
+                SubjectDTO dto1 = subjectDao.loadMentor(subjectId);
                 request.setAttribute("ViewPage", dto);
+                request.setAttribute("LoadMentor", dto1);
                 url = LOAD_PAGE;
         } catch (Exception e) {
             log("Errot at LoadSubjectController:" + e.toString());
