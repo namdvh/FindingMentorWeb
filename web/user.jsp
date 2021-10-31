@@ -37,6 +37,11 @@
 
         <!-- Style dropdown -->
         <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
             .dropbtn {
                 font-size: 16px;
                 border: none;
@@ -128,26 +133,26 @@
 
         <!-- Add your content of header -->
         <jsp:include page="headerTemplate.jsp"></jsp:include>
-    
-        <div class="white-text-container background-image-container" style="background-image: url('./assets/images/img-home.jpg')">
-            <div class="opacity"></div>
-            <div class="container">
-                <form action="MainController" method="POST">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <input type="text" name="txtSearch" class="input" placeholder="Search" style="width: 50%;">
-                            <button type="submit" name="action" value="Search"><i class="fa fa-search"></i></button>
-                            <!--<input type="submit" value="Search" name="action">-->
+
+            <div class="white-text-container background-image-container" style="background-image: url('./assets/images/img-home.jpg')">
+                <div class="opacity"></div>
+                <div class="container">
+                    <form action="MainController" method="POST">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" name="txtSearch" class="input" placeholder="Search" style="width: 50%;">
+                                <button type="submit" name="action" value="Search"><i class="fa fa-search"></i></button>
+                                <!--<input type="submit" value="Search" name="action">-->
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
-        <div class="section-container border-section-container">
-            <div class="container">
-                <div class="col-lg-4 mb-4 col-sm-6">
-                    <div class="card_item card_item_custom">
-                        <img src="${requestScope.rank1.images}"style="border-radius: 50%" class="card-img-top" alt="...">
+            <div class="section-container border-section-container">
+                <div class="container">
+                    <div class="col-lg-4 mb-4 col-sm-6">
+                        <div class="card_item card_item_custom">
+                            <img src="${requestScope.rank1.images}"style="border-radius: 50%" class="card-img-top" alt="...">
                         <div class="cardx-body">
                             <div class="cardx-name" style="font-size: 25px;">Top 1</div>
                             <p class="card-text" style="height: 40px">${requestScope.rank1.name}</p>
@@ -303,8 +308,8 @@
                 </div>
             </div>
         </div>
-       
-                                        <jsp:include page="footerTemplate.jsp"></jsp:include>
+
+        <jsp:include page="footerTemplate.jsp"></jsp:include>
         <!--end off footer-->  
 
 

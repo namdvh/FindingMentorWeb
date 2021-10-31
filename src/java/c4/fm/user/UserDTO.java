@@ -57,6 +57,11 @@ public class UserDTO implements Serializable{
         this.birthday = birthday;
         this.images = images;
     }
+
+    public UserDTO(String name, String images) {
+        this.name = name;
+        this.images = images;
+    }
     
     
     //UserID, Name, Email, PhoneNumber, Address, BirthDay, Images

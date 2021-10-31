@@ -41,6 +41,11 @@ public class SubjectDTO implements Serializable{
         this.description = description;
         this.status = status;
     }
+
+    public SubjectDTO(int subjectId, String userId) {
+        this.subjectId = subjectId;
+        this.userId = userId;
+    }
     
     
 

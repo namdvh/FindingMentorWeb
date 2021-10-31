@@ -141,6 +141,32 @@
                 background-color: rgba(0, 0, 0, 0);
             }
             /******************************* END INSTRUCTION__MENU *******************************/
+            .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 90px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content .choose {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content .choose:hover{
+      background-color: #5876FC; 
+      transition: all .5s;
+      color: #ffff;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 
         </style>
         <!--********************* INSTRUCTION__MENU *********************-->
@@ -186,7 +212,7 @@
                         <c:if test="${sessionScope.LOGIN_USER != null}">                           
                                 <li>
                                     <div class="dropdown" style="float:right;">
-                                        <button class="dropbtn" style="background-color: #fff;">
+                                        <button class="dropbtn" style="background-color: #fff; border: none;">
                                             <a href="updateUser.jsp">
                                                 <i>
                                                     <img style="border-radius: 50%; width: 45px; height: 45px; font-size: 30px; margin-top: 15px; margin-left: 15px;" src="${sessionScope.LOGIN_USER.images}" alt="photo2">
