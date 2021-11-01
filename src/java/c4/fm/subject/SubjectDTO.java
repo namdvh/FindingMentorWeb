@@ -5,7 +5,9 @@
  */
 package c4.fm.subject;
 
+import c4.fm.user.UserDTO;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -19,9 +21,18 @@ public class SubjectDTO implements Serializable{
     private String categoryId;
     private String description;
     private boolean status;
-    
+    private List<UserDTO> list;
 
-    
+    public SubjectDTO(int subjectId, String subjectName, String images, String userId, String categoryId, String description, boolean status, List<UserDTO> list) {
+        this.subjectId = subjectId;
+        this.subjectName = subjectName;
+        this.images = images;
+        this.userId = userId;
+        this.categoryId = categoryId;
+        this.description = description;
+        this.status = status;
+        this.list = list;
+    }
 
     public SubjectDTO(int subjectId, String subjectName, String images, String userId, String categoryId, String description, boolean status) {
         this.subjectId = subjectId;
@@ -46,8 +57,14 @@ public class SubjectDTO implements Serializable{
         this.subjectId = subjectId;
         this.userId = userId;
     }
-    
-    
+
+    public List<UserDTO> getList() {
+        return list;
+    }
+
+    public void setList(List<UserDTO> list) {
+        this.list = list;
+    }
 
     public boolean isStatus() {
         return status;
@@ -56,9 +73,6 @@ public class SubjectDTO implements Serializable{
     public void setStatus(boolean status) {
         this.status = status;
     }
-    
-    
-    
 
     public int getSubjectId() {
         return subjectId;
