@@ -7,6 +7,7 @@ package c4.fm.admin.controller;
 
 import c4.fm.subject.SubjectDAO;
 import c4.fm.subject.SubjectDTO;
+import c4.fm.user.UserDTO;
 import java.io.File;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -47,7 +48,10 @@ public class UpdateSubjectAdminServlet extends HttpServlet {
             int subjectId = Integer.parseInt(request.getParameter("subjectId"));
             String subjectName = request.getParameter("subjectName");
 //            String image = request.getParameter("image");
+            
+            
             Part newPart = request.getPart("image");
+            Part oldPart = request.getPart("oldImage");
             String userId = request.getParameter("userId");
             String categoryId = request.getParameter("categoryId");
             boolean status = Boolean.parseBoolean(request.getParameter("status"));
@@ -57,15 +61,17 @@ public class UpdateSubjectAdminServlet extends HttpServlet {
             SubjectDTO sj=(SubjectDTO) session.getAttribute("SUB");
             SubjectDAO sjdao=new SubjectDAO();
             String pathImage="";
+            
+            SubjectDTO subjectDTO = sjdao.loadSubject(subjectId);
+            
             if(!newPart.getSubmittedFileName().isEmpty()){
-                String filename = subjectName + ".jpg";
+                String filename = subjectId + ".jpg";
                 pathImage="SubjectImage"+File.separator+filename;
                 String realPath = request.getServletContext().getRealPath("/") + pathImage;
                 File file = new File(realPath);
                 FileUtils.copyInputStreamToFile(newPart.getInputStream(), file);
             }else{
-                SubjectDTO oldsubject=sjdao.getSubjectAdmin(sj.getSubjectId());
-                pathImage=oldsubject.getImages();
+                    pathImage = subjectDTO.getImages();
             }
 //            if (image.equals("")) {
 //                image = request.getParameter("oldImage");
