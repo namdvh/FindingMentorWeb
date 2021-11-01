@@ -44,8 +44,8 @@ public class ShowAllSubjectController extends HttpServlet {
             List<SubjectDTO> listEnrolled = dao.ShowEnrollSubject(userID);
             request.setAttribute("listEnrolled", listEnrolled);
             List<SubjectDTO> listSubjectMentor = dao.listSubjectMentor(userID);
-            request.setAttribute("LIST_MENTOR_SUBJECT", listSubjectMentor);
-            request.setAttribute("allSubject", list);
+            session.setAttribute("LIST_MENTOR_SUBJECT", listSubjectMentor);
+            session.setAttribute("allSubject", list);
 
         } catch (Exception e) {
             log("Error at show all subject" + e.getMessage());
