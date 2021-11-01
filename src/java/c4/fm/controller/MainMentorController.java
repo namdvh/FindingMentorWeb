@@ -33,6 +33,7 @@ public class MainMentorController extends HttpServlet {
     private static final String CREATE_CHAPTER = "CreateChapterController";
     private static final String LOAD_CHAPTER_CONTENT = "LoadChapterController";
     private static final String LOAD_STUDENT_SUBJECT = "LoadStudentSubjectController";
+    private static final String LOAD_SUBJECT = "ShowAllSubjectController";
     private static final String CREATE_CONTENT = "CreateContentController";
     private static final String UPDATE_CHAPTER = "UpdateChapterController";
     private static final String UPDATE_CONTENT = "UpdateContentController";
@@ -54,8 +55,10 @@ public class MainMentorController extends HttpServlet {
                 url = UPDATE_CONTENT;
             } else if (action.equals("EditSubject")) {
                 url = LOAD_CHAPTER_CONTENT;
-            } else if (action.equals("ViewListSubject")) {
+            } else if (action.equals("ViewListStudent")) {
                 url = LOAD_STUDENT_SUBJECT;
+            } else if (action.equals("ShowAllSubjectController")) {
+                url = LOAD_SUBJECT;
             }
         } catch (Exception e) {
             log("Error at main mentor controller" + e.toString());
