@@ -137,6 +137,7 @@
                     <h3><b>Khu vực học tập</b></h3>
                 </div>
                 <p>Khóa học, tài liệu mà bạn đăng ký sẽ được hiển thị dưới đây.</p>
+                 
             </section>
 
             <section class="MyCourse" style="margin-top: 20px">
@@ -146,8 +147,11 @@
                     </button>
                 <%--<c:if test="${sessionScope.LOGIN_USER != null}">--%>
                 <button class="tablinks" onclick="openCity(event, 'myCourse')">
-                    <b>Của tôi</b>
+                    <a href="MainController?action=ShowAll">Cua Toi</a>
                 </button>
+                
+                
+                
                 <%--</c:if>--%> 
                 <!-- <button class="tablinks" onclick="openCity(event, 'addCourse')"><b>Tạo mới khóa học</b></button> -->
 
@@ -158,6 +162,7 @@
                     </form>
                 </div>
             </div>
+               
 
             <!-- Tab content -->
 

@@ -125,7 +125,7 @@
                             <!-- Box Head -->
 
                             <!-- End Box Head -->
-                            <form action="MainController" method="post">
+                            <form action="UpdateSubjectAdminServlet" method="post" enctype="multipart/form-data" >
                                 
                                 <c:if test="${requestScope.UPDATE_SUBJECT != null}">
                                     <div class="box-head">
