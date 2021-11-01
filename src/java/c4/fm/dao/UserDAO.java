@@ -642,6 +642,7 @@ public class UserDAO {
         }
         return check;
     }
+
     public List<UserDTO> ShowRank() throws ClassNotFoundException, SQLException {
         List<UserDTO> ListUser = new ArrayList<>();
         Connection con = null;
@@ -668,7 +669,7 @@ public class UserDAO {
                     String birthday = rs.getString("BirthDay");
                     String image = rs.getString("Images");
                     int stars = rs.getInt("Stars");
-                    UserDTO user = new UserDTO(userID,name, email, roleId, phoneNumber, address, password, image, image, birthday, image, stars);
+                    UserDTO user = new UserDTO(userID, name, email, roleId, phoneNumber, address, password, image, image, birthday, image, stars);
                     ListUser.add(user);
                 }
             }
@@ -690,10 +691,69 @@ public class UserDAO {
     public static void main(String[] args) {
         try {
             UserDAO dao = new UserDAO();
-    
 
         } catch (Exception e) {
         }
     }
 
+    public boolean updatePassword(String userId, String password) throws SQLException, ClassNotFoundException {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement stm = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                String sql = " UPDATE tblUser "
+                        + " SET Password = ? \n"
+                        + " WHERE UserID = ? ";
+                stm = conn.prepareStatement(sql);
+                stm.setString(1, password);
+                stm.setString(2, userId);
+                check = stm.executeUpdate() > 0;
+            }
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return check;
+    }
+
+    public boolean checkOldPassword(String userId, String password) throws SQLException, ClassNotFoundException {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                String sql = " Select Password "
+                        + " from tblUser \n"
+                        + " WHERE UserID = ? AND Password = ? ";
+                stm = conn.prepareStatement(sql);
+                stm.setString(1, userId);
+                stm.setString(2, password);
+               rs = stm.executeQuery();
+               if(rs.next()){
+                    check = true;
+                }
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+
+        }
+        return check;
+    }
+    
 }

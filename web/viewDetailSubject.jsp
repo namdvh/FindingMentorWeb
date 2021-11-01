@@ -172,7 +172,7 @@
                     <ul style="margin-left: 10px">                
                         <p>${ViewPage.subjectName}</p>                         
                         <p>${ViewPage.description}</p>
-                      
+                   
                     </ul>
                 </h6>
                                   

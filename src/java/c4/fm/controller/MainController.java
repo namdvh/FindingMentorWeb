@@ -34,6 +34,7 @@ public class MainController extends HttpServlet {
     private static final String SHOW_COURSE_ENROLLED = "ShowEnrolledSubjectController";
     private static final String ENROLL_COURSE = "EnrollCourseController";
     private static final String LOAD_CHAPTER_STUDENT = "LoadChapterStudentController";
+    private static final String CHANGE_PASSWORD = "UpdatePasswordController";
 
     //==============BEGIN OF ADMIN===================
     private static final String LOAD_ADMIN_PAGE_SERVLET = "LoadAdminServlet";
@@ -90,6 +91,8 @@ public class MainController extends HttpServlet {
                 url = LOAD_CHAPTER_STUDENT;
             } else if ("UpdateUserPage".equals(action)) {
                 url = UPDATE_USER_PAGE;
+            } else if ("UpdatePassword".equals(action)) {
+                url = CHANGE_PASSWORD;
             } //================BEGIN OF ADMIN============================
             else if (action.equals("AddSubjectAdmin")) {
                 url = ADDSUBJECT_ADMIN_SERVLET;
