@@ -80,8 +80,7 @@ public class CreateController extends HttpServlet {
                 
             } else {
                 request.setAttribute("UserID",UserID);
-                request.setAttribute("USER_ERROR", userError);
-                
+                request.setAttribute("USER_ERROR", userError);    
             }
         } catch (Exception e) {
             log("Error at CreateController:" + e.toString());

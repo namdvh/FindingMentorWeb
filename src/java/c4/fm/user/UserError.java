@@ -35,6 +35,13 @@ public class UserError {
         this.BirthdayError = BirthdayError;
     }
 
+    public UserError(String UserIDError, String passwordError, String confirmPasswordError) {
+        this.UserIDError = UserIDError;
+        this.passwordError = passwordError;
+        this.confirmPasswordError = confirmPasswordError;
+    }
+
+    
     public String getUserIDError() {
         return UserIDError;
     }

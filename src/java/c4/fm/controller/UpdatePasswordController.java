@@ -7,21 +7,27 @@ package c4.fm.controller;
 
 import c4.fm.dao.UserDAO;
 import c4.fm.user.UserDTO;
+import c4.fm.user.UserError;
+import c4.fm.validation.CheckValidation;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.util.stream.Collectors.mapping;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import static sun.java2d.cmm.ColorTransform.In;
 
 /**
  *
  * @author HuuToan
  */
-public class LoadInforController extends HttpServlet {
-        private static final String LOAD ="updateUser.jsp";
-        private static final String ERROR ="error.jsp";
+public class UpdatePasswordController extends HttpServlet {
+
+    private static final String ERROR = "updateUser.jsp";
+    private static final String SUCCESS = "updateUser.jsp";
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,23 +40,57 @@ public class LoadInforController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR; 
-         try {
+        String url = ERROR;
+        UserError userError = new UserError("", "", "", "", "", "", "", "", "");
+        try {
             HttpSession session = request.getSession();
-            UserDTO usdto = (UserDTO) session.getAttribute("LOGIN_USER");
-            String userID = usdto.getUserID();
-            String password = usdto.getPassword();
-            UserDAO usdao = new UserDAO();
-            usdto = usdao.loadUser(userID);
-            request.setAttribute("Pass", password);
-            session.setAttribute("LOGIN_USER", usdto);
-            url = LOAD;
+            UserDTO loginUser = (UserDTO) session.getAttribute("LOGIN_USER");
+            String UserID = loginUser.getUserID();
+            String oldPassword = request.getParameter("OldPassword");
+            String Password = request.getParameter("Password");
+            String confirm = request.getParameter("ConfirmPassword");
+            UserDAO dao = new UserDAO();
+            UserDTO user = new UserDTO(UserID, Password);
+            boolean check = true; 
+            boolean check2 = true;
+            boolean check3 = true;
+
+            if (loginUser == null) {
+                url = ERROR;
+            } else {
+                if (!Password.equals(confirm)) {
+                    userError.setConfirmPasswordError("Two password is not match");
+                    check = false;
+                    request.setAttribute("USER_ERROR", userError);
+                }
+                    check2 = dao.checkOldPassword(UserID, oldPassword);
+                if (check2 == false) {                  
+                     request.setAttribute("submitFail2", "done");
+                } 
+                if (oldPassword.equals(Password)) {
+                    check3 = false;
+                    request.setAttribute("submitFail", "done");
+                }
+                if (check == true && check2 == true && check3 == true) {
+                    boolean checkInsert = dao.updatePassword(UserID, Password);
+                    if (checkInsert) {
+                        url = SUCCESS;
+                        request.setAttribute("submitDone", "done");
+                    }
+                } else {
+                    request.setAttribute("UserID", UserID);
+
+                }
+
+            }
+
         } catch (Exception e) {
-            log("Error at LoadController: "+e.toString());
-        }finally{
+            e.printStackTrace();
+        } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
