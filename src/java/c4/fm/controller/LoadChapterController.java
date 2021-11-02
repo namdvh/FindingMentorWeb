@@ -45,7 +45,12 @@ public class LoadChapterController extends HttpServlet {
         String url = PAGE;
         try {
             HttpSession session = request.getSession();
-            int subjectID = Integer.parseInt(request.getParameter("SubjectID"));
+            int subjectID = 0;
+            if (session.getAttribute("MENTOR_SUBJECT") != null) {
+                subjectID = (int) session.getAttribute("MENTOR_SUBJECT");
+            } else {
+                subjectID = Integer.parseInt(request.getParameter("SubjectID"));
+            }
             String subjectName = request.getParameter("SubjectName");
             session.setAttribute("SUBJECT_ID", subjectID);
             session.setAttribute("SUBJECT_NAME", subjectName);

@@ -548,7 +548,7 @@ public class SubjectDAO implements Serializable {
                         + "from tblRegister \n"
                         + "Where SubjectID = ?";
                 pst = con.prepareStatement(sql);
-                pst.setString(1, subjectID);
+                pst.setInt(1, Integer.parseInt(subjectID));
                 rs = pst.executeQuery();
                 while (rs.next()) {
                     String userID = rs.getString("UserID");
@@ -565,8 +565,40 @@ public class SubjectDAO implements Serializable {
             if (con != null) {
 
             }
-
         }
         return listStudent;
+    }
+    
+    public boolean checkMentorSubject(String userID, int subjectID) throws ClassNotFoundException, SQLException {
+        boolean check = false;
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = "Select UserID, SubjectID \n"
+                        + "from tblSubject \n"
+                        + "Where UserID = ? and SubjectID = ? ";
+                pst = con.prepareStatement(sql);
+                pst.setString(1, userID);
+                pst.setInt(2, subjectID);
+                rs = pst.executeQuery();
+                if (rs.next()) {
+                    check = true;
+                }
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+
+            }
+        }
+        return check;
     }
 }
