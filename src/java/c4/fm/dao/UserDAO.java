@@ -736,8 +736,8 @@ public class UserDAO {
                 stm = conn.prepareStatement(sql);
                 stm.setString(1, userId);
                 stm.setString(2, password);
-               rs = stm.executeQuery();
-               if(rs.next()){
+                rs = stm.executeQuery();
+                if (rs.next()) {
                     check = true;
                 }
             }
@@ -755,5 +755,61 @@ public class UserDAO {
         }
         return check;
     }
-    
+
+    public UserDTO getStar(String userID) throws ClassNotFoundException, SQLException {
+        UserDTO user = null;
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = "select Stars from tblFeedBack where UserID = ?";
+                pst = con.prepareStatement(sql);
+                pst.setString(1, userID);
+                rs = pst.executeQuery();
+                while (rs.next()) {
+                    user = new UserDTO(rs.getInt("Stars"));
+                }
+            }
+
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+                pst.close();
+            }
+        }
+        return user;
+    }
+
+    public boolean Rating(String userID, int point) throws ClassNotFoundException, SQLException {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement stm = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                String sql = "update tblFeedBack \n"
+                        + "set Stars = ? \n"
+                        + "where UserID = ?";
+                stm = conn.prepareStatement(sql);
+                stm.setInt(1, point);
+                stm.setString(2, userID);
+                check = stm.executeUpdate() > 0;
+            }
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return check;
+    }
 }

@@ -5164,3 +5164,14 @@ textarea {
   text-align: center;
   height: 40px;
 }
+.card-img-top-detail{
+    
+  width: 50%;
+  height: 50%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  border: 1px solid #dddddd;
+  display: block;
+}

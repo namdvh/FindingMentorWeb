@@ -45,7 +45,7 @@
 
         <!--<link href="New folder/main.a3f694c0.css" rel="stylesheet">-->
         <link rel="stylesheet" href="Content-after/app.css">
-        
+
         <style>
             @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
             #rating {
@@ -88,8 +88,8 @@
     </head>
     <body>
         <jsp:include page="headerTemplate.jsp"></jsp:include>
-        
-        <c:if test="${sessionScope.LOGIN_USER eq null || sessionScope.LOGIN_USER.roleID ne 'US'}">
+
+        <c:if test="${sessionScope.LOGIN_USER eq null}">
             <c:redirect url="login.html"></c:redirect>
         </c:if>
         <c:set var="listChapter" value="${requestScope.LIST_CHAPTER}"/>
@@ -161,23 +161,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-group">
-                                            <label for="fullName">Chapter Name</label>
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="fullName"
-                                                placeholder="Content Name"
-                                                value="${subjectID}"
-                                                />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cars">Choose a mentor:</label>
-                                            <select name="cars" id="cars">
-                                                <option value="volvo">Volvo</option>
-                                                <option value="saab">Saab</option>
-                                                <option value="opel">Opel</option>
-                                                <option value="audi">Audi</option>
-                                            </select>
+                                            <label for="fullName">Mentor Name: ${UserID}</label>
                                         </div>
                                         <div id="rating">
                                             <input type="radio" id="star5" name="rating" value="5" />
@@ -220,7 +204,9 @@
                                             >
                                             Close
                                         </button>
-                                        <button type="button" class="btn btn-primary">Save</button>
+                                        <input type="hidden" name="subjectID" value="${subject}" />
+                                        <input type="hidden" name="MentorName" value="${UserID}" />
+                                        <button type="submit" name="action" value="Rating" class="btn btn-primary">Save</button>
                                     </div>
                                 </div>
                             </div>
@@ -247,11 +233,11 @@
             ></script>
             <!-- Button trigger modal -->
             <script>
-                                                        $('#exampleModal').on('show.bs.modal', event => {
-                                                            var button = $(event.relatedTarget);
-                                                            var modal = $(this);
-                                                            // Use above variables to manipulate the DOM
-                                                        });
+                                                    $('#exampleModal').on('show.bs.modal', event => {
+                                                        var button = $(event.relatedTarget);
+                                                        var modal = $(this);
+                                                        // Use above variables to manipulate the DOM
+                                                    });
             </script>
             <!--load video-->
             <script>
