@@ -5,6 +5,7 @@
  */
 package c4.fm.controller;
 
+import c4.fm.dao.UserDAO;
 import c4.fm.registersubject.RegisterSubjectDAO;
 import c4.fm.subject.SubjectDAO;
 import c4.fm.subject.SubjectDTO;
@@ -45,11 +46,13 @@ public class LoadSubjectController extends HttpServlet {
         int subjectId = Integer.parseInt(request.getParameter("subjectId"));
         SubjectDAO subjectDao = new SubjectDAO();
         RegisterSubjectDAO registerDao = new RegisterSubjectDAO();
+        UserDAO userdao = new UserDAO();
         try {        
                 SubjectDTO dto = subjectDao.loadSubject(subjectId);
-                SubjectDTO dto1 = subjectDao.loadMentor(subjectId);
+                String userID = dto.getUserId();
+                UserDTO userMentor = userdao.loadUser(userID);
                 request.setAttribute("ViewPage", dto);
-                request.setAttribute("LoadMentor", dto1);
+                request.setAttribute("LoadMentor", userMentor);
                 url = LOAD_PAGE;
         } catch (Exception e) {
             log("Errot at LoadSubjectController:" + e.toString());

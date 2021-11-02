@@ -160,63 +160,61 @@
                             </div>              
                         </div> 
                     </section>--><div class="card" style="width: 18rem; margin-left: 40%">
-            <img class="card-img-top" style="width: 250px; height: 150px;" src="${ViewPage.images}" />
-                 <div class="card-body" >
-                <h5 class="card-title"></h5>
-
-                <button  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
-                    <a style="color: white" href="MainController?action=Enroll&subjectId=${ViewPage.subjectId}">  Register  </a>
-                </button>
-                      
+            <img class="card-img-top-detail" style="width: 450px; height: 150px;" src="${ViewPage.images}" />
+            <div class="card-body" >
+                <h5 class="card-title"></h5>           
                 <h6>
                     <ul style="margin-left: 10px">                
                         <p>${ViewPage.subjectName}</p>                         
                         <p>${ViewPage.description}</p>
-                   
+                        <p>Mentor Name: ${LoadMentor.name}</p>
                     </ul>
                 </h6>
-                                  
-<!--            <a href="#" class="btn btn-primary">Go somewhere</a>-->
+                <button  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
+                    <a style="color: white" href="MainController?action=Enroll&subjectId=${ViewPage.subjectId}">  Register  </a>
+                </button>
+
+                <!--            <a href="#" class="btn btn-primary">Go somewhere</a>-->
+            </div>
         </div>
-    </div>
 
-    <!--start of footer-->
-    <jsp:include page="footerTemplate.jsp"></jsp:include>
-    <!--end off footer-->        
-    <script src="MyCourse.js"></script>
+        <!--start of footer-->
+        <jsp:include page="footerTemplate.jsp"></jsp:include>
+        <!--end off footer-->        
+        <script src="MyCourse.js"></script>
 
 
-    <script
-        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"
-    ></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"
-    ></script>
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"
+        ></script>
 
-    <script
-        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"
-    ></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"
+        ></script>
 
-    <script type="text/javascript"  src="Subject/MyCourse.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function (event) {
-            navActivePage();
-        });
-    </script>
-    <script>
-        $('#exampleModal').on('show.bs.modal', event => {
-            var button = $(event.relatedTarget);
-            var modal = $(this);
-            // Use above variables to manipulate the DOM
+        <script type="text/javascript"  src="Subject/MyCourse.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function (event) {
+                navActivePage();
+            });
+        </script>
+        <script>
+            $('#exampleModal').on('show.bs.modal', event => {
+                var button = $(event.relatedTarget);
+                var modal = $(this);
+                // Use above variables to manipulate the DOM
 
-        });
-    </script>
-    <script type="text/javascript" src="New folder/main.41beeca9.js"></script>
-</body>
+            });
+        </script>
+        <script type="text/javascript" src="New folder/main.41beeca9.js"></script>
+    </body>
 </html>

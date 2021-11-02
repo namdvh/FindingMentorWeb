@@ -40,6 +40,10 @@
         <servlet-name>UpdatePasswordController</servlet-name>
         <servlet-class>c4.fm.controller.UpdatePasswordController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RatingController</servlet-name>
+        <servlet-class>c4.fm.controller.RatingController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CreateGoogleController</servlet-name>
         <url-pattern>/CreateGoogleController</url-pattern>
@@ -83,6 +87,10 @@
     <servlet-mapping>
         <servlet-name>UpdatePasswordController</servlet-name>
         <url-pattern>/UpdatePasswordController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RatingController</servlet-name>
+        <url-pattern>/RatingController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
