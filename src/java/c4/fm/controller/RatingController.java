@@ -38,6 +38,7 @@ public class RatingController extends HttpServlet {
             if(check == true){
                 url = SUCCESS;
             }
+            request.setAttribute("Thanks for Voting", "MESS");
         } catch (Exception e) {
             log("Error at rating controller"+ e.getMessage());
         }finally{

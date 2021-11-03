@@ -140,8 +140,8 @@
                     <form action="MainController" method="POST">
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="text" name="txtSearch" class="input" placeholder="Search" style="width: 50%;">
-                                <button type="submit" name="action" value="Search"><i class="fa fa-search"></i></button>
+                                <input type="text" name="txtSearch" class="input" placeholder="Search" style="width: 70%; height: 50px; font-size: 30px">
+                                <button type="submit" name="action" value="Search" style="height: 50px; width: 50px; font-size: 30px"><i class="fa fa-search"></i></button>
                                 <!--<input type="submit" value="Search" name="action">-->
                             </div>
                         </div>
@@ -212,15 +212,9 @@
                             <div class="col-lg-3 mb-3 col-sm-6">
                                 <div class="cardd" style=" padding-top: 10px; background-color: #f9f9f9">
                                     <img src="${all.images}" alt="John" style="max-height:  100px" />
-                                    <h1>${all.subjectName}</h1>
-                                    <p class="title">${all.description}</p>
-                                    <p>Harvard University</p>
-                                    <button  class="btn btn-success">
-                                        <a style="color: white" href="login.jsp">Join Class</a>
-                                    </button>
-                                    <button  class="btn btn-success">
-                                        <a style="color: white" href="login.jsp"> Detail </a>
-                                    </button>
+                                    <h1>${all.name}</h1>
+                                    <p class="title">${all.email}</p>
+                                    <p class="title">${all.phoneNumber}</p>
                                 </div>
                             </div>
                         </c:forEach>
@@ -234,15 +228,9 @@
                             <div class="col-lg-3 mb-3 col-sm-6">
                                 <div class="cardd" style=" padding-top: 10px; background-color: #f9f9f9">
                                     <img src="${all.images}" alt="John" style="max-height:  100px" />
-                                    <h1>${all.subjectName}</h1>
-                                    <p class="title">${all.description}</p>
-                                    <p>Harvard University</p>
-                                    <button  class="btn btn-success">
-                                        <a style="color: white" href="MainController?action=Enroll&subjectId=${all.subjectId}">Join Class</a>
-                                    </button>
-                                    <button  class="btn btn-success">
-                                        <a style="color: white" href="MainController?action=LoadSubjectPage&subjectId=${all.subjectId}">  Detail </a>
-                                    </button>
+                                    <h1>${all.name}</h1>
+                                    <p class="title">${all.email}</p>
+                                    <p class="title">${all.phoneNumber}</p>
                                 </div>
                             </div>
                         </c:forEach>
