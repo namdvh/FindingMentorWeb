@@ -213,7 +213,7 @@
                                 <li>
                                     <div class="dropdown" style="float:right;">
                                         <button class="dropbtn" style="background-color: #fff; border: none;">
-                                            <a href="updateUser.jsp">
+                                            <a href="MainController?action=LoadInfor">
                                                 <i>
                                                     <img style="border-radius: 50%; width: 45px; height: 45px; font-size: 30px; margin-top: 15px; margin-left: 15px;" src="${sessionScope.LOGIN_USER.images}" alt="photo2">
                                                 </i>       
@@ -221,7 +221,7 @@
                                         </button>
                                         <div class="dropdown-content" style="left:-12px;">
                                             <a class="choose">${sessionScope.LOGIN_USER.name}</a>
-                                            <a href="updateUser.jsp" class="choose">Profile</a>
+                                            <a href="MainController?action=LoadInfor" class="choose">Profile</a>
                                             <a href="MainController?action=Logout" class="choose">Log out</a>
                                         </div>
                                     </div>

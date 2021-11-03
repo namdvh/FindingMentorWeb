@@ -89,7 +89,7 @@
         <!-- Add your content of header -->
         <jsp:include page="headerTemplate.jsp"></jsp:include>
             <!--end of header-->
-        <c:if test="${sessionScope.LOGIN_USER == null}">
+        <c:if test="${requestScope.LOAD_INFOR_USER == null}">
             <c:redirect url="login.jsp"/>
         </c:if>
         <form action="UpdateUserController" method="POST" enctype="multipart/form-data"  >
@@ -101,10 +101,10 @@
                                 <div class="account-settings">
                                     <div class="user-profile">
                                         <div class="user-avatar">
-                                            <img src="${sessionScope.LOGIN_USER.images}" alt="photo2">
+                                            <img src="${requestScope.LOAD_INFOR_USER.images}" alt="photo2">
                                         </div>
-                                        <h3 class="user-name" style="">${sessionScope.LOGIN_USER.name}</h3>
-                                        <h6 class="user-email" style="font-size: 13px;">${sessionScope.LOGIN_USER.email}</h6>
+                                        <h3 class="user-name" style="">${requestScope.LOAD_INFOR_USER.name}</h3>
+                                        <h6 class="user-email" style="font-size: 13px;">${requestScope.LOAD_INFOR_USER.email}</h6>
                                     </div>
                                     <div class="update" >
                                         <p><input class="btn btn-success" style="font-size: 10px; margin-top: 35px; background-color: white; "  type="file" name="ProfileImage"></p>
@@ -123,31 +123,31 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="fullName">Full Name</label>
-                                            <input name="Name" value="${sessionScope.LOGIN_USER.name}" type="text" class="form-control" id="fullName" placeholder="Enter full name" >
+                                            <input name="Name" value="${requestScope.LOAD_INFOR_USER.name}" type="text" class="form-control" id="fullName" placeholder="Enter full name" >
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="eMail">Email</label>
-                                            <input name="Email" value="${sessionScope.LOGIN_USER.email}" type="email" class="form-control" id="email" placeholder="Enter email ID">
+                                            <input name="Email" value="${requestScope.LOAD_INFOR_USER.email}" type="email" class="form-control" id="email" placeholder="Enter email ID">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="phone">Phone</label>
-                                            <input type="tel" value="${sessionScope.LOGIN_USER.phoneNumber}" id="phone" pattern="[0-9]{10,10}" class="form-control" name="phone" placeholder="0123456789"  required>
+                                            <input type="tel" value="${requestScope.LOAD_INFOR_USER.phoneNumber}" id="phone" pattern="[0-9]{10,10}" class="form-control" name="phone" placeholder="0123456789"  required>
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="website">Birthday</label>
-                                            <input name="BirthDay" value="${sessionScope.LOGIN_USER.birthday}" type="date" class="form-control" id="website" placeholder="Birthday">
+                                            <input name="BirthDay" value="${requestScope.LOAD_INFOR_USER.birthday}" type="date" class="form-control" id="website" placeholder="Birthday">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="website">Role</label>
-                                            <input name="roleName" value="${sessionScope.LOGIN_USER.roleID}" type="text" readonly="" class="form-control" id="website" placeholder="">
+                                            <input name="roleName" value="${requestScope.LOAD_INFOR_USER.roleID}" type="text" readonly="" class="form-control" id="website" placeholder="">
                                         </div>
                                     </div>
                                 </div>
@@ -155,7 +155,7 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="Street">Address</label>
-                                            <input name="Address" value="${sessionScope.LOGIN_USER.address}" type="name" class="form-control" id="Street" placeholder="Enter Address">
+                                            <input name="Address" value="${requestScope.LOAD_INFOR_USER.address}" type="name" class="form-control" id="Street" placeholder="Enter Address">
                                         </div>
                                     </div>                               
                                 </div>

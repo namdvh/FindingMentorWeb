@@ -98,21 +98,21 @@
                 <div class="col-md-4">
                     <div class="d-flex justify-content-between mb-3">
                         <a  class="btn btn-success btn-sm rounded-0" href="MainController?action=ShowAll">Back</a>
-                        <span><h2>Nội dung bài học</h2></span>   
+                        <span><h2>Lesson Content</h2></span>   
                     </div>
                     <div style="height : 476px; overflow-y: auto; overflow-x: hidden">
                         <div class="list-group">
                             <div>
                                 <c:forEach var="chapter" items="${listChapter}" varStatus="counter">
                                     <div class=" list-group-item list-group-item-action d-flex" data-toggle="collapse" href="#multiCollapseExample1_${counter.count}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1_${counter.count}">
-                                        <a style="text-decoration: none; color: black" class="align-self-center mr-auto font-weight-bold" >Chương ${counter.count}: ${chapter.chapterName}</a>
+                                        <a style="text-decoration: none; color: black" class="align-self-center mr-auto font-weight-bold" >Chapter ${counter.count}: ${chapter.chapterName}</a>
                                     </div>
                                     <div class="collapse multi-collapse pl-4 mt-1 " id="multiCollapseExample1_${counter.count}">
                                         <c:set var="listContent" value="${chapter.list}"/>
                                         <c:forEach var="itemContent" items="${listContent}" varStatus="i">
                                             <div style="border-radius: 0rem;" class=" m-0 pb-1 card card-body border-bottom ">
                                                 <a style="text-decoration: none; color: black" href="#" onclick="loadVideoURL('${itemContent.videoURL}')">
-                                                    Bài ${i.count}: ${itemContent.contentName}
+                                                    Lesson ${i.count}: ${itemContent.contentName}
                                                 </a>
                                                 <p>${itemContent.blog}</p>
                                             </div>
@@ -149,7 +149,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Modal title</h5>
+                                        <h5 class="modal-title">Feedback</h5>
                                         <button
                                             type="button"
                                             class="close"
@@ -214,6 +214,7 @@
                     </div> 
                 </div>
             </div>
+                                        <c:if></c:if>
             <jsp:include page="footerTemplate.jsp"></jsp:include>
             <script
                 src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

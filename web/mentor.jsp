@@ -100,7 +100,7 @@
                 <div class="col-md-4">
                     <div class="d-flex justify-content-between mb-3">
                         <a  class="btn btn-success btn-sm rounded-0" href="user.jsp">Back</a>
-                        <span><h2>Nội dung bài học</h2></span>   
+                        <span><h2>Lesson content</h2></span>   
                         <button  type="button" class="btn btn-success btn-sm rounded-0" data-toggle="modal" data-target="#createChapter" >
                             Creater Chapter
                         </button>
@@ -144,7 +144,7 @@
                             <div>
                                 <c:forEach var="chapter" items="${listChapter}" varStatus="counter">
                                     <div class=" list-group-item list-group-item-action d-flex" data-toggle="collapse" href="#multiCollapseExample1_${counter.count}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1_${counter.count}">
-                                        <a style="text-decoration: none; color: black" class="align-self-center mr-auto font-weight-bold" >Chương ${counter.count}: ${chapter.chapterName}</a>
+                                        <a style="text-decoration: none; color: black" class="align-self-center mr-auto font-weight-bold" >Chapter ${counter.count}: ${chapter.chapterName}</a>
                                         <button type="button" class="btn btn-danger btn-sm mr-2" data-toggle="modal" data-target="#createContent${counter.count}">+</button>
                                         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updateChapter${counter.count}">
                                             Edit
@@ -225,7 +225,7 @@
                                         <c:forEach var="itemContent" items="${listContent}" varStatus="i">
                                             <div style="border-radius: 0rem;" class=" m-0 pb-1 card card-body border-bottom ">
                                                 <a style="text-decoration: none; color: black" href="#" onclick="loadVideoURL('${itemContent.videoURL}')">
-                                                    Bài ${i.count}: ${itemContent.contentName}
+                                                    Lesson ${i.count}: ${itemContent.contentName}
                                                 </a>
                                                 <p class="card-text"><a href="#" class="badge badge-warning" data-toggle="modal" data-target="#editContent${itemContent.contentID}">Edit</a></p>
                                             </div>

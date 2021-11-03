@@ -59,7 +59,9 @@ public class CreateController extends HttpServlet {
 //            }
 
             if (CheckValidation.isValidPassword(Password) != true) {
-                userError.setPasswordError("Password must [8,...],1 Upper char,not contain space and at least 1 speacial chars");
+                userError.setPasswordError("Password at least 8 character. \n "
+                        + "1 Uppercase character, at least 1 number, not contain space \n"
+                        + " and at least 1 speacial chars");
                 check = false;
             }
             if (!Password.equals(confirm)) {

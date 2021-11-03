@@ -13,7 +13,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Sign Up Form by Colorlib</title>
+       
 
         <!-- Font Icon -->
         <link rel="stylesheet" href="Create/fonts/material-icon/css/material-design-iconic-font.min.css">
@@ -39,17 +39,17 @@
                                 <div class="form-group">
                                     <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                     <input type="text" name="UserID" id="name" placeholder="User Name" required value="${requestScope.UserID}"/>
-                                    ${requestScope.USER_ERROR.getUserIDError()}</br>
+                                    <a style="color: red" > ${requestScope.USER_ERROR.getUserIDError()} </a></br>
                                 </div>
                                 <div class="form-group">
                                     <label for="pass"><i class="zmdi zmdi-lock"></i></label>
                                     <input type="password" name="Password" id="pass" placeholder="Password" required/>
-                                    <a> ${requestScope.USER_ERROR.getPasswordError()}</a>
+                                    <a style="color: red"> ${requestScope.USER_ERROR.getPasswordError()}</a>
                                 </div>
                                 <div class="form-group">
                                     <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
                                     <input type="password" name="ConfirmPassword" id="re_pass" placeholder="Repeat your password" required/>
-                                    <a> ${requestScope.USER_ERROR.getConfirmPasswordError()}</a>
+                                    <a style="color: red"> ${requestScope.USER_ERROR.getConfirmPasswordError()}</a>
                                 </div>
                                 <!-- <div class="form-group">
                                     <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
@@ -82,7 +82,7 @@
                         </div>
                         <div class="signup-image">
                             <figure><img src="Create/images/signup-image.jpg" alt="sing up image"></figure>
-                            <a href="user.jsp" class="signup-image-link">Home Page</a>
+                            <a style="text-decoration: none; font-weight: bold" href="MainController?action=Load" class="signup-image-link">Home Page</a>
                             <div class="social-login" style="margin-top: 10px; margin-left: 75px;" >
                             <span class="social-label">Or login with</span>
                             <ul class="socials">

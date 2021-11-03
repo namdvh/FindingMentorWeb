@@ -139,9 +139,9 @@
                 <div class="container">
                     <form action="MainController" method="POST">
                         <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" name="txtSearch" class="input" placeholder="Search" style="width: 70%; height: 50px; font-size: 30px">
-                                <button type="submit" name="action" value="Search" style="height: 50px; width: 50px; font-size: 30px"><i class="fa fa-search"></i></button>
+                            <div class="col-md-6" >
+                                <input type="text" name="txtSearch" class="input" placeholder="Search" style="width: 70%; height: 50px; font-size: 30px; border-radius: 10px">
+                                <button type="submit" name="action" value="Search" style="height: 50px; width: 50px; font-size: 30px; border-radius: 10px"><i class="fa fa-search"></i></button>
                                 <!--<input type="submit" value="Search" name="action">-->
                             </div>
                         </div>
@@ -157,7 +157,7 @@
                             <div class="cardx-name" style="font-size: 25px;">Top 1</div>
                             <p class="card-text" style="height: 40px">${requestScope.rank1.name}</p>
                             <div class="dropdownb">
-                                <div class="detailButton" style="background-color: #d7d9d7;font-size: 25px">Chi tiết</div>
+                                <div class="detailButton" style="background-color: #d7d9d7;font-size: 25px">Detail</div>
                                 <div class="dropdown-contentb">
                                     <div class="inforbox" style="background-color: #f9f9f9">
                                         <h12>contact: ${requestScope.rank1.phoneNumber}</h12><br>
@@ -175,7 +175,7 @@
                             <div class="cardx-name" style="font-size: 25px;">Top 2</div>
                             <p class="card-text" style="height: 40px">${requestScope.rank2.name}</p>
                             <div class="dropdownb">
-                                <div class="detailButton" style="background-color: #d7d9d7;font-size: 25px">Chi tiết</div>
+                                <div class="detailButton" style="background-color: #d7d9d7;font-size: 25px">Detail</div>
                                 <div class="dropdown-contentb">
                                     <div class="inforbox" style="background-color: #f9f9f9">
                                         <h12>contact: ${requestScope.rank2.phoneNumber}</h12><br>
@@ -193,7 +193,7 @@
                             <div class="cardx-name" style="font-size: 25px;">Top 3</div>
                             <p class="card-text" style="height: 40px">${requestScope.rank2.name}</p>
                             <div class="dropdownb">
-                                <div class="detailButton" style="background-color: #d7d9d7;font-size: 25px">Chi tiết</div>
+                                <div class="detailButton" style="background-color: #d7d9d7;font-size: 25px">Detail</div>
                                 <div class="dropdown-contentb" >
                                     <div class="inforbox" style="background-color: #f9f9f9">
                                         <h12>contact: ${requestScope.rank3.phoneNumber}</h12><br>
@@ -237,7 +237,7 @@
                     </div>
                 </div>
             </c:if>
-            <div class="section-container">
+<!--            <div class="section-container">
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12">
@@ -245,7 +245,7 @@
                             <section class="service">
                                 <div class="service__content">
                                     <div class="service__title">
-                                        <h1>Subjects</h1>           
+                                       
                                     </div>
 
                                     <div class="service__slider">
@@ -294,7 +294,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
 
         <jsp:include page="footerTemplate.jsp"></jsp:include>

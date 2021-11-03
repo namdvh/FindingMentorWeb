@@ -46,6 +46,7 @@ public class ApproveRequestAdminServlet extends HttpServlet {
             String msg = "";
             
             if(userDao.updateUserRoleAdmin(userId)){
+                userDao.InsertFeedback(userId);
                 RQDao.updateRequestStatusAdmin(Integer.parseInt(requestId));
                 msg = "Approve Success! View At MentorManagement!";
                 url = "MainController?action=SearchRequest&searchValue=";

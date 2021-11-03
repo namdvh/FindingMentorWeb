@@ -67,7 +67,7 @@
                                         <input type="text" name ="searchValue" class="field small-field" />
                                         <input type="submit" class="button" name="action" value="SearchRequest" />
                                     </div>
-                                </form>
+</form>
                             </div>
                             <!-- End Box Head -->
                             <!-- Table -->
@@ -120,7 +120,7 @@
                                 <!-- Pagging -->
 
                                 <!-- End Pagging -->
-                            </div>
+</div>
                             <!-- Table -->
                         </div>
                         <!-- End Box -->

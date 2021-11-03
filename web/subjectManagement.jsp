@@ -138,18 +138,18 @@
         <jsp:include page="headerTemplate.jsp"></jsp:include>
             <section class="KhuVucHoc">
                 <div>
-                    <h3><b>Khu vực học tập</b></h3>
+                    <h3 style="font-size: 25px"><b>Study Page</b></h3>
                 </div>
-                <p>Khóa học, tài liệu mà bạn đăng ký sẽ được hiển thị dưới đây.</p>
+                <p style="font-size: 17px">All subjects are shown in the list below.</p>
             </section>
 
             <section class="MyCourse" style="margin-top: 20px">
                 <div class="tab">
                     <button class="tablinks" onclick="openCity(event, 'allCourse')">
-                        <b>Tất cả khóa học</b>
+                        <b style="font-size: 17px">All subject</b>
                     </button>
                     <button class="tablinks" onclick="openCity(event, 'myCourse')">
-                        <b>Của tôi</b>
+                        <b style="font-size: 17px">My Course</b>
                     </button>
 
                     <div class="search-container">
