@@ -30,6 +30,7 @@
                         <div class="signin-image">
                             <figure><img src="LoginUser/Login/images/signin-image.jpg" alt="sing up image"></figure>
                             <a href="MainController?action=CreatePage" class="signup-image-link">Create an account</a>
+                              <a style="text-decoration: none; font-weight: bold" href="MainController?action=Load" class="signup-image-link">Home Page</a>
                         </div>
 
                         <div class="signin-form">
@@ -44,7 +45,7 @@
                                     <input type="password" name="your_pass" id="your_pass" placeholder="Password" required />      
                                 </div>
                                 <c:if test="${sessionScope.ERROR_MESSAGE !=null}">
-                                    ${sessionScope.ERROR_MESSAGE}
+                                    ${requestScope.ERROR_MESSAGE}
                                 </c:if>
                                 <div class="form-group">
                                     <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
@@ -55,7 +56,8 @@
                                 </div>
 
                             </form>
-                            <div class="social-login">
+                            <div class="social-login" >
+                               
                                 <span class="social-label">Or login with</span>
                                 <ul class="socials">
 

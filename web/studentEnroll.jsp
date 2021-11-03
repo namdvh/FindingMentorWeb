@@ -134,9 +134,9 @@
 
             <section class="KhuVucHoc">
                 <div>
-                    <h3><b>Khu vực học tập</b></h3>
+                    <h3 style="font-size: 25px"><b>Study page</b></h3>
                 </div>
-                <p>Khóa học, tài liệu mà bạn đăng ký sẽ được hiển thị dưới đây.</p>
+                <p style="font-size: 17px">All subjects are shown in the list below.</p>
 
             </section>
 
@@ -144,11 +144,11 @@
                 <div class="tab">
                     <form action="MainMentorController" method="POST">
                         <button class="tablinks" onclick="openCity(event, 'allCourse')" name="action" value="ShowAllSubjectController">
-                            <b>Tất cả khóa học</b>
+                            <b style="font-size: 17px">All Subject</b>
                         </button>
                     </form>    
                     <button class="tablinks" onclick="openCity(event, 'myCourse')" >
-                        <b>Của tôi</b>
+                        <b style="font-size: 17px">My course</b>
                     </button>
                 </div>
                 <!-- Tab content -->
