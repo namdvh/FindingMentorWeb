@@ -5,10 +5,9 @@
  */
 package c4.fm.controller;
 
-import c4.fm.subject.SubjectDAO;
-import c4.fm.subject.SubjectDTO;
+import c4.fm.dao.UserDAO;
+import c4.fm.user.UserDTO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -30,8 +29,8 @@ public class SearchController extends HttpServlet {
         String URL = ERROR;
         try {
             String searchValue = request.getParameter("txtSearch");
-            SubjectDAO dao = new SubjectDAO();
-            List<SubjectDTO> listSearch = dao.SearchSubject(searchValue);
+            UserDAO dao = new UserDAO();
+            List<UserDTO> listSearch = dao.searchMentor(searchValue);
             if (listSearch != null) {
                 request.setAttribute("search", listSearch);
                 URL = SUCCESS;

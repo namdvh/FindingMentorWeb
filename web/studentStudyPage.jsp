@@ -145,7 +145,7 @@
                         aria-labelledby="modelTitleId"
                         aria-hidden="true"
                         >
-                        <form name="MainController" method="POST">
+                        <form action="MainController" method="POST">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -204,9 +204,9 @@
                                             >
                                             Close
                                         </button>
-                                        <input type="hidden" name="subjectID" value="${subject}" />
+                                        <input type="hidden" name="subjectId" value="${subject}" />
                                         <input type="hidden" name="MentorName" value="${UserID}" />
-                                        <button type="submit" name="action" value="Rating" class="btn btn-primary">Save</button>
+                                        <input type="submit" name="action" value="Rating" class="btn btn-primary">
                                     </div>
                                 </div>
                             </div>
