@@ -48,6 +48,10 @@
         <servlet-name>SearchCourseController</servlet-name>
         <servlet-class>c4.fm.controller.SearchCourseController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoadSearchPageController</servlet-name>
+        <servlet-class>c4.fm.controller.LoadSearchPageController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CreateGoogleController</servlet-name>
         <url-pattern>/CreateGoogleController</url-pattern>
@@ -99,6 +103,10 @@
     <servlet-mapping>
         <servlet-name>SearchCourseController</servlet-name>
         <url-pattern>/SearchCourseController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadSearchPageController</servlet-name>
+        <url-pattern>/LoadSearchPageController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

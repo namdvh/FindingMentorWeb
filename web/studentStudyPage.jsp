@@ -125,8 +125,25 @@
                     </div>
                 </div>
                 <div class="video col-md-8">
-                    <iframe  id="loadVideo" src="" frameborder="0" allowfullscreen style=" border: solid 4px #37474F">
+                    <iframe  id="loadVideo" src="" frameborder="0" allowfullscreen style=" border: solid 4px #37474F; width: 1200px; height: 650px">
                     </iframe>
+                    <div style=".purple-border textarea {
+                             border: 1px solid #ba68c8;
+                         }
+                         .purple-border .form-control:focus {
+                             border: 1px solid #ba68c8;
+                             box-shadow: 0 0 0 0.2rem rgba(186, 104, 200, .25);
+                         }
+
+                         .green-border-focus .form-control:focus {
+                             border: 1px solid #8bc34a;
+                             box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, .25);
+                         }">
+                        <div class="form-group purple-border" style="width: 1200px">
+                            <label for="exampleFormControlTextarea4">Colorful border</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea4" rows="3"> </textarea>
+                        </div>
+                    </div>
                     <button
                         type="button"
                         class="btn btn-primary btn-lg"
@@ -223,12 +240,6 @@
             <script
                 src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
                 integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-                crossorigin="anonymous"
-            ></script>
-
-            <script
-                src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
                 crossorigin="anonymous"
             ></script>
             <!-- Button trigger modal -->

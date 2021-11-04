@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class SearchController extends HttpServlet {
 
-    private static final String SUCCESS = "LoadHomeController";
+    private static final String SUCCESS = "LoadSearchPageController";
     private static final String ERROR = "error.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)

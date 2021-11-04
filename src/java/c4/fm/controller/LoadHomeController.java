@@ -51,6 +51,7 @@ public class LoadHomeController extends HttpServlet {
             request.setAttribute("rank1", rank1);
             request.setAttribute("rank2", rank2);
             request.setAttribute("rank3", rank3);
+            request.setAttribute("rank", Listrank);
         } catch (Exception e) {
             log("Error at Load controller" + e.getMessage());
         } finally {
