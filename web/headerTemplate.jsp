@@ -142,74 +142,75 @@
             }
             /******************************* END INSTRUCTION__MENU *******************************/
             .dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: #f9f9f9;
-    min-width: 90px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content .choose {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown-content .choose:hover{
-      background-color: #5876FC; 
-      transition: all .5s;
-      color: #ffff;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
+                display: none;
+                position: absolute;
+                right: 0;
+                background-color: #f9f9f9;
+                min-width: 90px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+
+            .dropdown-content .choose {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+            .dropdown-content .choose:hover{
+                background-color: #5876FC; 
+                transition: all .5s;
+                color: #ffff;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
 
         </style>
         <!--********************* INSTRUCTION__MENU *********************-->
-        <section class="instruction__menu container-fluid ">
-            <nav class="navbar navbar-expand-lg navbar-light px-0">
-                <a class="navbar-brand" href="MainController?action=Load" style="font-size: 25px">
-                    <i class="fa fa-book"></i>
-                    INSTRUCTION
-                    <label>EDUCATION</label>
-                </a>
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                    >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <c:if test="${sessionScope.LOGIN_USER != null}">
+            <section class="instruction__menu container-fluid ">
+                <nav class="navbar navbar-expand-lg navbar-light px-0">
+                    <a class="navbar-brand" href="MainController?action=Load" style="font-size: 25px">
+                        <i class="fa fa-book"></i>
+                        INSTRUCTION
+                        <label>EDUCATION</label>
+                    </a>
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                        >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="MainController?action=Load"
-                               >HOME <span class="sr-only">(current)</span></a
-                            >
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="MainController?action=ShowAll">Subject</a>
-                        </li>
-                        <c:if test="${sessionScope.LOGIN_USER == null}">
-                            <li class="nav-item">
-                                <a class="nav-link" href="createUser.jsp">Register</a>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="MainController?action=Load"
+                                   >HOME <span class="sr-only">(current)</span></a
+                                >
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="login.jsp">Login</a>
+                                <a class="nav-link" href="MainController?action=ShowAll">Subject</a>
                             </li>
-                        </c:if>
-                        <c:if test="${sessionScope.LOGIN_USER != null}">                           
+                            <c:if test="${sessionScope.LOGIN_USER == null}">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="createUser.jsp">Register</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="login.jsp">Login</a>
+                                </li>
+                            </c:if>
+                            <c:if test="${sessionScope.LOGIN_USER != null}">                           
                                 <li>
                                     <div class="dropdown" style="float:right;">
                                         <button class="dropbtn" style="background-color: #fff; border: none;">
@@ -226,12 +227,57 @@
                                         </div>
                                     </div>
                                 </li>       
-                        </c:if>
+                            </c:if>
+                        </ul>
+                    </div>
+                </nav>
+            </section>
+        </c:if>
+        <c:if test="${sessionScope.LOGIN_USER == null}">
+            <section class="instruction__menu container-fluid ">
+                <nav class="navbar navbar-expand-lg navbar-light px-0">
+                    <a class="navbar-brand" href="MainController?action=Load" style="font-size: 25px">
+                        <i class="fa fa-book"></i>
+                        INSTRUCTION
+                        <label>EDUCATION</label>
+                    </a>
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                        >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                    </ul>
-                </div>
-            </nav>
-        </section>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="MainController?action=Load"
+                                   >HOME <span class="sr-only">(current)</span></a
+                                >
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="login.jsp">Subject</a>
+                            </li>
+                            <c:if test="${sessionScope.LOGIN_USER == null}">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="createUser.jsp">Register</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="login.jsp">Login</a>
+                                </li>
+                            </c:if>
+                        </ul>
+                    </div>
+                </nav>
+            </section>
+        </c:if>
         <!--********************* END INSTRUCTION__MENU *********************-->
         <!-- JQUERY -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

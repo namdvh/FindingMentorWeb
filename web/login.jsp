@@ -44,8 +44,8 @@
                                     <label for="your_pass"><i class="zmdi zmdi-lock"></i>   <i class="fa fa-eye toggle"></i></label>
                                     <input type="password" name="your_pass" id="your_pass" placeholder="Password" required />      
                                 </div>
-                                <c:if test="${sessionScope.ERROR_MESSAGE !=null}">
-                                    ${requestScope.ERROR_MESSAGE}
+                                <c:if test="${sessionScope.ERROR_MESSAGE_LOGIN !=null}">
+                                    <a style="color: red"> ${sessionScope.ERROR_MESSAGE_LOGIN} </a>
                                 </c:if>
                                 <div class="form-group">
                                     <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />

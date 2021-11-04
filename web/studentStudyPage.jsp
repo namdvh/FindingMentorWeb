@@ -214,7 +214,6 @@
                     </div> 
                 </div>
             </div>
-                                        <c:if></c:if>
             <jsp:include page="footerTemplate.jsp"></jsp:include>
             <script
                 src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
