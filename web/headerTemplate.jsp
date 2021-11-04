@@ -171,9 +171,9 @@
         </style>
         <!--********************* INSTRUCTION__MENU *********************-->
         <c:if test="${sessionScope.LOGIN_USER != null}">
-            <section class="instruction__menu container-fluid ">
+            <section class="instruction__menu container-fluid " >
                 <nav class="navbar navbar-expand-lg navbar-light px-0">
-                    <a class="navbar-brand" href="MainController?action=Load" style="font-size: 25px">
+                    <a class="navbar-brand" href="MainController?action=Load" style="font-size: 25px; margin-top: 15px;">
                         <i class="fa fa-book"></i>
                         INSTRUCTION
                         <label>EDUCATION</label>
@@ -200,34 +200,23 @@
 
                             <li class="nav-item">
                                 <a class="nav-link" href="MainController?action=ShowAll">Subject</a>
-                            </li>
-                            <c:if test="${sessionScope.LOGIN_USER == null}">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="createUser.jsp">Register</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="login.jsp">Login</a>
-                                </li>
-                            </c:if>
-                            <c:if test="${sessionScope.LOGIN_USER != null}">                           
-                                <li>
-                                    <div class="dropdown" style="float:right;">
-                                        <button class="dropbtn" style="background-color: #fff; border: none;">
-                                            <a href="MainController?action=LoadInfor">
-                                                <i>
-                                                    <img style="border-radius: 50%; width: 45px; height: 45px; font-size: 30px; margin-top: 15px; margin-left: 15px;" src="${sessionScope.LOGIN_USER.images}" alt="photo2">
-                                                </i>       
-                                            </a>
-                                        </button>
-                                        <div class="dropdown-content" style="left:-12px;">
-                                            <a class="choose">${sessionScope.LOGIN_USER.name}</a>
-                                            <a href="MainController?action=LoadInfor" class="choose">Profile</a>
-                                            <a href="MainController?action=Logout" class="choose">Log out</a>
-                                        </div>
+                            </li>                        
+                            <li>
+                                <div class="dropdown" style="float:right;">
+                                    <button class="dropbtn" style="background-color: #fff; border: none;">
+                                        <a href="MainController?action=LoadInfor">
+                                            <i>
+                                                <img style="border-radius: 50%; width: 45px; height: 45px; font-size: 30px; margin-left: 15px;" src="${sessionScope.LOGIN_USER.images}" alt="photo2">
+                                            </i>       
+                                        </a>
+                                    </button>
+                                    <div class="dropdown-content" style="left:-12px;">
+                                        <a class="choose">${sessionScope.LOGIN_USER.name}</a>
+                                        <a href="MainController?action=LoadInfor" class="choose">Profile</a>
+                                        <a href="MainController?action=Logout" class="choose">Log out</a>
                                     </div>
-                                </li>       
-                            </c:if>
+                                </div>
+                            </li>       
                         </ul>
                     </div>
                 </nav>

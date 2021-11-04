@@ -68,47 +68,47 @@
                 padding: 0;
                 box-sizing: border-box;
             }
-            .dropbtn {
-                font-size: 16px;
-                border: none;
-                cursor: pointer;
-            }
-
-            .dropdown {
-                position: relative;
-                display: inline-block;
-            }
-
-            .dropdown:hover .dropbtn .user {
-                color: #5876fc;
-            }
-
-            .dropdown-content {
-                display: none;
-                position: absolute;
-                right: 0;
-                background-color: #f9f9f9;
-                min-width: 90px;
-                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-                z-index: 1;
-            }
-
-            .dropdown-content .choose {
-                color: black;
-                padding: 12px 16px;
-                text-decoration: none;
-                display: block;
-            }
-
-            .dropdown-content .choose:hover {
-                background-color: #5876fc;
-                transition: all 0.5s;
-                color: #ffff;
-            }
-
-            .dropdown:hover .dropdown-content {
-                display: block;
-            }
+            /*            .dropbtn {
+                            font-size: 16px;
+                            border: none;
+                            cursor: pointer;
+                        }
+            
+                        .dropdown {
+                            position: relative;
+                            display: inline-block;
+                        }
+            
+                        .dropdown:hover .dropbtn .user {
+                            color: #5876fc;
+                        }
+            
+                        .dropdown-content {
+                            display: none;
+                            position: absolute;
+                            right: 0;
+                            background-color: #f9f9f9;
+                            min-width: 90px;
+                            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                            z-index: 1;
+                        }
+            
+                        .dropdown-content .choose {
+                            color: black;
+                            padding: 12px 16px;
+                            text-decoration: none;
+                            display: block;
+                        }
+            
+                        .dropdown-content .choose:hover {
+                            background-color: #5876fc;
+                            transition: all 0.5s;
+                            color: #ffff;
+                        }
+            
+                        .dropdown:hover .dropdown-content {
+                            display: block;
+                        }*/
             .vertical-menu {
                 width: 200px; /* Set a width if you like */
             }
@@ -133,7 +133,7 @@
         </style>
     </head>
 
-    <body>
+    <body style="margin-top: 15px;">
         <!-- Add your content of header -->
         <jsp:include page="headerTemplate.jsp"></jsp:include>
             <section class="KhuVucHoc">

@@ -256,6 +256,50 @@ public class UserDAO {
         return user;
     }
 
+    public UserDTO LoadMentor(String UserID) throws ClassNotFoundException, SQLException {
+        UserDTO user = null;
+        Connection conn = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                String sql = "select Name, Email, RoleID, PhoneNumber, Address, BirthDay, Images,Stars \n"
+                        + "from tblUser,tblFeedBack\n"
+                        + "where tblFeedBack.UserID = tblUser.UserID AND tblUser.UserID = ?";
+                stm = conn.prepareStatement(sql);
+                stm.setString(1, UserID);
+                rs = stm.executeQuery();
+                if (rs.next()) {
+                    String Name = rs.getString("Name");
+                    String Email = rs.getString("Email");
+                    String roleID = rs.getString("RoleID");
+                    String PhoneNumber = rs.getString("PhoneNumber");
+                    String Address = rs.getString("Address");
+                    String BirthDay = rs.getString("BirthDay");
+                    String Images = rs.getString("Images");
+                    int Stars = rs.getInt("Stars");
+                    if (roleID.equals("US")) {
+                        user = new UserDTO(UserID, Name, Email, "User", PhoneNumber, Address, BirthDay, Images, Stars);
+                    } else if (roleID.equals("MT")) {
+                        user = new UserDTO(UserID, Name, Email, "Mentor", PhoneNumber, Address, BirthDay, Images, Stars);
+                    }
+                }
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return user;
+    }
+
     public boolean updateUserWithNoImages(UserDTO user) throws SQLException {
         boolean check = false;
         Connection conn = null;
@@ -854,7 +898,8 @@ public class UserDAO {
         }
         return listUser;
     }
-     public boolean InsertFeedback(String userID) throws ClassNotFoundException, SQLException {
+
+    public boolean InsertFeedback(String userID) throws ClassNotFoundException, SQLException {
         boolean check = false;
         Connection conn = null;
         PreparedStatement stm = null;
@@ -863,7 +908,7 @@ public class UserDAO {
             if (conn != null) {
                 String sql = "insert into tblFeedBack \n"
                         + " values (?,?,0) \n";
-                        
+
                 stm = conn.prepareStatement(sql);
                 stm.setString(1, userID);
                 stm.setString(2, "");
@@ -879,13 +924,14 @@ public class UserDAO {
         }
         return check;
     }
-     public static void main(String[] args) {
-         try {
-             boolean check = false;
-             UserDAO dao = new UserDAO();
-             check = dao.InsertFeedback("toan05");
-             System.out.println(check);
-         } catch (Exception e) {
-         }
+
+    public static void main(String[] args) {
+        try {
+            boolean check = false;
+            UserDAO dao = new UserDAO();
+            check = dao.InsertFeedback("toan05");
+            System.out.println(check);
+        } catch (Exception e) {
+        }
     }
 }

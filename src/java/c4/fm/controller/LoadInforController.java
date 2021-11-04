@@ -42,8 +42,7 @@ public class LoadInforController extends HttpServlet {
             String password = usdto.getPassword();
             UserDAO usdao = new UserDAO();
             usdto = usdao.loadUser(userID);
-            request.setAttribute("Pass", password);
-            request.setAttribute("LOAD_INFOR_USER", usdto);
+            session.setAttribute("Pass", password);
             url = LOAD;
         } catch (Exception e) {
             log("Error at LoadController: "+e.toString());

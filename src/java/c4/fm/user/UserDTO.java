@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author MSI
  */
-public class UserDTO implements Serializable{
+public class UserDTO implements Serializable {
 
     private String userID;
     private String name;
@@ -24,13 +24,15 @@ public class UserDTO implements Serializable{
     private String status;
     private String birthday;
     private String images;
-    private int stars; 
-    
+    private int stars;
+
     public UserDTO() {
     }
+
     public UserDTO(int stars) {
         this.stars = stars;
     }
+
     public UserDTO(String userID, String name, String email, String roleID, String phoneNumber, String address, String password, String certificate, String status, String birthday) {
         this.userID = userID;
         this.name = name;
@@ -41,7 +43,7 @@ public class UserDTO implements Serializable{
         this.password = password;
         this.certificate = certificate;
         this.status = status;
-        this.birthday = birthday; 
+        this.birthday = birthday;
     }
 
     public UserDTO(String userID, String name, String email, String roleID, String phoneNumber, String address, String password, String certificate, String status, String birthday, String images) {
@@ -63,12 +65,7 @@ public class UserDTO implements Serializable{
         this.password = password;
     }
 
-
-    
-    
-    
     //UserID, Name, Email, PhoneNumber, Address, BirthDay, Images
-
     public UserDTO(String userID, String name, String email, String roleID, String phoneNumber, String address, String birthday, String images) {
         this.userID = userID;
         this.name = name;
@@ -79,7 +76,19 @@ public class UserDTO implements Serializable{
         this.birthday = birthday;
         this.images = images;
     }
-    
+
+    public UserDTO(String userID, String name, String email, String roleID, String phoneNumber, String address, String birthday, String images, int Stars) {
+        this.userID = userID;
+        this.name = name;
+        this.email = email;
+        this.roleID = roleID;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.birthday = birthday;
+        this.images = images;
+        this.stars = Stars;
+    }
+
     public UserDTO(String userID, String name, String email, String phoneNumber, String address, String birthday, String images) {
         this.userID = userID;
         this.name = name;
@@ -89,19 +98,19 @@ public class UserDTO implements Serializable{
         this.birthday = birthday;
         this.images = images;
     }
-    
+
     //this is DTO
-    
-     public UserDTO(String userID, String name, String email, String phoneNumber, String address, String birthday) {
+    public UserDTO(String userID, String name, String email, String phoneNumber, String address, String birthday) {
         this.userID = userID;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.birthday = birthday;
-       
+
     }
-     public UserDTO(String userID, String name, String email, String roleID, String phoneNumber, String address, String password, String certificate, String status, String birthday, String images, int stars) {
+
+    public UserDTO(String userID, String name, String email, String roleID, String phoneNumber, String address, String password, String certificate, String status, String birthday, String images, int stars) {
         this.userID = userID;
         this.name = name;
         this.email = email;
@@ -116,7 +125,6 @@ public class UserDTO implements Serializable{
         this.stars = stars;
     }
 
-     
     public UserDTO(String name, String email, String roleID, String phoneNumber, String address, String password, String certificate, String status, String birthday, String images, int stars) {
         this.name = name;
         this.email = email;
@@ -138,14 +146,10 @@ public class UserDTO implements Serializable{
     public void setStars(int stars) {
         this.stars = stars;
     }
-    
 
     public UserDTO(String images) {
         this.images = images;
     }
-    
-    
-
 
     public String getImages() {
         return images;

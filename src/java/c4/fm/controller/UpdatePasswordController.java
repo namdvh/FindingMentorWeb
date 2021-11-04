@@ -51,22 +51,25 @@ public class UpdatePasswordController extends HttpServlet {
             String confirm = request.getParameter("ConfirmPassword");
             UserDAO dao = new UserDAO();
             UserDTO user = new UserDTO(UserID, Password);
-            boolean check = true; 
-            boolean check2 = true;
-            boolean check3 = true;
+            boolean check = false; 
+            boolean check2 = false;
+            boolean check3 = false;
 
             if (loginUser == null) {
                 url = ERROR;
             } else {
+                //2 vs 3
                 if (!Password.equals(confirm)) {
                     userError.setConfirmPasswordError("Two password is not match");
                     check = false;
                     request.setAttribute("USER_ERROR", userError);
                 }
+                //1 vs HT
                     check2 = dao.checkOldPassword(UserID, oldPassword);
                 if (check2 == false) {                  
                      request.setAttribute("submitFail2", "done");
                 } 
+                //1 vs 2
                 if (oldPassword.equals(Password)) {
                     check3 = false;
                     request.setAttribute("submitFail", "done");

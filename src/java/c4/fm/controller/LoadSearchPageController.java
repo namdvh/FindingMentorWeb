@@ -6,58 +6,43 @@
 package c4.fm.controller;
 
 import c4.fm.dao.UserDAO;
-import c4.fm.registersubject.RegisterSubjectDAO;
-import c4.fm.subject.SubjectDAO;
-import c4.fm.subject.SubjectDTO;
 import c4.fm.user.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author HuuToan
+ * @author Khang
  */
-public class LoadSubjectController extends HttpServlet {
-    private static final String LOAD_PAGE = "viewDetailSubject.jsp";
+public class LoadSearchPageController extends HttpServlet {
+
+    private static final String SUCCESS = "searchUser.jsp";
     private static final String ERROR = "error.jsp";
- 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       String url = ERROR;
-        boolean check = true;
-        HttpSession session = request.getSession();
-        UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
-        SubjectDTO sjdto = (SubjectDTO) session.getAttribute("LOAD_SUBJECT");
-        int subjectId = Integer.parseInt(request.getParameter("subjectId"));
-        SubjectDAO subjectDao = new SubjectDAO();
-        RegisterSubjectDAO registerDao = new RegisterSubjectDAO();
-        UserDAO userdao = new UserDAO();
-        try {        
-                SubjectDTO dto = subjectDao.loadSubject(subjectId);
-                String userID = dto.getUserId();
-                UserDTO userMentor = userdao.LoadMentor(userID);
-                request.setAttribute("ViewPage", dto);
-                request.setAttribute("LoadMentor", userMentor);
-                url = LOAD_PAGE;
+        String URL = ERROR;
+        try {
+            String searchValue = request.getParameter("txtSearch");
+            UserDAO dao = new UserDAO();
+            List<UserDTO> listSearch = dao.searchMentor(searchValue);
+            if (listSearch != null) {
+                request.setAttribute("search", listSearch);
+                URL = SUCCESS;
+            } else {
+                request.setAttribute("MESS", "Not Found");
+            }
+
         } catch (Exception e) {
-            log("Errot at LoadSubjectController:" + e.toString());
+            log("Error at Search Controller" + e.getMessage());
         } finally {
-            request.getRequestDispatcher(url).forward(request, response);
+            request.getRequestDispatcher(URL).forward(request, response);
         }
     }
 
