@@ -6,62 +6,38 @@
 package c4.fm.controller;
 
 import c4.fm.dao.UserDAO;
-import c4.fm.role.RoleDAO;
-import c4.fm.role.RoleDTO;
+import c4.fm.subject.SubjectDAO;
+import c4.fm.subject.SubjectDTO;
 import c4.fm.user.UserDTO;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author MSI
+ * @author Khang
  */
-public class LoginController extends HttpServlet {
+public class SearchCourseController extends HttpServlet {
 
-    private static final String ERROR = "login.jsp";
-    private static final String ADMIN_PAGE = "LoadAdminServlet";
-    private static final String USER_PAGE = "LoadHomeController";
+    private static final String SUCCESS = "searchSubjectManager.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR;
-        try {
-            String UserID = request.getParameter("your_name");
-            String password = request.getParameter("your_pass");
-            UserDAO dao = new UserDAO();
-            UserDTO user = dao.checkLogin(UserID, password);
-            HttpSession session = request.getSession();
-            if (user != null) {
-                session.setAttribute("LOGIN_USER", user);
-                String RoleID = user.getRoleID();
-                if ("AD".equals(RoleID)) {
-                    url = ADMIN_PAGE;
-                } else if ("US".equals(RoleID)) {
-                    RoleDAO roleDao = new RoleDAO();
-                    RoleDTO role = roleDao.loadListRole(user.getRoleID());
-                    session.setAttribute("USER_ROLE", role);
-                    url = USER_PAGE;
-                } else if ("MT".equals(RoleID)) {
-                    RoleDAO roleDao = new RoleDAO();
-                    RoleDTO role = roleDao.loadListRole(user.getRoleID());
-                    session.setAttribute("USER_ROLE", role);
-                    url = USER_PAGE;
-                } else {
-                    session.setAttribute("ERROR_MESSAGE_LOGIN", "Your role is not support");
-                }
-            } else {
-                session.setAttribute("ERROR_MESSAGE_LOGIN", "Incorrect UserID or Password");
-            }
-            System.out.println(request.getParameter("code"));
-        } catch (Exception e) {
-            log("Error at Login Controller" + e.toString());
-        } finally {
-            response.sendRedirect(url);
+        try{
+            String searchValue = request.getParameter("txtSearch");
+            SubjectDAO dao = new SubjectDAO();
+            List<SubjectDTO> listSearch = dao.SearchSubject(searchValue);
+            
+            request.setAttribute("allSubject", listSearch);
+        }catch (Exception e){
+            log("Error at Search Controller"+ e.getMessage());
+        }finally{
+            request.getRequestDispatcher(SUCCESS).forward(request, response);
         }
     }
 

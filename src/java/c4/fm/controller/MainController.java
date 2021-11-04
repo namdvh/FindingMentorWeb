@@ -30,7 +30,8 @@ public class MainController extends HttpServlet {
     private static final String UPDATE_USER_PAGE = "UpdateUserController";
     private static final String LOAD_SUBJECT_PAGE = "LoadSubjectController";
     private static final String SHOW_ALL_COURSE = "ShowAllSubjectController";
-    private static final String SEARCH_COURSE = "SearchController";
+    private static final String SEARCH_MENTOR = "SearchController";
+    private static final String SEARCH_COURSE = "SearchCourseController";
     private static final String SHOW_COURSE_ENROLLED = "ShowEnrolledSubjectController";
     private static final String ENROLL_COURSE = "EnrollCourseController";
     private static final String LOAD_CHAPTER_STUDENT = "LoadChapterStudentController";
@@ -84,6 +85,8 @@ public class MainController extends HttpServlet {
             } else if ("ShowAll".equals(action)) {
                 url = SHOW_ALL_COURSE;
             } else if ("Search".equals(action)) {
+                url = SEARCH_MENTOR;
+            } else if ("SearchCourse".equals(action)) {
                 url = SEARCH_COURSE;
             } else if ("ShowEnrolled".equals(action)) {
                 url = SHOW_COURSE_ENROLLED;
@@ -99,8 +102,7 @@ public class MainController extends HttpServlet {
                 url = RATING;
             } else if ("LoadInfor".equals(action)) {
                 url = LOAD_INFOR;
-            } 
-//================BEGIN OF ADMIN============================
+            } //================BEGIN OF ADMIN============================
             else if (action.equals("AddSubjectAdmin")) {
                 url = ADDSUBJECT_ADMIN_SERVLET;
             } else if (action.equals("searchSubjectAdmin")) {

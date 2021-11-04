@@ -145,19 +145,21 @@
 
             <section class="MyCourse" style="margin-top: 20px">
                 <div class="tab">
-                    <button class="tablinks" onclick="openCity(event, 'allCourse')">
-                        <b style="font-size: 17px">All subject</b>
-                    </button>
-                    <button class="tablinks" onclick="openCity(event, 'myCourse')">
-                        <b style="font-size: 17px">My Course</b>
-                    </button>
+                    <form action="MainController">
+                        <button class="tablinks" onclick="openCity(event, 'allCourse')">
+                            <a href="MainController?action=ShowAll" style="font-size: 17px">All subject</a>
+                        </button>
+                        <button class="tablinks" onclick="openCity(event, 'myCourse')">
+                            <a href="MainController?action=ShowAll" style="font-size: 17px">My Course</a>
+                        </button>
 
-                    <div class="search-container">
-                        <form action="MainController">
+                        <div class="search-container">
+
                             <input type="text" placeholder="search..." name="txtSearch" />
                             <button type="submit" name="action" value="SearchCourse"><i class="fa fa-search"></i></button>
-                        </form>
-                    </div>
+
+                        </div>
+                    </form>
                 </div>
 
                 <!-- Tab content -->

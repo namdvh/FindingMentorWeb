@@ -127,6 +127,59 @@
             a:hover {
                 opacity: 0.7;
             }
+            /************************** SERVICES  **************************/
+
+            .services__title {
+                padding-top: 9rem;
+                margin-bottom: 3rem;
+            }
+
+            .services .services__title h6 {
+                color: #f55f8d;
+                font-size: 22px;
+                font-weight: 600;
+            }
+
+            h2 {
+                color: #262626;
+                font-size: 58px;
+                font-weight: 800;
+            }
+
+            .services .w-100 {
+                width: 63% !important;
+            }
+
+            .services .col-lg-4 {
+                padding: 3rem;
+            }
+            .services .card {
+                display: flex;
+                flex-direction: column;
+                gap: 1.2rem;
+                transition: all 0.5s;
+                background-color: #fff;
+                border-radius: 1rem;
+                border: none;
+                overflow: hidden;
+                padding: 2rem;
+                box-shadow: 5px 10px rgba(136, 136, 136, 0.158);
+            }
+
+            .services .services__card .service__item .card:hover {
+                transform: translateY(-15px);
+            }
+
+            .services .services__card .service__item .icon-content h4 {
+                color: #262626;
+                font-size: 25px;
+                line-height: 1.5;
+            }
+
+            .services .services__card .service__item .icon-content p {
+                padding: -1px 4.2rem;
+            }
+            /************************** END SERVICES  **************************/
         </style>
     </head>
     <body style="background-color: #e9dcdc; padding-top: 0">
@@ -159,7 +212,7 @@
                             <div class="dropdownb">
                                 <div class="detailButton" style="background-color: #d7d9d7;font-size: 25px">Detail</div>
                                 <div class="dropdown-contentb">
-                                    <div class="inforbox" style="background-color: #f9f9f9">
+                                    <div class="inforbox" style="background-color: #f9f9f9; font-size: 20px">
                                         <h12>contact: ${requestScope.rank1.phoneNumber}</h12><br>
                                         <h113>Email: ${requestScope.rank1.email}</h113><br>
                                     </div>
@@ -177,7 +230,7 @@
                             <div class="dropdownb">
                                 <div class="detailButton" style="background-color: #d7d9d7;font-size: 25px">Detail</div>
                                 <div class="dropdown-contentb">
-                                    <div class="inforbox" style="background-color: #f9f9f9">
+                                    <div class="inforbox" style="background-color: #f9f9f9; font-size: 20px">
                                         <h12>contact: ${requestScope.rank2.phoneNumber}</h12><br>
                                         <h113>Email: ${requestScope.rank2.email}</h113><br>
                                     </div>
@@ -195,7 +248,7 @@
                             <div class="dropdownb">
                                 <div class="detailButton" style="background-color: #d7d9d7;font-size: 25px">Detail</div>
                                 <div class="dropdown-contentb" >
-                                    <div class="inforbox" style="background-color: #f9f9f9">
+                                    <div class="inforbox" style="background-color: #f9f9f9; font-size: 20px">
                                         <h12>contact: ${requestScope.rank3.phoneNumber}</h12><br>
                                         <h113>Email: ${requestScope.rank3.email}</h113><br>
                                     </div>
@@ -205,96 +258,109 @@
                     </div>
                 </div>
             </div>
-            <c:if test="${sessionScope.LOGIN_USER == null}">
-                <div class="section-container white-text-container" style='margin-top: 45px;'>
-                    <div class="container">  
-                        <c:forEach items="${requestScope.search}" var="all">
-                            <div class="col-lg-3 mb-3 col-sm-6">
-                                <div class="cardd" style=" padding-top: 10px; background-color: #f9f9f9">
-                                    <img src="${all.images}" alt="John" style="max-height:  100px" />
-                                    <h1>${all.name}</h1>
-                                    <p class="title">${all.email}</p>
-                                    <p class="title">${all.phoneNumber}</p>
-                                </div>
-                            </div>
-                        </c:forEach>
-                    </div>
-                </div>
-            </c:if>
-            <c:if test="${sessionScope.LOGIN_USER != null}">
-                <div class="section-container white-text-container" style='margin-top: 45px;'>
-                    <div class="container">  
-                        <c:forEach items="${requestScope.search}" var="all">
-                            <div class="col-lg-3 mb-3 col-sm-6">
-                                <div class="cardd" style=" padding-top: 10px; background-color: #f9f9f9">
-                                    <img src="${all.images}" alt="John" style="max-height:  100px" />
-                                    <h1>${all.name}</h1>
-                                    <p class="title">${all.email}</p>
-                                    <p class="title">${all.phoneNumber}</p>
-                                </div>
-                            </div>
-                        </c:forEach>
-                    </div>
-                </div>
-            </c:if>
-<!--            <div class="section-container">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12">
 
-                            <section class="service">
-                                <div class="service__content">
-                                    <div class="service__title">
-                                       
-                                    </div>
-
-                                    <div class="service__slider">
-                                        <div class="slick-slider">
-                                            <div class="item">
-                                                <i class="fa fa-dice-d6"></i>
-                                                <p>
-                                                    APP MOBILE<br>DEVELOPMENT
-                                                </p>
+            <div class="section-container white-text-container" style='margin-top: 45px;'>
+                <div class="container">  
+                    <!------------- SERVICES ------------->
+                    <section
+                        class="services"
+                        style="
+                        background-image: url(./Samar/bg2.png);
+                        background-repeat: no-repeat;
+                        background-position: top;
+                        background-size: 100%;
+                        "
+                        >
+                        <div class="container">
+                            <div class="services__card">
+                                <div class="service__item py-5">
+                                    <div class="row">
+                                        <c:forEach items="${requestScope.search}" var="all">
+                                            <div class="col-lg-4 col-md-6">
+                                                <div class="card">
+                                                    <div class="icon-bx-wraper style-7 text-center">
+                                                        <div class="icon-media">
+                                                            <img style="width: 100px; height: 100px;" src="${all.images}" class="w-100" alt="" />
+                                                        </div>
+                                                        <div class="icon-content">
+                                                            <h4 class="dlab-title">${all.name}</h4>
+                                                            <p style="font-size: 15px;">
+                                                                Gmail: ${all.email} <br/>
+                                                                Phone: ${all.phoneNumber}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-
-                                            <div class="item">
-                                                <i class="fab fa-autoprefixer"></i>
-                                                <p>
-                                                    DIGITAL<br> MARKETING
-                                                </p>
-                                            </div>
-                                            <div class="item">
-                                                <i class="fab fa-500px"></i>
-                                                <p>
-                                                    SEO &amp; CONTENT <br>WRITING
-                                                </p>
-                                            </div>
-                                            <div class="item">
-                                                <i class="fa fa-blog"></i>
-                                                <p>
-                                                    WEBSITE<br>DEVELOPMENT
-                                                </p>
-                                            </div>
-                                            <div class="item">
-                                                <i class="fab fa-battle-net"></i>
-                                                <p>
-                                                    SEO &amp; CONTENT <br>WRITING
-                                                </p>
-                                            </div>
-                                            <div class="item">
-                                                <i class="fa fa-memory"></i>
-                                                <p>
-                                                    APP MOBILE<br>DEVELOPMENT
-                                                </p>
-                                            </div>
-                                        </div>
+                                        </c:forEach>
                                     </div>
                                 </div>
-                            </section>
+                            </div>
                         </div>
-                    </div>
+                    </section>
+                    <!------------- END SERVICES ------------->
+
                 </div>
-            </div>-->
+            </div>
+
+            <!--            <div class="section-container">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xs-12">
+            
+                                        <section class="service">
+                                            <div class="service__content">
+                                                <div class="service__title">
+                                                   
+                                                </div>
+            
+                                                <div class="service__slider">
+                                                    <div class="slick-slider">
+                                                        <div class="item">
+                                                            <i class="fa fa-dice-d6"></i>
+                                                            <p>
+                                                                APP MOBILE<br>DEVELOPMENT
+                                                            </p>
+                                                        </div>
+            
+                                                        <div class="item">
+                                                            <i class="fab fa-autoprefixer"></i>
+                                                            <p>
+                                                                DIGITAL<br> MARKETING
+                                                            </p>
+                                                        </div>
+                                                        <div class="item">
+                                                            <i class="fab fa-500px"></i>
+                                                            <p>
+                                                                SEO &amp; CONTENT <br>WRITING
+                                                            </p>
+                                                        </div>
+                                                        <div class="item">
+                                                            <i class="fa fa-blog"></i>
+                                                            <p>
+                                                                WEBSITE<br>DEVELOPMENT
+                                                            </p>
+                                                        </div>
+                                                        <div class="item">
+                                                            <i class="fab fa-battle-net"></i>
+                                                            <p>
+                                                                SEO &amp; CONTENT <br>WRITING
+                                                            </p>
+                                                        </div>
+                                                        <div class="item">
+                                                            <i class="fa fa-memory"></i>
+                                                            <p>
+                                                                APP MOBILE<br>DEVELOPMENT
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
         </div>
 
         <jsp:include page="footerTemplate.jsp"></jsp:include>
