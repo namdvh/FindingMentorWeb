@@ -228,7 +228,7 @@
                         <div>
                             <form action="MainMentorController" method="POST">
                                 <button type="submit" class="join" style="float: right; margin-top: 30px" name="action" value="EditSubject">Edit Subject</button>
-                                <button type="submit" class="join" style="float: right; margin-top: 30px" name="action" value="ViewListStudent">View List Student</button>
+                                <button type="submit" class="join" style="float: right; margin-top: 30px; margin-right: 10px" name="action" value="ViewListStudent">View List Student</button>
                                 <input type="hidden" name="SubjectID" value="${subject.subjectId}" />
                                 <input type="hidden" name="SubjectName" value="${subject.subjectName}" />
                                 <img src="${subject.images}" alt="" style="width: 100px; height: 100px"/>
