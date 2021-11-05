@@ -53,6 +53,7 @@ public class UpdatePasswordController extends HttpServlet {
             boolean check = true;
             boolean check2 = true;
             boolean check3 = true;
+            boolean check4 =true;
 
             if (loginUser == null) {
                 url = ERROR;
@@ -63,11 +64,13 @@ public class UpdatePasswordController extends HttpServlet {
                     check = false;
                     request.setAttribute("USER_ERROR", userError);
                 } else {
-                    check = CheckValidation.isValidPassword(Password);
+                    check4 = CheckValidation.isValidPassword(Password);
+                    if(check4==false){
                     userError.setPasswordError("Password at least 8 character. \n "
                             + "1 Uppercase character, at least 1 number, not contain space \n"
                             + " and at least 1 speacial chars");   
                     request.setAttribute("submitFail3", "done");
+                    }
                 }
                 //1 vs HT
                 check2 = dao.checkOldPassword(UserID, oldPassword);
@@ -79,7 +82,7 @@ public class UpdatePasswordController extends HttpServlet {
                     check3 = false;
                     request.setAttribute("submitFail", "done");
                 }
-                if (check == true && check2 == true && check3 == true) {
+                if (check == true && check2 == true && check3 == true && check4==true) {
                     boolean checkInsert = dao.updatePassword(UserID, Password);
                     if (checkInsert) {
                         url = SUCCESS;
