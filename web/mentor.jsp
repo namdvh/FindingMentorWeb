@@ -15,17 +15,11 @@
         <meta content="width=device-width,initial-scale=1" name="viewport" />
         <meta content="description" name="description" />
         <meta name="google" content="notranslate" />
-        <meta
-            content="Mashup templates have been developped by Orson.io team"
-            name="author"
-            />
-
+        <meta content="Mashup templates have been developped by Orson.io team" name="author"/>
         <!-- Disable tap highlight on IE -->
         <meta name="msapplication-tap-highlight" content="no" />
-
         <link href="./assets/apple-touch-icon.png" rel="apple-touch-icon" />
         <link href="./assets/favicon.ico" rel="icon" />
-
         <!-- link Font Awesome -->
         <link
             rel="stylesheet"
@@ -40,9 +34,7 @@
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous"
             />
-
         <title>Find Mentor</title>  
-
         <!--<link href="New folder/main.a3f694c0.css" rel="stylesheet">-->
         <link rel="stylesheet" href="Content-after/app.css">
     </head>
@@ -80,7 +72,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="fullName">Blog:</label>
-                                            <input type="text" class="form-control" id="fullName" placeholder="Blog" name="UpdateBlog" value="${itemContent.blog}">
+                                            <textarea type="text" class="form-control" id="fullName" placeholder="Blog" name="UpdateBlog" value="${itemContent.blog}" style="height: 240px">${itemContent.blog}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -156,7 +148,7 @@
                                                 <form action="MainMentorController" method="POST" onsubmit="">
                                                     <input type="hidden" name="SubjectID" value="${sessionScope.SUBJECT_ID}" />
                                                     <input type="hidden" name="SubjectName" value="${sessionScope.SUBJECT_NAME}" />
-                                                    <input type="text" name="NewContentChapterID" value="${chapter.chapterID}" readonly="readonly" /><br>
+                                                    <input type="hidden" name="NewContentChapterID" value="${chapter.chapterID}" readonly="readonly" /><br>
                                                     <div class="modal-header">
                                                         <h5 class="modal-title">Create Content</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -177,7 +169,7 @@
 
                                                             <div class="form-group">
                                                                 <label for="fullName">Blog:</label>
-                                                                <input type="text" class="form-control" id="fullName" name="blog" value="" placeholder="Blog">
+                                                                <textarea type="text" class="form-control" id="fullName" name="blog" value="" placeholder="Blog" style="height: 240px"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -224,7 +216,7 @@
                                         <c:set var="listContent" value="${chapter.list}"/>
                                         <c:forEach var="itemContent" items="${listContent}" varStatus="i">
                                             <div style="border-radius: 0rem;" class=" m-0 pb-1 card card-body border-bottom ">
-                                                <a style="text-decoration: none; color: black" href="#" onclick="loadVideoURL('${itemContent.videoURL}')">
+                                                <a style="text-decoration: none; color: black" href="#" onclick="loadVideoURL('${itemContent.videoURL}', '${itemContent.blog}')">
                                                     Lesson ${i.count}: ${itemContent.contentName}
                                                 </a>
                                                 <p class="card-text"><a href="#" class="badge badge-warning" data-toggle="modal" data-target="#editContent${itemContent.contentID}">Edit</a></p>
@@ -240,6 +232,23 @@
                 <div class="video col-md-8">
                     <iframe  id="loadVideo" src="" frameborder="0" allowfullscreen style=" border: solid 4px #37474F">
                     </iframe>
+                    <div style=".purple-border textarea {
+                             border: 1px solid #ba68c8;
+                         }
+                         .purple-border .form-control:focus {
+                             border: 1px solid #ba68c8;
+                             box-shadow: 0 0 0 0.2rem rgba(186, 104, 200, .25);
+                         }
+
+                         .green-border-focus .form-control:focus {
+                             border: 1px solid #8bc34a;
+                             box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, .25);
+                         }">
+                        <div class="form-group purple-border" style="width: 1200px">
+                            <label for="exampleFormControlTextarea4">Blog</label>
+                            <div class="form-control card" id="exampleFormControlTextarea4" style="width: 852px; height: auto"></div>
+                        </div>
+                    </div>
                 </div> 
             </div>
         </div>
@@ -254,12 +263,6 @@
             integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
             crossorigin="anonymous"
         ></script>
-
-        <script
-            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"
-        ></script>
         <!-- Button trigger modal -->
         <script>
                                                     $('#exampleModal').on('show.bs.modal', event => {
@@ -270,7 +273,7 @@
         </script>
         <!--load video-->
         <script>
-            function loadVideoURL(url) {
+            function loadVideoURL(url, blog) {
                 var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
                 var match = url.match(regExp);
                 if (match && match[7].length === 11) {
@@ -279,6 +282,7 @@
                     let urlpath2 = "?enablejsapi=1";
                     var videoURL = urlpath.concat(id, urlpath2);
                     document.getElementById("loadVideo").src = videoURL;
+                    document.getElementById("exampleFormControlTextarea4").textContent = blog;
                 } else {
                     alert("Url incorrect");
                 }
