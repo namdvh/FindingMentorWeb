@@ -184,7 +184,6 @@
                         <b style="font-size: 17px">My course</b>
                     </button>
                 </div>
-                <!-- Tab content -->
             <c:if test="${MESSAGE != null}">
                 <div class="alert">
                     <span class="closebtn" onclick="this.parentElement.style.display = 'none';">&times;</span> 
