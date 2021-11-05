@@ -271,6 +271,9 @@
             <c:if test="${not empty submitFail2}">
             <script>alert("Your old password is wrong");
             </script></c:if>
+             <c:if test="${not empty submitFail3}">
+            <script>alert("Wrong validate, update Password fail");
+            </script></c:if>
             <!--start of footer-->
         <jsp:include page="footerTemplate.jsp"></jsp:include>
         <!--end off footer-->       

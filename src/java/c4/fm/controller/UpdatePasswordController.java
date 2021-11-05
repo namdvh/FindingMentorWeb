@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 /**
  *
  * @author HuuToan
@@ -51,9 +50,9 @@ public class UpdatePasswordController extends HttpServlet {
             String confirm = request.getParameter("ConfirmPassword");
             UserDAO dao = new UserDAO();
             UserDTO user = new UserDTO(UserID, Password);
-            boolean check = false; 
-            boolean check2 = false;
-            boolean check3 = false;
+            boolean check = true;
+            boolean check2 = true;
+            boolean check3 = true;
 
             if (loginUser == null) {
                 url = ERROR;
@@ -63,12 +62,18 @@ public class UpdatePasswordController extends HttpServlet {
                     userError.setConfirmPasswordError("Two password is not match");
                     check = false;
                     request.setAttribute("USER_ERROR", userError);
+                } else {
+                    check = CheckValidation.isValidPassword(Password);
+                    userError.setPasswordError("Password at least 8 character. \n "
+                            + "1 Uppercase character, at least 1 number, not contain space \n"
+                            + " and at least 1 speacial chars");   
+                    request.setAttribute("submitFail3", "done");
                 }
                 //1 vs HT
-                    check2 = dao.checkOldPassword(UserID, oldPassword);
-                if (check2 == false) {                  
-                     request.setAttribute("submitFail2", "done");
-                } 
+                check2 = dao.checkOldPassword(UserID, oldPassword);
+                if (check2 == false) {
+                    request.setAttribute("submitFail2", "done");
+                }
                 //1 vs 2
                 if (oldPassword.equals(Password)) {
                     check3 = false;
