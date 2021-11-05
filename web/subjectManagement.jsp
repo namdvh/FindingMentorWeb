@@ -171,7 +171,7 @@
             </c:if>  
 
             <div id="allCourse" class="tabcontent" style="display: block">
-                <c:forEach items="${allSubject}" var="load">
+            <c:forEach items="${sessionScope.allSubject}" var="load">
                     <div>
                         <!--button join class-->
                         <div>
@@ -200,8 +200,8 @@
             </div> 
             <!-- tu cho nay tro di la phan cua My course-->  
             <div id="myCourse" class="tabcontent">
-                <c:if test="${sessionScope.LOGIN_USER.roleID eq 'US'}" >
-                    <c:forEach items="${listEnrolled}" var="list">
+                <c:if test="${sessionScope.LOGIN_USER.roleID eq 'User'}" >
+                    <c:forEach items="${sessionScope.listEnrolled}" var="list">
                         <div>
                             <!--button Detail-->
                             <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
@@ -222,7 +222,7 @@
                         </div> <hr>
                     </c:forEach>
                 </c:if>
-                <c:if test="${sessionScope.LOGIN_USER.roleID eq 'MT'}" >   
+                <c:if test="${sessionScope.LOGIN_USER.roleID eq 'Mentor'}" >   
                     <c:set var="listSubject" value="${sessionScope.LIST_MENTOR_SUBJECT}"/>
                     <c:forEach var="subject" items="${listSubject}">
                         <div>
@@ -236,7 +236,7 @@
                             </form>
                         </div>
                     </c:forEach>
-                    <c:forEach items="${listEnrolled}" var="list">
+                    <c:forEach items="${sessionScope.listEnrolled}" var="list">
                         <div>
                             <!--button Detail-->
                             <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   

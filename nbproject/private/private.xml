@@ -8,6 +8,10 @@
             <file>file:/D:/GIT%20HUB%20SWP391/FindingMentorWeb/src/java/c4/fm/controller/EnrollCourseController.java</file>
             <file>file:/D:/GIT%20HUB%20SWP391/FindingMentorWeb/src/java/c4/fm/controller/LoadContentStudentController.java</file>
         </group>
-        <group/>
+        <group>
+            <file>file:/D:/demo/FindingMentorWeb/web/studentEnroll.jsp</file>
+            <file>file:/D:/demo/FindingMentorWeb/src/java/c4/fm/utils/DBUtils.java</file>
+            <file>file:/D:/demo/FindingMentorWeb/web/subjectManagement.jsp</file>
+        </group>
     </open-files>
 </project-private>
