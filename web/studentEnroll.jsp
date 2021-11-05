@@ -54,6 +54,9 @@
         <!-- CSS -->
         <link rel="stylesheet" href="css/app.css" />
     </head>
+    <c:if test="${sessionScope.LOGIN_USER eq null || sessionScope.LOGIN_USER.roleID eq 'User'}">
+        <c:redirect url="login.jsp"></c:redirect>
+    </c:if>
     <jsp:include page="headerTemplate.jsp"></jsp:include>
         <body>
             <!--********************* HEADER *********************-->

@@ -86,7 +86,7 @@ public class SubjectDAO implements Serializable {
                 pst.close();
             }
             if (con != null) {
-
+                con.close();
             }
 
         }

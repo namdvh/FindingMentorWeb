@@ -15,6 +15,9 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     </head>
+    <c:if test="${sessionScope.LOGIN_USER eq null || sessionScope.LOGIN_USER.roleID eq 'Mentor' || sessionScope.LOGIN_USER.roleID eq 'User'}">
+        <c:redirect url="login.jsp"></c:redirect>
+    </c:if>
     <body>
         <!-- Header -->
         <div id="header">
@@ -68,63 +71,63 @@
                             </div>
                             <!-- End Box Head -->
                             <!-- Table -->
-                                <table class="table table-striped" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <c:if test="${requestScope.LIST_USER_ADMIN == null}">
+                            <table class="table table-striped" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <c:if test="${requestScope.LIST_USER_ADMIN == null}">
+                                    <tr>
+                                        <th>Nothing to search</th>
+                                    </tr>
+                                </c:if>
+
+
+                                <c:if test="${requestScope.LIST_USER_ADMIN != null}">
+                                    <tr>
+                                        <th></th>
+                                        <th>name</th>
+                                        <th>email</th>
+                                        <th>role ID</th>
+                                        <th>phone Number</th>
+                                        <th>address</th>
+                                        <th>status</th>
+                                        <th>birthday</th>
+                                        <th>images</th>
+                                        <th width="110" class="ac">Content Control</th>
+                                    </tr>
+
+                                    <c:forEach var="s" items="${requestScope.LIST_USER_ADMIN}">
                                         <tr>
-                                            <th>Nothing to search</th>
+                                            <th>
+
+                                                <input type="hidden" name="userId" value="${s.userID}" />
+                                            </th>
+                                            <th>${s.name}</th>
+                                            <th>${s.email}</th>
+                                            <th>${s.roleID}</th>
+                                            <th>${s.phoneNumber}</th>
+                                            <th>${s.address}</th>
+                                            <th>${s.status}</th>
+                                            <th>${s.birthday}</th>
+                                            <th>
+                                                <img src="${s.images}" width="50px" height="50px" alt="alt"/>
+                                            </th>
+                                            <th>
+                                                <c:if test="${s.status eq 'true'}">
+                                                    <a href="MainController?action=deleteUserAdmin&userId=${s.userID}" class="ico del">Delete</a>
+
+                                                </c:if>
+                                                <c:if test="${s.status eq 'false'}">
+                                                    <a href="MainController?action=ActiveUserAdmin&userId=${s.userID}" class="ico edit">Active</a>
+                                                </c:if>
+
+                                            </th>
+
                                         </tr>
-                                    </c:if>
+                                    </c:forEach>
+                                </c:if>
 
+                            </table>
+                            <!-- Pagging -->
 
-                                    <c:if test="${requestScope.LIST_USER_ADMIN != null}">
-                                        <tr>
-                                            <th></th>
-                                            <th>name</th>
-                                            <th>email</th>
-                                            <th>role ID</th>
-                                            <th>phone Number</th>
-                                            <th>address</th>
-                                            <th>status</th>
-                                            <th>birthday</th>
-                                            <th>images</th>
-                                            <th width="110" class="ac">Content Control</th>
-                                        </tr>
-
-                                        <c:forEach var="s" items="${requestScope.LIST_USER_ADMIN}">
-                                            <tr>
-                                                <th>
-
-                                                    <input type="hidden" name="userId" value="${s.userID}" />
-                                                </th>
-                                                <th>${s.name}</th>
-                                                <th>${s.email}</th>
-                                                <th>${s.roleID}</th>
-                                                <th>${s.phoneNumber}</th>
-                                                <th>${s.address}</th>
-                                                <th>${s.status}</th>
-                                                <th>${s.birthday}</th>
-                                                <th>
-                                                    <img src="${s.images}" width="50px" height="50px" alt="alt"/>
-                                                </th>
-                                                <th>
-                                                    <c:if test="${s.status eq 'true'}">
-                                                        <a href="MainController?action=deleteUserAdmin&userId=${s.userID}" class="ico del">Delete</a>
-
-                                                    </c:if>
-                                                    <c:if test="${s.status eq 'false'}">
-                                                        <a href="MainController?action=ActiveUserAdmin&userId=${s.userID}" class="ico edit">Active</a>
-                                                    </c:if>
-
-                                                </th>
-
-                                            </tr>
-                                        </c:forEach>
-                                    </c:if>
-
-                                </table>
-                                <!-- Pagging -->
-
-                                <!-- End Pagging -->
+                            <!-- End Pagging -->
                             <!-- Table -->
                         </div>
                         <!-- End Box -->
@@ -134,9 +137,9 @@
                     </div>
                     <!-- End Content -->
                     <!-- Sidebar -->
-                   
-                        <!-- Box -->
-                        <span style="display: flex; justify-content: flex-end; ">
+
+                    <!-- Box -->
+                    <span style="display: flex; justify-content: flex-end; ">
                         <div class="box" style="margin-left: 25px">
                             <!-- Box Head -->
                             <div class="list-group">
@@ -149,13 +152,13 @@
                                 <a href="MainController?action=addSubjectPage" class="list-group-item list-group-item-action ">Add Subject</a>
                             </div>
                             <!-- End Box Head-->
-                          
+
                         </div>
-                            </span>
-                        <!-- End Box -->
-                  
+                    </span>
+                    <!-- End Box -->
+
                     <!-- End Sidebar -->
-                    
+
                 </div>
                 <!-- Main -->
             </div>

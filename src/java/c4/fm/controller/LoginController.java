@@ -37,22 +37,13 @@ public class LoginController extends HttpServlet {
             UserDTO user = dao.checkLogin(UserID, password);
             HttpSession session = request.getSession();
             if (user != null) {
-                session.setAttribute("LOGIN_USER", user);
+                UserDTO userInfo = dao.loadUser(UserID);
+                session.setAttribute("LOGIN_USER", userInfo);
                 String RoleID = user.getRoleID();
                 if ("AD".equals(RoleID)) {
                     url = ADMIN_PAGE;
-                } else if ("US".equals(RoleID)) {
-                    RoleDAO roleDao = new RoleDAO();
-                    RoleDTO role = roleDao.loadListRole(user.getRoleID());
-                    session.setAttribute("USER_ROLE", role);
+                }else{
                     url = USER_PAGE;
-                } else if ("MT".equals(RoleID)) {
-                    RoleDAO roleDao = new RoleDAO();
-                    RoleDTO role = roleDao.loadListRole(user.getRoleID());
-                    session.setAttribute("USER_ROLE", role);
-                    url = USER_PAGE;
-                } else {
-                    session.setAttribute("ERROR_MESSAGE_LOGIN", "Your role is not support");
                 }
             } else {
                 session.setAttribute("ERROR_MESSAGE_LOGIN", "Incorrect UserID or Password");

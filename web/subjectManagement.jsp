@@ -132,7 +132,9 @@
 
         </style>
     </head>
-
+    <c:if test="${sessionScope.LOGIN_USER eq null}">
+        <c:redirect url="login.jsp"></c:redirect>
+    </c:if>
     <body style="margin-top: 15px;">
         <!-- Add your content of header -->
         <jsp:include page="headerTemplate.jsp"></jsp:include>
