@@ -86,6 +86,9 @@
 
         </style>
     </head>
+    <c:if test="${sessionScope.LOGIN_USER eq null}">
+        <c:redirect url="login.jsp"></c:redirect>
+    </c:if>
     <body>
         <jsp:include page="headerTemplate.jsp"></jsp:include>
 
@@ -231,76 +234,83 @@
                     </div> 
                 </div>
             </div>
-            <jsp:include page="footerTemplate.jsp"></jsp:include>
-            <script
-                src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-                crossorigin="anonymous"
-            ></script>
-            <script
-                src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-                crossorigin="anonymous"
-            ></script>
-            <!-- Button trigger modal -->
+        </div>
+        <c:if test="${not empty requestScope.MESS}">
             <script>
-                                                    $('#exampleModal').on('show.bs.modal', event => {
-                                                        var button = $(event.relatedTarget);
-                                                        var modal = $(this);
-                                                        // Use above variables to manipulate the DOM
-                                                    });
+                alert("Thanks for voting");
             </script>
-            <!--load video-->
-            <script>
-                function loadVideoURL(url) {
-                    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
-                    var match = url.match(regExp);
-                    if (match && match[7].length === 11) {
-                        var id = match[7];
-                        let urlpath = "https://www.youtube.com/embed/";
-                        let urlpath2 = "?enablejsapi=1";
-                        var videoURL = urlpath.concat(id, urlpath2);
-                        document.getElementById("loadVideo").src = videoURL;
-                    } else {
-                        alert("Url incorrect");
+        </c:if>
+        <jsp:include page="footerTemplate.jsp"></jsp:include>
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"
+        ></script>
+        <!-- Button trigger modal -->
+        <script>
+                $('#exampleModal').on('show.bs.modal', event => {
+                    var button = $(event.relatedTarget);
+                    var modal = $(this);
+                    // Use above variables to manipulate the DOM
+                });
+        </script>
+        <!--load video-->
+        <script>
+            function loadVideoURL(url) {
+                var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+                var match = url.match(regExp);
+                if (match && match[7].length === 11) {
+                    var id = match[7];
+                    let urlpath = "https://www.youtube.com/embed/";
+                    let urlpath2 = "?enablejsapi=1";
+                    var videoURL = urlpath.concat(id, urlpath2);
+                    document.getElementById("loadVideo").src = videoURL;
+                    document.getElementById("exampleFormControlTextarea4").textContent = blog;
+                } else {
+                    alert("Url incorrect");
+                }
+            }
+            function onYouTubeAPIReady(URL) {
+                player = new YT.Player('loadVideo', {
+                    events: {
+                        'onReady': onPlayerReady,
+                        'onStateChange': onPlayerStateChange
                     }
+                });
+            }
+            function onPlayerReady(event) {
+                event.target.setVolume(100);
+                event.target.playVideo();
+                document.getElementById('loadVideo').style.borderColor = '#FF6D00';
+            }
+            function changeBorderColor(playerStatus) {
+                var color;
+                if (playerStatus === -1) {
+                    color = "#37474F"; // unstarted = gray
+                } else if (playerStatus === 0) {
+                    color = "#FFFF00"; // ended = yellow
+                } else if (playerStatus === 1) {
+                    color = "#33691E"; // playing = green
+                } else if (playerStatus === 2) {
+                    color = "#DD2C00"; // paused = red
+                } else if (playerStatus === 3) {
+                    color = "#AA00FF"; // buffering = purple
+                } else if (playerStatus === 5) {
+                    color = "#FF6DOO"; // video cued = orange
                 }
-                function onYouTubeAPIReady(URL) {
-                    player = new YT.Player('loadVideo', {
-                        events: {
-                            'onReady': onPlayerReady,
-                            'onStateChange': onPlayerStateChange
-                        }
-                    });
+                if (color) {
+                    document.getElementById('loadVideo').style.borderColor = color;
                 }
-                function onPlayerReady(event) {
-                    event.target.setVolume(100);
-                    event.target.playVideo();
-                    document.getElementById('loadVideo').style.borderColor = '#FF6D00';
-                }
-                function changeBorderColor(playerStatus) {
-                    var color;
-                    if (playerStatus === -1) {
-                        color = "#37474F"; // unstarted = gray
-                    } else if (playerStatus === 0) {
-                        color = "#FFFF00"; // ended = yellow
-                    } else if (playerStatus === 1) {
-                        color = "#33691E"; // playing = green
-                    } else if (playerStatus === 2) {
-                        color = "#DD2C00"; // paused = red
-                    } else if (playerStatus === 3) {
-                        color = "#AA00FF"; // buffering = purple
-                    } else if (playerStatus === 5) {
-                        color = "#FF6DOO"; // video cued = orange
-                    }
-                    if (color) {
-                        document.getElementById('loadVideo').style.borderColor = color;
-                    }
-                }
-                function onPlayerStateChange(event) {
-                    changeBorderColor(event.data);
-                }
-            </script>
+            }
+            function onPlayerStateChange(event) {
+                changeBorderColor(event.data);
+            }
+        </script>
     </body>
 </html>
 

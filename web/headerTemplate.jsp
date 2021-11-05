@@ -229,6 +229,7 @@
                         <i class="fa fa-book"></i>
                         INSTRUCTION
                         <label>EDUCATION</label>
+
                     </a>
                     <button
                         class="navbar-toggler"

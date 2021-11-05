@@ -39,23 +39,37 @@ public class LoadHomeController extends HttpServlet {
             UserDAO dao = new UserDAO();
             SubjectDAO subDAO = new SubjectDAO();
             List<UserDTO> Listrank = dao.ShowRank();
-           
-            UserDTO rank1= Listrank.get(0);
-            UserDTO rank2= Listrank.get(1);
-            UserDTO rank3= Listrank.get(2);
-            //showAll
-            List<SubjectDTO> list  = subDAO.ShowAllSubject();
+
+            UserDTO rank1 = Listrank.get(0);
+            UserDTO rank2 = Listrank.get(1);
+            UserDTO rank3 = Listrank.get(2);
+            UserDTO rank4 = Listrank.get(3);
+            UserDTO rank5 = Listrank.get(4);
+            UserDTO rank6 = Listrank.get(5);
+
+            int countSubtject = dao.countSubject();
+            int countMentor = dao.countMentor();
+            int countStudent = dao.countStudent();
+
+            UserDTO user1 = dao.LoadMentor("");
+            request.setAttribute("countSubtject", countSubtject);
+            request.setAttribute("countMentor", countMentor);
+            request.setAttribute("countStudent", countStudent);
+            List<SubjectDTO> list = subDAO.ShowAllSubject();
 
             request.setAttribute("allSubject", list);
-            
+
             request.setAttribute("rank1", rank1);
             request.setAttribute("rank2", rank2);
             request.setAttribute("rank3", rank3);
+            request.setAttribute("rank4", rank4);
+            request.setAttribute("rank5", rank5);
+            request.setAttribute("rank6", rank6);
             request.setAttribute("rank", Listrank);
         } catch (Exception e) {
             log("Error at Load controller" + e.getMessage());
         } finally {
-            request.getRequestDispatcher("user.jsp").forward(request, response);
+            request.getRequestDispatcher("home.jsp").forward(request, response);
         }
     }
 

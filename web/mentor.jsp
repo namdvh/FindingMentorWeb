@@ -40,7 +40,7 @@
     </head>
     <body>
         <jsp:include page="headerTemplate.jsp"></jsp:include>
-        <c:if test="${sessionScope.LOGIN_USER eq null || sessionScope.LOGIN_USER.roleID ne 'MT'}">
+        <c:if test="${sessionScope.LOGIN_USER eq null || sessionScope.LOGIN_USER.roleID ne 'Mentor'}">
             <c:redirect url="login.jsp"></c:redirect>
         </c:if>
         <c:set var="listChapter" value="${requestScope.LIST_CHAPTER}"/>
@@ -91,7 +91,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="d-flex justify-content-between mb-3">
-                        <a  class="btn btn-success btn-sm rounded-0" href="user.jsp">Back</a>
+                        <a  class="btn btn-success btn-sm rounded-0" href="MainController?action=ShowAll">Back</a>
                         <span><h2>Lesson content</h2></span>   
                         <button  type="button" class="btn btn-success btn-sm rounded-0" data-toggle="modal" data-target="#createChapter" >
                             Creater Chapter

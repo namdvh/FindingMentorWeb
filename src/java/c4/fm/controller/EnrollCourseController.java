@@ -48,7 +48,7 @@ public class EnrollCourseController extends HttpServlet {
         HttpSession session = request.getSession();
         UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
         try {
-            if (user.getRoleID().equals("MT")) {
+            if (user.getRoleID().equals("Mentor")) {
                 if (subjectDAO.checkMentorSubject(user.getUserID(), subjectID)) {
                     session.setAttribute("MENTOR_SUBJECT", subjectID);
                     url = MENTOR_LOAD;

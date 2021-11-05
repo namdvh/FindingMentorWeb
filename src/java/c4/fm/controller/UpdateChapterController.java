@@ -43,7 +43,7 @@ public class UpdateChapterController extends HttpServlet {
         try {
             HttpSession session = request.getSession();
             UserDTO loginUser = (UserDTO) session.getAttribute("LOGIN_USER");
-            if (loginUser == null || !"MT".equals(loginUser.getRoleID())) {
+            if (loginUser == null || !"Mentor".equals(loginUser.getRoleID())) {
                 url = PAGELOGIN;
             } else {
                 ChapterDAO dao = new ChapterDAO();

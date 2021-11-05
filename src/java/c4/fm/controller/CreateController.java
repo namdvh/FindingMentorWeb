@@ -76,7 +76,7 @@ public class CreateController extends HttpServlet {
                 if (checkInsert) {
                     url = SUCCESS;
                 }
-                if (RoleID.equals("MT")) {
+                if (RoleID.equals("Mentor")) {
                     dao.RequestMentor(user);
                 }
                 

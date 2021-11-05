@@ -239,6 +239,8 @@ public class UserDAO {
                         user = new UserDTO(UserID, Name, Email, "User", PhoneNumber, Address, BirthDay, Images);
                     } else if (roleID.equals("MT")) {
                         user = new UserDTO(UserID, Name, Email, "Mentor", PhoneNumber, Address, BirthDay, Images);
+                    } else {
+                        user = new UserDTO(UserID, Name, Email, "AD", PhoneNumber, Address, BirthDay, Images);
                     }
                 }
             }
@@ -699,7 +701,7 @@ public class UserDAO {
         try {
             con = DBUtils.getConnection();
             if (con != null) {
-                String sql = "select top 3 tblUser.UserID,Name,Email,RoleID,PhoneNumber,Address,Password,Status,BirthDay,Images,Stars\n"
+                String sql = "select top 6 tblUser.UserID,Name,Email,RoleID,PhoneNumber,Address,Password,Status,BirthDay,Images,Stars\n"
                         + "from tblFeedBack\n"
                         + "inner join tblUser on tblFeedBack.UserID = tblUser.UserID \n"
                         + "order by tblFeedBack.Stars desc ";
@@ -923,6 +925,93 @@ public class UserDAO {
             }
         }
         return check;
+    }
+
+    public int countSubject() throws ClassNotFoundException, SQLException {
+        Connection con = null;
+        PreparedStatement preStm = null;
+        ResultSet rs = null;
+        int count = 0;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = " select COUNT(SubjectID) from tblSubject ";
+                preStm = con.prepareStatement(sql);
+                rs = preStm.executeQuery();
+                while (rs.next()) {
+                    count = rs.getInt(1);
+                }
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (preStm != null) {
+                preStm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return count;
+    }
+
+    public int countStudent() throws ClassNotFoundException, SQLException {
+        Connection con = null;
+        PreparedStatement preStm = null;
+        ResultSet rs = null;
+        int count = 0;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = " select COUNT(UserID) from tblUser Where RoleID = 'US' ";
+                preStm = con.prepareStatement(sql);
+                rs = preStm.executeQuery();
+                while (rs.next()) {
+                    count = rs.getInt(1);
+                }
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (preStm != null) {
+                preStm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return count;
+    }
+
+    public int countMentor() throws ClassNotFoundException, SQLException {
+        Connection con = null;
+        PreparedStatement preStm = null;
+        ResultSet rs = null;
+        int count = 0;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = " select COUNT(UserID) from tblUser Where RoleID = 'MT' ";
+                preStm = con.prepareStatement(sql);
+                rs = preStm.executeQuery();
+                while (rs.next()) {
+                    count = rs.getInt(1);
+                }
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (preStm != null) {
+                preStm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return count;
     }
 
     public static void main(String[] args) {
