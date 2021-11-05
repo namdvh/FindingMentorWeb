@@ -63,6 +63,39 @@
         <link rel="stylesheet" href="Subject/MyCourse.css" />
 
         <style>
+            body{
+                margin-top:20px;
+                background:#FAFAFA;    
+            }
+            /*==================================================
+              Nearby People CSS
+              ==================================================*/
+            .people-nearby .google-maps{
+                background: #f8f8f8;
+                border-radius: 4px;
+                border: 1px solid #f1f2f2;
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .people-nearby .google-maps .map{
+                height: 300px;
+                width: 100%;
+                border: none;
+            }
+
+            .people-nearby .nearby-user{
+                padding: 20px 0;
+                border-top: 1px solid #f1f2f2;
+                border-bottom: 1px solid #f1f2f2;
+                margin-bottom: 20px;
+            }
+
+            img.profile-photo-lg{
+                height: 80px;
+                width: 80px;
+                border-radius: 50%;
+            }
             .dropbtn {
                 font-size: 16px;
                 border: none;
@@ -162,13 +195,24 @@
                 <c:if test="${sessionScope.LOGIN_USER.roleID eq 'MT'}" >   
                     <c:set var="listStudent" value="${LIST_STUDENT_ENROLL_SUBJECT.list}"/>
                     <c:forEach var="student" items="${listStudent}">
-                        <div>
-                            <img src="${student.images}" alt="" style="width: 100px; height: 100px"/>
-                            <span>${student.name}</span>
-                            <span>${student.email}</span>
-                            <span>${student.phoneNumber}</span>
-                            <span>${student.address}</span>
-                        </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="people-nearby">
+                                        <div class="nearby-user">
+                                            <div class="row">
+                                                <div class="col-md-2 col-sm-2">
+                                                    <img src="${student.images}" alt="user" class="profile-photo-lg">
+                                                </div>
+                                                <div class="col-md-7 col-sm-7">
+                                                    <h5>Name: <a href="#" class="profile-link">${student.name}</a></h5>
+                                                    <p>Email: ${student.email}</p>
+                                                    <p class="text-muted"> Address: ${student.address}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </c:forEach>
                 </c:if>
             </div> 
