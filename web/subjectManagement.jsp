@@ -200,7 +200,7 @@
             </div> 
             <!-- tu cho nay tro di la phan cua My course-->  
             <div id="myCourse" class="tabcontent">
-                <c:if test="${sessionScope.LOGIN_USER.roleID eq 'US'}" >
+                <c:if test="${sessionScope.LOGIN_USER.roleID eq 'User'}" >
                     <c:forEach items="${listEnrolled}" var="list">
                         <div>
                             <!--button Detail-->
@@ -222,7 +222,7 @@
                         </div> <hr>
                     </c:forEach>
                 </c:if>
-                <c:if test="${sessionScope.LOGIN_USER.roleID eq 'MT'}" >   
+                <c:if test="${sessionScope.LOGIN_USER.roleID eq 'Mentor'}" >   
                     <c:set var="listSubject" value="${sessionScope.LIST_MENTOR_SUBJECT}"/>
                     <c:forEach var="subject" items="${listSubject}">
                         <div>
