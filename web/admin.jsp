@@ -100,7 +100,7 @@
                                                 <th>${s.categoryId}</th>
                                                 <th>${s.status}</th>
                                                 <th>
-                                                    <a href="MainController?action=deleteSubjectAdmin" class="ico del">Delete</a>
+                                                    <a href="MainController?action=deleteSubjectAdmin&subjectId=${s.subjectId}" class="ico del">Delete</a>
                                                     <a href="MainController?action=updateSubjectPageAdmin&subjectId=${s.subjectId}" class="ico edit">Edit</a>
                                                 </th>
 
@@ -122,7 +122,7 @@
 
                             <!-- End Box Head -->
                             <form action="UpdateSubjectAdminServlet" method="post" enctype="multipart/form-data" >
-                                
+
                                 <c:if test="${requestScope.UPDATE_SUBJECT != null}">
                                     <div class="box-head">
                                         <h2>Update Subject</h2>
@@ -193,10 +193,10 @@
                         <!-- Box -->
                         <div class="box" style="margin-left: 15px">
                             <!-- Box Head -->
-                            
 
 
-                           
+
+
 
                             <div class="list-group">
                                 <a href="MainController?action=LoadAdminPage" class="list-group-item list-group-item-action active">

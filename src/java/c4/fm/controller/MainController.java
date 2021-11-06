@@ -39,6 +39,7 @@ public class MainController extends HttpServlet {
     private static final String RATING = "RatingController";
     private static final String LOAD_INFOR = "LoadInforController";
     private static final String LOAD_INFOR_MENTOR = "LoadInforMentorController";
+    private static final String VIEW_COURSE_MENTOR = "ShowCourseByMentor";
 
     //==============BEGIN OF ADMIN===================
     private static final String LOAD_ADMIN_PAGE_SERVLET = "LoadAdminServlet";
@@ -59,6 +60,8 @@ public class MainController extends HttpServlet {
     private static final String APPROVE_REQUEST_ADMIN_SERVLET = "ApproveRequestAdminServlet";
     private static final String DENAIL_REQUEST_ADMIN_SERVLET = "DenailRequestAdminServlet";
     private static final String ADDSUBJECTPAGE = "AddSubjectPageServlet";
+    private static final String DELETESUBJECTADMIN = "DeleteSubjectAdminServlet";
+
     //=======================END OF ADMIN==========================
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -105,6 +108,8 @@ public class MainController extends HttpServlet {
                 url = LOAD_INFOR;
             } else if ("LoadInfoMentor".equals(action)) {
                 url = LOAD_INFOR_MENTOR;
+            } else if ("ViewCourseOfMentor".equals(action)) {
+                url = VIEW_COURSE_MENTOR;
             }  //================BEGIN OF ADMIN============================
             else if (action.equals("AddSubjectAdmin")) {
                 url = ADDSUBJECT_ADMIN_SERVLET;
@@ -142,6 +147,8 @@ public class MainController extends HttpServlet {
                 url = APPROVE_REQUEST_ADMIN_SERVLET;
             } else if (action.equals("DenailRequest")) {
                 url = DENAIL_REQUEST_ADMIN_SERVLET;
+            }else if (action.equals("deleteSubjectAdmin")) {
+                url = DELETESUBJECTADMIN;
             } //=====================END OF ADMIN==========================
             else {
                 HttpSession session = request.getSession();

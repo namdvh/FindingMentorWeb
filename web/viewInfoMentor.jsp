@@ -98,10 +98,13 @@
                                 </div>                               
                             </div>
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <div class="text-right">                                       
-                                    <button type="submit" class="btn btn-success" name="action" value="ViewCourseOfMentor">
-                                        View Course
-                                    </button>                                  
+                                <div class="text-right">                                
+                                    <form action="MainController" method="POST">
+                                        <input type="hidden" name="MentorID" value="${requestScope.MentorInfo.userID}">
+                                        <button type="submit" class="btn btn-success" name="action" value="ViewCourseOfMentor">
+                                            View Course
+                                        </button>       
+                                    </form>
                                 </div>
                             </div>
                         </div>

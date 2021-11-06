@@ -5,6 +5,7 @@
  */
 package c4.fm.dao;
 
+import c4.fm.subject.SubjectDTO;
 import c4.fm.user.UserDTO;
 import c4.fm.utils.DBUtils;
 import java.io.FileInputStream;
@@ -1010,7 +1011,7 @@ public class UserDAO {
         }
         return count;
     }
-
+     
     public static void main(String[] args) {
         try {
             boolean check = false;
