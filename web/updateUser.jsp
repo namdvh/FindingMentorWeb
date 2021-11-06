@@ -103,8 +103,8 @@
                                         <div class="user-avatar">
                                             <img src="${sessionScope.LOGIN_USER.images}" alt="photo2">
                                         </div>
-                                    <h3 class="user-name" style="">${sessionScope.LOGIN_USER.name}</h3>
-                                    <h6 class="user-email" style="font-size: 13px;">${sessionScope.LOGIN_USER.email}</h6>
+                                        <h3 class="user-name" style="">${sessionScope.LOGIN_USER.name}</h3>
+                                        <h6 class="user-email" style="font-size: 13px;">${sessionScope.LOGIN_USER.email}</h6>
                                     </div>
                                     <div class="update" >
                                         <p><input class="btn btn-success" style="font-size: 10px; margin-top: 35px; background-color: white; "  type="file" name="ProfileImage"></p>
@@ -140,8 +140,8 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="website">Birthday</label>
-                                            <input name="BirthDay" value="${sessionScope.LOGIN_USER.birthday}" type="date" class="form-control" id="website" placeholder="Birthday">
+                                            <label for="website">Date of birth</label>
+                                            <input name="BirthDay" value="${sessionScope.LOGIN_USER.birthday}" type="date" class="form-control" id="website start"  placeholder="dd-mm-yyyy"    min="1940-01-01" max="2015-12-31">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -259,19 +259,19 @@
         <c:if test="${not empty submitDone}">
             <script>alert("Change password successful!");
             </script></c:if>
-         
-            <c:if test="${not empty requestScope.USER_ERROR}">
+
+        <c:if test="${not empty requestScope.USER_ERROR}">
             <script>alert("${requestScope.USER_ERROR.getConfirmPasswordError()}");
             </script></c:if>
-            
-             <c:if test="${not empty submitFail}">
+
+        <c:if test="${not empty submitFail}">
             <script>alert("You can't change the same password before!");
             </script></c:if>
-            
-            <c:if test="${not empty submitFail2}">
+
+        <c:if test="${not empty submitFail2}">
             <script>alert("Your old password is wrong");
             </script></c:if>
-             <c:if test="${not empty submitFail3}">
+        <c:if test="${not empty submitFail3}">
             <script>alert("Wrong validate, update Password fail");
             </script></c:if>
             <!--start of footer-->
@@ -283,9 +283,9 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
         <script>
-      $('#myModal').on('shown.bs.modal', function () {
-          $('#myInput').trigger('focus')
-      })
+                $('#myModal').on('shown.bs.modal', function () {
+                    $('#myInput').trigger('focus')
+                })
         </script>
 
         <script>

@@ -38,6 +38,7 @@ public class MainController extends HttpServlet {
     private static final String CHANGE_PASSWORD = "UpdatePasswordController";
     private static final String RATING = "RatingController";
     private static final String LOAD_INFOR = "LoadInforController";
+    private static final String LOAD_INFOR_MENTOR = "LoadInforMentorController";
 
     //==============BEGIN OF ADMIN===================
     private static final String LOAD_ADMIN_PAGE_SERVLET = "LoadAdminServlet";
@@ -68,7 +69,7 @@ public class MainController extends HttpServlet {
             String action = request.getParameter("action");
             if (action == null) {
 
-            } else if (action.equals("ERROR")) {
+            } else if (action.equals("Error")) {
                 url = ERROR;
             } else if (action.equals("LoginPage")) {
                 url = LOGIN_PAGE;
@@ -102,7 +103,9 @@ public class MainController extends HttpServlet {
                 url = RATING;
             } else if ("LoadInfor".equals(action)) {
                 url = LOAD_INFOR;
-            } //================BEGIN OF ADMIN============================
+            } else if ("LoadInfoMentor".equals(action)) {
+                url = LOAD_INFOR_MENTOR;
+            }  //================BEGIN OF ADMIN============================
             else if (action.equals("AddSubjectAdmin")) {
                 url = ADDSUBJECT_ADMIN_SERVLET;
             } else if (action.equals("searchSubjectAdmin")) {

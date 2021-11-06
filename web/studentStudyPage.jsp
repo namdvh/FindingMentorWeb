@@ -142,10 +142,12 @@
                              border: 1px solid #8bc34a;
                              box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, .25);
                          }">
+                            <!--blog khong hien-->
                         <div class="form-group purple-border" style="width: 1200px">
                             <label for="exampleFormControlTextarea4">Blog</label>
                             <textarea class="form-control" id="exampleFormControlTextarea4" rows="3"> </textarea>
                         </div>
+                            <!--khong hien-->
                     </div>
                     <button
                         type="button"
