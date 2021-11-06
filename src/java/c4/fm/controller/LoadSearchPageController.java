@@ -8,7 +8,6 @@ package c4.fm.controller;
 import c4.fm.dao.UserDAO;
 import c4.fm.user.UserDTO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class LoadSearchPageController extends HttpServlet {
 
-    private static final String SUCCESS = "searchUser.jsp";
+    private static final String SUCCESS = "homeSearch.jsp";
     private static final String ERROR = "error.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)

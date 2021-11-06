@@ -8,7 +8,7 @@ package c4.fm.controller;
 import c4.fm.dao.UserDAO;
 import c4.fm.user.UserDTO;
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,32 +16,28 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author HuuToan
+ * @author Khang
  */
-public class SearchController extends HttpServlet {
+public class LoadInforMentorController extends HttpServlet {
 
-    private static final String SUCCESS = "homeSearch.jsp";
     private static final String ERROR = "error.jsp";
-
+    private static final String SUCCESS = "viewInfoMentor.jsp";
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String URL = ERROR;
+        String url = ERROR;
         try {
-            String searchValue = request.getParameter("txtSearch");
+            String userID = request.getParameter("UserID");
             UserDAO dao = new UserDAO();
-            List<UserDTO> listSearch = dao.searchMentor(searchValue);
-            if (listSearch != null) {
-                request.setAttribute("search", listSearch);
-                URL = SUCCESS;
-            }else{
-                request.setAttribute("MESS", "Not Found");
+            UserDTO user = dao.LoadMentor(userID);
+            if(user != null){
+                url = SUCCESS;
+                request.setAttribute("MentorInfo", user);
             }
-
         } catch (Exception e) {
-            log("Error at Search Controller" + e.getMessage());
-        } finally {
-            request.getRequestDispatcher(URL).forward(request, response);
+            log("Error at load info mentor controller"+ e.getMessage());
+        }finally{
+            request.getRequestDispatcher(url).forward(request, response);
         }
     }
 

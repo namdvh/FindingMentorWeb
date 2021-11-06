@@ -863,28 +863,25 @@ public class UserDAO {
         try {
             con = DBUtils.getConnection();
             if (con != null) {
-                String sql = "select UserID, Name, Email, RoleID, PhoneNumber, Address, Password, Status, BirthDay, Images\n"
-                        + "from tblUser \n "
-                        + "Where RoleID like 'MT' and UserID like ? ";
+                String sql = "select tblUser.UserID,Name, Email, RoleID, PhoneNumber, Address, BirthDay, Images, Stars \n"
+                        + "from tblUser,tblFeedBack \n"
+                        + " Where tblUser.UserID = tblFeedBack.UserID AND RoleID like 'MT' and tblUser.Name like ? ";
                 pst = con.prepareStatement(sql);
                 pst.setString(1, "%" + searchValue + "%");
                 rs = pst.executeQuery();
                 while (rs.next()) {
-                    String userId = rs.getString("UserID");
+                    String userID = rs.getString("UserID");
                     String name = rs.getString("Name");
                     String email = rs.getString("Email");
                     String roleId = rs.getString("RoleID");
                     String phoneNumber = rs.getString("PhoneNumber");
                     String address = rs.getString("Address");
-                    String password = rs.getString("Password");
-                    boolean status = rs.getBoolean("Status");
                     String birthday = rs.getString("BirthDay");
                     String image = rs.getString("Images");
-
-                    UserDTO user = new UserDTO(userId, name, email, roleId, phoneNumber, address, password, "", String.valueOf(status), birthday, image);
+                    int Stars = rs.getInt("Stars");
+                    UserDTO user = new UserDTO(userID,name, email, roleId, phoneNumber, address, birthday, image, Stars);
                     listUser.add(user);
                 }
-
             }
 
         } finally {
@@ -1018,8 +1015,8 @@ public class UserDAO {
         try {
             boolean check = false;
             UserDAO dao = new UserDAO();
-            check = dao.InsertFeedback("toan05");
-            System.out.println(check);
+            UserDTO user = dao.LoadMentor("test2");
+            System.out.println(user.toString());
         } catch (Exception e) {
         }
     }

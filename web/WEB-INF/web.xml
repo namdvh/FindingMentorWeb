@@ -52,6 +52,10 @@
         <servlet-name>LoadSearchPageController</servlet-name>
         <servlet-class>c4.fm.controller.LoadSearchPageController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoadInforMentorController</servlet-name>
+        <servlet-class>c4.fm.controller.LoadInforMentorController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CreateGoogleController</servlet-name>
         <url-pattern>/CreateGoogleController</url-pattern>
@@ -107,6 +111,10 @@
     <servlet-mapping>
         <servlet-name>LoadSearchPageController</servlet-name>
         <url-pattern>/LoadSearchPageController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadInforMentorController</servlet-name>
+        <url-pattern>/LoadInforMentorController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

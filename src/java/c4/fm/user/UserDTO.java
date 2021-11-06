@@ -33,6 +33,19 @@ public class UserDTO implements Serializable {
         this.stars = stars;
     }
 
+    public UserDTO(String userID,String name, String email, String roleID, String phoneNumber, String address, String birthday, String images, int stars) {
+        this.userID = userID;
+        this.name = name;
+        this.email = email;
+        this.roleID = roleID;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.birthday = birthday;
+        this.images = images;
+        this.stars = stars;
+    }
+
+    
     public UserDTO(String userID, String name, String email, String roleID, String phoneNumber, String address, String password, String certificate, String status, String birthday) {
         this.userID = userID;
         this.name = name;
@@ -77,17 +90,6 @@ public class UserDTO implements Serializable {
         this.images = images;
     }
 
-    public UserDTO(String userID, String name, String email, String roleID, String phoneNumber, String address, String birthday, String images, int Stars) {
-        this.userID = userID;
-        this.name = name;
-        this.email = email;
-        this.roleID = roleID;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
-        this.birthday = birthday;
-        this.images = images;
-        this.stars = Stars;
-    }
 
     public UserDTO(String userID, String name, String email, String phoneNumber, String address, String birthday, String images) {
         this.userID = userID;
