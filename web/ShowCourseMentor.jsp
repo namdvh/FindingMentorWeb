@@ -54,14 +54,13 @@
         <!-- CSS -->
         <link rel="stylesheet" href="css/app.css" />
     </head>
-    <c:if test="${sessionScope.LOGIN_USER eq null}">
-        <c:redirect url="login.jsp"></c:redirect>
-    </c:if>
     <jsp:include page="headerTemplate.jsp"></jsp:include>
         <body>
             <!--********************* HEADER *********************-->
 
             <!--********************* INSTRUCTION__MENU *********************-->
+        <c:if test="${sessionScope.LOGIN_USER eq null}">
+
             <section>
                 <div class="container mt-3 mb-4">
                     <div class="col-lg-9 mt-4 mt-lg-0">
@@ -77,55 +76,123 @@
                                     shadow-sm
                                     "
                                     >
-                                <c:if test="${sessionScope.LOGIN_USER.roleID eq 'Mentor'}"> 
-                                    <c:set var="listStudent" value="${LIST_STUDENT_ENROLL_SUBJECT.list}"/>
                                     <table class="table manage-candidates-top mb-0">
-
                                         <thead>
                                             <tr>
                                                 <th>User Name</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach var="student" items="${listStudent}">
+                                            <c:forEach items="${ListCourseMentor}" var="list">
                                                 <tr class="candidates-list">
                                                     <td class="title">
                                                         <div class="thumb">
                                                             <img
                                                                 class="img-fluid"
-                                                                src="${student.images}"
+                                                                src="${list.images}"
                                                                 alt=""
                                                                 />
                                                         </div>
                                                         <div class="candidate-list-details">
                                                             <div class="candidate-list-info">
                                                                 <div class="candidate-list-title">
-                                                                    <h5 class="mb-0"><a href="#">${student.name}</a></h5>
+                                                                    <h5 class="mb-0"><a href="#">${list.subjectName}</a></h5>
                                                                 </div>
                                                                 <div class="candidate-list-option">
                                                                     <ul class="list-unstyled">
                                                                         <li>
-                                                                            <i class="fas fa-filter pr-1"></i>Email: ${student.email}
+                                                                            <i class="fas fa-filter pr-1"></i>Description ${list.description}
                                                                         </li>
                                                                         <li>
-                                                                            <i class="fas fa-map-marker-alt pr-1"></i
-                                                                            >Address: ${student.address}
-                                                                        </li>
                                                                     </ul>
                                                                 </div>
+                                                                <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
+                                                                    <a style="color: white" href="MainController?action=Enroll&subjectId=${list.subjectId}">  Join class  </a>                          
+                                                                </button> 
+                                                                <!--button Detail-->
+                                                                <button  style="float: right ; margin-top: 30px; margin-right: 10px;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">                          
+                                                                    <a style="color: white" href="MainController?action=LoadSubjectPage&subjectId=${list.subjectId}">  Detail  </a>
+                                                                </button>
                                                             </div>
                                                         </div>
                                                 </tr>      
                                             </c:forEach>
                                         </tbody>
                                     </table>
-                                </c:if>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </c:if>
+        <c:if test="${sessionScope.LOGIN_USER ne null}">
+
+            <section>
+                <div class="container mt-3 mb-4">
+                    <div class="col-lg-9 mt-4 mt-lg-0">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div
+                                    class="
+                                    user-dashboard-info-box
+                                    table-responsive
+                                    mb-0
+                                    bg-white
+                                    p-4
+                                    shadow-sm
+                                    "
+                                    >
+                                    <table class="table manage-candidates-top mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>User Name</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${ListCourseMentor}" var="list">
+                                                <tr class="candidates-list">
+                                                    <td class="title">
+                                                        <div class="thumb">
+                                                            <img
+                                                                class="img-fluid"
+                                                                src="${list.images}"
+                                                                alt=""
+                                                                />
+                                                        </div>
+                                                        <div class="candidate-list-details">
+                                                            <div class="candidate-list-info">
+                                                                <div class="candidate-list-title">
+                                                                    <h5 class="mb-0"><a href="#">${list.subjectName}</a></h5>
+                                                                </div>
+                                                                <div class="candidate-list-option">
+                                                                    <ul class="list-unstyled">
+                                                                        <li>
+                                                                            <i class="fas fa-filter pr-1"></i>Description ${list.description}
+                                                                        </li>
+                                                                        <li>
+                                                                    </ul>
+                                                                </div>
+                                                                <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
+                                                                    <a style="color: white" href="MainController?action=Enroll&subjectId=${list.subjectId}">  Join class  </a>                          
+                                                                </button> 
+                                                                <!--button Detail-->
+                                                                <button  style="float: right ; margin-top: 30px; margin-right: 10px;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">                          
+                                                                    <a style="color: white" href="MainController?action=LoadSubjectPage&subjectId=${list.subjectId}">  Detail  </a>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                </tr>      
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </c:if>
         <jsp:include page="footerTemplate.jsp"></jsp:include>
 
         <!-- JQUERY -->

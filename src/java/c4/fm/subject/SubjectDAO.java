@@ -568,7 +568,7 @@ public class SubjectDAO implements Serializable {
         }
         return listStudent;
     }
-    
+
     public boolean checkMentorSubject(String userID, int subjectID) throws ClassNotFoundException, SQLException {
         boolean check = false;
         Connection con = null;
@@ -585,6 +585,39 @@ public class SubjectDAO implements Serializable {
                 pst.setInt(2, subjectID);
                 rs = pst.executeQuery();
                 if (rs.next()) {
+                    check = true;
+                }
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+
+            }
+        }
+        return check;
+    }
+
+    public boolean deleteSubject(String subjectId) throws ClassNotFoundException, SQLException {
+        boolean check = false;
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = "Update tblSubject \n"
+                        + "set Status = ? \n"
+                        + "Where SubjectID = ?";
+                pst = con.prepareStatement(sql);
+                pst.setInt(1, 0);
+                pst.setString(2, subjectId);
+                rs = pst.executeQuery();
+                if (pst.executeUpdate() > 0) {
                     check = true;
                 }
             }
