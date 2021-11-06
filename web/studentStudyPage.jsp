@@ -114,10 +114,10 @@
                                         <c:set var="listContent" value="${chapter.list}"/>
                                         <c:forEach var="itemContent" items="${listContent}" varStatus="i">
                                             <div style="border-radius: 0rem;" class=" m-0 pb-1 card card-body border-bottom ">
-                                                <a style="text-decoration: none; color: black" href="#" onclick="loadVideoURL('${itemContent.videoURL}')">
+                                                <a style="text-decoration: none; color: black" href="#" onclick="loadVideoURL('${itemContent.videoURL}','${itemContent.blog}')">
                                                     Lesson ${i.count}: ${itemContent.contentName}
                                                 </a>
-                                                <p>${itemContent.blog}</p>
+<!--                                                <p>${itemContent.blog}</p>-->
                                             </div>
                                         </c:forEach>
                                     </div>
@@ -263,7 +263,7 @@
         </script>
         <!--load video-->
         <script>
-            function loadVideoURL(url) {
+            function loadVideoURL(url,blog) {
                 var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
                 var match = url.match(regExp);
                 if (match && match[7].length === 11) {
