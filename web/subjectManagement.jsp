@@ -117,7 +117,7 @@
                     <div class="container-fluid">
                         <div>
                             <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
-                                <a style="color: white" href="MainController?action=Enroll&subjectId=${load.subjectId}">  Join class  </a>                          
+                                <a style="color: white" href="MainController?action=Enroll&subjectId=${load.subjectId}&SubjectName=${load.subjectName}">  Join class  </a>                          
                             </button> 
                             <button  style="float: right ; margin-top: 30px; margin-right: 10px;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">                          
                                 <a style="color: white" href="MainController?action=LoadSubjectPage&subjectId=${load.subjectId}">  Detail  </a>

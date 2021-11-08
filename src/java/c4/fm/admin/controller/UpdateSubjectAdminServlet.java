@@ -50,7 +50,7 @@ public class UpdateSubjectAdminServlet extends HttpServlet {
             SubjectDAO sjdao = new SubjectDAO();
             String pathImage = "";
 
-            SubjectDTO subjectDTO = sjdao.loadSubject(subjectId);
+            SubjectDTO subjectDTO = sjdao.LoadSubjectInactive(subjectId);
 
             if (!newPart.getSubmittedFileName().isEmpty()) {
                 String filename = subjectId + ".jpg";
