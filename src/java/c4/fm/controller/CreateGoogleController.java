@@ -16,10 +16,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author MSI
- */
 public class CreateGoogleController extends HttpServlet {
 
     private static final String ERROR = "createGoogleUser.jsp";
@@ -53,7 +49,6 @@ public class CreateGoogleController extends HttpServlet {
             }
             if (check) {
                 UserDAO dao = new UserDAO();
-//                UserDTO user = new UserDTO(UserID, "", Email, RoleID, "", "", Password, Certificate, "", "");
                 UserDTO user = new UserDTO(UserID, "", Email, RoleID, "", "", Password, Certificate, "", "", "");
                 boolean checkInsert = dao.insertUseNew(user);
                 if (checkInsert) {

@@ -13,7 +13,6 @@ import java.io.Serializable;
  */
 public class RequestMentorDTO implements Serializable {
 
-    //RequestID, UserID, Name, Certificate, Description, Status
     private int requestId;
     private String userId;
     private String name;

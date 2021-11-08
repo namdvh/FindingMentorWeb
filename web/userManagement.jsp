@@ -19,10 +19,8 @@
         <c:redirect url="login.jsp"></c:redirect>
     </c:if>
     <body>
-        <!-- Header -->
         <div id="header">
             <div class="shell">
-                <!-- Logo + Top Nav -->
                 <div id="top">
                     <h1><a href="#">SpringTime</a></h1>
                     <c:if test="${sessionScope.LOGIN_USER == null}">
@@ -37,30 +35,19 @@
                         </c:if>
                     </c:if>
                 </div>
-                <!-- End Logo + Top Nav -->
-                <!-- Main Nav -->
-                <!-- End Main Nav -->
             </div>
         </div>
-        <!-- End Header -->
-        <!-- Container -->
         <div class="container">
             <div class="row">
-                <!-- Main -->
                 <div id="main">
                     <div class="cl">&nbsp;</div>
-                    <!-- Content -->
                     <div id="content" style="width:992px">
-                        <!-- Box -->
                         <div class="box">
                             <c:if test="${requestScope.DELETEUSER_MSG != null}">
                                 ${requestScope.DELETEUSER_MSG}
                             </c:if>
-                            <!-- Box Head -->
                             <div class="box-head">
                                 <form action="MainController">
-
-
                                     <h2 class="left">Current User</h2>
                                     <div class="right">
                                         <label>search User</label>
@@ -69,16 +56,12 @@
                                     </div>
                                 </form>
                             </div>
-                            <!-- End Box Head -->
-                            <!-- Table -->
                             <table class="table table-striped" width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <c:if test="${requestScope.LIST_USER_ADMIN == null}">
                                     <tr>
                                         <th>Nothing to search</th>
                                     </tr>
                                 </c:if>
-
-
                                 <c:if test="${requestScope.LIST_USER_ADMIN != null}">
                                     <tr>
                                         <th></th>
@@ -92,11 +75,9 @@
                                         <th>images</th>
                                         <th width="110" class="ac">Content Control</th>
                                     </tr>
-
                                     <c:forEach var="s" items="${requestScope.LIST_USER_ADMIN}">
                                         <tr>
                                             <th>
-
                                                 <input type="hidden" name="userId" value="${s.userID}" />
                                             </th>
                                             <th>${s.name}</th>
@@ -112,36 +93,19 @@
                                             <th>
                                                 <c:if test="${s.status eq 'true'}">
                                                     <a href="MainController?action=deleteUserAdmin&userId=${s.userID}" class="ico del">Delete</a>
-
                                                 </c:if>
                                                 <c:if test="${s.status eq 'false'}">
                                                     <a href="MainController?action=ActiveUserAdmin&userId=${s.userID}" class="ico edit">Active</a>
                                                 </c:if>
-
                                             </th>
-
                                         </tr>
                                     </c:forEach>
                                 </c:if>
-
                             </table>
-                            <!-- Pagging -->
-
-                            <!-- End Pagging -->
-                            <!-- Table -->
                         </div>
-                        <!-- End Box -->
-                        <!-- Box -->
-
-                        <!-- End Box -->
                     </div>
-                    <!-- End Content -->
-                    <!-- Sidebar -->
-
-                    <!-- Box -->
                     <span style="display: flex; justify-content: flex-end; ">
                         <div class="box" style="margin-left: 25px">
-                            <!-- Box Head -->
                             <div class="list-group">
                                 <a href="MainController?action=LoadAdminPage" class="list-group-item list-group-item-action ">
                                     Dashboard
@@ -151,23 +115,13 @@
                                 <a href="MainController?action=LoadApprovePage" class="list-group-item list-group-item-action">Approve Mentor</a>
                                 <a href="MainController?action=addSubjectPage" class="list-group-item list-group-item-action ">Add Subject</a>
                             </div>
-                            <!-- End Box Head-->
-
                         </div>
                     </span>
-                    <!-- End Box -->
-
-                    <!-- End Sidebar -->
-
                 </div>
-                <!-- Main -->
             </div>
         </div>
-        <!-- End Container -->
-        <!-- Footer -->
         <div id="footer">
             <div class="shell"> <span class="left">&copy; 2021 - Company Four Class</span> <span class="right"> Design by <a href="http://chocotemplates.com">Chocotemplates.com</a> </span> </div>
         </div>
-        <!-- End Footer -->
     </body>
 </html>

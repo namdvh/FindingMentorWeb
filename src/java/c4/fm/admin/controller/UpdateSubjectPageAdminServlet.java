@@ -23,15 +23,6 @@ public class UpdateSubjectPageAdminServlet extends HttpServlet {
 
     private static final String ADMIN_PAGE = "admin.jsp";
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -41,7 +32,6 @@ public class UpdateSubjectPageAdminServlet extends HttpServlet {
             SubjectDAO subjectDao = new SubjectDAO();
             SubjectDTO subject = subjectDao.getSubjectAdmin(subjectId);
             request.setAttribute("UPDATE_SUBJECT", subject);
-
         } catch (Exception e) {
             log("Errot at UpdateSubjectPageAdminServlet:" + e.toString());
         } finally {

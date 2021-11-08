@@ -52,4 +52,56 @@ public class CategoryDAO {
         }
         return listCate;
     }
+
+    public boolean checkDuplicateCategory(String cateID) throws SQLException, ClassNotFoundException {
+        Connection con = null;
+        PreparedStatement preStm = null;
+        ResultSet rs = null;
+        boolean check = false;
+        try {
+            String sql = "select CategoryID,CategoryName from tblCategory where CategoryID = ? ";
+            con = DBUtils.getConnection();
+            preStm = con.prepareStatement(sql);
+            preStm.setString(1, cateID);
+            rs = preStm.executeQuery();
+            if (rs.next()) {
+                check = true;
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (preStm != null) {
+                preStm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+
+        }
+        return check;
+    }
+
+    public boolean InsertCategory(CategoryDTO cate) throws SQLException, ClassNotFoundException {
+        Connection con = null;
+        PreparedStatement preStm = null;
+        boolean check = false;
+        try {
+            String sql = "insert into tblCategory values(?,?)";
+            con = DBUtils.getConnection();
+            preStm = con.prepareStatement(sql);
+            preStm.setString(1, cate.getCategoryId());
+            preStm.setString(2, cate.getCategoryName());
+            check = preStm.executeUpdate()> 0;
+        } finally {
+            if (preStm != null) {
+                preStm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+
+        }
+        return check;
+    }
 }

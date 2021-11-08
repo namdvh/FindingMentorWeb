@@ -18,13 +18,9 @@
             content="Mashup templates have been developped by Orson.io team"
             name="author"
             />
-
-        <!-- Disable tap highlight on IE -->
         <meta name="msapplication-tap-highlight" content="no" />
-
         <link href="./assets/apple-touch-icon.png" rel="apple-touch-icon" />
         <link href="./assets/favicon.ico" rel="icon" />
-
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
@@ -36,16 +32,6 @@
             integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
             crossorigin="anonymous"
             />
-
-        <!--bootstrap-->
-        <!--        <link
-                    rel="stylesheet"
-                    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-                    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-                    crossorigin="anonymous"
-                    />-->
-
-        <!-- link Font Awesome -->
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -136,7 +122,6 @@
         <c:redirect url="login.jsp"></c:redirect>
     </c:if>
     <body>
-        <!-- Add your content of header -->
         <jsp:include page="headerTemplate.jsp"></jsp:include>
             <section class="KhuVucHoc">
                 <div>
@@ -163,10 +148,6 @@
                         </div>
                     </form>
                 </div>
-
-                <!-- Tab content -->
-
-
             <c:if test="${MESSAGE != null}">
                 <div class="alert">
                     <span class="closebtn" onclick="this.parentElement.style.display = 'none';">&times;</span> 
@@ -177,17 +158,14 @@
             <div id="allCourse" class="tabcontent" style="display: block">
                 <c:forEach items="${allSubject}" var="load">
                     <div>
-                        <!--button join class-->
                         <div>
                             <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
                                 <a style="color: white" href="MainController?action=Enroll&subjectId=${load.subjectId}">  Join class  </a>                          
                             </button> 
-                            <!--button Detail-->
                             <button  style="float: right ; margin-top: 30px; margin-right: 10px;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">                          
                                 <a style="color: white" href="MainController?action=LoadSubjectPage&subjectId=${load.subjectId}">  Detail  </a>
                             </button>
                         </div>
-                        <!-- Modal -->
                         <div style="display: flex;">
                             <img
                                 src="${load.images}"
@@ -201,13 +179,11 @@
                         </div>
                     </div> <hr>
                 </c:forEach>
-            </div> 
-            <!-- tu cho nay tro di la phan cua My course-->  
+            </div>  
             <div id="myCourse" class="tabcontent">
                 <c:if test="${sessionScope.LOGIN_USER.roleID eq 'User'}" >
                     <c:forEach items="${listEnrolled}" var="list">
                         <div>
-                            <!--button Detail-->
                             <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
                                 <a style="color: white" href="MainController?action=Enroll&subjectId=${list.subjectId}">  Join class  </a>
                             </button>
@@ -221,7 +197,6 @@
                                     <p>${list.subjectName}</p>                         
                                     <p>${list.description}</p>
                                 </ul>
-
                             </div>
                         </div> <hr>
                     </c:forEach>
@@ -242,7 +217,6 @@
                     </c:forEach>
                     <c:forEach items="${listEnrolled}" var="list">
                         <div>
-                            <!--button Detail-->
                             <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
                                 <a style="color: white" href="MainController?action=Enroll&subjectId=${list.subjectId}">  Join class  </a>
                             </button>
@@ -262,9 +236,7 @@
                 </c:if>
             </div>
         </section>
-        <!--start of footer-->
-        <jsp:include page="footerTemplate.jsp"></jsp:include>
-        <!--end off footer-->        
+        <jsp:include page="footerTemplate.jsp"></jsp:include>      
         <script src="MyCourse.js"></script>
         <script
             src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -313,8 +285,6 @@
             $('#exampleModal').on('show.bs.modal', event => {
                 var button = $(event.relatedTarget);
                 var modal = $(this);
-                // Use above variables to manipulate the DOM
-
             });
         </script>
         <script type="text/javascript" src="New folder/main.41beeca9.js"></script>

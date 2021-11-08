@@ -19,7 +19,8 @@ import java.util.List;
  * @author HuuToan
  */
 public class ImageDAO {
-     public List<ImageDTO> loadImages() throws ClassNotFoundException, SQLException {
+
+    public List<ImageDTO> loadImages() throws ClassNotFoundException, SQLException {
         List<ImageDTO> listImage = new ArrayList<>();
         Connection conn = null;
         PreparedStatement stm = null;
@@ -32,8 +33,8 @@ public class ImageDAO {
                 stm = conn.prepareStatement(sql);
                 rs = stm.executeQuery();
                 while (rs.next()) {
-                    String Images = rs.getString("url");        
-                                }
+                    String Images = rs.getString("url");
+                }
             }
         } finally {
             if (rs != null) {

@@ -16,10 +16,8 @@
 
     </head>
     <body>
-        <!-- Header -->
         <div id="header">
             <div class="shell">
-                <!-- Logo + Top Nav -->
                 <div id="top">
                     <h1><a href="#">SpringTime</a></h1>
                     <c:if test="${sessionScope.LOGIN_USER == null}">
@@ -34,43 +32,27 @@
                         </c:if>
                     </c:if>
                 </div>
-                <!-- End Logo + Top Nav -->
-                <!-- Main Nav -->
-
-                <!-- End Main Nav -->
             </div>
         </div>
-        <!-- End Header -->
-        <!-- Container -->
         <div class="container">
             <div class="row">
-
-          
-                <!-- Main -->
                 <div id="main">
                     <div class="cl">&nbsp;</div>
-                    <!-- Content -->
                     <div id="content" style="width: 992px">
-                        <!-- Box -->
                         <div class="box">
                             <c:if test="${requestScope.APPROVE_MSG != null}">
                                 ${requestScope.APPROVE_MSG}
                             </c:if>
-                            <!-- Box Head -->
                             <div class="box-head">
                                 <form action="MainController">
-
-
                                     <h2 class="left">Current Request</h2>
                                     <div class="right">
                                         <label>Search Request</label>
                                         <input type="text" name ="searchValue" class="field small-field" />
                                         <input type="submit" class="button" name="action" value="SearchRequest" />
                                     </div>
-</form>
+                                </form>
                             </div>
-                            <!-- End Box Head -->
-                            <!-- Table -->
                             <div class="table">
                                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                     <c:if test="${requestScope.LISTREQUEST_ADMIN == null}">
@@ -78,11 +60,8 @@
                                             <th>Nothing to search</th>
                                         </tr>
                                     </c:if>
-
-
                                     <c:if test="${requestScope.LISTREQUEST_ADMIN != null}">
                                         <tr>
-                                            <!-- RequestID, UserID, Name, Certificate, Description, Status -->
                                             <th></th>
                                             <th>User ID</th>
                                             <th>Name</th>
@@ -91,11 +70,9 @@
                                             <th>Status</th>
                                             <th width="110" class="ac">Content Control</th>
                                         </tr>
-
                                         <c:forEach var="s" items="${requestScope.LISTREQUEST_ADMIN}">
                                             <tr>
                                                 <th>
-
                                                     <input type="hidden" name="requestId" value="${s.requestId}" />
                                                 </th>
                                                 <th>${s.userId}</th>
@@ -109,32 +86,17 @@
                                                         <a href="MainController?action=DenailRequest&requestId=${s.requestId}&userId=${s.userId}" class="ico edit">Denial</a>
 
                                                     </c:if>
-
                                                 </th>
-
                                             </tr>
                                         </c:forEach>
                                     </c:if>
 
                                 </table>
-                                <!-- Pagging -->
-
-                                <!-- End Pagging -->
-</div>
-                            <!-- Table -->
+                            </div>
                         </div>
-                        <!-- End Box -->
-                        <!-- Box -->
-
-                        <!-- End Box -->
                     </div>
-                    <!-- End Content -->
-                    <!-- Sidebar -->
-                 
-                        <!-- Box -->
-                        <span style="display: flex; justify-content: flex-end; ">
-                            <div class="box" style="margin-left: 25px">
-                            <!-- Box Head -->
+                    <span style="display: flex; justify-content: flex-end; ">
+                        <div class="box" style="margin-left: 25px">
                             <div class="list-group">
                                 <a href="MainController?action=LoadAdminPage" class="list-group-item list-group-item-action ">
                                     Dashboard
@@ -143,24 +105,15 @@
                                 <a href="MainController?action=LoadUserPage" class="list-group-item list-group-item-action ">User Management</a>
                                 <a href="MainController?action=LoadApprovePage" class="list-group-item list-group-item-action active">Approve Mentor</a>
                                 <a href="MainController?action=addSubjectPage" class="list-group-item list-group-item-action ">Add Subject</a>
+                                <a href="MainController?action=addCategoryPage" class="list-group-item list-group-item-action">Add Category</a>
                             </div>
-                            <!-- End Box Head-->
-                           
                         </div>
-                            </span>
-                        <!-- End Box -->
-                  
-                    <!-- End Sidebar -->
-                   
+                    </span>
                 </div>
-                <!-- Main -->
             </div>
         </div>
-        <!-- End Container -->
-        <!-- Footer -->
         <div id="footer">
             <div class="shell"> <span class="left">&copy; 2021 - Company Four Class</span> <span class="right"> Design by <a href="http://chocotemplates.com">Chocotemplates.com</a> </span> </div>
         </div>
-        <!-- End Footer -->
     </body>
 </html>

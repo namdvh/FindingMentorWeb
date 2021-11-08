@@ -21,15 +21,6 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "MainMentorController", urlPatterns = {"/MainMentorController"})
 public class MainMentorController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     private static final String CREATE_CHAPTER = "CreateChapterController";
     private static final String LOAD_CHAPTER_CONTENT = "LoadChapterController";
     private static final String LOAD_STUDENT_SUBJECT = "LoadStudentSubjectController";

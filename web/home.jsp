@@ -5,7 +5,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Instruction</title>
+        <title>Finding Mentor</title>
 
         <!-- FONT AEWSOME -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -20,12 +20,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
 
-        <!-- GOOGLE FONTS
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800&display=swap"
-            rel="stylesheet"> -->
-
-        <!-- OWL CAROUSEL -->
         <link rel="stylesheet" href="css/owlcarousel/assets/owl.carousel.css">
         <link rel="stylesheet" href="css/owlcarousel/assets/owl.theme.default.css">
 
@@ -34,14 +28,8 @@
     </head>
 
     <body>
-        <!--********************* HEADER *********************-->
-
-        <!--********************* INSTRUCTION__MENU *********************-->
         <jsp:include page="headerTemplate.jsp"></jsp:include>
-            <!--********************* END INSTRUCTION__MENU *********************-->
 
-            <!--********************* INSTRUCTION__CAROUSEL *********************-->
-            <!-- <section class="instruction__carousel"> -->
             <div id="introduceCarousel" class="carousel slide introduce-carousel" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#introduceCarousel" data-slide-to="0" class="active"></li>
@@ -107,463 +95,445 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-            <!-- </section> -->
-
-            <!--********************* END INSTRUCTION__CAROUSEL *********************-->
-
-            <!--********************* INSTRUCTION__EDUCATION *********************-->
-            <!-- <section class="instruction__educate">
-    
-            </section> -->
             <section class="ranking">
-                <div class="container">
+                <div class="container" style="background-color: whitesmoke">
                     <div class="row">
                         <div class="card md-4">
+                            <a href="MainController?action=LoadInfoMentor&UserID=${rank1.userID}">
                             <div class="card_image">
-                                <img src="https://images.unsplash.com/photo-1522556189639-b150ed9c4330?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjB8fHBlb3BsZXxlbnwwfDF8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="">
+                                <img src="${rank1.images}" alt="">
                             </div>
                             <div class="content">
-                                <h3>Nikhil Bobade</h3>
-                                <p>Frontend Developer</p>
+                                <h3>Name: ${rank1.name}</h3>
+                                <p>Stars: ${rank1.stars}</p>
                             </div>
-                        </div>
-                        <div class="card md-4">
-                            <div class="card_image">
-                                <img src="https://images.unsplash.com/photo-1522556189639-b150ed9c4330?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjB8fHBlb3BsZXxlbnwwfDF8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="">
-                            </div>
-                            <div class="content">
-                                <h3>Nikhil Bobade</h3>
-                                <p>Frontend Developer</p>
-                            </div>
-                        </div>
-                        <div class="card md-4">
-                            <div class="card_image">
-                                <img src="https://images.unsplash.com/photo-1522556189639-b150ed9c4330?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjB8fHBlb3BsZXxlbnwwfDF8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="">
-                            </div>
-                            <div class="content">
-                                <h3>Nikhil Bobade</h3>
-                                <p>Frontend Developer</p>
-                            </div>
-                        </div>
-                        <div class="card md-4">
-                            <div class="card_image">
-                                <img src="https://images.unsplash.com/photo-1522556189639-b150ed9c4330?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjB8fHBlb3BsZXxlbnwwfDF8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="">
-                            </div>
-                            <div class="content">
-                                <h3>Nikhil Bobade</h3>
-                                <p>Frontend Developer</p>
-                            </div>
-                        </div>
-                        <div class="card md-4">
-                            <div class="card_image">
-                                <img src="https://images.unsplash.com/photo-1522556189639-b150ed9c4330?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjB8fHBlb3BsZXxlbnwwfDF8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="">
-                            </div>
-                            <div class="content">
-                                <h3>Nikhil Bobade</h3>
-                                <p>Frontend Developer</p>
-                            </div>
-                        </div>
-                        <div class="card md-4">
-                            <div class="card_image">
-                                <img src="https://images.unsplash.com/photo-1522556189639-b150ed9c4330?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjB8fHBlb3BsZXxlbnwwfDF8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="">
-                            </div>
-                            <div class="content">
-                                <h3>Nikhil Bobade</h3>
-                                <p>Frontend Developer</p>
-                            </div>
-                        </div>
+                        </a>
                     </div>
-
+                    <div class="card md-4">
+                        <a href="MainController?action=LoadInfoMentor&UserID=${rank2.userID}">
+                            <div class="card_image">
+                                <img src="${rank2.images}" alt="">
+                            </div>
+                            <div class="content">
+                                <h3>Name: ${rank2.name}</h3>
+                                <p>Stars: ${rank2.stars}</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card md-4">
+                        <a href="MainController?action=LoadInfoMentor&UserID=${rank3.userID}">
+                            <div class="card_image">
+                                <img src="${rank3.images}" alt="">
+                            </div>
+                            <div class="content">
+                                <h3>Name: ${rank3.name}</h3>
+                                <p>Stars: ${rank3.stars}</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </section>
-            <!--********************* END INSTRUCTION__EDUCATION *********************-->
-
-            <!--********************* INSTRUCTION__STATS *********************-->
-            <section class="instruction__stats w-100 h-100" style="
-                     background: url(assets/images/banner2.jpg);
-                     background-repeat: no-repeat;
-                     background-size: cover;
-                     background-attachment: fixed;
-                     background-position: center;
-                     ">
-                .
-                <div class="container">
-                    <div class="stats__header educate__title">
-                        <h3 class="heading-agileinfo">OUR STATS</h3>
-                        <span>When Climbing The Carrer Ladder</span>
+                <div class="row">
+                    <div class="card md-4">
+                        <a href="MainController?action=LoadInfoMentor&UserID=${rank4.userID}">
+                            <div class="card_image">
+                                <img src="${rank4.images}" alt="">
+                            </div>
+                            <div class="content">
+                                <h3>Name: ${rank4.name}</h3>
+                                <p>Stars: ${rank4.stars}</p>
+                            </div>
+                        </a>
                     </div>
+                    <div class="card md-4">
+                        <a href="MainController?action=LoadInfoMentor&UserID=${rank5.userID}">
+                            <div class="card_image">
+                                <img src="${rank5.images}" alt="">
+                            </div>
+                            <div class="content">
+                                <h3>Name: ${rank5.name}</h3>
+                                <p>Stars: ${rank5.stars}</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card md-4">
+                        <a href="MainController?action=LoadInfoMentor&UserID=${rank6.userID}">
+                            <div class="card_image">
+                                <img src="${rank6.images}" alt="">
+                            </div>
+                            <div class="content">
+                                <h3>Name: ${rank6.name}</h3>
+                                <p>Stars: ${rank6.stars}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="instruction__stats w-100 h-100" style="
+                 background: url(assets/images/banner2.jpg);
+                 background-repeat: no-repeat;
+                 background-size: cover;
+                 background-attachment: fixed;
+                 background-position: center;
+                 ">
+            .
+            <div class="container">
+                <div class="stats__header educate__title">
+                    <h3 class="heading-agileinfo">OUR STATS</h3>
+                    <span>When Climbing The Carrer Ladder</span>
+                </div>
 
-                    <div class="stats__number">
+                <div class="stats__number">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-lg-3 stats__content">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>Graduates</h3>
+                            <p class="counter">45</p>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3 stats__content">
+                            <i class="fas fa-user"></i>
+                            <h3>Certified Staff</h3>
+                            <p class="counter">165</p>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3 stats__content">
+                            <i class="fas fa-users"></i>
+                            <h3>Student</h3>
+                            <p class="counter">563</p>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3 stats__content">
+                            <i class="fas fa-trophy"></i>
+                            <h3>Awards</h3>
+                            <p class="counter">245</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="instruction__offer">
+            <div class="container">
+                <div class="offer__header educate__title">
+                    <h3 class="heading-agileinfo">WHAT WE OFFER</h3>
+                    <span>When Climbing The Carrer Ladder</span>
+                </div>
+
+                <div class="offer__card pt-5">
+                    <div class="offer__top">
                         <div class="row">
-                            <div class="col-12 col-sm-6 col-lg-3 stats__content">
-                                <i class="fas fa-graduation-cap"></i>
-                                <h3>Graduates</h3>
-                                <p class="counter">45</p>
-                            </div>
-                            <div class="col-12 col-sm-6 col-lg-3 stats__content">
-                                <i class="fas fa-user"></i>
-                                <h3>Certified Staff</h3>
-                                <p class="counter">165</p>
-                            </div>
-                            <div class="col-12 col-sm-6 col-lg-3 stats__content">
-                                <i class="fas fa-users"></i>
-                                <h3>Student</h3>
-                                <p class="counter">563</p>
-                            </div>
-                            <div class="col-12 col-sm-6 col-lg-3 stats__content">
-                                <i class="fas fa-trophy"></i>
-                                <h3>Awards</h3>
-                                <p class="counter">245</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!--********************* END INSTRUCTION__STATS *********************-->
-
-            <!--********************* INSTRUCTION__OFFER *********************-->
-            <section class="instruction__offer">
-                <div class="container">
-                    <div class="offer__header educate__title">
-                        <h3 class="heading-agileinfo">WHAT WE OFFER</h3>
-                        <span>When Climbing The Carrer Ladder</span>
-                    </div>
-
-                    <div class="offer__card pt-5">
-                        <div class="offer__top">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                                            <h4>Undergraduate Study</h4>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, Sed ut
-                                                perspiciatis unde omnis iste natus
-                                                error sit voluptatem
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <i class="fa fa-book" aria-hidden="true"></i>
-                                            <h4>Professional Study</h4>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, Sed ut
-                                                perspiciatis unde omnis iste natus
-                                                error sit voluptatem
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <i class="fa fa-tasks" aria-hidden="true"></i>
-                                            <h4>Programs</h4>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, Sed ut
-                                                perspiciatis unde omnis iste natus
-                                                error sit voluptatem
-                                            </p>
-                                        </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                        <h4>Undergraduate Study</h4>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, Sed ut
+                                            perspiciatis unde omnis iste natus
+                                            error sit voluptatem
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="offer__bottom">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <i class="far fa-comment"></i>
-                                            <h4>Online Learning</h4>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, Sed ut
-                                                perspiciatis unde omnis iste natus
-                                                error sit voluptatem
-                                            </p>
-                                        </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <i class="fa fa-book" aria-hidden="true"></i>
+                                        <h4>Professional Study</h4>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, Sed ut
+                                            perspiciatis unde omnis iste natus
+                                            error sit voluptatem
+                                        </p>
                                     </div>
                                 </div>
-
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <i class="far fa-bookmark"></i>
-                                            <h4>Summer Session</h4>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, Sed ut
-                                                perspiciatis unde omnis iste natus
-                                                error sit voluptatem
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <i class="fa fa-globe" aria-hidden="true"></i>
-                                            <h4>Global Education</h4>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, Sed ut
-                                                perspiciatis unde omnis iste natus
-                                                error sit voluptatem
-                                            </p>
-                                        </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <i class="fa fa-tasks" aria-hidden="true"></i>
+                                        <h4>Programs</h4>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, Sed ut
+                                            perspiciatis unde omnis iste natus
+                                            error sit voluptatem
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <!--********************* END INSTRUCTION__OFFER *********************-->
-
-            <!--********************* INSTRUCTION__TESTIMONIALS *********************-->
-            <section class="instruction__testimonials" id="instruction__testimonials" style="
-                     background-image: url(assets/images/banner3.jpg);
-                     background-repeat: no-repeat;
-                     background-size: cover;
-                     background-attachment: fixed;
-                     background-position: center;
-                     ">
-                <div class="container">
-                    <div class="offer__header educate__title pb-4">
-                        <h3 class="heading-agileinfo">TESTIMONIALS</h3>
-                        <span>When Climbing The Carrer Ladder</span>
-                    </div>
-
-                    <div class="owl-carousel">
-
-                        <div class="testimonials__item ">
-
-                            <div class="tetstimonials__card">
-                                <div class="testimonials__content">
-                                    <p>
-                                        Sed semper leo metus, a lacinia eros semper
-                                        at. Etiam sodales orci sit amet vehicula
-                                        pellentesque.
-                                    </p>
-                                </div>
-
-                                <div class="testimonials__picture">
-                                    <div class="img">
-                                        <img src="${rank1.images}" alt="" />
-                                    </div>
-
-                                    <div class="infor">
-                                        <h5>${rank1.name}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="testimonials__item">
-
-                            <div class="tetstimonials__card">
-                                <div class="testimonials__content">
-                                    <p>
-                                        Sed semper leo metus, a lacinia eros semper
-                                        at. Etiam sodales orci sit amet vehicula
-                                        pellentesque.
-                                    </p>
-                                </div>
-
-                                <div class="testimonials__picture">
-                                    <div class="img">
-                                        <img src="${rank2.images}" alt="" />
-                                    </div>
-
-                                    <div class="infor">
-                                        <h5>${rank2.name}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="testimonials__item">
-
-                            <div class="tetstimonials__card">
-                                <div class="testimonials__content">
-                                    <p>
-                                        Sed semper leo metus, a lacinia eros semper
-                                        at. Etiam sodales orci sit amet vehicula
-                                        pellentesque.
-                                    </p>
-                                </div>
-
-                                <div class="testimonials__picture">
-                                    <div class="img">
-                                        <img src="${rank3.images}" alt="" />
-                                    </div>
-
-                                    <div class="infor">
-                                        <h5>${rank3.name}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="testimonials__item">
-
-                            <div class="tetstimonials__card">
-                                <div class="testimonials__content">
-                                    <p>
-                                        Sed semper leo metus, a lacinia eros semper
-                                        at. Etiam sodales orci sit amet vehicula
-                                        pellentesque.
-                                    </p>
-                                </div>
-
-                                <div class="testimonials__picture">
-                                    <div class="img">
-                                        <img src="${rank4.images}" alt="" />
-                                    </div>
-
-                                    <div class="infor">
-                                        <h5>${rank4.name}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="testimonials__item">
-
-                            <div class="tetstimonials__card">
-                                <div class="testimonials__content">
-                                    <p>
-                                        Sed semper leo metus, a lacinia eros semper
-                                        at. Etiam sodales orci sit amet vehicula
-                                        pellentesque.
-                                    </p>
-                                </div>
-
-                                <div class="testimonials__picture">
-                                    <div class="img">
-                                        <img src="${rank5.images}" alt="" />
-                                    </div>
-
-                                    <div class="infor">
-                                        <h5>${rank5.name}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="testimonials__item">
-
-                            <div class="tetstimonials__card">
-                                <div class="testimonials__content">
-                                    <p>
-                                        Sed semper leo metus, a lacinia eros semper
-                                        at. Etiam sodales orci sit amet vehicula
-                                        pellentesque.
-                                    </p>
-                                </div>
-
-                                <div class="testimonials__picture">
-                                    <div class="img">
-                                        <img src="${rank6.images}" alt="" />
-                                    </div>
-
-                                    <div class="infor">
-                                        <h5>${rank6.name}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                    </div>
-            </section>
-
-            <!--********************* END INSTRUCTION__TESTIMONIALS *********************-->
-
-            <!--********************* INSTRUCTION__NEWS *********************-->
-            <section class="instruction__news">
-                <div class="container">
-                    <div class="news__header educate__title pb-4">
-                        <h3 class="heading-agileinfo">NEWS & EVENTS</h3>
-                        <span>Exclusive Holidays For Any Travelers</span>
-                    </div>
-
-                    <div class="news__sit mb-5">
+                    <div class="offer__bottom">
                         <div class="row">
-                            <div class="col-12 col-md-5">
-                                <img src="assets/images/g7.jpg" alt="" />
+                            <div class="col-lg-4 col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <i class="far fa-comment"></i>
+                                        <h4>Online Learning</h4>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, Sed ut
+                                            perspiciatis unde omnis iste natus
+                                            error sit voluptatem
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-12 col-md-7 pl-3 pl-md-4 mt-4 mt-md-0">
-                                <h5>
-                                    <a href="#" data-toggle="modal" data-target="#myModal">Sit amet justo vitae</a>
-                                </h5>
-                                <h6>3/01/2018</h6>
+
+                            <div class="col-lg-4 col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <i class="far fa-bookmark"></i>
+                                        <h4>Summer Session</h4>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, Sed ut
+                                            perspiciatis unde omnis iste natus
+                                            error sit voluptatem
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <i class="fa fa-globe" aria-hidden="true"></i>
+                                        <h4>Global Education</h4>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, Sed ut
+                                            perspiciatis unde omnis iste natus
+                                            error sit voluptatem
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="instruction__testimonials" id="instruction__testimonials" style="
+                 background-image: url(assets/images/banner3.jpg);
+                 background-repeat: no-repeat;
+                 background-size: cover;
+                 background-attachment: fixed;
+                 background-position: center;
+                 ">
+            <div class="container">
+                <div class="offer__header educate__title pb-4">
+                    <h3 class="heading-agileinfo">TESTIMONIALS</h3>
+                    <span>When Climbing The Carrer Ladder</span>
+                </div>
+
+                <div class="owl-carousel">
+
+                    <div class="testimonials__item ">
+
+                        <div class="tetstimonials__card">
+                            <div class="testimonials__content">
                                 <p>
-                                    Proin euismod vehicula vestibulum. Fusce
-                                    ullamcorper aliquet dolor id egestas. Nulla leo
-                                    purus, facilisis non cursus ut, egestas sed
-                                    ipsum.Fusce ullamcorper aliquet dolor id
-                                    egestas. Nulla leo purus, facilisis non cursus
-                                    ut, egestas sed ipsum.Fusce ullamcorper aliquet
-                                    dolor id egestas. Nulla leo purus, facilisis non
-                                    cursus ut, egestas sed ipsum.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="news__fusce">
-                        <div class="row">
-                            <div class="col-12 col-md-7 pl-3 pl-md-4 mb-4 mb-md-0">
-                                <h5>
-                                    <a href="#" data-toggle="modal" data-target="#myModal">Fusce scelerisque</a>
-                                </h5>
-                                <h6>5/01/2018</h6>
-                                <p>
-                                    Proin euismod vehicula vestibulum. Fusce
-                                    ullamcorper aliquet dolor id egestas. Nulla leo
-                                    purus, facilisis non cursus ut, egestas sed
-                                    ipsum.Fusce ullamcorper aliquet dolor id
-                                    egestas. Nulla leo purus, facilisis non cursus
-                                    ut, egestas sed ipsum.Fusce ullamcorper aliquet
-                                    dolor id egestas. Nulla leo purus, facilisis non
-                                    cursus ut, egestas sed ipsum.
+                                    Sed semper leo metus, a lacinia eros semper
+                                    at. Etiam sodales orci sit amet vehicula
+                                    pellentesque.
                                 </p>
                             </div>
 
-                            <div class="col-12 col-md-5">
-                                <img src="assets/images/g10.jpg" alt="" />
+                            <div class="testimonials__picture">
+                                <div class="img">
+                                    <img src="${rank1.images}" alt="" />
+                                </div>
+
+                                <div class="infor">
+                                    <h5>${rank1.name}</h5>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="testimonials__item">
+
+                        <div class="tetstimonials__card">
+                            <div class="testimonials__content">
+                                <p>
+                                    Sed semper leo metus, a lacinia eros semper
+                                    at. Etiam sodales orci sit amet vehicula
+                                    pellentesque.
+                                </p>
+                            </div>
+
+                            <div class="testimonials__picture">
+                                <div class="img">
+                                    <img src="${rank2.images}" alt="" />
+                                </div>
+
+                                <div class="infor">
+                                    <h5>${rank2.name}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonials__item">
+
+                        <div class="tetstimonials__card">
+                            <div class="testimonials__content">
+                                <p>
+                                    Sed semper leo metus, a lacinia eros semper
+                                    at. Etiam sodales orci sit amet vehicula
+                                    pellentesque.
+                                </p>
+                            </div>
+
+                            <div class="testimonials__picture">
+                                <div class="img">
+                                    <img src="${rank3.images}" alt="" />
+                                </div>
+
+                                <div class="infor">
+                                    <h5>${rank3.name}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="testimonials__item">
+
+                        <div class="tetstimonials__card">
+                            <div class="testimonials__content">
+                                <p>
+                                    Sed semper leo metus, a lacinia eros semper
+                                    at. Etiam sodales orci sit amet vehicula
+                                    pellentesque.
+                                </p>
+                            </div>
+
+                            <div class="testimonials__picture">
+                                <div class="img">
+                                    <img src="${rank4.images}" alt="" />
+                                </div>
+
+                                <div class="infor">
+                                    <h5>${rank4.name}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="testimonials__item">
+
+                        <div class="tetstimonials__card">
+                            <div class="testimonials__content">
+                                <p>
+                                    Sed semper leo metus, a lacinia eros semper
+                                    at. Etiam sodales orci sit amet vehicula
+                                    pellentesque.
+                                </p>
+                            </div>
+
+                            <div class="testimonials__picture">
+                                <div class="img">
+                                    <img src="${rank5.images}" alt="" />
+                                </div>
+
+                                <div class="infor">
+                                    <h5>${rank5.name}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="testimonials__item">
+
+                        <div class="tetstimonials__card">
+                            <div class="testimonials__content">
+                                <p>
+                                    Sed semper leo metus, a lacinia eros semper
+                                    at. Etiam sodales orci sit amet vehicula
+                                    pellentesque.
+                                </p>
+                            </div>
+
+                            <div class="testimonials__picture">
+                                <div class="img">
+                                    <img src="${rank6.images}" alt="" />
+                                </div>
+
+                                <div class="infor">
+                                    <h5>${rank6.name}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
                 </div>
-            </section>
+        </section>
 
-            <!--********************* END INSTRUCTION__NEWS *********************-->
+        <!--********************* END INSTRUCTION__TESTIMONIALS *********************-->
 
-            <!--********************* INSTRUCTION__INFORMATION *********************-->
+        <!--********************* INSTRUCTION__NEWS *********************-->
+        <section class="instruction__news">
+            <div class="container">
+                <div class="news__header educate__title pb-4">
+                    <h3 class="heading-agileinfo">NEWS & EVENTS</h3>
+                    <span>Exclusive Holidays For Any Travelers</span>
+                </div>
+
+                <div class="news__sit mb-5">
+                    <div class="row">
+                        <div class="col-12 col-md-5">
+                            <img src="assets/images/g7.jpg" alt="" />
+                        </div>
+                        <div class="col-12 col-md-7 pl-3 pl-md-4 mt-4 mt-md-0">
+                            <h5>
+                                <a href="#" data-toggle="modal" data-target="#myModal">Sit amet justo vitae</a>
+                            </h5>
+                            <h6>3/01/2018</h6>
+                            <p>
+                                Proin euismod vehicula vestibulum. Fusce
+                                ullamcorper aliquet dolor id egestas. Nulla leo
+                                purus, facilisis non cursus ut, egestas sed
+                                ipsum.Fusce ullamcorper aliquet dolor id
+                                egestas. Nulla leo purus, facilisis non cursus
+                                ut, egestas sed ipsum.Fusce ullamcorper aliquet
+                                dolor id egestas. Nulla leo purus, facilisis non
+                                cursus ut, egestas sed ipsum.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news__fusce">
+                    <div class="row">
+                        <div class="col-12 col-md-7 pl-3 pl-md-4 mb-4 mb-md-0">
+                            <h5>
+                                <a href="#" data-toggle="modal" data-target="#myModal">Fusce scelerisque</a>
+                            </h5>
+                            <h6>5/01/2018</h6>
+                            <p>
+                                Proin euismod vehicula vestibulum. Fusce
+                                ullamcorper aliquet dolor id egestas. Nulla leo
+                                purus, facilisis non cursus ut, egestas sed
+                                ipsum.Fusce ullamcorper aliquet dolor id
+                                egestas. Nulla leo purus, facilisis non cursus
+                                ut, egestas sed ipsum.Fusce ullamcorper aliquet
+                                dolor id egestas. Nulla leo purus, facilisis non
+                                cursus ut, egestas sed ipsum.
+                            </p>
+                        </div>
+
+                        <div class="col-12 col-md-5">
+                            <img src="assets/images/g10.jpg" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <jsp:include page="footerTemplate.jsp"></jsp:include>
 
-        <!--********************* END INSTRUCTION__INFORMATION *********************-->
-
-        <!--********************* FOOTER *********************-->
         <footer style="background-color: #0f0f10">
             <div class="container">
                 <div class="footer__content">
@@ -574,11 +544,6 @@
                 </div>
             </div>
         </footer>
-
-        <!--********************* END FOOTER *********************-->
-
-        <!-- *************************************************************************************************************** -->
-        <!-- JQUERY -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
         <!-- SLICK CAROUSEL -->

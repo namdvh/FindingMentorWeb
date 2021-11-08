@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package c4.fm.dao;
 
 import c4.fm.subject.ChapterDTO;
@@ -53,7 +48,6 @@ public class ChapterDAO {
         }
         return check;
     }
-
     public List<ChapterDTO> LoadListChapter(int subjectID) throws SQLException {
         List<ChapterDTO> list = new ArrayList<>();
         Connection conn = null;

@@ -26,17 +26,10 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "LoadStudentSubjectController", urlPatterns = {"/LoadStudentSubjectController"})
 public class LoadStudentSubjectController extends HttpServlet {
+
     private static final String PAGE = "studentEnroll.jsp";
     private static final String ERROR = "subjectManagement.jsp";
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -61,7 +54,7 @@ public class LoadStudentSubjectController extends HttpServlet {
                 url = PAGE;
             }
         } catch (Exception e) {
-            log("Error at LoadStudentSubjectController: "+e.toString());
+            log("Error at LoadStudentSubjectController: " + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }

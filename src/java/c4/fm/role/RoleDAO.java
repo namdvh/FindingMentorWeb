@@ -5,23 +5,21 @@
  */
 package c4.fm.role;
 
-import c4.fm.user.UserDTO;
 import c4.fm.utils.DBUtils;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author HuuToan
  */
-public class RoleDAO implements Serializable{
-     public RoleDTO loadListRole(String roleID) throws ClassNotFoundException, SQLException { 
-         RoleDTO role = null;
+public class RoleDAO implements Serializable {
+
+    public RoleDTO loadListRole(String roleID) throws ClassNotFoundException, SQLException {
+        RoleDTO role = null;
         Connection conn = null;
         PreparedStatement stm = null;
         ResultSet rs = null;
@@ -34,9 +32,9 @@ public class RoleDAO implements Serializable{
                 stm = conn.prepareStatement(sql);
                 stm.setString(1, roleID);
                 rs = stm.executeQuery();
-                if (rs.next()) { 
+                if (rs.next()) {
                     String roleName = rs.getString("roleName");
-                 role=new RoleDTO(roleID, roleName);
+                    role = new RoleDTO(roleID, roleName);
                 }
             }
         } finally {

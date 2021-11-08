@@ -17,25 +17,20 @@
         <meta name="google" content="notranslate" />
         <meta content="Mashup templates have been developped by Orson.io team" name="author">
 
-        <!-- Disable tap highlight on IE -->
         <meta name="msapplication-tap-highlight" content="no">
 
         <link href="assets/apple-touch-icon.png" rel="apple-touch-icon">
         <link href="assets/favicon.ico" rel="icon">
 
-        <!-- link Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
               integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
               crossorigin="anonymous" />
-        <!-- SLICK CAROUSEL  -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
 
         <title>Find Mentor</title>  
 
         <link href="New folder/main.a3f694c0.css" rel="stylesheet">
-
-        <!-- Style dropdown -->
         <style>
             * {
                 margin: 0;
@@ -251,10 +246,7 @@
         </style>
     </head>
     <body style=" background: linear-gradient(to left, #92FE9D, #00C9FF);; padding-top: 0">
-
-        <!-- Add your content of header -->
         <jsp:include page="headerTemplate.jsp"></jsp:include>
-
             <div class="white-text-container background-image-container" style="background-image: url('./assets/images/img-home.jpg')">
                 <div class="opacity"></div>
                 <div class="container">
@@ -263,7 +255,6 @@
                             <div class="col-md-6" >
                                 <input type="text" name="txtSearch" class="input" placeholder="Search" style="width: 70%; height: 50px; font-size: 30px; border-radius: 10px">
                                 <button type="submit" name="action" value="Search" style="height: 50px; width: 50px; font-size: 30px; border-radius: 10px"><i class="fa fa-search"></i></button>
-                                <!--<input type="submit" value="Search" name="action">-->
                             </div>
                         </div>
                     </form>
@@ -271,7 +262,6 @@
             </div>
             <div class="section-container white-text-container" style='margin-top: 45px;'>
                 <div class="container">  
-                    <!------------- SERVICES ------------->
                     <section
                         class="services"
                         style="
@@ -285,138 +275,60 @@
                             <div class="services__card">
                                 <div class="service__item py-5">
                                     <div class="row">
-                                        <c:forEach items="${requestScope.search}" var="all">
-                                            <div class="col-lg-4 col-md-6">
-                                                <div class="card">
-                                                    <div class="icon-bx-wraper style-7 text-center">
-                                                        <div class="icon-media">
-                                                            <img style="width: 100px; height: 100px;" src="${all.images}" class="w-100" alt="" />
-                                                        </div>
-                                                        <div class="icon-content">
-                                                            <h4 class="dlab-title">${all.name}</h4>
-                                                            <p style="font-size: 15px;">
-                                                                Gmail: ${all.email} <br/>
-                                                                Phone: ${all.phoneNumber}
-                                                            </p>
-                                                        </div>
+                                    <c:forEach items="${requestScope.search}" var="all">
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="card">
+                                                <div class="icon-bx-wraper style-7 text-center">
+                                                    <div class="icon-media">
+                                                        <img style="width: 100px; height: 100px;" src="${all.images}" class="w-100" alt="" />
+                                                    </div>
+                                                    <div class="icon-content">
+                                                        <h4 class="dlab-title">${all.name}</h4>
+                                                        <p style="font-size: 15px;">
+                                                            Gmail: ${all.email} <br/>
+                                                            Phone: ${all.phoneNumber}
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </c:forEach>
-                                    </div>
+                                        </div>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </div>
-                    </section>
-                    <!------------- END SERVICES ------------->
-
-                </div>
+                    </div>
+                </section>
             </div>
-
-            <!--            <div class="section-container">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-xs-12">
-            
-                                        <section class="service">
-                                            <div class="service__content">
-                                                <div class="service__title">
-                                                   
-                                                </div>
-            
-                                                <div class="service__slider">
-                                                    <div class="slick-slider">
-                                                        <div class="item">
-                                                            <i class="fa fa-dice-d6"></i>
-                                                            <p>
-                                                                APP MOBILE<br>DEVELOPMENT
-                                                            </p>
-                                                        </div>
-            
-                                                        <div class="item">
-                                                            <i class="fab fa-autoprefixer"></i>
-                                                            <p>
-                                                                DIGITAL<br> MARKETING
-                                                            </p>
-                                                        </div>
-                                                        <div class="item">
-                                                            <i class="fab fa-500px"></i>
-                                                            <p>
-                                                                SEO &amp; CONTENT <br>WRITING
-                                                            </p>
-                                                        </div>
-                                                        <div class="item">
-                                                            <i class="fa fa-blog"></i>
-                                                            <p>
-                                                                WEBSITE<br>DEVELOPMENT
-                                                            </p>
-                                                        </div>
-                                                        <div class="item">
-                                                            <i class="fab fa-battle-net"></i>
-                                                            <p>
-                                                                SEO &amp; CONTENT <br>WRITING
-                                                            </p>
-                                                        </div>
-                                                        <div class="item">
-                                                            <i class="fa fa-memory"></i>
-                                                            <p>
-                                                                APP MOBILE<br>DEVELOPMENT
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
         </div>
+    </div>
 
-        <jsp:include page="footerTemplate.jsp"></jsp:include>
-        <!--end off footer-->  
-
-
-
-
-
-
-        <script>
-            document.addEventListener("DOMContentLoaded", function (event) {
-                navActivePage();
+    <jsp:include page="footerTemplate.jsp"></jsp:include>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            navActivePage();
+        });
+    </script>
+    <script type="text/javascript" src="./main.41beeca9.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" ></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.slick-slider').slick({
+                //settings
+                infinite: true,
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                autoplay: true,
+                dots: true,
+                arrows: false,
             });
-        </script>
-
-
-
-
-
-        <script type="text/javascript" src="./main.41beeca9.js"></script>
-
-        <!-- JQUERY  -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
-        <!-- SLICK CAROUSEL  -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" ></script>
-
-        <!-- HANDLE SLICK CAROUSEL -->
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('.slick-slider').slick({
-                    //settings
-                    infinite: true,
-                    slidesToShow: 5,
-                    slidesToScroll: 1,
-                    autoplay: true,
-                    dots: true,
-                    arrows: false,
-                });
-            });
-        </script>
-        <script>
-            var card = document.querySelector(".card");
-            card.addEventListener("click", function () {
-                card.classList.toggle("is-flipped");
-            });
-        </script>
-    </body>
+        });
+    </script>
+    <script>
+        var card = document.querySelector(".card");
+        card.addEventListener("click", function () {
+            card.classList.toggle("is-flipped");
+        });
+    </script>
+</body>
 </html>

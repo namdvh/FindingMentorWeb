@@ -22,33 +22,22 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "LoadUserPageServlet", urlPatterns = {"/LoadUserPageServlet"})
 public class LoadUserPageServlet extends HttpServlet {
-private static final String USER_ADMIN_PAGE = "userManagement.jsp";
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    private static final String USER_ADMIN_PAGE = "userManagement.jsp";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = USER_ADMIN_PAGE;
         try {
-            
             UserDAO userDao = new UserDAO();
             HttpSession session = request.getSession();
             List<UserDTO> listUser = null;
             listUser = userDao.listUserAdmin();
             request.setAttribute("LIST_USER_ADMIN", listUser);
-            
-            
         } catch (Exception e) {
             log("Error at LoadUserPageServlet:" + e.toString());
-        }finally{
+        } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
     }

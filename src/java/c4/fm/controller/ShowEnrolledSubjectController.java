@@ -23,28 +23,19 @@ import javax.servlet.http.HttpSession;
  */
 public class ShowEnrolledSubjectController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-           try {
+        try {
             HttpSession session = request.getSession();
             SubjectDAO dao = new SubjectDAO();
             UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
             String userID = user.getUserID();
-            List<SubjectDTO> listEnrolled = dao.ShowEnrollSubject(userID);          
+            List<SubjectDTO> listEnrolled = dao.ShowEnrollSubject(userID);
             session.setAttribute("listEnrolled", listEnrolled);
         } catch (Exception e) {
-            log("Error at show list enroll"+ e.getMessage());
-        }finally{
+            log("Error at show list enroll" + e.getMessage());
+        } finally {
             request.getRequestDispatcher("subjectManagement.jsp").forward(request, response);
         }
     }

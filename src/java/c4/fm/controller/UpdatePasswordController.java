@@ -27,15 +27,6 @@ public class UpdatePasswordController extends HttpServlet {
     private static final String ERROR = "updateUser.jsp";
     private static final String SUCCESS = "updateUser.jsp";
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -53,8 +44,7 @@ public class UpdatePasswordController extends HttpServlet {
             boolean check = true;
             boolean check2 = true;
             boolean check3 = true;
-            boolean check4 =true;
-
+            boolean check4 = true;
             if (loginUser == null) {
                 url = ERROR;
             } else {
@@ -65,11 +55,11 @@ public class UpdatePasswordController extends HttpServlet {
                     request.setAttribute("USER_ERROR", userError);
                 } else {
                     check4 = CheckValidation.isValidPassword(Password);
-                    if(check4==false){
-                    userError.setPasswordError("Password at least 8 character. \n "
-                            + "1 Uppercase character, at least 1 number, not contain space \n"
-                            + " and at least 1 speacial chars");   
-                    request.setAttribute("submitFail3", "done");
+                    if (check4 == false) {
+                        userError.setPasswordError("Password at least 8 character. \n "
+                                + "1 Uppercase character, at least 1 number, not contain space \n"
+                                + " and at least 1 speacial chars");
+                        request.setAttribute("submitFail3", "done");
                     }
                 }
                 //1 vs HT
@@ -82,7 +72,7 @@ public class UpdatePasswordController extends HttpServlet {
                     check3 = false;
                     request.setAttribute("submitFail", "done");
                 }
-                if (check == true && check2 == true && check3 == true && check4==true) {
+                if (check == true && check2 == true && check3 == true && check4 == true) {
                     boolean checkInsert = dao.updatePassword(UserID, Password);
                     if (checkInsert) {
                         url = SUCCESS;
@@ -92,9 +82,7 @@ public class UpdatePasswordController extends HttpServlet {
                     request.setAttribute("UserID", UserID);
 
                 }
-
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

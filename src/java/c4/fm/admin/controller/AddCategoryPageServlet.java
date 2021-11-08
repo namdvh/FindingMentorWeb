@@ -5,10 +5,7 @@
  */
 package c4.fm.admin.controller;
 
-import c4.fm.requestmentor.RequestMentorDAO;
-import c4.fm.requestmentor.RequestMentorDTO;
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,24 +14,23 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author cunpl
+ * @author Khang
  */
-@WebServlet(name = "LoadApprovePageServlet", urlPatterns = {"/LoadApprovePageServlet"})
-public class LoadApprovePageServlet extends HttpServlet {
+@WebServlet(name = "AddCategoryPageServlet", urlPatterns = {"/AddCategoryPageServlet"})
+public class AddCategoryPageServlet extends HttpServlet {
 
-    private static final String REQUESTMENTOR_PAGE = "requestMentorPage.jsp";
+    private static final String ADDCATE_ADMIN = "addCategory.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String url = ADDCATE_ADMIN;
         try {
-            RequestMentorDAO RQDao = new RequestMentorDAO();
-            List<RequestMentorDTO> listRQ = RQDao.getListRequestMentorAdmin();
-            request.setAttribute("LISTREQUEST_ADMIN", listRQ);
+            
         } catch (Exception e) {
-            log("Error at LoadApprovePageServlet:" + e.toString());
-        } finally {
-            request.getRequestDispatcher(REQUESTMENTOR_PAGE).forward(request, response);
+            log("Error at AddCategoryPageServlet:" + e.toString());
+        }finally{
+            response.sendRedirect(url);
         }
     }
 

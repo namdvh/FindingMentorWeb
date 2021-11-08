@@ -23,22 +23,14 @@ import javax.servlet.http.HttpSession;
  * @author HuuToan
  */
 public class LoadSubjectController extends HttpServlet {
+
     private static final String LOAD_PAGE = "viewDetailSubject.jsp";
     private static final String ERROR = "error.jsp";
- 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       String url = ERROR;
+        String url = ERROR;
         boolean check = true;
         HttpSession session = request.getSession();
         UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
@@ -47,13 +39,13 @@ public class LoadSubjectController extends HttpServlet {
         SubjectDAO subjectDao = new SubjectDAO();
         RegisterSubjectDAO registerDao = new RegisterSubjectDAO();
         UserDAO userdao = new UserDAO();
-        try {        
-                SubjectDTO dto = subjectDao.loadSubject(subjectId);
-                String userID = dto.getUserId();
-                UserDTO userMentor = userdao.LoadMentor(userID);
-                request.setAttribute("ViewPage", dto);
-                request.setAttribute("LoadMentor", userMentor);
-                url = LOAD_PAGE;
+        try {
+            SubjectDTO dto = subjectDao.loadSubject(subjectId);
+            String userID = dto.getUserId();
+            UserDTO userMentor = userdao.LoadMentor(userID);
+            request.setAttribute("ViewPage", dto);
+            request.setAttribute("LoadMentor", userMentor);
+            url = LOAD_PAGE;
         } catch (Exception e) {
             log("Errot at LoadSubjectController:" + e.toString());
         } finally {

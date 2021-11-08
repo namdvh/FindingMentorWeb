@@ -18,13 +18,9 @@
             content="Mashup templates have been developped by Orson.io team"
             name="author"
             />
-
-        <!-- Disable tap highlight on IE -->
         <meta name="msapplication-tap-highlight" content="no" />
-
         <link href="./assets/apple-touch-icon.png" rel="apple-touch-icon" />
         <link href="./assets/favicon.ico" rel="icon" />
-
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
@@ -36,16 +32,6 @@
             integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
             crossorigin="anonymous"
             />
-
-        <!--bootstrap-->
-        <!--        <link
-                    rel="stylesheet"
-                    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-                    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-                    crossorigin="anonymous"
-                    />-->
-
-        <!-- link Font Awesome -->
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -58,7 +44,7 @@
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous"
             />
-        <title>Title page</title>
+        <title>User Study</title>
         <link  href="New folder/main.a3f694c0.css" />
         <link rel="stylesheet" href="Subject/MyCourse.css" />
 
@@ -68,47 +54,7 @@
                 padding: 0;
                 box-sizing: border-box;
             }
-            /*            .dropbtn {
-                            font-size: 16px;
-                            border: none;
-                            cursor: pointer;
-                        }
-            
-                        .dropdown {
-                            position: relative;
-                            display: inline-block;
-                        }
-            
-                        .dropdown:hover .dropbtn .user {
-                            color: #5876fc;
-                        }
-            
-                        .dropdown-content {
-                            display: none;
-                            position: absolute;
-                            right: 0;
-                            background-color: #f9f9f9;
-                            min-width: 90px;
-                            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-                            z-index: 1;
-                        }
-            
-                        .dropdown-content .choose {
-                            color: black;
-                            padding: 12px 16px;
-                            text-decoration: none;
-                            display: block;
-                        }
-            
-                        .dropdown-content .choose:hover {
-                            background-color: #5876fc;
-                            transition: all 0.5s;
-                            color: #ffff;
-                        }
-            
-                        .dropdown:hover .dropdown-content {
-                            display: block;
-                        }*/
+
             .vertical-menu {
                 width: 200px; /* Set a width if you like */
             }
@@ -135,8 +81,7 @@
     <c:if test="${sessionScope.LOGIN_USER eq null}">
         <c:redirect url="login.jsp"></c:redirect>
     </c:if>
-    <body style="margin-top: 15px;">
-        <!-- Add your content of header -->
+    <body>
         <jsp:include page="headerTemplate.jsp"></jsp:include>
             <section class="KhuVucHoc">
                 <div>
@@ -161,32 +106,24 @@
                         </form>
                     </div>
                 </div>
-
-                <!-- Tab content -->
-
-
             <c:if test="${MESSAGE != null}">
                 <div class="alert">
                     <span class="closebtn" onclick="this.parentElement.style.display = 'none';">&times;</span> 
                     <strong>${MESSAGE}</strong> 
                 </div>
             </c:if>  
-
             <div id="allCourse" class="tabcontent" style="display: block">
                 <c:forEach items="${allSubject}" var="load">
-                    <div>
-                        <!--button join class-->
+                    <div class="container-fluid">
                         <div>
                             <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
                                 <a style="color: white" href="MainController?action=Enroll&subjectId=${load.subjectId}">  Join class  </a>                          
                             </button> 
-                            <!--button Detail-->
                             <button  style="float: right ; margin-top: 30px; margin-right: 10px;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">                          
                                 <a style="color: white" href="MainController?action=LoadSubjectPage&subjectId=${load.subjectId}">  Detail  </a>
                             </button>
                         </div>
-                        <!-- Modal -->
-                        <div style="display: flex;">
+                        <div  style="display: flex;">
                             <img
                                 src="${load.images}"
                                 alt=""
@@ -197,15 +134,13 @@
                                 <p>${load.description}</p>
                             </ul>
                         </div>
-                    </div> <hr>
+                    </div><hr>
                 </c:forEach>
             </div> 
-            <!-- tu cho nay tro di la phan cua My course-->  
             <div id="myCourse" class="tabcontent">
                 <c:if test="${sessionScope.LOGIN_USER.roleID eq 'User'}" >
                     <c:forEach items="${listEnrolled}" var="list">
                         <div>
-                            <!--button Detail-->
                             <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
                                 <a style="color: white" href="MainController?action=Enroll&subjectId=${list.subjectId}">  Join class  </a>
                             </button>
@@ -219,7 +154,6 @@
                                     <p>${list.subjectName}</p>                         
                                     <p>${list.description}</p>
                                 </ul>
-
                             </div>
                         </div> <hr>
                     </c:forEach>
@@ -240,7 +174,6 @@
                     </c:forEach>
                     <c:forEach items="${listEnrolled}" var="list">
                         <div>
-                            <!--button Detail-->
                             <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
                                 <a style="color: white" href="MainController?action=Enroll&subjectId=${list.subjectId}">  Join class  </a>
                             </button>
@@ -260,9 +193,7 @@
                 </c:if>
             </div>
         </section>
-        <!--start of footer-->
-        <jsp:include page="footerTemplate.jsp"></jsp:include>
-        <!--end off footer-->        
+        <jsp:include page="footerTemplate.jsp"></jsp:include>      
         <script src="MyCourse.js"></script>
         <script
             src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -280,29 +211,21 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"
         ></script>
-
         <script type="text/javascript"  src="Subject/MyCourse.js"></script>
         <script>
                         document.addEventListener("DOMContentLoaded", function (event) {
                             navActivePage();
                         });
                         function openCity(evt, cityName) {
-                            // Declare all variables
                             var i, tabcontent, tablinks;
-
-                            // Get all elements with class="tabcontent" and hide them
                             tabcontent = document.getElementsByClassName("tabcontent");
                             for (i = 0; i < tabcontent.length; i++) {
                                 tabcontent[i].style.display = "none";
                             }
-
-                            // Get all elements with class="tablinks" and remove the class "active"
                             tablinks = document.getElementsByClassName("tablinks");
                             for (i = 0; i < tablinks.length; i++) {
                                 tablinks[i].className = tablinks[i].className.replace(" active", "");
                             }
-
-                            // Show the current tab, and add an "active" class to the button that opened the tab
                             document.getElementById(cityName).style.display = "block";
                             evt.currentTarget.className += " active";
                         }
@@ -311,8 +234,6 @@
             $('#exampleModal').on('show.bs.modal', event => {
                 var button = $(event.relatedTarget);
                 var modal = $(this);
-                // Use above variables to manipulate the DOM
-
             });
         </script>
         <script type="text/javascript" src="New folder/main.41beeca9.js"></script>

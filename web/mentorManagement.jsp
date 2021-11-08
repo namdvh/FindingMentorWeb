@@ -16,10 +16,8 @@
 
     </head>
     <body>
-        <!-- Header -->
         <div id="header">
             <div class="shell">
-                <!-- Logo + Top Nav -->
                 <div id="top">
                     <h1><a href="#">SpringTime</a></h1>
                     <c:if test="${sessionScope.LOGIN_USER == null}">
@@ -34,37 +32,16 @@
                         </c:if>
                     </c:if>
                 </div>
-                <!-- End Logo + Top Nav -->
-                <!-- Main Nav -->
-
-                <!-- End Main Nav -->
             </div>
         </div>
-        <!-- End Header -->
-        <!-- Container -->
         <div class="container">
             <div class="row">
-                
-            
-
-                <!-- Message OK -->
-
-                <!-- End Message OK -->
-                <!-- Message Error -->
-
-                <!-- End Message Error -->
-                
-                <!-- Main -->
                 <div id="main" >
-                    <!--<div class="cl">&nbsp;</div>-->
-                    <!-- Content -->
                     <div id="content" style="width: 938px" >
-                        <!-- Box -->
                         <div class="box">
                             <c:if test="${requestScope.DELETEUSER_MSG != null}">
                                 ${requestScope.DELETEUSER_MSG}
                             </c:if>
-                            <!-- Box Head -->
                             <div class="box-head">
                                 <form action="MainController">
                                     <h2 class="left">Current Mentor</h2>
@@ -75,8 +52,6 @@
                                     </div>
                                 </form>
                             </div>
-                            <!-- End Box Head -->
-                            <!-- Table -->
                             <table class="table table-striped" border="0" cellspacing="0" cellpadding="0">
                                 <c:if test="${requestScope.LIST_MENTOR_ADMIN == null}">
                                     <tr>
@@ -122,24 +97,11 @@
                                         </tr>
                                     </c:forEach>
                                 </c:if>
-
-                                       
-                            <!-- Box Head -->
-                         
-                          
-                      
                             </table>
-                               
-                                
-                           
-              
-                          
                         </div>
-                
                     </div>
-                    
-                 <span style="display: flex; justify-content: flex-end; ">
-                                <div class="box" style="margin-left: 15px">
+                    <span style="display: flex; justify-content: flex-end; ">
+                        <div class="box" style="margin-left: 15px">
                             <div class="list-group">
                                 <a href="MainController?action=LoadAdminPage" class="list-group-item list-group-item-action ">
                                     Dashboard
@@ -148,20 +110,15 @@
                                 <a href="MainController?action=LoadUserPage" class="list-group-item list-group-item-action ">User Management</a>
                                 <a href="MainController?action=LoadApprovePage" class="list-group-item list-group-item-action">Approve Mentor</a>
                                 <a href="MainController?action=addSubjectPage" class="list-group-item list-group-item-action ">Add Subject</a>
+                                <a href="MainController?action=addCategoryPage" class="list-group-item list-group-item-action">Add Category</a>
                             </div>
-                                        </div>
-                                </span>
-
+                        </div>
+                    </span>
                 </div>
-               
-                <!-- Main -->
             </div>
         </div>
-        <!-- End Container -->
-        <!-- Footer -->
         <div id="footer">
             <div class="shell"> <span class="left">&copy; 2021 - Company Four Class</span> <span class="right"> Design by <a href="http://chocotemplates.com">Chocotemplates.com</a> </span> </div>
         </div>
-        <!-- End Footer -->
     </body>
 </html>

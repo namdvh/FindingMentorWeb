@@ -8,7 +8,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">    
-
     <head>
         <meta charset="UTF-8" />
         <meta content="IE=edge" http-equiv="X-UA-Compatible" />
@@ -19,33 +18,24 @@
             content="Mashup templates have been developped by Orson.io team"
             name="author"
             />
-
-        <!-- Disable tap highlight on IE -->
         <meta name="msapplication-tap-highlight" content="no" />
 
         <link href="./assets/apple-touch-icon.png" rel="apple-touch-icon" />
         <link href="./assets/favicon.ico" rel="icon" />
-
-        <!-- link Font Awesome -->
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
             integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
             crossorigin="anonymous"
             />
-        <!-- boot -->
         <link
             rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous"
             />
-
         <title>Find Mentor</title>  
-
-        <!--<link href="New folder/main.a3f694c0.css" rel="stylesheet">-->
         <link rel="stylesheet" href="Content-after/app.css">
-
         <style>
             @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
             #rating {
@@ -69,14 +59,12 @@
             #rating > label {
                 color: #ddd;
                 float: right;
-            } /*float:right ?? l?t ng??c các ngôi sao l?i ?úng theo th? t? trong th?c t?*/
-            /*thêm màu cho sao ?ã ch?n và các ngôi sao phía tr??c*/
+            } 
             #rating > input:checked ~ label,
             #rating:not(:checked) > label:hover,
             #rating:not(:checked) > label:hover ~ label {
                 color: #ffd700;
             }
-            /* Hover vào các sao phía tr??c ngôi sao ?ã ch?n*/
             #rating > input:checked + label:hover,
             #rating > input:checked ~ label:hover,
             #rating > label:hover ~ input:checked ~ label,
@@ -89,16 +77,16 @@
     <c:if test="${sessionScope.LOGIN_USER eq null}">
         <c:redirect url="login.jsp"></c:redirect>
     </c:if>
-    <body>
+    <body style="margin-top: 0px;">
         <jsp:include page="headerTemplate.jsp"></jsp:include>
 
         <c:if test="${sessionScope.LOGIN_USER eq null}">
             <c:redirect url="login.html"></c:redirect>
         </c:if>
         <c:set var="listChapter" value="${requestScope.LIST_CHAPTER}"/>
-        <div class="">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4" style="float: left;">
                     <div class="d-flex justify-content-between mb-3">
                         <a  class="btn btn-success btn-sm rounded-0" href="MainController?action=ShowAll">Back</a>
                         <span><h2>Lesson Content</h2></span>   
@@ -114,10 +102,9 @@
                                         <c:set var="listContent" value="${chapter.list}"/>
                                         <c:forEach var="itemContent" items="${listContent}" varStatus="i">
                                             <div style="border-radius: 0rem;" class=" m-0 pb-1 card card-body border-bottom ">
-                                                <a style="text-decoration: none; color: black" href="#" onclick="loadVideoURL('${itemContent.videoURL}')">
+                                                <a style="text-decoration: none; color: black" href="#" onclick="loadVideoURL('${itemContent.videoURL}','${itemContent.blog}')">
                                                     Lesson ${i.count}: ${itemContent.contentName}
                                                 </a>
-                                                <p>${itemContent.blog}</p>
                                             </div>
                                         </c:forEach>
                                     </div>
@@ -128,7 +115,7 @@
                     </div>
                 </div>
                 <div class="video col-md-8">
-                    <iframe  id="loadVideo" src="" frameborder="0" allowfullscreen style=" border: solid 4px #37474F; width: 1200px; height: 650px">
+                    <iframe  id="loadVideo" src="" frameborder="0" allowfullscreen style=" border: solid 4px #37474F; ">
                     </iframe>
                     <div style=".purple-border textarea {
                              border: 1px solid #ba68c8;
@@ -143,9 +130,9 @@
                              box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, .25);
                          }">
                             <!--blog khong hien-->
-                        <div class="form-group purple-border" style="width: 1200px">
+                        <div class="form-group purple-border" >
                             <label for="exampleFormControlTextarea4">Blog</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea4" rows="3"> </textarea>
+                            <textarea readonly="" class="form-control" id="exampleFormControlTextarea4" > </textarea>
                         </div>
                             <!--khong hien-->
                     </div>
@@ -253,17 +240,15 @@
             integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
             crossorigin="anonymous"
         ></script>
-        <!-- Button trigger modal -->
         <script>
                 $('#exampleModal').on('show.bs.modal', event => {
                     var button = $(event.relatedTarget);
                     var modal = $(this);
-                    // Use above variables to manipulate the DOM
                 });
         </script>
         <!--load video-->
         <script>
-            function loadVideoURL(url) {
+            function loadVideoURL(url,blog) {
                 var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
                 var match = url.match(regExp);
                 if (match && match[7].length === 11) {

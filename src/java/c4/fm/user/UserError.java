@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package c4.fm.user;
 
 /**
@@ -10,6 +5,7 @@ package c4.fm.user;
  * @author MSI
  */
 public class UserError {
+
     private String UserIDError;
     private String NameError;
     private String EmailError;
@@ -23,6 +19,7 @@ public class UserError {
 
     public UserError() {
     }
+
     public UserError(String UserIDError, String NameError, String EmailError, String PhoneNumberError, String Address, String passwordError, String confirmPasswordError, String CertificateError, String BirthdayError) {
         this.UserIDError = UserIDError;
         this.NameError = NameError;
@@ -41,7 +38,6 @@ public class UserError {
         this.confirmPasswordError = confirmPasswordError;
     }
 
-    
     public String getUserIDError() {
         return UserIDError;
     }

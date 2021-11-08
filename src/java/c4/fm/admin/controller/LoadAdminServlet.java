@@ -31,15 +31,6 @@ public class LoadAdminServlet extends HttpServlet {
 
     private static final String ADMIN_PAGE = "admin.jsp";
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -61,7 +52,7 @@ public class LoadAdminServlet extends HttpServlet {
             List<CategoryDTO> listCate = null;
             listCate = cateDao.loadListCate();
             session.setAttribute("LIST_CATE", listCate);
-            
+
         } catch (Exception e) {
             log("Error at LoadAdminServlet:" + e.toString());
         } finally {

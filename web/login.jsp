@@ -15,15 +15,12 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Sign Up Form by Colorlib</title>
 
-        <!-- Font Icon -->
         <link rel="stylesheet" href="LoginUser/Login/fonts/material-icon/css/material-design-iconic-font.min.css">
 
-        <!-- Main css -->
         <link rel="stylesheet" href="LoginUser/Login/css/style.css">
     </head>
     <body>
         <div class="main" style="padding: 35px 0;">
-            <!-- Sing in  Form -->
             <section class="sign-in">
                 <div class="container">
                     <div class="signin-content">
@@ -74,5 +71,5 @@
         <!-- JS -->
         <script src="LoginUser/Login/vendor/jquery/jquery.min.js"></script>
         <script src="LoginUser/Login/js/main.js"></script>
-    </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+    </body>
 </html>

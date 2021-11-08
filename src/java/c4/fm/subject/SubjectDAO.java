@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package c4.fm.subject;
 
 import c4.fm.user.UserDTO;
@@ -15,10 +10,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author cunpl
- */
 public class SubjectDAO implements Serializable {
 
     public List<SubjectDTO> listSubjectAdmin() throws SQLException, ClassNotFoundException {
@@ -245,7 +236,6 @@ public class SubjectDAO implements Serializable {
         }
         return dto;
     }
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public SubjectDTO loadSubject(int subjectID) throws SQLException, ClassNotFoundException {
         SubjectDTO subject = null;
@@ -629,7 +619,7 @@ public class SubjectDAO implements Serializable {
                 pst.close();
             }
             if (con != null) {
-
+                con.close();
             }
         }
         return check;

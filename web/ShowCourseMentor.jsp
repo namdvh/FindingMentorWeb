@@ -34,12 +34,6 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
             />
-
-        <!-- GOOGLE FONTS
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800&display=swap"
-            rel="stylesheet"> -->
-
         <!-- OWL CAROUSEL -->
         <link rel="stylesheet" href="./owlcarousel/assets/owl.carousel.css" />
         <link rel="stylesheet" href="./owlcarousel/assets/owl.theme.default.css" />
@@ -79,7 +73,7 @@
                                     <table class="table manage-candidates-top mb-0">
                                         <thead>
                                             <tr>
-                                                <th>User Name</th>
+                                                <th>Course Name</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -127,7 +121,6 @@
             </section>
         </c:if>
         <c:if test="${sessionScope.LOGIN_USER ne null}">
-
             <section>
                 <div class="container mt-3 mb-4">
                     <div class="col-lg-9 mt-4 mt-lg-0">
