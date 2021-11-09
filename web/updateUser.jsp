@@ -23,51 +23,13 @@
               crossorigin="anonymous" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <title>Update Page</title>  
+
+        <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
         <link href="Profile/app.css" rel="stylesheet">
         <style>
-            .dropbtn {
-                font-size: 16px;
-                border: none;
-                cursor: pointer;
-            }
-            .dropdown {
-                position: relative;
-                display: inline-block;
-            }
-            .dropdown:hover .dropbtn .user{
-                color: #5876FC;
-            }
-            .dropdown-content {
-                display: none;
-                position: absolute;
-                right: 0;
-                background-color: #f9f9f9;
-                min-width: 90px;
-                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-                z-index: 1;
-            }
-
-            .dropdown-content .choose {
-                color: black;
-                padding: 12px 16px;
-                text-decoration: none;
-                display: block;
-            }
-
-            .dropdown-content .choose:hover{
-                background-color: #5876FC; 
-                transition: all .5s;
-                color: #ffff;
-            }
-
-            .dropdown:hover .dropdown-content {
-                display: block;
-            }
-
             .form-group .form-control {
                 font-size: 15px;
             }
-
         </style>
     </head>
     <body style="padding: 0;">
@@ -153,6 +115,7 @@
                                                 name="action"
                                                 value="UpdateUserPage"
                                                 class="btnUpdate btn btn-primary"
+                                                onclick="sweetalertclick()"
                                                 >
                                                 Update
                                             </button>
@@ -220,7 +183,7 @@
                                     placeholder="Confirm new password"
                                     name="ConfirmPassword"                                
                                     />
-                                ${requestScope.USER_ERROR.getConfirmPasswordError()}
+                                ${requestScope.USER_ERROR.getConfirmPasswordError()} 
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -231,6 +194,9 @@
                 </div>
             </div>
         </form>  
+        <c:if test="${requestScope.MESS != null}">
+            <p>${MESS}</p>
+        </c:if>
         <c:if test="${not empty submitDone}">
             <script>alert("Change password successful!");
             </script></c:if>
@@ -262,7 +228,8 @@
                 navActivePage();
             });
             function validateEmail(email) {
-                const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                        ;
                 return re.test(email);
             }
 
@@ -272,12 +239,12 @@
                 $result.text("");
 
                 if (validateEmail(email)) {
-                    $result.text(email + " is valid :)");
-                    $result.css("color", "green");
+                $result.text(email + " is valid :)");
+                        $result.css("color", "green");
                 } else {
-                    $result.text(email + " is not valid :
-                            (");
-                            $result.css("color", "red");
+                $result.text(email + " is not valid :
+                        (");
+                                $result.css("color", "red");
                         }
                         return false;
                     }
@@ -324,6 +291,18 @@
                     }
                     ;
         </script>
+
+
         <script src="Profile/app.js"></script>
+        <script src="dist/sweetalert.min.js"></script>
+        <script>
+                    function sweetalertclick() {
+                        swal(
+                                title: "SweetAlert!",
+                        text: "Here's my sweet alert!",
+                                type: "error",
+                        confirmButtonText: "Cool"
+                        );
+                    }</script>
     </body>
 </html>

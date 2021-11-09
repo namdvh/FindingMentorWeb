@@ -23,20 +23,30 @@ import javax.servlet.http.HttpSession;
  */
 public class ShowEnrolledSubjectController extends HttpServlet {
 
+    private static final String ERROR = "error.jsp";
+    private static final String SUCCESS = "myCourse.jsp";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String url = ERROR;
         try {
             HttpSession session = request.getSession();
             SubjectDAO dao = new SubjectDAO();
             UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
             String userID = user.getUserID();
             List<SubjectDTO> listEnrolled = dao.ShowEnrollSubject(userID);
-            session.setAttribute("listEnrolled", listEnrolled);
+            List<SubjectDTO> listSubjectMentor = dao.listSubjectMentor(userID);
+            if (listEnrolled != null) {
+                url = SUCCESS;
+                session.setAttribute("listEnrolled", listEnrolled);
+                session.setAttribute("LIST_MENTOR_SUBJECT", listSubjectMentor);
+            }
+
         } catch (Exception e) {
             log("Error at show list enroll" + e.getMessage());
         } finally {
-            request.getRequestDispatcher("subjectManagement.jsp").forward(request, response);
+            request.getRequestDispatcher(url).forward(request, response);
         }
     }
 

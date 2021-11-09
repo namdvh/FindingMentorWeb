@@ -58,7 +58,7 @@
                                 <span class="social-label">Or login with</span>
                                 <ul class="socials">
 
-                                    <li><a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8084/FindingMentor/LoginGoogleHandler&response_type=code
+                                    <li><a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://c4findingmentor.xyz/FindingMentor/LoginGoogleHandler&response_type=code
                                            &client_id=380967411552-jeldl8hjr9a2ou8e3jkbvpcrinb3an5m.apps.googleusercontent.com&approval_prompt=force"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
                                 </ul>
                             </div>

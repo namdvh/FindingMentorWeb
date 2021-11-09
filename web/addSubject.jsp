@@ -148,7 +148,7 @@
                                     </p>
                                     <p> <span class="req">max 100 symbols</span>
                                         <label>Description <span>(Required Field)</span></label>
-                                        <textarea name="description" class="field size1" rows="10" cols="30" required="" >${requestScope.UPDATE_SUBJECT.description}</textarea>
+                                        <textarea maxlength="100" name="description" class="field size1" rows="10" cols="30" required="" >${requestScope.UPDATE_SUBJECT.description}</textarea>
                                     </p>
                                 </div>
                                 <div class="buttons">

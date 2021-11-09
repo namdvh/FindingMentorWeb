@@ -46,10 +46,8 @@
                                 knowledge of the subjects
                             </p>
                             <form action="MainController" method="POST">
-                                <li style="margin-top: 15px;">
-                                    <input style="height: 35px; width: 20%;" type="text" name="txtSearch" placeholder="Search..">
-                                    <button type="submit" name="action" value="Search" style="height: 40px; width: 40px; font-size: 20px; border-radius: 10px"><i class="fa fa-search"></i></button>
-                                </li>
+                                <input style="height: 35px; width: 20%;" type="text" name="txtSearch" placeholder="Search..">
+                                <button type="submit" name="action" value="Search" style="height: 40px; width: 40px; font-size: 20px; border-radius: 10px"><i class="fa fa-search"></i></button>
                             </form>
                         </div>
                     </div>
@@ -62,10 +60,8 @@
                                 knowledge of the subjects
                             </p>
                             <form action="MainController" method="POST">
-                                <li style="margin-top: 15px;">
-                                    <input style="height: 35px; width: 20%;" type="text" name="txtSearch" placeholder="Search..">
-                                    <button type="submit" name="action" value="Search" style="height: 40px; width: 40px; font-size: 20px; border-radius: 10px"><i class="fa fa-search"></i></button>
-                                </li>
+                                <input style="height: 35px; width: 20%;" type="text" name="txtSearch" placeholder="Search..">
+                                <button type="submit" name="action" value="Search" style="height: 40px; width: 40px; font-size: 20px; border-radius: 10px"><i class="fa fa-search"></i></button>
                             </form>
                         </div>
                     </div>
@@ -78,10 +74,10 @@
                                 knowledge of the subjects
                             </p>
                             <form action="MainController" method="POST">
-                                <li style="margin-top: 15px;">
-                                    <input style="height: 35px; width: 20%;" type="text" name="txtSearch" placeholder="Search..">
-                                    <button type="submit" name="action" value="Search" style="height: 40px; width: 40px; font-size: 20px; border-radius: 10px"><i class="fa fa-search"></i></button>
-                                </li>
+
+                                <input style="height: 35px; width: 20%;" type="text" name="txtSearch" placeholder="Search..">
+                                <button type="submit" name="action" value="Search" style="height: 40px; width: 40px; font-size: 20px; border-radius: 10px"><i class="fa fa-search"></i></button>
+
                             </form>
                         </div>
                     </div>
@@ -95,74 +91,83 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
+
             <section class="ranking">
+                <h2 style="display: flex;
+                    justify-content: center;
+                    align-item: center; 
+                    margin-top: 30px;
+                    font-size: 60px;
+                    font">
+                    TOP RANKING
+                </h2>
                 <div class="container" style="background-color: whitesmoke">
-                    <div class="row">
+                    <div class="row" style="margin-bottom: 150px">
                         <div class="card md-4">
                             <a href="MainController?action=LoadInfoMentor&UserID=${rank1.userID}">
-                            <div class="card_image">
+                            <div class="card_image" style="width: 200px; height: 300px;">
                                 <img src="${rank1.images}" alt="">
                             </div>
                             <div class="content">
                                 <h3>Name: ${rank1.name}</h3>
-                                <p>Stars: ${rank1.stars}</p>
+                                <p><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank1.stars}</p>
                             </div>
-                        </a>
+                            </a>
                     </div>
                     <div class="card md-4">
                         <a href="MainController?action=LoadInfoMentor&UserID=${rank2.userID}">
-                            <div class="card_image">
+                            <div class="card_image" style="width: 200px; height: 300px;">
                                 <img src="${rank2.images}" alt="">
                             </div>
                             <div class="content">
                                 <h3>Name: ${rank2.name}</h3>
-                                <p>Stars: ${rank2.stars}</p>
+                                <p><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank2.stars}</p>
                             </div>
                         </a>
                     </div>
                     <div class="card md-4">
                         <a href="MainController?action=LoadInfoMentor&UserID=${rank3.userID}">
-                            <div class="card_image">
+                            <div class="card_image" style="width: 200px; height: 300px;">
                                 <img src="${rank3.images}" alt="">
                             </div>
                             <div class="content">
                                 <h3>Name: ${rank3.name}</h3>
-                                <p>Stars: ${rank3.stars}</p>
+                                <p><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank3.stars}</p>
                             </div>
                         </a>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="card md-4">
+                    <div class="card md-4" >
                         <a href="MainController?action=LoadInfoMentor&UserID=${rank4.userID}">
-                            <div class="card_image">
+                            <div class="card_image" style="width: 200px; height: 300px;">
                                 <img src="${rank4.images}" alt="">
                             </div>
                             <div class="content">
                                 <h3>Name: ${rank4.name}</h3>
-                                <p>Stars: ${rank4.stars}</p>
+                                <p><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank4.stars}</p>
                             </div>
                         </a>
                     </div>
                     <div class="card md-4">
                         <a href="MainController?action=LoadInfoMentor&UserID=${rank5.userID}">
-                            <div class="card_image">
+                            <div class="card_image" style="width: 200px; height: 300px;">
                                 <img src="${rank5.images}" alt="">
                             </div>
                             <div class="content">
                                 <h3>Name: ${rank5.name}</h3>
-                                <p>Stars: ${rank5.stars}</p>
+                                <p><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank5.stars}</p>
                             </div>
                         </a>
                     </div>
                     <div class="card md-4">
                         <a href="MainController?action=LoadInfoMentor&UserID=${rank6.userID}">
-                            <div class="card_image">
+                            <div class="card_image" style="width: 200px; height: 300px;">
                                 <img src="${rank6.images}" alt="">
                             </div>
                             <div class="content">
                                 <h3>Name: ${rank6.name}</h3>
-                                <p>Stars: ${rank6.stars}</p>
+                                <p><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank6.stars}</p>
                             </div>
                         </a>
                     </div>

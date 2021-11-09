@@ -37,6 +37,9 @@ public class LoadInforController extends HttpServlet {
             usdto = usdao.loadUser(userID);
             session.setAttribute("Pass", password);
             session.setAttribute("LOGIN_USER", usdto);
+            if (request.getAttribute("UPDATE_SUCCESS") != null) {
+                request.setAttribute("MESS", "UPDATE SUCCESS");
+            }
             url = LOAD;
         } catch (Exception e) {
             log("Error at LoadController: " + e.toString());

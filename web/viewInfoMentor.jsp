@@ -30,7 +30,7 @@
         <body>
             <div class="container">
                 <div class="row gutters">
-                    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12" style="padding-top: 20%">
+                    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
                         <div class="card h-100">
                             <div class="card-body">
                                 <div class="account-settings">
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" style="padding-top: 20%">
+                <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                     <div class="card h-100">
                         <div class="card-body" style="font-size: 18px">
                             <div class="row gutters">

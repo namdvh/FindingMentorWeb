@@ -113,7 +113,7 @@ public class UserDAO {
                 stm.setString(8, user.getCertificate());
                 stm.setString(9, "1");
                 stm.setString(10, "");
-                stm.setString(11, "images\\mat-na1-ohay-tv-90395.jpg");
+                stm.setString(11, "https://i.imgur.com/GwvY1F9.png");
                 check = stm.executeUpdate() > 0;
             }
         } finally {
@@ -146,7 +146,7 @@ public class UserDAO {
                 stm.setString(8, user.getCertificate());
                 stm.setString(9, "1");
                 stm.setString(10, "");
-                stm.setString(11, "images\\mat-na1-ohay-tv-90395.jpg");
+                stm.setString(11, "https://i.imgur.com/GwvY1F9.png");
                 check = stm.executeUpdate() > 0;
             }
         } finally {
