@@ -28,7 +28,7 @@ import org.apache.commons.io.FileUtils;
 @MultipartConfig
 public class UpdateUserController extends HttpServlet {
 
-    private static final String ERROR = "updateUser.jsp";
+    private static final String ERROR = "LoadInforController";
     private static final String SUCCESS = "LoadInforController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)

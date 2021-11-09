@@ -132,21 +132,18 @@
 
             <section class="MyCourse" style="margin-top: 20px">
                 <div class="tab">
-                    <form action="MainController">
-                        <button class="tablinks" onclick="openCity(event, 'allCourse')">
-                            <a href="MainController?action=ShowAll" style="font-size: 17px">All subject</a>
-                        </button>
-                        <button class="tablinks" onclick="openCity(event, 'myCourse')">
-                            <a href="MainController?action=ShowAll" style="font-size: 17px">My Course</a>
-                        </button>
-
-                        <div class="search-container">
-
+                    <button>
+                        <a href="MainController?action=ShowAll" style="font-size: 17px">All subject</a>
+                    </button>
+                    <button>
+                        <a href="MainController?action=ShowEnrolled" style="font-size: 17px">My Course</a>
+                    </button>
+                    <div class="search-container">
+                        <form action="MainController" method="POST">
                             <input type="text" placeholder="search..." name="txtSearch" />
                             <button type="submit" name="action" value="SearchCourse"><i class="fa fa-search"></i></button>
-
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             <c:if test="${MESSAGE != null}">
                 <div class="alert">

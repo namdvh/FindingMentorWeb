@@ -60,15 +60,15 @@
                                     <div class="container-fluid">
                                         <div class="form-group">
                                             <label for="fullName">Content Name:</label>
-                                            <input type="text" class="form-control" id="fullName" placeholder="Content Name" name="UpdateContentName" value="${itemContent.contentName}" required="">
+                                            <input type="text" class="form-control" id="fullName" placeholder="max 50 letter" name="UpdateContentName" value="${itemContent.contentName}" required="">
                                         </div>
                                         <div class="form-group">
                                             <label for="fullName">Video Url:</label>
-                                            <input type="text" class="form-control" id="fullName" placeholder="Video Url" name="UpdateVideoURL" value="${itemContent.videoURL}" required="">
+                                            <input type="text" class="form-control" id="fullName" placeholder="max 50 letter" name="UpdateVideoURL" value="${itemContent.videoURL}" required="">
                                         </div>
                                         <div class="form-group">
                                             <label for="fullName">Blog:</label>
-                                            <textarea type="text" class="form-control" id="fullName" placeholder="Blog" name="UpdateBlog" value="${itemContent.blog}" style="height: 240px">${itemContent.blog}</textarea>
+                                            <textarea maxlength="250" type="text" class="form-control" id="fullName" placeholder="max 250 letter" name="UpdateBlog" value="${itemContent.blog}" style="height: 240px">${itemContent.blog}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -108,15 +108,15 @@
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label for="fullName">Subject Name</label>
-                                            <input type="text" class="form-control" id="fullName" value="${sessionScope.SUBJECT_NAME}" readonly="">
+                                            <input maxlength="50" type="text" class="form-control" id="fullName" placeholder="max 50 letter" value="${sessionScope.SUBJECT_NAME}" readonly="">
                                         </div>
                                         <div class="form-group">
                                             <label for="fullName">Chapter Name:</label>
-                                            <input type="text" class="form-control" id="fullName" placeholder="Chapter Name" name="NewChapterName" value="" required="">
+                                            <input maxlength="50" type="text" class="form-control" id="fullName" placeholder="max 50 letter" name="NewChapterName" value="" required="">
                                         </div>
                                         <div class="form-group">
                                             <label for="fullName">Description:</label>
-                                            <input type="text" class="form-control" id="fullName" placeholder="Description" name="NewDescription" value="">
+                                            <input maxlength="50" type="text" class="form-control" id="fullName" placeholder="max 50 letter" name="NewDescription" value="">
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -155,17 +155,17 @@
                                                         <div class="container-fluid">
                                                             <div class="form-group">
                                                                 <label for="fullName">Content Name:</label>
-                                                                <input type="text" class="form-control" id="fullName" placeholder="Content Name" name="contentName" value="" required="">
+                                                                <input maxlength="50" type="text" class="form-control" id="fullName" placeholder="max 50 letter" name="contentName" value="" required="">
                                                             </div>
 
                                                             <div class="form-group">
                                                                 <label for="fullName">Video Url:</label>
-                                                                <input type="url" class="form-control" id="fullName" placeholder="Video Url" name="videoURL" value="" required="">
+                                                                <input maxlength="50" type="url" class="form-control" id="fullName" placeholder="max 50 letter" name="videoURL" value="" required="">
                                                             </div>
 
                                                             <div class="form-group">
                                                                 <label for="fullName">Blog:</label>
-                                                                <textarea type="text" class="form-control" id="fullName" name="blog" value="" placeholder="Blog" style="height: 240px"></textarea>
+                                                                <textarea maxlength="250" type="text" class="form-control" id="fullName" name="blog" value="" placeholder="max 250 letter" style="height: 240px"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -193,11 +193,11 @@
                                                     <div class="modal-body">
                                                         <div class="form-group">
                                                             <label for="fullName">Chapter Name:</label>
-                                                            <input type="text" class="form-control" id="fullName" placeholder="Chapter Name" name="UpdateChapterName" value="${chapter.chapterName}" required="">
+                                                            <input maxlength="50" type="text" class="form-control" id="fullName" placeholder="max 50 letter" name="UpdateChapterName" value="${chapter.chapterName}" required="">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="fullName">Description:</label>
-                                                            <input type="text" class="form-control" id="fullName" placeholder="Description" name="UpdateDescription" value="${chapter.description}">
+                                                            <input maxlength="50" type="text" class="form-control" id="fullName" placeholder="max 50 letter" name="UpdateDescription" value="${chapter.description}">
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
