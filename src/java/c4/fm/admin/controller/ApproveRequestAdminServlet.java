@@ -8,7 +8,6 @@ package c4.fm.admin.controller;
 import c4.fm.dao.UserDAO;
 import c4.fm.requestmentor.RequestMentorDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,16 +23,6 @@ public class ApproveRequestAdminServlet extends HttpServlet {
 
     private static final String REQUESTMANAGE_PAGE = "requestMentorPage.jsp";
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -44,16 +33,13 @@ public class ApproveRequestAdminServlet extends HttpServlet {
             UserDAO userDao = new UserDAO();
             RequestMentorDAO RQDao = new RequestMentorDAO();
             String msg = "";
-            
-            if(userDao.updateUserRoleAdmin(userId)){
+            if (userDao.updateUserRoleAdmin(userId)) {
                 userDao.InsertFeedback(userId);
                 RQDao.updateRequestStatusAdmin(Integer.parseInt(requestId));
                 msg = "Approve Success! View At MentorManagement!";
                 url = "MainController?action=SearchRequest&searchValue=";
             }
-            
             request.setAttribute("APPROVE_MSG", msg);
-            
         } catch (Exception e) {
             log("Error at ApproveRequestAdminServlet:" + e.toString());
         } finally {

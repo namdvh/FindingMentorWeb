@@ -17,10 +17,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
               integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
 
-    </head>
-    <body style="padding-top: 0;">
-
-        <style>
+          <style>
 
             *{
                 margin: 0;
@@ -169,11 +166,15 @@
             }
 
         </style>
+    </head>
+    <body style="margin: 0; padding: 0; margin-top: 0px;">
+
+      
         <!--********************* INSTRUCTION__MENU *********************-->
         <c:if test="${sessionScope.LOGIN_USER != null}">
             <section class="instruction__menu container-fluid " >
                 <nav class="navbar navbar-expand-lg navbar-light px-0">
-                    <a class="navbar-brand" href="MainController?action=Load" style="font-size: 25px; margin-top: 15px;">
+                    <a class="navbar-brand" href="MainController?action=Load" style="font-size: 25px; margin-left: 200px">
                         <i class="fa fa-book"></i>
                         INSTRUCTION
                         <label>EDUCATION</label>
@@ -191,31 +192,26 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto">
+                        <ul class="navbar-nav ml-auto" style="margin-right: 150px;">
                             <li class="nav-item active">
                                 <a class="nav-link" href="MainController?action=Load"
                                    >HOME <span class="sr-only">(current)</span></a
                                 >
                             </li>
-
                             <li class="nav-item">
                                 <a class="nav-link" href="MainController?action=ShowAll">Subject</a>
-                            </li>                        
+                            </li>  
+                            <li class="nav-item">
+                                <a class="nav-link" href="MainController?action=Logout" class="choose">Log out</a>
+                            </li>
                             <li>
-                                <div class="dropdown" style="float:right;">
-                                    <button class="dropbtn" style="background-color: #fff; border: none;">
-                                        <a href="MainController?action=LoadInfor">
-                                            <i>
-                                                <img style="border-radius: 50%; width: 45px; height: 45px; font-size: 30px; margin-left: 15px;" src="${sessionScope.LOGIN_USER.images}" alt="photo2">
-                                            </i>       
-                                        </a>
-                                    </button>
-                                    <div class="dropdown-content" style="left:-12px;">
-                                        <a class="choose">${sessionScope.LOGIN_USER.name}</a>
-                                        <a href="MainController?action=LoadInfor" class="choose">Profile</a>
-                                        <a href="MainController?action=Logout" class="choose">Log out</a>
-                                    </div>
-                                </div>
+                                <button style="border: none;">
+                                    <a href="MainController?action=LoadInfor">
+                                        <i>
+                                            <img style="border-radius: 50%; width: 45px; height: 45px; font-size: 30px;" src="${sessionScope.LOGIN_USER.images}" alt="photo2">
+                                        </i>       
+                                    </a>
+                                </button>
                             </li>       
                         </ul>
                     </div>

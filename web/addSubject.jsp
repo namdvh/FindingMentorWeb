@@ -35,221 +35,147 @@
                             <div id="top-navigation"> Welcome <a href="#"><strong>Administrator</strong></a> <span>|</span> <a href="MainController?action=Logout">Log out</a> </div>
                         </c:if>
                     </c:if>
-
-
                 </div>
-                <!-- End Logo + Top Nav -->
-                <!-- Main Nav -->
-
-                <!-- End Main Nav -->
             </div>
         </div>
 
 
         <div class="container">
             <div class="row">
-
-                <!-- Message OK -->
-
-                <!-- End Message OK -->
-                <!-- Message Error -->
-
-                <!-- End Message Error -->
-    
-                <!-- Main -->
                 <div id="main">
-            
-                    <!-- Content -->
                     <div id="content">
-                        <!-- Box -->
-                       
-                            <!-- Box Head -->
+                        <div class="box">
+                            <form action="AddSubjectAdminServlet" method="post" enctype="multipart/form-data">
+                                <div class="box-head">
+                                    <h2>Add New Subject</h2>
+                                </div>
+                                <div class="form">
+                                    <p> 
+                                        <c:if test="${requestScope.ADDSUBJECT_MSG != null}">
+                                            <label style="color: red">${requestScope.ADDSUBJECT_MSG}</label>
+                                        </c:if>
+                                        <c:if test="${requestScope.UPDATE_MSG != null}">
+                                            <label style="color: red">${requestScope.UPDATE_MSG}</label>
+                                        </c:if>
+                                    </p>
+                                    <p> <span class="req">max 100 symbols</span>
+                                        <label>Subject Name<span>(Required Field)</span></label>
+                                        <input type="text" name="subjectName" class="field size1" required=""/>
+                                    </p>
+                                    <p> <span class="req">max 100 symbols</span>
+                                        <label>Image<span>(Required Field)</span></label>
+                                        <input type="file" name="image" class="field size1" required=""/>
+                                    </p>
+                                    <p class="inline-field">
+                                        <label>Select Mentor</label>
+                                        <select class="" name="userId">
+                                            <c:forEach var="user" items="${sessionScope.LIST_USER}">
+                                                <option value="${user.userID}">${user.userID}</option>
+                                            </c:forEach>
+                                        </select>
 
-                            <!-- End Box Head -->
-                            <!-- Table -->
-                            <div class="box">
-
-                                <form action="AddSubjectAdminServlet" method="post" enctype="multipart/form-data">
-                                    <div class="box-head">
-                                        <h2>Add New Subject</h2>
-                                    </div>
-
-                                    <!-- Form -->
-                                    <div class="form">
-                                        <p> 
-                                            <c:if test="${requestScope.ADDSUBJECT_MSG != null}">
-                                                <label style="color: red">${requestScope.ADDSUBJECT_MSG}</label>
-                                            </c:if>
-                                            <c:if test="${requestScope.UPDATE_MSG != null}">
-                                                <label style="color: red">${requestScope.UPDATE_MSG}</label>
-                                            </c:if>
-
-
-                                        </p>
-                                        <p> <span class="req">max 100 symbols</span>
-                                            <label>Subject Name<span>(Required Field)</span></label>
-                                            <input type="text" name="subjectName" class="field size1" required=""/>
-                                        </p>
-                                        <p> <span class="req">max 100 symbols</span>
-                                            <label>Image<span>(Required Field)</span></label>
-                                            <input type="file" name="image" class="field size1" required=""/>
-                                        </p>
-                                        <p class="inline-field">
-                                            <label>Select Mentor</label>
-                                            <select class="" name="userId">
-                                                <c:forEach var="user" items="${sessionScope.LIST_USER}">
-                                                    <option value="${user.userID}">${user.userID}</option>
-                                                </c:forEach>
-                                            </select>
-
-                                        </p>
-                                        <p class="inline-field">
-                                            <label>Category</label>
-                                            <select class="" name="categoryId">
-                                                <c:forEach var="cate" items="${sessionScope.LIST_CATE}">
-                                                    <option value="${cate.categoryId}">${cate.categoryName}</option>
-                                                </c:forEach>
-                                            </select>
-                                        </p>
-                                        <p class="inline-field">
-                                            <label>Status</label>
-                                            <select class="field size5" name="status">
-                                                <option value="True">Active</option>
-                                                <option value="False">InActive</option>
-                                            </select>
-                                        </p>
-                                        <p> <span class="req">max 100 symbols</span>
-                                            <label>Description <span>(Required Field)</span></label>
-                                            <textarea name="description" class="field size1" rows="10" cols="30" required=""></textarea>
-                                        </p>
-                                    </div>
-                                         
-                                    <!-- End Form -->
-                                    <!-- Form Buttons -->
-                                    <div class="buttons">
-                                        <input type="submit" name="action" class="button" value="AddSubjectAdmin" />
-                                    </div>
-                                    </form>
-                                    <!-- End Form Buttons -->
-                           
-                            </div>
-                            <!-- Table -->
-                      
-                        <!-- End Box -->
-                        <!-- Box -->
-                    
+                                    </p>
+                                    <p class="inline-field">
+                                        <label>Category</label>
+                                        <select class="" name="categoryId">
+                                            <c:forEach var="cate" items="${sessionScope.LIST_CATE}">
+                                                <option value="${cate.categoryId}">${cate.categoryName}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </p>
+                                    <p class="inline-field">
+                                        <label>Status</label>
+                                        <select class="field size5" name="status">
+                                            <option value="True">Active</option>
+                                            <option value="False">InActive</option>
+                                        </select>
+                                    </p>
+                                    <p> <span class="req">max 100 symbols</span>
+                                        <label>Description <span>(Required Field)</span></label>
+                                        <textarea name="description" class="field size1" rows="10" cols="30" required=""></textarea>
+                                    </p>
+                                </div>
+                                <div class="buttons">
+                                    <input type="submit" name="action" class="button" value="AddSubjectAdmin" />
+                                </div>
+                            </form>
                         </div>
-                    
-                        
-                            <!-- Box Head -->
-
-                            <c:if test="${requestScope.UPDATE_SUBJECT != null}">
-                                    <div class="box-head">
-                                        <h2>Update Subject</h2>
-                            <!-- End Box Head -->
-                            <form action="UpdateSubjectAdminServlet" method="post" enctype="multipart/form-data">  
-                                    <!-- Form -->
-                                    <div class="form">
-
-                                        <p> <span class="req">max 100 symbols</span>
-                                            <label>Subject Name<span>(Required Field)</span></label>
-                                            <input type="text" name="subjectName" class="field size1" value="${requestScope.UPDATE_SUBJECT.subjectName}" required=""/>
-                                            <input type="hidden" name="subjectId" value="${requestScope.UPDATE_SUBJECT.subjectId}">
-                                        </p>
-                                        <p> <span class="req">max 100 symbols</span>
-                                            <label>Image<span>(Required Field)</span></label>
-                                            <input type="file" name="image" class="field size1" value=""/>
-                                            <input type="hidden" name="oldImage" class="field size1" value="${requestScope.UPDATE_SUBJECT.images}"/>
-                                        </p>
-                                        <p class="inline-field">
-                                            <label>Select Mentor</label>
-                                            <select class="field size5" name="userId">
-                                                <option value="${requestScope.UPDATE_SUBJECT.userId}">${requestScope.UPDATE_SUBJECT.userId}</option>
-                                                <c:forEach var="user" items="${sessionScope.LIST_USER}">
-                                                    <option value="${user.userID}">${user.userID}</option>
-                                                </c:forEach>
-                                            </select>
-
-                                        </p>
-                                        <p class="inline-field">
-                                            <label>Category</label>
-                                            <select class="field size5" name="categoryId">
-                                                <option value="${requestScope.UPDATE_SUBJECT.categoryId}">${requestScope.UPDATE_SUBJECT.categoryId}</option>
-
-                                                <c:forEach var="cate" items="${sessionScope.LIST_CATE}">
-                                                    <option value="${cate.categoryId}">${cate.categoryName}</option>
-                                                </c:forEach>
-                                            </select>
-                                        </p>
-                                        <p class="inline-field">
-                                            <label>Status</label>
-
-                                            <select class="field size5" name="status">
-                                                <option value="${requestScope.UPDATE_SUBJECT.status}">${requestScope.UPDATE_SUBJECT.status}</option>
-
-                                                <option value="True">Active</option>
-                                                <option value="False">InActive</option>
-                                            </select>
-                                        </p>
-                                        <p> <span class="req">max 100 symbols</span>
-                                            <label>Description <span>(Required Field)</span></label>
-                                            <textarea name="description" class="field size1" rows="10" cols="30" required="" >${requestScope.UPDATE_SUBJECT.description}</textarea>
-                                        </p>
-                                    </div>
-                                
-                                    <!-- End Form -->
-                                    <!-- Form Buttons -->
-                                    <div class="buttons">
-                                        <a href="MainController?action=LoadAdminPage" class="button">Cancle</a>
-                                        <input type="submit" name="action" class="button" value="UpdateSubjectAdmin" />
-                                    </div>
-                                    <!-- End Form Buttons -->
-                                </c:if>
-                                    </form>
-                            
-
-                                
-                      
-                        <!-- End Box -->
-              
-                    <!-- End Content -->
-                    <!-- Sidebar -->
-                    <span style="display: flex; justify-content: flex-end; ">
-                        <!-- Box -->
-                        <div class="box" style="margin-left: 15px">
-                            <!-- Box Head -->
-
-
-
-
-
-                            <div class="list-group">
-                                <a href="MainController?action=LoadAdminPage" class="list-group-item list-group-item-action ">
-                                    Dashboard
-                                </a>
-                                <a href="MainController?action=LoadMentorPage" class="list-group-item list-group-item-action">Mentor Management</a>
-                                <a href="MainController?action=LoadUserPage" class="list-group-item list-group-item-action">User Management</a>
-                                <a href="MainController?action=LoadApprovePage" class="list-group-item list-group-item-action">Approve Mentor</a>
-                                <a href="MainController?action=addSubjectPage" class="list-group-item list-group-item-action active">Add Subject</a>
-                            </div>
-                            <!-- End Box Head-->
-                    
-                        </div>
-                      </span>
-                          </div>
-                        <!-- End Box -->
                     </div>
-                    <!-- End Sidebar -->
-                   
+                    <c:if test="${requestScope.UPDATE_SUBJECT != null}">
+                        <div class="box-head">
+                            <h2>Update Subject</h2>
+                            <form action="UpdateSubjectAdminServlet" method="post" enctype="multipart/form-data">  
+                                <div class="form">
+                                    <p> <span class="req">max 100 symbols</span>
+                                        <label>Subject Name<span>(Required Field)</span></label>
+                                        <input type="text" name="subjectName" class="field size1" value="${requestScope.UPDATE_SUBJECT.subjectName}" required=""/>
+                                        <input type="hidden" name="subjectId" value="${requestScope.UPDATE_SUBJECT.subjectId}">
+                                    </p>
+                                    <p> <span class="req">max 100 symbols</span>
+                                        <label>Image<span>(Required Field)</span></label>
+                                        <input type="file" name="image" class="field size1" value=""/>
+                                        <input type="hidden" name="oldImage" class="field size1" value="${requestScope.UPDATE_SUBJECT.images}"/>
+                                    </p>
+                                    <p class="inline-field">
+                                        <label>Select Mentor</label>
+                                        <select class="field size5" name="userId">
+                                            <option value="${requestScope.UPDATE_SUBJECT.userId}">${requestScope.UPDATE_SUBJECT.userId}</option>
+                                            <c:forEach var="user" items="${sessionScope.LIST_USER}">
+                                                <option value="${user.userID}">${user.userID}</option>
+                                            </c:forEach>
+                                        </select>
+
+                                    </p>
+                                    <p class="inline-field">
+                                        <label>Category</label>
+                                        <select class="field size5" name="categoryId">
+                                            <option value="${requestScope.UPDATE_SUBJECT.categoryId}">${requestScope.UPDATE_SUBJECT.categoryId}</option>
+
+                                            <c:forEach var="cate" items="${sessionScope.LIST_CATE}">
+                                                <option value="${cate.categoryId}">${cate.categoryName}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </p>
+                                    <p class="inline-field">
+                                        <label>Status</label>
+
+                                        <select class="field size5" name="status">
+                                            <option value="${requestScope.UPDATE_SUBJECT.status}">${requestScope.UPDATE_SUBJECT.status}</option>
+
+                                            <option value="True">Active</option>
+                                            <option value="False">InActive</option>
+                                        </select>
+                                    </p>
+                                    <p> <span class="req">max 100 symbols</span>
+                                        <label>Description <span>(Required Field)</span></label>
+                                        <textarea name="description" class="field size1" rows="10" cols="30" required="" >${requestScope.UPDATE_SUBJECT.description}</textarea>
+                                    </p>
+                                </div>
+                                <div class="buttons">
+                                    <a href="MainController?action=LoadAdminPage" class="button">Cancle</a>
+                                    <input type="submit" name="action" class="button" value="UpdateSubjectAdmin" />
+                                </div>
+                            </c:if>
+                        </form>
+                        <span style="display: flex; justify-content: flex-end; ">
+                            <div class="box" style="margin-left: 15px">
+                                <div class="list-group">
+                                    <a href="MainController?action=LoadAdminPage" class="list-group-item list-group-item-action ">
+                                        Dashboard
+                                    </a>
+                                    <a href="MainController?action=LoadMentorPage" class="list-group-item list-group-item-action">Mentor Management</a>
+                                    <a href="MainController?action=LoadUserPage" class="list-group-item list-group-item-action">User Management</a>
+                                    <a href="MainController?action=LoadApprovePage" class="list-group-item list-group-item-action">Approve Mentor</a>
+                                    <a href="MainController?action=addSubjectPage" class="list-group-item list-group-item-action active">Add Subject</a>
+                                    <a href="MainController?action=addCategoryPage" class="list-group-item list-group-item-action">Add Category</a>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
                 </div>
-
-                <!-- Main -->
-          
-        
-        <div id="footer">
-            <div class="shell"> <span class="left">&copy; 2021 - Company Four Class</span> <span class="right"> Design by <a href="http://chocotemplates.com">Chocotemplates.com</a> </span> </div>
-        </div>
-
-
+            </div>
+            <div id="footer">
+                <div class="shell"> <span class="left">&copy; 2021 - Company Four Class</span> <span class="right"> Design by <a href="http://chocotemplates.com">Chocotemplates.com</a> </span> </div>
+            </div>
     </body>
 </html>

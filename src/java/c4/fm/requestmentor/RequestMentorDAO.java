@@ -5,7 +5,6 @@
  */
 package c4.fm.requestmentor;
 
-import c4.fm.user.UserDTO;
 import c4.fm.utils.DBUtils;
 import java.io.Serializable;
 import java.sql.Connection;
@@ -44,9 +43,7 @@ public class RequestMentorDAO implements Serializable {
                     RequestMentorDTO rqMentor = new RequestMentorDTO(requestId, userId, name, certificate, description, status);
                     listRQMentor.add(rqMentor);
                 }
-
             }
-
         } finally {
             if (rs != null) {
                 rs.close();
@@ -85,9 +82,7 @@ public class RequestMentorDAO implements Serializable {
                     RequestMentorDTO rqMentor = new RequestMentorDTO(requestId, userId, name, certificate, description, status);
                     listRQMentor.add(rqMentor);
                 }
-
             }
-
         } finally {
             if (rs != null) {
                 rs.close();

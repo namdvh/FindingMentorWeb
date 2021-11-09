@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package c4.fm.subject;
 
 import c4.fm.user.UserDTO;
@@ -15,10 +10,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author cunpl
- */
 public class SubjectDAO implements Serializable {
 
     public List<SubjectDTO> listSubjectAdmin() throws SQLException, ClassNotFoundException {
@@ -245,7 +236,6 @@ public class SubjectDAO implements Serializable {
         }
         return dto;
     }
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public SubjectDTO loadSubject(int subjectID) throws SQLException, ClassNotFoundException {
         SubjectDTO subject = null;
@@ -258,6 +248,45 @@ public class SubjectDAO implements Serializable {
                 String sql = "Select SubjectID, SubjectName, Images, UserID, CategoryID, Description, Status \n"
                         + " from tblSubject "
                         + " where SubjectID = ? AND Status = '1' ";
+                pst = con.prepareStatement(sql);
+                pst.setInt(1, subjectID);
+                rs = pst.executeQuery();
+                while (rs.next()) {
+                    int subjectId = Integer.parseInt(rs.getString("SubjectID"));
+                    String subjectName = rs.getString("SubjectName");
+                    String images = rs.getString("Images");
+                    String userId = rs.getString("UserID");
+                    String categoryId = rs.getString("CategoryID");
+                    String description = rs.getString("Description");
+                    boolean status = rs.getBoolean("Status");
+                    subject = new SubjectDTO(subjectId, subjectName, images, userId, categoryId, description, status);
+                }
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+
+        }
+        return subject;
+    }
+        public SubjectDTO LoadSubjectInactive(int subjectID) throws SQLException, ClassNotFoundException {
+        SubjectDTO subject = null;
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = "Select SubjectID, SubjectName, Images, UserID, CategoryID, Description, Status \n"
+                        + " from tblSubject "
+                        + " where SubjectID = ? ";
                 pst = con.prepareStatement(sql);
                 pst.setInt(1, subjectID);
                 rs = pst.executeQuery();
@@ -629,7 +658,7 @@ public class SubjectDAO implements Serializable {
                 pst.close();
             }
             if (con != null) {
-
+                con.close();
             }
         }
         return check;

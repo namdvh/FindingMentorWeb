@@ -11,7 +11,8 @@ import java.io.Serializable;
  *
  * @author HuuToan
  */
-public class RoleDTO implements Serializable{
+public class RoleDTO implements Serializable {
+
     private String roleID;
     private String roleName;
 
@@ -38,5 +39,5 @@ public class RoleDTO implements Serializable{
     public void setRoleName(String roleName) {
         this.roleName = roleName;
     }
-    
+
 }

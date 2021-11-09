@@ -16,18 +16,15 @@
         <meta content="description" name="description" />
         <meta name="google" content="notranslate" />
         <meta content="Mashup templates have been developped by Orson.io team" name="author"/>
-        <!-- Disable tap highlight on IE -->
         <meta name="msapplication-tap-highlight" content="no" />
         <link href="./assets/apple-touch-icon.png" rel="apple-touch-icon" />
         <link href="./assets/favicon.ico" rel="icon" />
-        <!-- link Font Awesome -->
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
             integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
             crossorigin="anonymous"
             />
-        <!-- boot -->
         <link
             rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -35,7 +32,6 @@
             crossorigin="anonymous"
             />
         <title>Find Mentor</title>  
-        <!--<link href="New folder/main.a3f694c0.css" rel="stylesheet">-->
         <link rel="stylesheet" href="Content-after/app.css">
     </head>
     <body>
@@ -87,7 +83,7 @@
             </c:forEach>
         </c:forEach>
         <c:set var="listChapter" value="${requestScope.LIST_CHAPTER}"/>
-        <div class="">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
                     <div class="d-flex justify-content-between mb-3">
@@ -263,7 +259,6 @@
             integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
             crossorigin="anonymous"
         ></script>
-        <!-- Button trigger modal -->
         <script>
                                                     $('#exampleModal').on('show.bs.modal', event => {
                                                         var button = $(event.relatedTarget);

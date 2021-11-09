@@ -27,15 +27,6 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "LoadChapterController", urlPatterns = {"/LoadChapterController"})
 public class LoadChapterController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     private static final String PAGE = "mentor.jsp";
     private static final String PAGELOGIN = "login.jsp";
 

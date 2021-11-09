@@ -7,8 +7,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Instruction</title>
-
-        <!-- FONT AEWSOME -->
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -16,16 +14,12 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
             />
-
-        <!-- BOOTSTRAP -->
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
             integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
             crossorigin="anonymous"
             />
-
-        <!-- SLICK -->
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
@@ -34,13 +28,6 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
             />
-
-        <!-- GOOGLE FONTS
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800&display=swap"
-            rel="stylesheet"> -->
-
-        <!-- OWL CAROUSEL -->
         <link rel="stylesheet" href="./owlcarousel/assets/owl.carousel.css" />
         <link rel="stylesheet" href="./owlcarousel/assets/owl.theme.default.css" />
         <!--  -->
@@ -50,8 +37,6 @@
             integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA="
             crossorigin="anonymous"
             />
-
-        <!-- CSS -->
         <link rel="stylesheet" href="css/app.css" />
     </head>
     <c:if test="${sessionScope.LOGIN_USER eq null || sessionScope.LOGIN_USER.roleID eq 'User'}">
@@ -59,9 +44,6 @@
     </c:if>
     <jsp:include page="headerTemplate.jsp"></jsp:include>
         <body>
-            <!--********************* HEADER *********************-->
-
-            <!--********************* INSTRUCTION__MENU *********************-->
             <section>
                 <div class="container mt-3 mb-4">
                     <div class="col-lg-9 mt-4 mt-lg-0">
@@ -127,17 +109,9 @@
             </div>
         </section>
         <jsp:include page="footerTemplate.jsp"></jsp:include>
-
-        <!-- JQUERY -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-        <!-- SLICK CAROUSEL -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-
-        <!-- OWL CAROUSEL -->
         <script src="./owlcarousel/owl.carousel.js"></script>
-
-        <!-- BOOTSTRAP -->
         <script
             src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
             integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
@@ -148,7 +122,6 @@
             integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
             crossorigin="anonymous"
         ></script>
-
         <script>
             // $(document).ready(function () {
             //     $(".owl-carousel").owlCarousel();

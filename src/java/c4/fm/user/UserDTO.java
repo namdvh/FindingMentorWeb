@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package c4.fm.user;
 
 import java.io.Serializable;
@@ -33,7 +28,7 @@ public class UserDTO implements Serializable {
         this.stars = stars;
     }
 
-    public UserDTO(String userID,String name, String email, String roleID, String phoneNumber, String address, String birthday, String images, int stars) {
+    public UserDTO(String userID, String name, String email, String roleID, String phoneNumber, String address, String birthday, String images, int stars) {
         this.userID = userID;
         this.name = name;
         this.email = email;
@@ -45,7 +40,6 @@ public class UserDTO implements Serializable {
         this.stars = stars;
     }
 
-    
     public UserDTO(String userID, String name, String email, String roleID, String phoneNumber, String address, String password, String certificate, String status, String birthday) {
         this.userID = userID;
         this.name = name;
@@ -78,7 +72,6 @@ public class UserDTO implements Serializable {
         this.password = password;
     }
 
-    //UserID, Name, Email, PhoneNumber, Address, BirthDay, Images
     public UserDTO(String userID, String name, String email, String roleID, String phoneNumber, String address, String birthday, String images) {
         this.userID = userID;
         this.name = name;
@@ -89,7 +82,6 @@ public class UserDTO implements Serializable {
         this.birthday = birthday;
         this.images = images;
     }
-
 
     public UserDTO(String userID, String name, String email, String phoneNumber, String address, String birthday, String images) {
         this.userID = userID;

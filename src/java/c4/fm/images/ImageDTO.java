@@ -10,6 +10,7 @@ package c4.fm.images;
  * @author HuuToan
  */
 public class ImageDTO {
+
     private String url;
     int so;
     String hinhanh;
@@ -25,5 +26,4 @@ public class ImageDTO {
     public void setUrl(String url) {
         this.url = url;
     }
-    
 }

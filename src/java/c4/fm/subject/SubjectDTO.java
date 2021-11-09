@@ -13,9 +13,10 @@ import java.util.List;
  *
  * @author cunpl
  */
-public class SubjectDTO implements Serializable{
-   private int subjectId;
-    private String  subjectName;
+public class SubjectDTO implements Serializable {
+
+    private int subjectId;
+    private String subjectName;
     private String images;
     private String userId;
     private String categoryId;
@@ -121,7 +122,5 @@ public class SubjectDTO implements Serializable{
     public void setDescription(String description) {
         this.description = description;
     }
-    
-    
-    
+
 }

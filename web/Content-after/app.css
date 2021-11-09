@@ -3,6 +3,10 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+body {
+    margin-top: 0px;
+}
 .title {
   display: flex;
 }
@@ -127,12 +131,7 @@
   margin: 15px auto;
 }
 
-body {
-  /* color: #2e323c;
-    background: #f5f6fa;
-    position: relative;
-    height: 100%; */
-}
+
 .account-settings .user-profile {
   margin: 0 0 1rem 0;
   padding-bottom: 1rem;

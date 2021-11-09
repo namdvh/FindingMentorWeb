@@ -19,8 +19,9 @@ import java.util.List;
  *
  * @author HuuToan
  */
-public class RegisterSubjectDAO implements Serializable{
-       public boolean registerSubjectUser(int subjectID, String userID, String name) throws SQLException, ClassNotFoundException {
+public class RegisterSubjectDAO implements Serializable {
+
+    public boolean registerSubjectUser(int subjectID, String userID, String name) throws SQLException, ClassNotFoundException {
         boolean check = false;
         Connection conn = null;
         PreparedStatement stm = null;
@@ -33,7 +34,7 @@ public class RegisterSubjectDAO implements Serializable{
                 stm.setInt(1, subjectID);
                 stm.setString(2, userID);
                 stm.setString(3, name);
-                 if (stm.executeUpdate() > 0) {
+                if (stm.executeUpdate() > 0) {
                     check = true;
                 }
             }
@@ -90,7 +91,6 @@ public class RegisterSubjectDAO implements Serializable{
         return listSubject;
     }
 
-     
     public List<RegisterSubjectDTO> loadJoinnedCourse(String userID) throws SQLException, ClassNotFoundException {
         List<RegisterSubjectDTO> listsubject = new ArrayList<>();
         Connection con = null;
@@ -124,16 +124,17 @@ public class RegisterSubjectDAO implements Serializable{
                 con.close();
             }
         }
-        return listsubject ;
+        return listsubject;
     }
-     public boolean checkValidRegister (String UserID, int SubjectID) throws SQLException, ClassNotFoundException{
+
+    public boolean checkValidRegister(String UserID, int SubjectID) throws SQLException, ClassNotFoundException {
         boolean check = false;
         Connection con = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
         try {
-             con = DBUtils.getConnection();
-             if (con != null) {
+            con = DBUtils.getConnection();
+            if (con != null) {
                 String sql = " select SubjectID, UserID, Status, Name "
                         + "from tblRegister "
                         + "where Status = '1' AND SubjectID = ? AND UserID = ? ";
@@ -144,11 +145,11 @@ public class RegisterSubjectDAO implements Serializable{
                 if (rs.next()) {
                     check = true;
                 }
-             }          
+            }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
-             if (rs != null) {
+        } finally {
+            if (rs != null) {
                 rs.close();
             }
             if (pst != null) {

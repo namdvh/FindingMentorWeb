@@ -12,7 +12,6 @@ import c4.fm.subject.SubjectDAO;
 import c4.fm.subject.SubjectDTO;
 import c4.fm.user.UserDTO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,15 +29,6 @@ public class AddSubjectPageServlet extends HttpServlet {
 
     private static final String ADDSUBJECT_ADMIN = "addSubject.jsp";
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -60,7 +50,7 @@ public class AddSubjectPageServlet extends HttpServlet {
             List<CategoryDTO> listCate = null;
             listCate = cateDao.loadListCate();
             session.setAttribute("LIST_CATE", listCate);
-            
+
         } catch (Exception e) {
             log("Error at AddSubjectPageServlet:" + e.toString());
         } finally {

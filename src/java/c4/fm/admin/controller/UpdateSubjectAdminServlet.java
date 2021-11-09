@@ -24,22 +24,12 @@ import org.apache.commons.io.FileUtils;
  *
  * @author cunpl
  */
-
 @WebServlet(name = "UpdateSubjectAdminServlet", urlPatterns = {"/UpdateSubjectAdminServlet"})
 @MultipartConfig
 public class UpdateSubjectAdminServlet extends HttpServlet {
 
     private static final String ADMIN_PAGE = "MainController?action=LoadAdminPage";
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -47,35 +37,30 @@ public class UpdateSubjectAdminServlet extends HttpServlet {
         try {
             int subjectId = Integer.parseInt(request.getParameter("subjectId"));
             String subjectName = request.getParameter("subjectName");
-//            String image = request.getParameter("image");
-            
-            
+
             Part newPart = request.getPart("image");
             Part oldPart = request.getPart("oldImage");
             String userId = request.getParameter("userId");
             String categoryId = request.getParameter("categoryId");
             boolean status = Boolean.parseBoolean(request.getParameter("status"));
             String description = request.getParameter("description");
-            
+
             HttpSession session = request.getSession();
-            SubjectDTO sj=(SubjectDTO) session.getAttribute("SUB");
-            SubjectDAO sjdao=new SubjectDAO();
-            String pathImage="";
-            
-            SubjectDTO subjectDTO = sjdao.loadSubject(subjectId);
-            
-            if(!newPart.getSubmittedFileName().isEmpty()){
+            SubjectDTO sj = (SubjectDTO) session.getAttribute("SUB");
+            SubjectDAO sjdao = new SubjectDAO();
+            String pathImage = "";
+
+            SubjectDTO subjectDTO = sjdao.LoadSubjectInactive(subjectId);
+
+            if (!newPart.getSubmittedFileName().isEmpty()) {
                 String filename = subjectId + ".jpg";
-                pathImage="SubjectImage"+File.separator+filename;
+                pathImage = "SubjectImage" + File.separator + filename;
                 String realPath = request.getServletContext().getRealPath("/") + pathImage;
                 File file = new File(realPath);
                 FileUtils.copyInputStreamToFile(newPart.getInputStream(), file);
-            }else{
-                    pathImage = subjectDTO.getImages();
+            } else {
+                pathImage = subjectDTO.getImages();
             }
-//            if (image.equals("")) {
-//                image = request.getParameter("oldImage");
-//            }
             SubjectDTO subject = new SubjectDTO(subjectId, subjectName, pathImage, userId, categoryId, description, status);
             SubjectDAO subjectDao = new SubjectDAO();
             String msg = "";

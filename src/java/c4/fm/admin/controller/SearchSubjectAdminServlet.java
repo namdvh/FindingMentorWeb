@@ -22,17 +22,9 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "SearchSubjectAdminServlet", urlPatterns = {"/SearchSubjectAdminServlet"})
 public class SearchSubjectAdminServlet extends HttpServlet {
+
     private static final String ADMIN_PAGE = "admin.jsp";
-    
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -42,17 +34,17 @@ public class SearchSubjectAdminServlet extends HttpServlet {
             SubjectDAO subjectDao = new SubjectDAO();
             String option = request.getParameter("option");
             List<SubjectDTO> listSubject = null;
-            if(option == null){
+            if (option == null) {
                 listSubject = subjectDao.searchSubjectAdmin(searchValue);
             }
             HttpSession session = request.getSession();
             session.setAttribute("LIST_SUBJECT", listSubject);
-            
+
         } catch (Exception e) {
-            log("Error at SearchSubjectAdminServlet:"+e.toString());
-        }finally{
+            log("Error at SearchSubjectAdminServlet:" + e.toString());
+        } finally {
             request.getRequestDispatcher(url).forward(request, response);
-            
+
         }
     }
 

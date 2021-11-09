@@ -8,7 +8,6 @@ package c4.fm.admin.controller;
 import c4.fm.dao.UserDAO;
 import c4.fm.subject.SubjectDAO;
 import c4.fm.subject.SubjectDTO;
-import c4.fm.user.UserDTO;
 import java.io.File;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -27,17 +26,9 @@ import org.apache.commons.io.FileUtils;
 @MultipartConfig
 @WebServlet(name = "AddSubjectAdminServlet", urlPatterns = {"/AddSubjectAdminServlet"})
 public class AddSubjectAdminServlet extends HttpServlet {
+
     private static final String ADMIN_PAGE = "LoadAdminServlet";
-    
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -45,30 +36,27 @@ public class AddSubjectAdminServlet extends HttpServlet {
         try {
             UserDAO usdao = new UserDAO();
             String SubjectName = request.getParameter("subjectName");
-//            String Image = request.getParameter("image");
             Part part = request.getPart("image");
-            
+
             String UserId = request.getParameter("userId");
             String CategoryId = request.getParameter("categoryId");
             boolean status = Boolean.parseBoolean(request.getParameter("status"));
             String Description = request.getParameter("description");
-            
-            String filename = SubjectName+".jpg";
+
+            String filename = SubjectName + ".jpg";
             String realPath = request.getServletContext().getRealPath("/") + "SubjectImage" + File.separator + filename;
             System.out.println(realPath);
             File file = new File(realPath);
             FileUtils.copyInputStreamToFile(part.getInputStream(), file);
-            
+
             SubjectDTO subject = new SubjectDTO(SubjectName, "SubjectImage" + File.separator + filename, UserId, CategoryId, Description, status);
-            
+
             SubjectDAO subjectDao = new SubjectDAO();
             String msg = "";
-            if(subjectDao.insertSubjectAdmin(subject)){
+            if (subjectDao.insertSubjectAdmin(subject)) {
                 msg = "Insert Success!";
             }
             request.setAttribute("ADDSUBJECT_MSG", msg);
-            
-            
         } catch (Exception e) {
             log("Error at AddSubjectAdminServlet:" + e.toString());
         } finally {

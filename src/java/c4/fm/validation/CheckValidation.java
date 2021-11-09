@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package c4.fm.validation;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- *
- * @author MSI
- */
 public class CheckValidation {
+
     public static boolean isValidPassword(String password) {
         String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%!?^&+*=]).{8,}$";
         Pattern p = Pattern.compile(regex);
@@ -29,13 +21,14 @@ public class CheckValidation {
         java.util.regex.Matcher m = p.matcher(email);
         return m.matches();
     }
-     public static boolean isValidPhoneNumber(String phone) {
-         String regex = "^[0-9]{10}$";
-         Pattern p = Pattern.compile(regex);
-        if (phone == null){
-           return false;
+
+    public static boolean isValidPhoneNumber(String phone) {
+        String regex = "^[0-9]{10}$";
+        Pattern p = Pattern.compile(regex);
+        if (phone == null) {
+            return false;
         }
-         Matcher m = p.matcher(phone);
+        Matcher m = p.matcher(phone);
         return m.matches();
     }
 }

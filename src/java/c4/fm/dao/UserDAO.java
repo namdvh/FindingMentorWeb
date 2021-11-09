@@ -1,27 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package c4.fm.dao;
 
-import c4.fm.subject.SubjectDTO;
 import c4.fm.user.UserDTO;
 import c4.fm.utils.DBUtils;
-import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 import javax.naming.NamingException;
 
-/**
- *
- * @author HuuToannn
- */
 public class UserDAO {
 
     public UserDTO checkLogin(String UserID, String password) throws SQLException, ClassNotFoundException, NamingException {
@@ -43,19 +31,15 @@ public class UserDAO {
                     String Name = rs.getString("Name");
                     String Email = rs.getString("Email");
                     String RoleID = rs.getString("RoleID");
-//                    RoleDAO roledao = new RoleDAO();
-//                    RoleDTO roledto = roledao.loadListRole(RoleID);
                     String PhoneNumber = rs.getString("PhoneNumber");
                     String Address = rs.getString("Address");
                     String Certificate = rs.getString("Certificate");
                     String Status = rs.getString("Status");
                     String BirthDay = rs.getString("BirthDay");
                     String Images = rs.getString("Images");
-
                     user = new UserDTO(UserID, Name, Email, RoleID, PhoneNumber, Address, "", Certificate, Status, BirthDay, Images);
                 }
             }
-
         } finally {
             if (rs != null) {
                 rs.close();
@@ -69,7 +53,6 @@ public class UserDAO {
         }
         return user;
     }
-
     public UserDTO getUserInfo(String UserID) throws SQLException, ClassNotFoundException, NamingException {
         UserDTO user = null;
         Connection conn = null;
@@ -94,11 +77,9 @@ public class UserDAO {
                     String Status = rs.getString("Status");
                     String BirthDay = rs.getString("BirthDay");
                     String Images = rs.getString("Images");
-
                     user = new UserDTO(UserID, Name, Email, RoleID, PhoneNumber, Address, "", Certificate, Status, BirthDay, Images);
                 }
             }
-
         } finally {
             if (rs != null) {
                 rs.close();
@@ -112,7 +93,6 @@ public class UserDAO {
         }
         return user;
     }
-
     public boolean insertUseNew(UserDTO user) throws SQLException, NamingException, ClassNotFoundException {
         boolean check = false;
         Connection conn = null;
@@ -146,7 +126,6 @@ public class UserDAO {
         }
         return check;
     }
-
     public boolean insertUserGoogle(UserDTO user) throws SQLException, NamingException, ClassNotFoundException {
         boolean check = false;
         Connection conn = null;
@@ -180,7 +159,6 @@ public class UserDAO {
         }
         return check;
     }
-
     public boolean updateUser(UserDTO user) throws SQLException {
         boolean check = false;
         Connection conn = null;
@@ -213,7 +191,6 @@ public class UserDAO {
         }
         return check;
     }
-
     public UserDTO loadUser(String UserID) throws ClassNotFoundException, SQLException {
         UserDTO user = null;
         Connection conn = null;
@@ -258,7 +235,6 @@ public class UserDAO {
         }
         return user;
     }
-
     public UserDTO LoadMentor(String UserID) throws ClassNotFoundException, SQLException {
         UserDTO user = null;
         Connection conn = null;
@@ -302,7 +278,6 @@ public class UserDAO {
         }
         return user;
     }
-
     public boolean updateUserWithNoImages(UserDTO user) throws SQLException {
         boolean check = false;
         Connection conn = null;
@@ -334,7 +309,6 @@ public class UserDAO {
         }
         return check;
     }
-
     public List<UserDTO> loadListUser() throws ClassNotFoundException, SQLException {
         List<UserDTO> listUser = new ArrayList<>();
         Connection conn = null;
@@ -373,7 +347,6 @@ public class UserDAO {
         }
         return listUser;
     }
-
     public boolean RequestMentor(UserDTO user) throws SQLException, NamingException, ClassNotFoundException {
         boolean check = false;
         Connection conn = null;
@@ -401,10 +374,8 @@ public class UserDAO {
         }
         return check;
     }
-
     public List<UserDTO> listUserAdmin() throws ClassNotFoundException, SQLException {
         List<UserDTO> listUser = new ArrayList<>();
-
         Connection con = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -431,7 +402,6 @@ public class UserDAO {
                     listUser.add(user);
                 }
             }
-
         } finally {
             if (rs != null) {
                 rs.close();
@@ -445,10 +415,8 @@ public class UserDAO {
         }
         return listUser;
     }
-
     public List<UserDTO> listMentorAdmin() throws ClassNotFoundException, SQLException {
         List<UserDTO> listUser = new ArrayList<>();
-
         Connection con = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -489,7 +457,6 @@ public class UserDAO {
         }
         return listUser;
     }
-
     public List<UserDTO> searchMentorAdmin(String searchValue) throws ClassNotFoundException, SQLException {
         List<UserDTO> listUser = new ArrayList<>();
         Connection con = null;
@@ -519,9 +486,7 @@ public class UserDAO {
                     UserDTO user = new UserDTO(userId, name, email, roleId, phoneNumber, address, password, "", String.valueOf(status), birthday, image);
                     listUser.add(user);
                 }
-
             }
-
         } finally {
             if (rs != null) {
                 rs.close();
@@ -535,7 +500,6 @@ public class UserDAO {
         }
         return listUser;
     }
-
     public List<UserDTO> searchUserAdmin(String searchValue) throws ClassNotFoundException, SQLException {
         List<UserDTO> listUser = new ArrayList<>();
         Connection con = null;
@@ -565,9 +529,7 @@ public class UserDAO {
                     UserDTO user = new UserDTO(userId, name, email, roleId, phoneNumber, address, password, "", String.valueOf(status), birthday, image);
                     listUser.add(user);
                 }
-
             }
-
         } finally {
             if (rs != null) {
                 rs.close();
@@ -581,7 +543,6 @@ public class UserDAO {
         }
         return listUser;
     }
-
     public boolean deleteUserStatusAdmin(String userId) throws SQLException, ClassNotFoundException {
         boolean check = false;
         Connection conn = null;
@@ -607,7 +568,6 @@ public class UserDAO {
         }
         return check;
     }
-
     public boolean activeUserStatusAdmin(String userId) throws SQLException, ClassNotFoundException {
         boolean check = false;
         Connection conn = null;
@@ -764,7 +724,6 @@ public class UserDAO {
         }
         return check;
     }
-
     public boolean checkOldPassword(String userId, String password) throws SQLException, ClassNotFoundException {
         boolean check = false;
         Connection conn = null;
@@ -855,7 +814,6 @@ public class UserDAO {
         }
         return check;
     }
-
     public List<UserDTO> searchMentor(String searchValue) throws ClassNotFoundException, SQLException {
         List<UserDTO> listUser = new ArrayList<>();
         Connection con = null;
@@ -884,7 +842,6 @@ public class UserDAO {
                     listUser.add(user);
                 }
             }
-
         } finally {
             if (rs != null) {
                 rs.close();
@@ -898,7 +855,6 @@ public class UserDAO {
         }
         return listUser;
     }
-
     public boolean InsertFeedback(String userID) throws ClassNotFoundException, SQLException {
         boolean check = false;
         Connection conn = null;
@@ -924,7 +880,6 @@ public class UserDAO {
         }
         return check;
     }
-
     public int countSubject() throws ClassNotFoundException, SQLException {
         Connection con = null;
         PreparedStatement preStm = null;
@@ -953,7 +908,6 @@ public class UserDAO {
         }
         return count;
     }
-
     public int countStudent() throws ClassNotFoundException, SQLException {
         Connection con = null;
         PreparedStatement preStm = null;
@@ -1010,15 +964,5 @@ public class UserDAO {
             }
         }
         return count;
-    }
-     
-    public static void main(String[] args) {
-        try {
-            boolean check = false;
-            UserDAO dao = new UserDAO();
-            UserDTO user = dao.LoadMentor("test2");
-            System.out.println(user.toString());
-        } catch (Exception e) {
-        }
     }
 }

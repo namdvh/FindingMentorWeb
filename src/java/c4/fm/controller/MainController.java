@@ -60,6 +60,8 @@ public class MainController extends HttpServlet {
     private static final String APPROVE_REQUEST_ADMIN_SERVLET = "ApproveRequestAdminServlet";
     private static final String DENAIL_REQUEST_ADMIN_SERVLET = "DenailRequestAdminServlet";
     private static final String ADDSUBJECTPAGE = "AddSubjectPageServlet";
+    private static final String ADDCATEGORYPAGE = "AddCategoryPageServlet";
+    private static final String ADDCATEGORYSERVLET = "AddCategoryAdminServlet";
     private static final String DELETESUBJECTADMIN = "DeleteSubjectAdminServlet";
 
     //=======================END OF ADMIN==========================
@@ -149,6 +151,10 @@ public class MainController extends HttpServlet {
                 url = DENAIL_REQUEST_ADMIN_SERVLET;
             }else if (action.equals("deleteSubjectAdmin")) {
                 url = DELETESUBJECTADMIN;
+            }else if (action.equals("addCategoryPage")) {
+                url = ADDCATEGORYPAGE;
+            }else if (action.equals("AddCategoryAdmin")) {
+                url = ADDCATEGORYSERVLET;
             } //=====================END OF ADMIN==========================
             else {
                 HttpSession session = request.getSession();
