@@ -368,7 +368,7 @@ public class SubjectDAO implements Serializable {
             if (con != null) {
                 String sql = "select SubjectID,SubjectName,Images,UserID,CategoryID,Description,Status \n"
                         + " from tblSubject \n "
-                        + " Where SubjectName like ?";
+                        + " Where SubjectName like ? and Status='1'";
                 pst = con.prepareStatement(sql);
                 pst.setString(1, "%" + searchValue + "%");
                 rs = pst.executeQuery();
