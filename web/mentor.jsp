@@ -68,7 +68,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="fullName">Blog:</label>
-                                            <textarea maxlength="250" type="text" class="form-control" id="fullName" placeholder="max 250 letter" name="UpdateBlog" value="${itemContent.blog}" style="height: 240px">${itemContent.blog}</textarea>
+                                            <textarea maxlength="250" type="text" class="form-control ckeditor" id="fullName" placeholder="max 250 letter" name="UpdateBlog" value="${itemContent.blog}" style="height: 240px">${itemContent.blog}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -165,7 +165,7 @@
 
                                                             <div class="form-group">
                                                                 <label for="fullName">Blog:</label>
-                                                                <textarea maxlength="250" type="text" class="form-control" id="fullName" name="blog" value="" placeholder="max 250 letter" style="height: 240px"></textarea>
+                                                                <textarea maxlength="250" type="text" class="form-control ckeditor" id="fullName" name="blog" value="" placeholder="max 250 letter" style="height: 240px"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -249,6 +249,7 @@
             </div>
         </div>
         <jsp:include page="footerTemplate.jsp"></jsp:include>
+        <script src="ckeditor_4.16.2_basic/ckeditor/ckeditor.js"></script>
         <script
             src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -277,7 +278,7 @@
                     let urlpath2 = "?enablejsapi=1";
                     var videoURL = urlpath.concat(id, urlpath2);
                     document.getElementById("loadVideo").src = videoURL;
-                    document.getElementById("exampleFormControlTextarea4").textContent = blog;
+                    document.getElementById("exampleFormControlTextarea4").innerHTML = blog;
                 } else {
                     alert("Url incorrect");
                 }
