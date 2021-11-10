@@ -46,7 +46,7 @@
                                 knowledge of the subjects
                             </p>
                             <form action="MainController" method="POST">
-                                <input style="height: 35px; width: 20%;" type="text" name="txtSearch" placeholder="Search..">
+                                <input style="height: 35px; width: 20%;" type="text" name="txtSearch" placeholder="Search mentor">
                                 <button type="submit" name="action" value="Search" style="height: 40px; width: 40px; font-size: 20px; border-radius: 10px"><i class="fa fa-search"></i></button>
                             </form>
                         </div>
@@ -60,7 +60,7 @@
                                 knowledge of the subjects
                             </p>
                             <form action="MainController" method="POST">
-                                <input style="height: 35px; width: 20%;" type="text" name="txtSearch" placeholder="Search..">
+                                <input style="height: 35px; width: 20%;" type="text" name="txtSearch" placeholder="Search mentor">
                                 <button type="submit" name="action" value="Search" style="height: 40px; width: 40px; font-size: 20px; border-radius: 10px"><i class="fa fa-search"></i></button>
                             </form>
                         </div>
@@ -75,7 +75,7 @@
                             </p>
                             <form action="MainController" method="POST">
 
-                                <input style="height: 35px; width: 20%;" type="text" name="txtSearch" placeholder="Search..">
+                                <input style="height: 35px; width: 20%;" type="text" name="txtSearch" placeholder="Search mentor">
                                 <button type="submit" name="action" value="Search" style="height: 40px; width: 40px; font-size: 20px; border-radius: 10px"><i class="fa fa-search"></i></button>
 
                             </form>
@@ -109,10 +109,12 @@
                                 <img src="${rank1.images}" alt="">
                             </div>
                             <div class="content">
-                                <h3>Name: ${rank1.name}</h3>
+                                <p style="font-size: 20px; text-decoration: none;
+                                   word-wrap:break-word;
+                                   text-align: center;"> ${rank1.name}</p>
                                 <p><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank1.stars}</p>
                             </div>
-                            </a>
+                        </a>
                     </div>
                     <div class="card md-4">
                         <a href="MainController?action=LoadInfoMentor&UserID=${rank2.userID}">
@@ -120,7 +122,9 @@
                                 <img src="${rank2.images}" alt="">
                             </div>
                             <div class="content">
-                                <h3>Name: ${rank2.name}</h3>
+                                <p style="font-size: 20px; text-decoration: none;
+                                   word-wrap:break-word;
+                                   text-align: center;"> ${rank2.name}</p>
                                 <p><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank2.stars}</p>
                             </div>
                         </a>
@@ -131,7 +135,9 @@
                                 <img src="${rank3.images}" alt="">
                             </div>
                             <div class="content">
-                                <h3>Name: ${rank3.name}</h3>
+                                <p style="font-size: 20px; text-decoration: none;
+                                   word-wrap:break-word;
+                                   text-align: center;"> ${rank3.name}</p>
                                 <p><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank3.stars}</p>
                             </div>
                         </a>
@@ -144,7 +150,9 @@
                                 <img src="${rank4.images}" alt="">
                             </div>
                             <div class="content">
-                                <h3>Name: ${rank4.name}</h3>
+                                <p style="font-size: 20px; text-decoration: none;
+                                   word-wrap:break-word;
+                                   text-align: center;"> ${rank4.name}</p>
                                 <p><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank4.stars}</p>
                             </div>
                         </a>
@@ -155,7 +163,9 @@
                                 <img src="${rank5.images}" alt="">
                             </div>
                             <div class="content">
-                                <h3>Name: ${rank5.name}</h3>
+                                <p style="font-size: 20px; text-decoration: none;
+                                   word-wrap:break-word;
+                                   text-align: center;"> ${rank5.name}</p>
                                 <p><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank5.stars}</p>
                             </div>
                         </a>
@@ -166,7 +176,9 @@
                                 <img src="${rank6.images}" alt="">
                             </div>
                             <div class="content">
-                                <h3>Name: ${rank6.name}</h3>
+                                <p style="font-size: 20px; text-decoration: none;
+                                   word-wrap:break-word;
+                                   text-align: center;"> ${rank6.name}</p>
                                 <p><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank6.stars}</p>
                             </div>
                         </a>
@@ -606,5 +618,4 @@
             })
         </script>
     </body>
-
 </html>
