@@ -110,7 +110,6 @@
                                     </div>
                                 </c:forEach>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -132,7 +131,7 @@
                             <!--blog khong hien-->
                         <div class="form-group purple-border" >
                             <label for="exampleFormControlTextarea4">Blog</label>
-                            <textarea readonly="" class="form-control" id="exampleFormControlTextarea4" > </textarea>
+                            <div readonly="" class="form-control card" id="exampleFormControlTextarea4" style="width: 852px; height: auto"></div>
                         </div>
                             <!--khong hien-->
                     </div>
@@ -257,7 +256,7 @@
                     let urlpath2 = "?enablejsapi=1";
                     var videoURL = urlpath.concat(id, urlpath2);
                     document.getElementById("loadVideo").src = videoURL;
-                    document.getElementById("exampleFormControlTextarea4").textContent = blog;
+                    document.getElementById("exampleFormControlTextarea4").innerHTML = blog;
                 } else {
                     alert("Url incorrect");
                 }
