@@ -57,7 +57,7 @@
                                 </div>
 
                                 <div id="cerfiticate" class="form-group form-button" style="margin: 0; display: none;">
-                                    <input type="file" name="Certificate"  
+                                    <input type="file" name="Certificate" required=""  
                                            style="padding: 12px 19px; background: linear-gradient(45deg, #FA5F1E, #F4939A);" 
                                            class="form-submit" placeholder="Certificate" />
                                 </div>

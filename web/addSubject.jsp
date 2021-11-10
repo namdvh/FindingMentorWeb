@@ -1,4 +1,4 @@
-<%-- 
+%<-- 
     Document   : addSubject
     Created on : Oct 26, 2021, 10:06:48 PM
     Author     : Fangl
@@ -92,7 +92,7 @@
                                     </p>
                                     <p> <span class="req">max 100 symbols</span>
                                         <label>Description <span>(Required Field)</span></label>
-                                        <textarea name="description" class="field size1" rows="10" cols="30" required=""></textarea>
+                                        <textarea name="description" class="field size1 ckeditor" rows="10" cols="30" required="" maxlength="100"></textarea>
                                     </p>
                                 </div>
                                 <div class="buttons">
@@ -148,7 +148,7 @@
                                     </p>
                                     <p> <span class="req">max 100 symbols</span>
                                         <label>Description <span>(Required Field)</span></label>
-                                        <textarea maxlength="100" name="description" class="field size1" rows="10" cols="30" required="" >${requestScope.UPDATE_SUBJECT.description}</textarea>
+                                    <div><textarea maxlength="100" name="description" class="field size1 ckeditor" rows="10" cols="30" required="" >${requestScope.UPDATE_SUBJECT.description}</textarea></div>
                                     </p>
                                 </div>
                                 <div class="buttons">
@@ -177,5 +177,7 @@
             <div id="footer">
                 <div class="shell"> <span class="left">&copy; 2021 - Company Four Class</span> <span class="right"> Design by <a href="http://chocotemplates.com">Chocotemplates.com</a> </span> </div>
             </div>
+            <script src="ckeditor_4.16.2_basic/ckeditor/ckeditor.js"></script>
     </body>
+     
 </html>
