@@ -11,7 +11,6 @@ import c4.fm.user.UserError;
 import c4.fm.validation.CheckValidation;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;

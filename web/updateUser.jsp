@@ -23,6 +23,7 @@
               crossorigin="anonymous" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <title>Update Page</title>  
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.2/dist/sweetalert2.min.css">
 
         <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
         <link href="Profile/app.css" rel="stylesheet">
@@ -110,12 +111,10 @@
                                                 Change Password
                                             </button>                                    
                                             <button
-                                                type="submit"
                                                 id="submit"
                                                 name="action"
                                                 value="UpdateUserPage"
                                                 class="btnUpdate btn btn-primary"
-                                                onclick="sweetalertclick()"
                                                 >
                                                 Update
                                             </button>
@@ -128,6 +127,20 @@
                 </div>
             </div>
         </form>
+        <c:if test="${requestScope.MESS != null}">
+            <script>
+
+                window.onload = function sweetalertclick() {
+                Swal({
+                title: 'Success',
+                        text: 'Do you want to continue',
+                        type: 'success',
+                        timer: 3000,
+                        confirmButtonText: 'Cool'
+                })
+                }</script>
+
+        </c:if>
         <form action="MainController" method="POST" >                                
             <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">                                                 
                 <div class="modal-dialog" role="document">                                                     
@@ -194,115 +207,105 @@
                 </div>
             </div>
         </form>  
-        <c:if test="${requestScope.MESS != null}">
-            <p>${MESS}</p>
-        </c:if>
         <c:if test="${not empty submitDone}">
-            <script>alert("Change password successful!");
+            <script>alert("Change password successful!                ");
             </script></c:if>
         <c:if test="${not empty requestScope.USER_ERROR}">
-            <script>alert("${requestScope.USER_ERROR.getConfirmPasswordError()}");
+            <script>alert("${requestScope.USER_ERROR.getConfirmPasswordError()}                    ");
             </script></c:if>
 
         <c:if test="${not empty submitFail}">
-            <script>alert("You can't change the same password before!");
+            <script>alert("You can't change the same password before!                ");
             </script></c:if>
 
         <c:if test="${not empty submitFail2}">
-            <script>alert("Your old password is wrong");
+            <script>alert("Your old password is wrong                ");
             </script></c:if>
         <c:if test="${not empty submitFail3}">
-            <script>alert("Wrong validate, update Password fail");
+            <script>alert("Wrong validate, update Password fail                ");
             </script></c:if>
         <jsp:include page="footerTemplate.jsp"></jsp:include>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="sweetalert2.all.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.2/dist/sweetalert2.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+
         <script>
-                $('#myModal').on('shown.bs.modal', function () {
-                    $('#myInput').trigger('focus')
+                $('#myModal').on('shown.bs.modal', fu                        nction () {
+                $('#myInput').trigg                    er('focus')
                 })
-        </script>
+        </scrip                    t>
         <script>
-            document.addEventListener("DOMContentLoaded", function (event) {
-                navActivePage();
-            });
-            function validateEmail(email) {
-                const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                        document.addEventListener("DOMContent                        Loaded", function (event) {
+                        navAc                    tivePage();
+                        });
+                func                        tion validateEmail(email) {
+                const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z                                \-0-9]+\.)+[a-zA-Z]{2,}))$                        /
                         ;
                 return re.test(email);
-            }
+                }
 
-            function validate() {
-                const $result = $("#result");
-                const email = $("#email").val();
+                function validate() {
+                co                        nst $result = $("#result");
+                const                        email = $("#email").val();
                 $result.text("");
-
                 if (validateEmail(email)) {
-                $result.text(email + " is valid :)");
-                        $result.css("color", "green");
+                $result.te                            xt(email + " is valid :)");
+                $re                        sult.css("color", "green");
                 } else {
-                $result.text(email + " is not valid :
+                $result.te                                    xt(email + " is not valid :
                         (");
-                                $result.css("color", "red");
+                                $                                result.css("color", "red");
                         }
-                        return false;
-                    }
-                    $("#email").on("input", validate);
+                        return f                            alse;
+                        }
+                        $("#ema                    il").on("input", v                    alidate);
         </script>
         <script>
-
                     const passwordInput = document.querySelector(".input");
-                    passwordInput.addEventListener("input", function (e) {
-                        const value = e.target.value;
-                        const checkLengthClass = e.target.parentNode.querySelector(".check-length");
-                        const checkUpperClass = e.target.parentNode.querySelector(".check-upper");
-                        const checkNumberClass = e.target.parentNode.querySelector(".check-number");
-                        const checkSpecialClass =
-                                e.target.parentNode.querySelector(".check-special");
-                        const checkItems = e.target.parentNode.querySelectorAll(".check-item");
-                        if (!value) {
-                            [...checkItems].forEach((item) => {
-                                item.classList.remove("active");
-                                item.classList.remove("unactive");
-                            });
-                            return;
-                        }
-                        if (value.length < 8) {
-                            checkLengthClass.classList.add("unactive");
-                            checkLengthClass.classList.remove("active");
-                        } else {
-                            checkLengthClass.classList.add("active");
-                            checkLengthClass.classList.remove("unactive");
-                        }
-                        passwordInputValidation(checkUpperClass, value, /[A-Z]/);
-                        passwordInputValidation(checkNumberClass, value, /[0-9]/);
-                        passwordInputValidation(checkSpecialClass, value, /[$@%^&*()}{[\]}!]/);
+                    passwordInput.addEv                                    entListener("input", function (e) {
+                    const value = e.target.value;
+                    const checkLengthClass = e.target.parentN                                    ode.querySelector(".check-length");
+                    const checkUpperClass = e.target.parent                                    Node.querySelector(".check-upper");
+                    const checkNumberClass = e.target.parentN                                    ode.querySelector(".check-number");
+                    const checkSpecialClass =
+                            e.target.parentNo                                    de.querySelector(".check-special");
+                    const checkItems = e.target.parentNo                                    de.querySelectorAll(".check-item");
+                    if (!value) {
+                    [...checkItems].forEach((item) => {
+                    item.classList.remove("active");
+                    item.classList.remove("unactive                                        ");
                     });
-
-                    function passwordInputValidation(selector, value, regex) {
-                        if (!regex.test(value)) {
-                            selector.classList.add("unactive");
-                            selector.classList.remove("active");
-                        } else {
-                            selector.classList.add("active");
-                            selector.classList.remove("unactive");
-                        }
+                    return;
+                    }
+                    if (value.length < 8) {
+                    checkLen                                        gthClass.classList.add("unactive");
+                    checkLeng                                    thClass.classList.remove("active");
+                    } else {
+                    checkL                                        engthClass.classList.add("active");
+                    checkLength                                    Class.classList.remove("un                                    active");
+                    }
+                    passwordInputValidatio                                    n(checkUpperClass, value, /[A-Z]/);
+                    passwordInputValidation                                    (checkNumberClass, value, /[0-9]/);
+                    passwordInputValidation(checkSpecial                                Class, value, /[$@%^&*()}                               {[\]}!]/);
+                    });
+                    function passwordInputV                                    alidation(selector, value, regex) {
+                    if (!regex.test(value)) {
+                    selector.classList.add("unactive");
+                    s                                    elector.classList.remove("active");
+                    } else {
+                    selector.classList.add("active");
+                    sel                                    ector.classList.remove("un                                active");
+                    }
                     }
                     ;
         </script>
 
 
-        <script src="Profile/app.js"></script>
-        <script src="dist/sweetalert.min.js"></script>
-        <script>
-                    function sweetalertclick() {
-                        swal(
-                                title: "SweetAlert!",
-                        text: "Here's my sweet alert!",
-                                type: "error",
-                        confirmButtonText: "Cool"
-                        );
-                    }</script>
+        <script src                    ="Profile/app.js"></script>
+
     </body>
 </html>

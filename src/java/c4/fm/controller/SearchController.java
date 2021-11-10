@@ -31,7 +31,7 @@ public class SearchController extends HttpServlet {
             String searchValue = request.getParameter("txtSearch");
             UserDAO dao = new UserDAO();
             List<UserDTO> listSearch = dao.searchMentor(searchValue);
-            if (listSearch != null) {
+            if (listSearch.size() != 0) {
                 request.setAttribute("search", listSearch);
                 URL = SUCCESS;
             }else{

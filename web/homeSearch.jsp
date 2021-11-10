@@ -46,7 +46,7 @@
 
     <body>
         <jsp:include page="headerTemplate.jsp"></jsp:include>
-
+        <c:if test="${requestScope.search != null}">
             <section>
                 <div class="container mt-3 mb-4">
                     <div class="col-lg-9 mt-4 mt-lg-0">
@@ -71,71 +71,75 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <c:forEach items="${requestScope.search}" var="mentor">
-                                            <tr class="candidates-list">
-                                                <td class="title">
-                                                    <div class="thumb">
-                                                        <img
-                                                            class="img-fluid"
-                                                            src="${mentor.images}"
-                                                            alt=""
-                                                            />
-                                                    </div>
-                                                    <div class="candidate-list-details">
-                                                        <div class="candidate-list-info">
-                                                            <div class="candidate-list-title">
-                                                                <h5 class="mb-0"><a href="#">${mentor.name}</a></h5>
-                                                            </div>
-                                                            <div class="candidate-list-option">
-                                                                <ul class="list-unstyled">
-                                                                    <li>
-                                                                        <i class="fas fa-filter pr-1"></i>
-                                                                        Phone : ${mentor.phoneNumber} <br/>
-                                                                    </li>
-                                                                    <li>
-                                                                        <i class="fas fa-map-marker-alt pr-1"></i
-                                                                        >${mentor.address}
-                                                                    </li>
-                                                                </ul>
+                                            <c:forEach items="${requestScope.search}" var="mentor">
+                                                <tr class="candidates-list">
+                                                    <td class="title">
+                                                        <div class="thumb">
+                                                            <img
+                                                                class="img-fluid"
+                                                                src="${mentor.images}"
+                                                                alt=""
+                                                                />
+                                                        </div>
+                                                        <div class="candidate-list-details">
+                                                            <div class="candidate-list-info">
+                                                                <div class="candidate-list-title">
+                                                                    <h5 class="mb-0"><a href="#">${mentor.name}</a></h5>
+                                                                </div>
+                                                                <div class="candidate-list-option">
+                                                                    <ul class="list-unstyled">
+                                                                        <li>
+                                                                            <i class="fas fa-filter pr-1"></i>
+                                                                            Phone : ${mentor.phoneNumber} <br/>
+                                                                        </li>
+                                                                        <li>
+                                                                            <i class="fas fa-map-marker-alt pr-1"></i
+                                                                            >${mentor.address}
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td class="candidate-list-favourite-time text-center">
-                                                    <a
-                                                        class="candidate-list-favourite order-2 text-danger"
-                                                        href="#"
-                                                        ><img src="assets/images/star.png" width="20px" height="20px" alt="icon"/></a>
-                                                    <span style="font-size: 20px" class="candidate-list-time order-1"
-                                                          >${mentor.stars}</span
-                                                    >
-                                                </td>
-                                                <td>
-                                                    <ul
-                                                        class="list-unstyled mb-0 d-flex justify-content-end"
+                                                    </td>
+                                                    <td class="candidate-list-favourite-time text-center">
+                                                        <a
+                                                            class="candidate-list-favourite order-2 text-danger"
+                                                            href="#"
+                                                            ><img src="assets/images/star.png" width="20px" height="20px" alt="icon"/></a>
+                                                        <span style="font-size: 20px" class="candidate-list-time order-1"
+                                                              >${mentor.stars}</span
                                                         >
-                                                        <li>
-                                                            <a
-                                                                href="MainController?action=LoadInfoMentor&UserID=${mentor.userID}"
-                                                                class="text-primary"
-                                                                data-toggle="tooltip"
-                                                                title=""
-                                                                data-original-title="view"
-                                                                ><i class="far fa-eye"></i
-                                                                ></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                        </c:forEach>
-                                    </tbody>
-                                </table>
+                                                    </td>
+                                                    <td>
+                                                        <ul
+                                                            class="list-unstyled mb-0 d-flex justify-content-end"
+                                                            >
+                                                            <li>
+                                                                <a
+                                                                    href="MainController?action=LoadInfoMentor&UserID=${mentor.userID}"
+                                                                    class="text-primary"
+                                                                    data-toggle="tooltip"
+                                                                    title=""
+                                                                    data-original-title="view"
+                                                                    ><i class="far fa-eye"></i
+                                                                    ></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </c:if>
+        <c:if test="${requestScope.search == null}">
+            <p>asdasd</p>
+        </c:if>
         <jsp:include page="footerTemplate.jsp"></jsp:include>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
