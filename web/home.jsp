@@ -105,7 +105,7 @@
                     <div class="row" style="margin-bottom: 150px">
                         <div class="card md-4">
                             <a href="MainController?action=LoadInfoMentor&UserID=${rank1.userID}">
-                            <div class="card_image" style="width: 200px; height: 300px;">
+                            <div class="card_image" style="width: 200px; height: 200px;">
                                 <img src="${rank1.images}" alt="">
                             </div>
                             <div class="content">
@@ -118,7 +118,7 @@
                     </div>
                     <div class="card md-4">
                         <a href="MainController?action=LoadInfoMentor&UserID=${rank2.userID}">
-                            <div class="card_image" style="width: 200px; height: 300px;">
+                            <div class="card_image" style="width: 200px; height: 200px;">
                                 <img src="${rank2.images}" alt="">
                             </div>
                             <div class="content">
@@ -131,7 +131,7 @@
                     </div>
                     <div class="card md-4">
                         <a href="MainController?action=LoadInfoMentor&UserID=${rank3.userID}">
-                            <div class="card_image" style="width: 200px; height: 300px;">
+                            <div class="card_image" style="width: 200px; height: 200px;">
                                 <img src="${rank3.images}" alt="">
                             </div>
                             <div class="content">
@@ -146,7 +146,7 @@
                 <div class="row">
                     <div class="card md-4" >
                         <a href="MainController?action=LoadInfoMentor&UserID=${rank4.userID}">
-                            <div class="card_image" style="width: 200px; height: 300px;">
+                            <div class="card_image" style="width: 200px; height: 200px;">
                                 <img src="${rank4.images}" alt="">
                             </div>
                             <div class="content">
@@ -159,7 +159,7 @@
                     </div>
                     <div class="card md-4">
                         <a href="MainController?action=LoadInfoMentor&UserID=${rank5.userID}">
-                            <div class="card_image" style="width: 200px; height: 300px;">
+                            <div class="card_image" style="width: 200px; height: 200px;">
                                 <img src="${rank5.images}" alt="">
                             </div>
                             <div class="content">
@@ -172,7 +172,7 @@
                     </div>
                     <div class="card md-4">
                         <a href="MainController?action=LoadInfoMentor&UserID=${rank6.userID}">
-                            <div class="card_image" style="width: 200px; height: 300px;">
+                            <div class="card_image" style="width: 200px; height: 200px;">
                                 <img src="${rank6.images}" alt="">
                             </div>
                             <div class="content">
