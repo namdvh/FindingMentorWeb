@@ -102,7 +102,7 @@
                                         </p>
                                         <p> <span class="req">max 100 symbols</span>
                                             <label>Image<span>(Required Field)</span></label>
-                                            <input type="file" name="image" class="field size1" value=""/>
+                                            <input type="file" name="image" class="field size1" value="" accept="image/*"/>
                                             <input type="hidden" name="oldImage" class="field size1" value="${requestScope.UPDATE_SUBJECT.images}"/>
                                         </p>
                                         <p class="inline-field">

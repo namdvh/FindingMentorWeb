@@ -57,9 +57,9 @@
                                 </div>
 
                                 <div id="cerfiticate" class="form-group form-button" style="margin: 0; display: none;">
-                                    <input type="file" name="Certificate" required=""  
+                                    <input type="file" name="Certificate"
                                            style="padding: 12px 19px; background: linear-gradient(45deg, #FA5F1E, #F4939A);" 
-                                           class="form-submit" placeholder="Certificate" />
+                                           class="form-submit" placeholder="Certificate" accept="image/*"/>
                                 </div>
                                 <div class="form-group form-button">                                 
                                     <input type="submit" name="action" id="signup" class="form-submit" value="Create"/>
