@@ -53,7 +53,7 @@
                                         <h6 class="user-email" style="font-size: 13px;">${sessionScope.LOGIN_USER.email}</h6>
                                     </div>
                                     <div class="update" >
-                                        <p><input class="btn btn-success" style="font-size: 10px; margin-top: 35px; background-color: white; "  type="file" name="ProfileImage"></p>
+                                        <p><input class="btn btn-success" style="font-size: 10px; margin-top: 35px; background-color: white; "  type="file" name="ProfileImage" accept="image/*"></p>
                                     </div>
                                 </div>
                             </div>

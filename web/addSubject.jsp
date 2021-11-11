@@ -64,7 +64,7 @@
                                     </p>
                                     <p> <span class="req">max 100 symbols</span>
                                         <label>Image<span>(Required Field)</span></label>
-                                        <input type="file" name="image" class="field size1" required=""/>
+                                        <input type="file" name="image" class="field size1" required="" accept="image/*"/>
                                     </p>
                                     <p class="inline-field">
                                         <label>Select Mentor</label>
