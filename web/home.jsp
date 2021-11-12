@@ -12,6 +12,8 @@
               integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
               crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
+
         <!-- BOOTSTRAP -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
               integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
@@ -24,7 +26,9 @@
         <link rel="stylesheet" href="css/owlcarousel/assets/owl.theme.default.css">
 
         <!-- CSS -->
-        <link rel="stylesheet" href="css/StyleHome.css" />
+        <!--<link rel="stylesheet" href="css/StyleHome.css" />-->
+        <link rel="stylesheet" href="css/StyleHome_1.css" />
+
     </head>
 
     <body>
@@ -91,101 +95,84 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-
-            <section class="ranking">
-                <h2 style="display: flex;
-                    justify-content: center;
-                    align-item: center; 
-                    margin-top: 30px;
-                    font-size: 60px;
-                    font">
-                    TOP RANKING
-                </h2>
-                <div class="container" style="background-color: whitesmoke">
-                    <div class="row" style="margin-bottom: 150px">
-                        <div class="card md-4">
-                            <a href="MainController?action=LoadInfoMentor&UserID=${rank1.userID}">
-                            <div class="card_image" style="width: 200px; height: 200px;">
-                                <img src="${rank1.images}" alt="">
-                            </div>
-                            <div class="content">
-                                <p style="font-size: 20px; text-decoration: none;
-                                   word-wrap:break-word;
-                                   text-align: center;"> ${rank1.name}</p>
-                                <p><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank1.stars}</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card md-4">
-                        <a href="MainController?action=LoadInfoMentor&UserID=${rank2.userID}">
-                            <div class="card_image" style="width: 200px; height: 200px;">
-                                <img src="${rank2.images}" alt="">
-                            </div>
-                            <div class="content">
-                                <p style="font-size: 20px; text-decoration: none;
-                                   word-wrap:break-word;
-                                   text-align: center;"> ${rank2.name}</p>
-                                <p><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank2.stars}</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card md-4">
-                        <a href="MainController?action=LoadInfoMentor&UserID=${rank3.userID}">
-                            <div class="card_image" style="width: 200px; height: 200px;">
-                                <img src="${rank3.images}" alt="">
-                            </div>
-                            <div class="content">
-                                <p style="font-size: 20px; text-decoration: none;
-                                   word-wrap:break-word;
-                                   text-align: center;"> ${rank3.name}</p>
-                                <p><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank3.stars}</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+        <section class="ranking" style="margin-top: 120px">
+            <h2 style="display: flex;
+                justify-content: center;
+                align-item: center; 
+                margin-top: 20px;
+                margin-bottom: 40px;
+                font-size: 60px;
+                font-family: Monospace">
+                TOP RANKING
+            </h2>
+            <div class="container">
                 <div class="row">
-                    <div class="card md-4" >
-                        <a href="MainController?action=LoadInfoMentor&UserID=${rank4.userID}">
-                            <div class="card_image" style="width: 200px; height: 200px;">
-                                <img src="${rank4.images}" alt="">
+                    <div class="col-lg-4 mb-4 col-sm-6">
+                        <div class="card" style="height: 380px;width: 248px" >
+                            <img style="height: 231px;width: 247px" src="${rank1.images}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title" style="text-align: center"> ${rank1.name}</h5>
+                                <p class="card-text" style="text-align: center"><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank1.stars}</p>
+                                <a href="MainController?action=LoadInfoMentor&UserID=${rank1.userID}" class="btn btn-primary" style="margin-left: 65px">Detail</a>
                             </div>
-                            <div class="content">
-                                <p style="font-size: 20px; text-decoration: none;
-                                   word-wrap:break-word;
-                                   text-align: center;"> ${rank4.name}</p>
-                                <p><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank4.stars}</p>
-                            </div>
-                        </a>
+                        </div>
                     </div>
-                    <div class="card md-4">
-                        <a href="MainController?action=LoadInfoMentor&UserID=${rank5.userID}">
-                            <div class="card_image" style="width: 200px; height: 200px;">
-                                <img src="${rank5.images}" alt="">
+                    <div class="col-lg-4 mb-4 col-sm-6">
+                        <div class="card" style="height: 380px;width: 248px" >
+                            <img style="height: 231px;width: 247px" src="${rank2.images}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title" style="text-align: center"> ${rank2.name}</h5>
+                                <p class="card-text" style="text-align: center"><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank2.stars}</p>
+                                <a href="MainController?action=LoadInfoMentor&UserID=${rank2.userID}" class="btn btn-primary" style="margin-left: 65px">Detail</a>
                             </div>
-                            <div class="content">
-                                <p style="font-size: 20px; text-decoration: none;
-                                   word-wrap:break-word;
-                                   text-align: center;"> ${rank5.name}</p>
-                                <p><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank5.stars}</p>
-                            </div>
-                        </a>
+                        </div>
                     </div>
-                    <div class="card md-4">
-                        <a href="MainController?action=LoadInfoMentor&UserID=${rank6.userID}">
-                            <div class="card_image" style="width: 200px; height: 200px;">
-                                <img src="${rank6.images}" alt="">
+                    <div class="col-lg-4 mb-4 col-sm-6">
+                        <div class="card" style="height: 380px;width: 248px" >
+                            <img style="height: 231px;width: 247px" src="${rank3.images}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title" style="text-align: center"> ${rank3.name}</h5>
+                                <p class="card-text" style="text-align: center"><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank3.stars}</p>
+                                <a href="MainController?action=LoadInfoMentor&UserID=${rank3.userID}" class="btn btn-primary" style="margin-left: 65px">Detail</a>
                             </div>
-                            <div class="content">
-                                <p style="font-size: 20px; text-decoration: none;
-                                   word-wrap:break-word;
-                                   text-align: center;"> ${rank6.name}</p>
-                                <p><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank6.stars}</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4 col-sm-6">
+                        <div class="card" style="height: 380px;width: 248px" >
+                            <img style="height: 231px;width: 247px" src="${rank4.images}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title" style="text-align: center"> ${rank4.name}</h5>
+                                <p class="card-text" style="text-align: center"><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank4.stars}</p>
+                                <a href="MainController?action=LoadInfoMentor&UserID=${rank4.userID}" class="btn btn-primary" style="margin-left: 65px">Detail</a>
                             </div>
-                        </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4 col-sm-6">
+                        <div class="card" style="height: 380px;width: 248px" >
+                            <img style="height: 231px;width: 247px" src="${rank5.images}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title" style="text-align: center"> ${rank5.name}</h5>
+                                <p class="card-text" style="text-align: center"><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank5.stars}</p>
+                                <a href="MainController?action=LoadInfoMentor&UserID=${rank5.userID}" class="btn btn-primary" style="margin-left: 65px">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4 col-sm-6">
+                        <div class="card" style="height: 380px;width: 248px" >
+                            <img style="height: 231px;width: 247px" src="${rank6.images}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title" style="text-align: center"> ${rank6.name}</h5>
+                                <p class="card-text" style="text-align: center"><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank6.stars}</p>
+                                <a href="MainController?action=LoadInfoMentor&UserID=${rank6.userID}" class="btn btn-primary" style="margin-left: 65px">Detail</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </section>
+
+        <!--abc-->
         <section class="instruction__stats w-100 h-100" style="
                  background: url(assets/images/banner2.jpg);
                  background-repeat: no-repeat;
@@ -226,105 +213,7 @@
                 </div>
             </div>
         </section>
-        <section class="instruction__offer">
-            <div class="container">
-                <div class="offer__header educate__title">
-                    <h3 class="heading-agileinfo">WHAT WE OFFER</h3>
-                    <span>When Climbing The Carrer Ladder</span>
-                </div>
 
-                <div class="offer__card pt-5">
-                    <div class="offer__top">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                                        <h4>Undergraduate Study</h4>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, Sed ut
-                                            perspiciatis unde omnis iste natus
-                                            error sit voluptatem
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <i class="fa fa-book" aria-hidden="true"></i>
-                                        <h4>Professional Study</h4>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, Sed ut
-                                            perspiciatis unde omnis iste natus
-                                            error sit voluptatem
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <i class="fa fa-tasks" aria-hidden="true"></i>
-                                        <h4>Programs</h4>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, Sed ut
-                                            perspiciatis unde omnis iste natus
-                                            error sit voluptatem
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="offer__bottom">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <i class="far fa-comment"></i>
-                                        <h4>Online Learning</h4>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, Sed ut
-                                            perspiciatis unde omnis iste natus
-                                            error sit voluptatem
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-md-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <i class="far fa-bookmark"></i>
-                                        <h4>Summer Session</h4>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, Sed ut
-                                            perspiciatis unde omnis iste natus
-                                            error sit voluptatem
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-md-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <i class="fa fa-globe" aria-hidden="true"></i>
-                                        <h4>Global Education</h4>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, Sed ut
-                                            perspiciatis unde omnis iste natus
-                                            error sit voluptatem
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <section class="instruction__testimonials" id="instruction__testimonials" style="
                  background-image: url(assets/images/banner3.jpg);
                  background-repeat: no-repeat;
@@ -345,9 +234,7 @@
                         <div class="tetstimonials__card">
                             <div class="testimonials__content">
                                 <p>
-                                    Sed semper leo metus, a lacinia eros semper
-                                    at. Etiam sodales orci sit amet vehicula
-                                    pellentesque.
+                                    The most beautiful thing about learning is that no one take that away form you.
                                 </p>
                             </div>
 
@@ -367,9 +254,9 @@
                         <div class="tetstimonials__card">
                             <div class="testimonials__content">
                                 <p>
-                                    Sed semper leo metus, a lacinia eros semper
-                                    at. Etiam sodales orci sit amet vehicula
-                                    pellentesque.
+                                    If you are not willing to learn, no one can help you. If you are determined to learn, no one can stop you.
+
+
                                 </p>
                             </div>
 
@@ -389,9 +276,9 @@
                         <div class="tetstimonials__card">
                             <div class="testimonials__content">
                                 <p>
-                                    Sed semper leo metus, a lacinia eros semper
-                                    at. Etiam sodales orci sit amet vehicula
-                                    pellentesque.
+                                    Never stop learning because life never stop teaching.
+
+
                                 </p>
                             </div>
 
@@ -414,9 +301,9 @@
                         <div class="tetstimonials__card">
                             <div class="testimonials__content">
                                 <p>
-                                    Sed semper leo metus, a lacinia eros semper
-                                    at. Etiam sodales orci sit amet vehicula
-                                    pellentesque.
+                                    A wise man can learn from a foolish question, and then a fool can learn more from a wise answer.
+
+
                                 </p>
                             </div>
 
@@ -439,9 +326,9 @@
                         <div class="tetstimonials__card">
                             <div class="testimonials__content">
                                 <p>
-                                    Sed semper leo metus, a lacinia eros semper
-                                    at. Etiam sodales orci sit amet vehicula
-                                    pellentesque.
+                                    What we learn with pleasure we will never forget.
+
+.
                                 </p>
                             </div>
 
@@ -464,9 +351,9 @@
                         <div class="tetstimonials__card">
                             <div class="testimonials__content">
                                 <p>
-                                    Sed semper leo metus, a lacinia eros semper
-                                    at. Etiam sodales orci sit amet vehicula
-                                    pellentesque.
+                                    Live as if you were to die tomorrow, learn as if you were to live forever.
+
+
                                 </p>
                             </div>
 
