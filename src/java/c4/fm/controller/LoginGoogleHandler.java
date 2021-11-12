@@ -66,7 +66,7 @@ public class LoginGoogleHandler extends HttpServlet {
                         RequestDispatcher dis = request.getRequestDispatcher("admin.jsp");
                         dis.forward(request, response);
                     } else if ("US".equals(RoleID)) {
-                        RequestDispatcher dis = request.getRequestDispatcher("user.jsp");
+                        RequestDispatcher dis = request.getRequestDispatcher("home.jsp");
                         dis.forward(request, response);
                     } else if ("MT".equals(RoleID)) {
                         RequestDispatcher dis = request.getRequestDispatcher("mentor.jsp");
@@ -80,7 +80,7 @@ public class LoginGoogleHandler extends HttpServlet {
                     userDAO.insertUserGoogle(userGoogle);
                     HttpSession session = request.getSession();
                     session.setAttribute("LOGIN_USER", userGoogle);
-                    RequestDispatcher dis = request.getRequestDispatcher("user.jsp");
+                    RequestDispatcher dis = request.getRequestDispatcher("home.jsp");
                     dis.forward(request, response);
                 }
             }

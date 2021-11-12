@@ -172,9 +172,9 @@
       
         <!--********************* INSTRUCTION__MENU *********************-->
         <c:if test="${sessionScope.LOGIN_USER != null}">
-            <section class="instruction__menu container-fluid " >
+            <section class="instruction__menu container-fluid " style="margin-top:10px">
                 <nav class="navbar navbar-expand-lg navbar-light px-0">
-                    <a class="navbar-brand" href="MainController?action=Load" style="font-size: 25px; margin-left: 200px">
+                    <a class="navbar-brand" href="MainController?action=Load" style="font-size: 25px; margin-left: 5px">
                         <i class="fa fa-book"></i>
                         INSTRUCTION
                         <label>EDUCATION</label>
@@ -192,7 +192,7 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto" style="margin-right: 150px;">
+                        <ul class="navbar-nav ml-auto" style="margin-right: 30px;">
                             <li class="nav-item active">
                                 <a class="nav-link" href="MainController?action=Load"
                                    >HOME <span class="sr-only">(current)</span></a
@@ -225,7 +225,6 @@
                         <i class="fa fa-book"></i>
                         INSTRUCTION
                         <label>EDUCATION</label>
-
                     </a>
                     <button
                         class="navbar-toggler"
@@ -240,7 +239,7 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto">
+                        <ul class="navbar-nav ml-auto" style="margin-right: 30px">
                             <li class="nav-item active">
                                 <a class="nav-link" href="MainController?action=Load"
                                    >HOME <span class="sr-only">(current)</span></a

@@ -9,18 +9,16 @@
             <file>file:/D:/GIT%20HUB%20SWP391/FindingMentorWeb/src/java/c4/fm/controller/LoadContentStudentController.java</file>
         </group>
         <group>
-            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v15/FindingMentorWeb/web/admin.jsp</file>
-            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v15/FindingMentorWeb/src/java/c4/fm/subject/SubjectDAO.java</file>
-            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v15/FindingMentorWeb/web/mentorManagement.jsp</file>
-            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v15/FindingMentorWeb/src/java/c4/fm/utils/DBUtils.java</file>
-            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v15/FindingMentorWeb/web/createUser.jsp</file>
-            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v15/FindingMentorWeb/web/mentor.jsp</file>
-            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v15/FindingMentorWeb/src/java/c4/fm/controller/UpdateContentController.java</file>
-            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v15/FindingMentorWeb/src/java/c4/fm/dao/ContentDAO.java</file>
-            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v15/FindingMentorWeb/src/java/c4/fm/controller/LoadHomeController.java</file>
-            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v15/FindingMentorWeb/web/addSubject.jsp</file>
-            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v15/FindingMentorWeb/src/java/c4/fm/dao/UserDAO.java</file>
-            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v15/FindingMentorWeb/src/java/c4/fm/controller/SearchCourseController.java</file>
+            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v16/FindingMentorWeb/web/headerTemplate.jsp</file>
+            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v16/FindingMentorWeb/src/java/c4/fm/logingoole/Constant.java</file>
+            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v16/FindingMentorWeb/src/java/c4/fm/logingoole/GoogleUtils.java</file>
+            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v16/FindingMentorWeb/web/login.jsp</file>
+            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v16/FindingMentorWeb/web/home.jsp</file>
+            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v16/FindingMentorWeb/src/java/c4/fm/logingoole/UserGoogleDto.java</file>
+            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v16/FindingMentorWeb/src/java/c4/fm/controller/LoginGoogleHandler.java</file>
+            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v16/FindingMentorWeb/web/footerTemplate.jsp</file>
+            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v16/FindingMentorWeb/web/createUser.jsp</file>
+            <file>file:/C:/Users/MSI/OneDrive/Máy%20tính/SWP/v16/FindingMentorWeb/web/css/StyleHome.css</file>
         </group>
     </open-files>
 </project-private>
