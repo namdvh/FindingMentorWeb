@@ -46,8 +46,7 @@
                         <div class="carousel-content text-center text-white">
                             <h1>Graphic Work <span>Designing</span></h1>
                             <p>
-                                Any successful career starts with good education. Together with us you will have deeper
-                                knowledge of the subjects
+                                Any successful career starts with good education. Our Mentor can help you achieve success
                             </p>
                             <form action="MainController" method="POST">
                                 <input style="height: 35px; width: 20%;" type="text" name="txtSearch" placeholder="Search mentor">
@@ -105,7 +104,9 @@
                 font-family: Monospace">
                 TOP RANKING
             </h2>
-            <div class="container">
+            <div class="container" style="display: flex;
+                justify-content: center;
+                align-item: center;">
                 <div class="row">
                     <div class="col-lg-4 mb-4 col-sm-6">
                         <div class="card" style="height: 380px;width: 248px" >
@@ -394,7 +395,7 @@
                             <h5>
                                 <a href="#" data-toggle="modal" data-target="#myModal">Sit amet justo vitae</a>
                             </h5>
-                            <h6>3/01/2018</h6>
+                            <h6>3/11/2021</h6>
                             <p>
                                 Proin euismod vehicula vestibulum. Fusce
                                 ullamcorper aliquet dolor id egestas. Nulla leo
@@ -415,7 +416,7 @@
                             <h5>
                                 <a href="#" data-toggle="modal" data-target="#myModal">Fusce scelerisque</a>
                             </h5>
-                            <h6>5/01/2018</h6>
+                            <h6>5/11/2021</h6>
                             <p>
                                 Proin euismod vehicula vestibulum. Fusce
                                 ullamcorper aliquet dolor id egestas. Nulla leo
@@ -437,17 +438,6 @@
         </section>
 
         <jsp:include page="footerTemplate.jsp"></jsp:include>
-
-        <footer style="background-color: #0f0f10">
-            <div class="container">
-                <div class="footer__content">
-                    <p>
-                        © 2018 Instruction. All rights reserved | Design by
-                        <a href="http://w3layouts.com">W3layouts</a>
-                    </p>
-                </div>
-            </div>
-        </footer>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
         <!-- SLICK CAROUSEL -->
