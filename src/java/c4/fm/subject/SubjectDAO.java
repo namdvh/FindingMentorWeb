@@ -694,4 +694,34 @@ public class SubjectDAO implements Serializable {
         }
         return check;
     }
+    public boolean checkDuplicateUpdateSubject(String MentorID, String courseName,int SubjectID) throws SQLException, ClassNotFoundException {
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        boolean check = true;
+        try {
+            con = DBUtils.getConnection();
+            String sql = "select UserID from tblSubject where UserID = ? AND SubjectName = ? except select UserID from tblSubject where SubjectID= ?";
+            pst = con.prepareStatement(sql);
+            pst.setString(1, MentorID);
+            pst.setString(2, courseName);
+            pst.setInt(3, SubjectID);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                check = false;
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return check;
+    }
 }
