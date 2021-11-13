@@ -102,7 +102,7 @@
                             <input type="text" placeholder="search..." name="txtSearch" />
                             <button type="submit" name="action" value="SearchCourse"><i class="fa fa-search"></i></button>
                             <c:if test="${sessionScope.LOGIN_USER.roleID eq 'Mentor'}">   
-                            <button style="background-color: #ccc" type="button" data-toggle="modal" data-target="#requestAdminCreateCourse">+</button>
+                            <button style="background-color: #ccc;width: 150px" type="button" data-toggle="modal" data-target="#requestAdminCreateCourse">Add Subject</button>
                         </c:if>
                     </form>
                 </div>

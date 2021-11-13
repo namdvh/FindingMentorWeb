@@ -139,7 +139,7 @@
                                     <table class="table manage-candidates-top mb-0">
                                         <thead>
                                             <tr>
-                                                <th>User Name</th>
+                                                <th>Course Name</th>
                                             </tr>
                                         </thead>
                                         <tbody>
