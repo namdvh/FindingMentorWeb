@@ -34,6 +34,9 @@
                 </div>
             </div>
         </div>
+        <c:if test="${not empty  requestScope.UPDATE_MSG}">
+            ${requestScope.UPDATE_MSG}  
+        </c:if>
         <div id="container">
             <div class="shell">
                 <br/>
@@ -157,6 +160,7 @@
                                 <a href="MainController?action=LoadMentorPage" class="list-group-item list-group-item-action">Mentor Management</a>
                                 <a href="MainController?action=LoadUserPage" class="list-group-item list-group-item-action">User Management</a>
                                 <a href="MainController?action=LoadApprovePage" class="list-group-item list-group-item-action">Approve Mentor</a>
+                                <a href="MainController?action=LoadRequestSubject" class="list-group-item list-group-item-action">Request Subject</a>
                                 <a href="MainController?action=addSubjectPage" class="list-group-item list-group-item-action">Add Subject</a>
                                 <a href="MainController?action=addCategoryPage" class="list-group-item list-group-item-action">Add Category</a>
                             </div>

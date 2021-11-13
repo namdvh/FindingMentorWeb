@@ -3,63 +3,63 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package c4.fm.admin.controller;
+package c4.fm.controller;
 
-import c4.fm.category.CategoryDAO;
-import c4.fm.category.CategoryDTO;
-import c4.fm.dao.UserDAO;
-import c4.fm.subject.SubjectDAO;
-import c4.fm.subject.SubjectDTO;
-import c4.fm.user.UserDTO;
+import c4.fm.requestSubject.requestSubjectDAO;
+import c4.fm.requestSubject.requestSubjectDTO;
+import java.io.File;
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
+import org.apache.commons.io.FileUtils;
 
 /**
  *
- * @author cunpl
+ * @author Khang
  */
 @MultipartConfig
-@WebServlet(name = "LoadAdminServlet", urlPatterns = {"/LoadAdminServlet"})
-public class LoadAdminServlet extends HttpServlet {
+public class RequestCreateSubjectController extends HttpServlet {
 
-    private static final String ADMIN_PAGE = "admin.jsp";
+    private static final String ERROR = "error.jsp";
+    private static final String SUCCESS = "ShowAllSubjectController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ADMIN_PAGE;
+        boolean check = false;
+        String url = ERROR;
         try {
-            HttpSession session = request.getSession();
+            String userID = request.getParameter("userID");
+            String CourseName = request.getParameter("courseName");
+            String categoryID = request.getParameter("categoryId");
+            String description = request.getParameter("Description");
+            Part part = request.getPart("images");
 
-            List<SubjectDTO> listSubject = null;
-            SubjectDAO subjectDao = new SubjectDAO();
-            listSubject = subjectDao.listSubjectAdmin();
-            session.setAttribute("LIST_SUBJECT", listSubject);
+            requestSubjectDAO dao = new requestSubjectDAO();
 
-            UserDAO userDao = new UserDAO();
-            List<UserDTO> listUser = null;
-            listUser = userDao.loadListUser();
-            session.setAttribute("LIST_USER", listUser);
+            check = dao.checkDuplicateRequest(userID, CourseName);
 
-            CategoryDAO cateDao = new CategoryDAO();
-            List<CategoryDTO> listCate = null;
-            listCate = cateDao.loadListCate();
-            session.setAttribute("LIST_CATE", listCate);
-            
-            String mess = (String) request.getAttribute("UPDATE_MSG");
-            request.setAttribute("UPDATE_MSG", mess);
+            if (check) {
+                String filename = CourseName + userID + ".jpg";
+                String realPath = request.getServletContext().getRealPath("/") + "IM" + File.separator + filename;
+                System.out.println(realPath);
+                File file = new File(realPath);
+                FileUtils.copyInputStreamToFile(part.getInputStream(), file);
+                requestSubjectDTO subject = new requestSubjectDTO(userID, CourseName, categoryID, "IM" + File.separator + filename, description, false);
+                check = dao.RequestSubject(subject);
+                if (check) {
+                    url = SUCCESS;
+                }
+            }
 
         } catch (Exception e) {
-            log("Error at LoadAdminServlet:" + e.toString());
+            log("Error at request subject controller" + e.getMessage());
         } finally {
-            response.sendRedirect(url);
+            request.getRequestDispatcher(url).forward(request, response);
         }
     }
 

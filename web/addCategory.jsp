@@ -75,6 +75,7 @@
                                 <a href="MainController?action=LoadMentorPage" class="list-group-item list-group-item-action">Mentor Management</a>
                                 <a href="MainController?action=LoadUserPage" class="list-group-item list-group-item-action">User Management</a>
                                 <a href="MainController?action=LoadApprovePage" class="list-group-item list-group-item-action">Approve Mentor</a>
+                                <a href="MainController?action=LoadRequestSubject" class="list-group-item list-group-item-action">Request Subject</a>
                                 <a href="MainController?action=addSubjectPage" class="list-group-item list-group-item-action">Add Subject</a>
                                 <a href="MainController?action=addCategoryPage" class="list-group-item list-group-item-action active">Add Category</a>
                             </div>

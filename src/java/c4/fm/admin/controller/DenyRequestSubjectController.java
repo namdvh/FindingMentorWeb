@@ -5,61 +5,34 @@
  */
 package c4.fm.admin.controller;
 
-import c4.fm.category.CategoryDAO;
-import c4.fm.category.CategoryDTO;
-import c4.fm.dao.UserDAO;
-import c4.fm.subject.SubjectDAO;
-import c4.fm.subject.SubjectDTO;
-import c4.fm.user.UserDTO;
+import c4.fm.requestSubject.requestSubjectDAO;
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author cunpl
+ * @author Khang
  */
-@MultipartConfig
-@WebServlet(name = "LoadAdminServlet", urlPatterns = {"/LoadAdminServlet"})
-public class LoadAdminServlet extends HttpServlet {
+public class DenyRequestSubjectController extends HttpServlet {
 
-    private static final String ADMIN_PAGE = "admin.jsp";
+    private static final String REQUEST_SUBJECT_MANAGER_PAGE = "LoadRequestSubjectPage";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ADMIN_PAGE;
+        String url = REQUEST_SUBJECT_MANAGER_PAGE;
+        boolean check = false;
         try {
-            HttpSession session = request.getSession();
-
-            List<SubjectDTO> listSubject = null;
-            SubjectDAO subjectDao = new SubjectDAO();
-            listSubject = subjectDao.listSubjectAdmin();
-            session.setAttribute("LIST_SUBJECT", listSubject);
-
-            UserDAO userDao = new UserDAO();
-            List<UserDTO> listUser = null;
-            listUser = userDao.loadListUser();
-            session.setAttribute("LIST_USER", listUser);
-
-            CategoryDAO cateDao = new CategoryDAO();
-            List<CategoryDTO> listCate = null;
-            listCate = cateDao.loadListCate();
-            session.setAttribute("LIST_CATE", listCate);
-            
-            String mess = (String) request.getAttribute("UPDATE_MSG");
-            request.setAttribute("UPDATE_MSG", mess);
-
+            String requestID = request.getParameter("requestId");
+            requestSubjectDAO dao = new requestSubjectDAO();
+            check = dao.DenySubject(requestID);
         } catch (Exception e) {
-            log("Error at LoadAdminServlet:" + e.toString());
+            log("Error at DenyRequestSubjectController:" + e.toString());
         } finally {
-            response.sendRedirect(url);
+            request.getRequestDispatcher(url).forward(request, response);
         }
     }
 

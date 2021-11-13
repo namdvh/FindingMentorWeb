@@ -5,6 +5,8 @@
  */
 package c4.fm.controller;
 
+import c4.fm.category.CategoryDAO;
+import c4.fm.category.CategoryDTO;
 import c4.fm.subject.SubjectDAO;
 import c4.fm.subject.SubjectDTO;
 import c4.fm.user.UserDTO;
@@ -33,12 +35,15 @@ public class ShowEnrolledSubjectController extends HttpServlet {
         try {
             HttpSession session = request.getSession();
             SubjectDAO dao = new SubjectDAO();
+            CategoryDAO cateDAO = new CategoryDAO();
             UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
             String userID = user.getUserID();
             List<SubjectDTO> listEnrolled = dao.ShowEnrollSubject(userID);
             List<SubjectDTO> listSubjectMentor = dao.listSubjectMentor(userID);
+            List<CategoryDTO> listCate = cateDAO.loadListCate();
             if (listEnrolled != null) {
                 url = SUCCESS;
+                request.setAttribute("listcate", listCate);
                 session.setAttribute("listEnrolled", listEnrolled);
                 session.setAttribute("LIST_MENTOR_SUBJECT", listSubjectMentor);
             }
