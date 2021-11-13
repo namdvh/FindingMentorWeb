@@ -5,6 +5,8 @@
  */
 package c4.fm.controller;
 
+import c4.fm.category.CategoryDAO;
+import c4.fm.category.CategoryDTO;
 import c4.fm.subject.SubjectDAO;
 import c4.fm.subject.SubjectDTO;
 import c4.fm.user.UserDTO;
@@ -28,14 +30,20 @@ public class ShowAllSubjectController extends HttpServlet {
         try {
             HttpSession session = request.getSession();
             SubjectDAO dao = new SubjectDAO();
+            CategoryDAO cateDAO = new CategoryDAO();
             List<SubjectDTO> list = dao.ShowAllSubject();
             UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
             String userID = user.getUserID();
+            
+            List<CategoryDTO> listCate = cateDAO.loadListCate();
             List<SubjectDTO> listEnrolled = dao.ShowEnrollSubject(userID);
             List<SubjectDTO> listSubjectMentor = dao.listSubjectMentor(userID);
+            
+            request.setAttribute("listcate", listCate);
             session.setAttribute("listEnrolled", listEnrolled);
             session.setAttribute("LIST_MENTOR_SUBJECT", listSubjectMentor);
             session.setAttribute("allSubject", list);
+            
         } catch (Exception e) {
             log("Error at show all subject" + e.getMessage());
         } finally {

@@ -101,9 +101,12 @@
                         <form action="MainController" method="POST">
                             <input type="text" placeholder="search..." name="txtSearch" />
                             <button type="submit" name="action" value="SearchCourse"><i class="fa fa-search"></i></button>
-                        </form>
-                    </div>
+                            <c:if test="${sessionScope.LOGIN_USER.roleID eq 'Mentor'}">   
+                            <button style="background-color: #ccc" type="button" data-toggle="modal" data-target="#requestAdminCreateCourse">+</button>
+                        </c:if>
+                    </form>
                 </div>
+            </div>
             <c:if test="${MESSAGE != null}">
                 <div class="alert">
                     <span class="closebtn" onclick="this.parentElement.style.display = 'none';">&times;</span> 
@@ -189,6 +192,47 @@
                         </div> <hr>
                     </c:forEach>
                 </c:if>
+            </div>
+            <div class="modal fade" id="requestAdminCreateCourse" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content" style="font-size: 20px">
+                        <form action="RequestCreateSubjectController" method="POST" onsubmit="" enctype="multipart/form-data">
+                            <input type="hidden" name="userID" value="${sessionScope.LOGIN_USER.userID}">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Request Course</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group" style="padding-bottom: 20px">
+                                    <label for="fullName">Course Name:</label>
+                                    <input maxlength="50" type="text" class="form-control" placeholder="max 50 letter" name="courseName"  required="">
+                                </div>
+                                <div class="form-group" style="padding-bottom: 20px">
+                                    <label>Image<span>(Required Field)</span></label><br/>
+                                    <input type="file" name="images" class="form-submit" required="" accept="image/*"/>
+                                </div>
+                                <div class="form-group" style="padding-bottom: 20px">
+                                    <label>Category</label>
+                                    <select class="" name="categoryId">
+                                        <c:forEach var="cate" items="${listcate}">
+                                            <option value="${cate.categoryName}">${cate.categoryName}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="padding-bottom: 20px">
+                                    <label for="fullName">Description: </label>
+                                    <input maxlength="50" type="text" class="form-control" placeholder="max 50 letter" name="Description" required="" ">
+                                </div>
+                            </div>
+                            <div class="modal-footer" style="padding-bottom: 20px">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary" value="RequestSubject" name="action">Request</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </section>
         <jsp:include page="footerTemplate.jsp"></jsp:include>      

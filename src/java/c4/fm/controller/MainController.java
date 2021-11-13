@@ -40,6 +40,7 @@ public class MainController extends HttpServlet {
     private static final String LOAD_INFOR = "LoadInforController";
     private static final String LOAD_INFOR_MENTOR = "LoadInforMentorController";
     private static final String VIEW_COURSE_MENTOR = "ShowCourseByMentor";
+    private static final String REQUEST_CREATE_SUBJECT = "RequestCreateSubjectController";
 
     //==============BEGIN OF ADMIN===================
     private static final String LOAD_ADMIN_PAGE_SERVLET = "LoadAdminServlet";
@@ -63,9 +64,11 @@ public class MainController extends HttpServlet {
     private static final String ADDCATEGORYPAGE = "AddCategoryPageServlet";
     private static final String ADDCATEGORYSERVLET = "AddCategoryAdminServlet";
     private static final String DELETESUBJECTADMIN = "DeleteSubjectAdminServlet";
+    private static final String LOAD_REQUEST_SUBJECT_PAGE = "LoadRequestSubjectPage";
+    private static final String APPROVE_REQUEST_COURSE = "ApproveRequestSubjectController";
+    private static final String DENY_REQUEST_COURSE = "DenyRequestSubjectController";
 
     //=======================END OF ADMIN==========================
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -112,7 +115,9 @@ public class MainController extends HttpServlet {
                 url = LOAD_INFOR_MENTOR;
             } else if ("ViewCourseOfMentor".equals(action)) {
                 url = VIEW_COURSE_MENTOR;
-            }  //================BEGIN OF ADMIN============================
+            } else if ("RequestSubject".equals(action)) {
+                url = REQUEST_CREATE_SUBJECT;
+            } //================BEGIN OF ADMIN============================
             else if (action.equals("AddSubjectAdmin")) {
                 url = ADDSUBJECT_ADMIN_SERVLET;
             } else if (action.equals("searchSubjectAdmin")) {
@@ -149,13 +154,19 @@ public class MainController extends HttpServlet {
                 url = APPROVE_REQUEST_ADMIN_SERVLET;
             } else if (action.equals("DenailRequest")) {
                 url = DENAIL_REQUEST_ADMIN_SERVLET;
-            }else if (action.equals("deleteSubjectAdmin")) {
+            } else if (action.equals("deleteSubjectAdmin")) {
                 url = DELETESUBJECTADMIN;
-            }else if (action.equals("addCategoryPage")) {
+            } else if (action.equals("addCategoryPage")) {
                 url = ADDCATEGORYPAGE;
-            }else if (action.equals("AddCategoryAdmin")) {
+            } else if (action.equals("AddCategoryAdmin")) {
                 url = ADDCATEGORYSERVLET;
-            } //=====================END OF ADMIN==========================
+            } else if (action.equals("LoadRequestSubject")) {
+                url = LOAD_REQUEST_SUBJECT_PAGE;
+            } else if (action.equals("ApproveRequestSubjtect")) {
+                url = APPROVE_REQUEST_COURSE;
+            } else if (action.equals("DenailRequestSubject")) {
+                url = DENY_REQUEST_COURSE;
+            }//=====================END OF ADMIN==========================
             else {
                 HttpSession session = request.getSession();
                 session.setAttribute("ERROR_MESSAGE", "function is not available");

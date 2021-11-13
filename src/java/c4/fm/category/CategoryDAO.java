@@ -92,7 +92,7 @@ public class CategoryDAO {
             preStm = con.prepareStatement(sql);
             preStm.setString(1, cate.getCategoryId());
             preStm.setString(2, cate.getCategoryName());
-            check = preStm.executeUpdate()> 0;
+            check = preStm.executeUpdate() > 0;
         } finally {
             if (preStm != null) {
                 preStm.close();
@@ -103,5 +103,31 @@ public class CategoryDAO {
 
         }
         return check;
+    }
+
+    public CategoryDTO LoadCateName(String cateName) throws ClassNotFoundException, SQLException {
+        Connection con = null;
+        PreparedStatement preStm = null;
+        ResultSet rs = null;
+        CategoryDTO cate = null;
+        try {
+            String sql = "select CategoryID,CategoryName from tblCategory where CategoryName = ?";
+            con = DBUtils.getConnection();
+            preStm = con.prepareStatement(sql);
+            preStm.setString(1, cateName);
+            rs = preStm.executeQuery();
+            if (rs.next()) {
+                String cateID = rs.getString("CategoryID");
+                cate = new CategoryDTO(cateID, cateName);
+            }
+        } finally {
+            if (preStm != null) {
+                preStm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return cate;
     }
 }

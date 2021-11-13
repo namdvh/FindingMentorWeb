@@ -37,7 +37,8 @@ public class UpdateSubjectAdminServlet extends HttpServlet {
         try {
             int subjectId = Integer.parseInt(request.getParameter("subjectId"));
             String subjectName = request.getParameter("subjectName");
-
+            boolean check = false;
+            SubjectDAO subjectDao = new SubjectDAO();
             Part newPart = request.getPart("image");
             Part oldPart = request.getPart("oldImage");
             String userId = request.getParameter("userId");
@@ -51,21 +52,28 @@ public class UpdateSubjectAdminServlet extends HttpServlet {
             String pathImage = "";
 
             SubjectDTO subjectDTO = sjdao.LoadSubjectInactive(subjectId);
-
-            if (!newPart.getSubmittedFileName().isEmpty()) {
-                String filename = subjectId + ".jpg";
-                pathImage = "SubjectImage" + File.separator + filename;
-                String realPath = request.getServletContext().getRealPath("/") + pathImage;
-                File file = new File(realPath);
-                FileUtils.copyInputStreamToFile(newPart.getInputStream(), file);
-            } else {
-                pathImage = subjectDTO.getImages();
-            }
-            SubjectDTO subject = new SubjectDTO(subjectId, subjectName, pathImage, userId, categoryId, description, status);
-            SubjectDAO subjectDao = new SubjectDAO();
             String msg = "";
-            if (subjectDao.updateSubjectAdmin(subject)) {
-                msg = "Update Success!";
+            check = subjectDao.checkDuplicateSubject(userId, subjectName);
+            if (check) {
+
+                if (!newPart.getSubmittedFileName().isEmpty()) {
+                    String filename = subjectName + userId + ".jpg";
+                    pathImage = "SubjectImage" + File.separator + filename;
+                    String realPath = request.getServletContext().getRealPath("/") + pathImage;
+                    File file = new File(realPath);
+                    FileUtils.copyInputStreamToFile(newPart.getInputStream(), file);
+                } else {
+                    pathImage = subjectDTO.getImages();
+                }
+                SubjectDTO subject = new SubjectDTO(subjectId, subjectName, pathImage, userId, categoryId, description, status);
+
+                check = subjectDao.updateSubjectAdmin(subject);
+                if (check) {
+                    msg = "Update Success!";
+                }
+
+            } else {
+                msg = "Duplicate Name in this Mentor";
             }
             request.setAttribute("UPDATE_MSG", msg);
 

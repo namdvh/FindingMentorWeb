@@ -60,6 +60,22 @@
         <servlet-name>ShowCourseByMentor</servlet-name>
         <servlet-class>c4.fm.controller.ShowCourseByMentor</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ApproveRequestSubjectController</servlet-name>
+        <servlet-class>c4.fm.admin.controller.ApproveRequestSubjectController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DenyRequestSubjectController</servlet-name>
+        <servlet-class>c4.fm.admin.controller.DenyRequestSubjectController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadRequestSubjectPage</servlet-name>
+        <servlet-class>c4.fm.controller.LoadRequestSubjectPage</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RequestCreateSubjectController</servlet-name>
+        <servlet-class>c4.fm.controller.RequestCreateSubjectController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CreateGoogleController</servlet-name>
         <url-pattern>/CreateGoogleController</url-pattern>
@@ -123,6 +139,22 @@
     <servlet-mapping>
         <servlet-name>ShowCourseByMentor</servlet-name>
         <url-pattern>/ShowCourseByMentor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ApproveRequestSubjectController</servlet-name>
+        <url-pattern>/ApproveRequestSubjectController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DenyRequestSubjectController</servlet-name>
+        <url-pattern>/DenyRequestSubjectController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadRequestSubjectPage</servlet-name>
+        <url-pattern>/LoadRequestSubjectPage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RequestCreateSubjectController</servlet-name>
+        <url-pattern>/RequestCreateSubjectController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

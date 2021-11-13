@@ -33,6 +33,7 @@ public class AddSubjectAdminServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ADMIN_PAGE;
+        boolean check = false;
         try {
             UserDAO usdao = new UserDAO();
             String SubjectName = request.getParameter("subjectName");
@@ -43,18 +44,24 @@ public class AddSubjectAdminServlet extends HttpServlet {
             boolean status = Boolean.parseBoolean(request.getParameter("status"));
             String Description = request.getParameter("description");
 
-            String filename = SubjectName + ".jpg";
-            String realPath = request.getServletContext().getRealPath("/") + "SubjectImage" + File.separator + filename;
-            System.out.println(realPath);
-            File file = new File(realPath);
-            FileUtils.copyInputStreamToFile(part.getInputStream(), file);
-
-            SubjectDTO subject = new SubjectDTO(SubjectName, "SubjectImage" + File.separator + filename, UserId, CategoryId, Description, status);
-
             SubjectDAO subjectDao = new SubjectDAO();
             String msg = "";
-            if (subjectDao.insertSubjectAdmin(subject)) {
-                msg = "Insert Success!";
+
+            check = subjectDao.checkDuplicateSubject(UserId, SubjectName);
+            if (check) {
+                String filename = SubjectName + UserId + ".jpg";
+                String realPath = request.getServletContext().getRealPath("/") + "SubjectImage" + File.separator + filename;
+                System.out.println(realPath);
+                File file = new File(realPath);
+                FileUtils.copyInputStreamToFile(part.getInputStream(), file);
+
+                SubjectDTO subject = new SubjectDTO(SubjectName, "SubjectImage" + File.separator + filename, UserId, CategoryId, Description, status);
+                check = subjectDao.insertSubjectAdmin(subject);
+                if (check) {
+                    msg = "Insert Success!";
+                }else{
+                    msg = "Duplicate Subject for this mentor";
+                }
             }
             request.setAttribute("ADDSUBJECT_MSG", msg);
         } catch (Exception e) {

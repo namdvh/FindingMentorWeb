@@ -67,7 +67,7 @@ public class SubjectDAO implements Serializable {
                 pst.setString(5, subject.getDescription());
                 pst.setBoolean(6, subject.isStatus());
                 if (pst.executeUpdate() > 0) {
-                    return true;
+                    return false;
                 }
             }
 
@@ -81,7 +81,7 @@ public class SubjectDAO implements Serializable {
             }
 
         }
-        return false;
+        return true;
     }
 
     public List<SubjectDTO> searchSubjectAdmin(String searchValue) throws SQLException, ClassNotFoundException {
@@ -276,7 +276,8 @@ public class SubjectDAO implements Serializable {
         }
         return subject;
     }
-        public SubjectDTO LoadSubjectInactive(int subjectID) throws SQLException, ClassNotFoundException {
+
+    public SubjectDTO LoadSubjectInactive(int subjectID) throws SQLException, ClassNotFoundException {
         SubjectDTO subject = null;
         Connection con = null;
         PreparedStatement pst = null;
@@ -654,6 +655,36 @@ public class SubjectDAO implements Serializable {
             if (rs != null) {
                 rs.close();
             }
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return check;
+    }
+
+    public boolean checkDuplicateSubject(String MentorID, String courseName) throws SQLException, ClassNotFoundException {
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        boolean check = true;
+        try {
+            con = DBUtils.getConnection();
+            String sql = "select UserID from tblSubject where UserID = ? AND SubjectName = ?";
+            pst = con.prepareStatement(sql);
+            pst.setString(1, MentorID);
+            pst.setString(2, courseName);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                check = false;
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+
             if (pst != null) {
                 pst.close();
             }
