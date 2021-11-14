@@ -45,6 +45,8 @@
             crossorigin="anonymous"
             />
         <title>User Study</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.2/dist/sweetalert2.min.css">
+        <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
         <link  href="New folder/main.a3f694c0.css" />
         <link rel="stylesheet" href="Subject/AllCourse.css" />
 
@@ -81,6 +83,9 @@
     <c:if test="${sessionScope.LOGIN_USER eq null}">
         <c:redirect url="login.jsp"></c:redirect>
     </c:if>
+    <c:if test="${empty sessionScope.LOGIN_USER_NAME}">
+        <c:redirect url="MainController?action=LoadInfor"></c:redirect>
+    </c:if>
     <body>
         <jsp:include page="headerTemplate.jsp"></jsp:include>
             <section class="KhuVucHoc">
@@ -97,22 +102,22 @@
                     <button>
                         <a href="MainController?action=ShowEnrolled" style="font-size: 17px">My Course</a>
                     </button>     
-                    <c:if test="${sessionScope.LOGIN_USER.roleID eq 'Mentor'}">   
+                <c:if test="${sessionScope.LOGIN_USER.roleID eq 'Mentor'}">   
                     <button>
                         <a data-toggle="modal" data-target="#requestAdminCreateCourse" style="font-size: 17px;color: #007BFF">Add subject</a>
                     </button>
-                    </c:if>
-                    <div class="search-container">
-                        <form action="MainController" method="POST">
-                            <input type="text" placeholder="search..." name="txtSearch" />
-                            <button type="submit" name="action" value="SearchCourse"><i class="fa fa-search"></i></button>
-                        </form>
-                    
-                    </div>
+                </c:if>
+                <div class="search-container">
+                    <form action="MainController" method="POST">
+                        <input type="text" placeholder="search..." name="txtSearch" />
+                        <button type="submit" name="action" value="SearchCourse"><i class="fa fa-search"></i></button>
+                    </form>
 
-                
+                </div>
+
+
             </div>
-                
+
             <c:if test="${MESSAGE != null}">
                 <div class="alert">
                     <span class="closebtn" onclick="this.parentElement.style.display = 'none';">&times;</span> 
@@ -212,7 +217,7 @@
                             </div>
                             <div class="modal-body">
                                 <div class="form-group" style="padding-bottom: 20px">
-                                    <label for="fullName">Course Name:</label>
+                                    <label for="courseName">Course Name:</label>
                                     <input maxlength="50" type="text" class="form-control" placeholder="max 50 letter" name="courseName"  required="">
                                 </div>
                                 <div class="form-group" style="padding-bottom: 20px">
@@ -228,8 +233,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group" style="padding-bottom: 20px">
-                                    <label for="fullName">Description: </label>
-                                    <textarea maxlength="100" type="text" class="form-control ckeditor"  placeholder="max 100 letter" name="Description" required=""></textarea>
+                                    <label for="courseName">Description: </label>
+                                    <textarea type="text" class="form-control ckeditor"  placeholder="max 100 letter" name="courseName" required="" maxlength="100"></textarea>
                                 </div>
                             </div>
                             <div class="modal-footer" style="padding-bottom: 20px">
@@ -241,7 +246,19 @@
                 </div>
             </div>
         </section>
-        <jsp:include page="footerTemplate.jsp"></jsp:include>      
+        <c:if test="${not empty requestScope.MESS_SUCCESS}">
+            <script>
+
+                window.onload = function sweetalertclick() {
+                    Swal({
+                        title: 'Success',
+                        text: 'Your request has been sent',
+                        type: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                }</script>
+            </c:if>
+            <jsp:include page="footerTemplate.jsp"></jsp:include>      
         <script src="MyCourse.js"></script>
         <script
             src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -259,31 +276,38 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"
         ></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="sweetalert2.all.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.2/dist/sweetalert2.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+
         <script type="text/javascript"  src="Subject/MyCourse.js"></script>
         <script>
-                        document.addEventListener("DOMContentLoaded", function (event) {
-                            navActivePage();
-                        });
-                        function openCity(evt, cityName) {
-                            var i, tabcontent, tablinks;
-                            tabcontent = document.getElementsByClassName("tabcontent");
-                            for (i = 0; i < tabcontent.length; i++) {
-                                tabcontent[i].style.display = "none";
-                            }
-                            tablinks = document.getElementsByClassName("tablinks");
-                            for (i = 0; i < tablinks.length; i++) {
-                                tablinks[i].className = tablinks[i].className.replace(" active", "");
-                            }
-                            document.getElementById(cityName).style.display = "block";
-                            evt.currentTarget.className += " active";
-                        }
+                document.addEventListener("DOMContentLoaded", function (event) {
+                    navActivePage();
+                });
+                function openCity(evt, cityName) {
+                    var i, tabcontent, tablinks;
+                    tabcontent = document.getElementsByClassName("tabcontent");
+                    for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                    }
+                    tablinks = document.getElementsByClassName("tablinks");
+                    for (i = 0; i < tablinks.length; i++) {
+                        tablinks[i].className = tablinks[i].className.replace(" active", "");
+                    }
+                    document.getElementById(cityName).style.display = "block";
+                    evt.currentTarget.className += " active";
+                }
         </script>
         <script src="ckeditor_4.16.2_basic/ckeditor/ckeditor.js"></script>
         <script>
-            $('#exampleModal').on('show.bs.modal', event => {
-                var button = $(event.relatedTarget);
-                var modal = $(this);
-            });
+                $('#exampleModal').on('show.bs.modal', event => {
+                    var button = $(event.relatedTarget);
+                    var modal = $(this);
+                });
         </script>
         <script type="text/javascript" src="New folder/main.41beeca9.js"></script>
     </body>

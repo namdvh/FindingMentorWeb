@@ -69,9 +69,11 @@ public class CreateController extends HttpServlet {
                 boolean checkInsert = dao.insertUseNew(user);
                 if (checkInsert) {
                     url = SUCCESS;
+                    request.setAttribute("CREATE_SUCCESS", "a");
                 }
                 if (RoleID.equals("Mentor")) {
                     dao.RequestMentor(user);
+                    request.setAttribute("REQUEST_MENTOR", "b");
                 }
                 
             } else {
