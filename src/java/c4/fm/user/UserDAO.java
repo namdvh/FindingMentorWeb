@@ -1,4 +1,4 @@
-package c4.fm.dao;
+package c4.fm.user;
 
 import c4.fm.user.UserDTO;
 import c4.fm.utils.DBUtils;

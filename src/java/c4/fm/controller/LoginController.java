@@ -5,7 +5,7 @@
  */
 package c4.fm.controller;
 
-import c4.fm.dao.UserDAO;
+import c4.fm.user.UserDAO;
 import c4.fm.role.RoleDAO;
 import c4.fm.role.RoleDTO;
 import c4.fm.user.UserDTO;

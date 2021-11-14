@@ -94,77 +94,95 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-        <section class="ranking" style="margin-top: 120px">
-            <h2 style="display: flex;
-                justify-content: center;
-                align-item: center; 
-                margin-top: 20px;
-                margin-bottom: 40px;
-                font-size: 60px;
-                font-family: Monospace">
-                TOP RANKING
-            </h2>
-            <div class="container" style="display: flex;
-                justify-content: center;
-                align-item: center;">
-                <div class="row">
-                    <div class="col-lg-4 mb-4 col-sm-6">
-                        <div class="card" style="height: 380px;width: 248px" >
-                            <img style="height: 231px;width: 247px" src="${rank1.images}" class="card-img-top" alt="...">
+            <section class="ranking" style="margin-top: 120px">
+                <h2 style="display: flex;
+                    justify-content: center;
+                    align-item: center; 
+                    margin-top: 20px;
+                    margin-bottom: 40px;
+                    font-size: 60px;
+                    font-family: Monospace">
+                    TOP RANKING
+                </h2>
+                <div class="container" style="display: flex;
+                     justify-content: center;
+                     align-item: center;">
+                    <div class="row">
+                        <div class="col-lg-4 mb-4 col-sm-6">
+                            <div class="card" >
+                                <img style="height: 380px;width: 349px" src="${rank1.images}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title" style="text-align: center"> ${rank1.name}</h5>
                                 <p class="card-text" style="text-align: center"><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank1.stars}</p>
-                                <a href="MainController?action=LoadInfoMentor&UserID=${rank1.userID}" class="btn btn-primary" style="margin-left: 65px">Detail</a>
+                                <a href="MainController?action=LoadInfoMentor&UserID=${rank1.userID}" class="btn btn-primary" style="align-items: center;
+                                   display: flex;
+                                   justify-content: center;
+                                   ">Detail</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 mb-4 col-sm-6">
-                        <div class="card" style="height: 380px;width: 248px" >
-                            <img style="height: 231px;width: 247px" src="${rank2.images}" class="card-img-top" alt="...">
+                        <div class="card" >
+                            <img style="height: 380px;width: 349px" src="${rank2.images}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title" style="text-align: center"> ${rank2.name}</h5>
                                 <p class="card-text" style="text-align: center"><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank2.stars}</p>
-                                <a href="MainController?action=LoadInfoMentor&UserID=${rank2.userID}" class="btn btn-primary" style="margin-left: 65px">Detail</a>
+                                <a href="MainController?action=LoadInfoMentor&UserID=${rank2.userID}" class="btn btn-primary" style="align-items: center;
+                                   display: flex;
+                                   justify-content: center;
+                                   ">Detail</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 mb-4 col-sm-6">
-                        <div class="card" style="height: 380px;width: 248px" >
-                            <img style="height: 231px;width: 247px" src="${rank3.images}" class="card-img-top" alt="...">
+                        <div class="card" >
+                            <img style="height: 380px;width: 349px" src="${rank3.images}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title" style="text-align: center"> ${rank3.name}</h5>
                                 <p class="card-text" style="text-align: center"><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank3.stars}</p>
-                                <a href="MainController?action=LoadInfoMentor&UserID=${rank3.userID}" class="btn btn-primary" style="margin-left: 65px">Detail</a>
+                                <a href="MainController?action=LoadInfoMentor&UserID=${rank3.userID}" class="btn btn-primary" style="align-items: center;
+                                   display: flex;
+                                   justify-content: center;
+                                   ">Detail</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 mb-4 col-sm-6">
-                        <div class="card" style="height: 380px;width: 248px" >
-                            <img style="height: 231px;width: 247px" src="${rank4.images}" class="card-img-top" alt="...">
+                        <div class="card" >
+                            <img style="height: 380px;width: 349px" src="${rank4.images}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title" style="text-align: center"> ${rank4.name}</h5>
                                 <p class="card-text" style="text-align: center"><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank4.stars}</p>
-                                <a href="MainController?action=LoadInfoMentor&UserID=${rank4.userID}" class="btn btn-primary" style="margin-left: 65px">Detail</a>
+                                <a href="MainController?action=LoadInfoMentor&UserID=${rank4.userID}" class="btn btn-primary" style="align-items: center;
+                                   display: flex;
+                                   justify-content: center;
+                                   ">Detail</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 mb-4 col-sm-6">
-                        <div class="card" style="height: 380px;width: 248px" >
-                            <img style="height: 231px;width: 247px" src="${rank5.images}" class="card-img-top" alt="...">
+                        <div class="card" >
+                            <img style="height: 380px;width: 349px" src="${rank5.images}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title" style="text-align: center"> ${rank5.name}</h5>
                                 <p class="card-text" style="text-align: center"><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank5.stars}</p>
-                                <a href="MainController?action=LoadInfoMentor&UserID=${rank5.userID}" class="btn btn-primary" style="margin-left: 65px">Detail</a>
+                                <a href="MainController?action=LoadInfoMentor&UserID=${rank5.userID}" class="btn btn-primary" style="align-items: center;
+                                   display: flex;
+                                   justify-content: center;
+                                   ">Detail</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 mb-4 col-sm-6">
-                        <div class="card" style="height: 380px;width: 248px" >
-                            <img style="height: 231px;width: 247px" src="${rank6.images}" class="card-img-top" alt="...">
+                        <div class="card" >
+                            <img style="height: 380px;width: 349px" src="${rank6.images}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title" style="text-align: center"> ${rank6.name}</h5>
                                 <p class="card-text" style="text-align: center"><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank6.stars}</p>
-                                <a href="MainController?action=LoadInfoMentor&UserID=${rank6.userID}" class="btn btn-primary" style="margin-left: 65px">Detail</a>
+                                <a href="MainController?action=LoadInfoMentor&UserID=${rank6.userID}" class="btn btn-primary" style="align-items: center;
+                                   display: flex;
+                                   justify-content: center;
+                                   ">Detail</a>
                             </div>
                         </div>
                     </div>
@@ -224,7 +242,7 @@
                  ">
             <div class="container">
                 <div class="offer__header educate__title pb-4">
-                    <h3 class="heading-agileinfo">TESTIMONIALS</h3>
+                    <h3 class="heading-agileinfo">Quotes</h3>
                     <span>When Climbing The Carrer Ladder</span>
                 </div>
 
@@ -329,7 +347,7 @@
                                 <p>
                                     What we learn with pleasure we will never forget.
 
-.
+                                    .
                                 </p>
                             </div>
 
@@ -397,7 +415,7 @@
                             </h5>
                             <h6>11/11/2021</h6>
                             <p>
-                               Whether you?re looking to start a new career, or change your current one, Professional Certificates on c4findingmentor help you become job ready. Learn at your own pace, whenever and wherever it?s most convenient for you. Enroll today and explore a new career path with a 7 day free trial. You can pause your learning or end your subscription at any time.
+                                Whether you?re looking to start a new career, or change your current one, Professional Certificates on c4findingmentor help you become job ready. Learn at your own pace, whenever and wherever it?s most convenient for you. Enroll today and explore a new career path with a 7 day free trial. You can pause your learning or end your subscription at any time.
                             </p>
                         </div>
                     </div>
