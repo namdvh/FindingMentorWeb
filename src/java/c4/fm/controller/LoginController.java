@@ -38,6 +38,8 @@ public class LoginController extends HttpServlet {
             HttpSession session = request.getSession();
             if (user != null) {
                 UserDTO userInfo = dao.loadUser(UserID);
+                String name = userInfo.getName();
+                session.setAttribute("LOGIN_USER_NAME", name);
                 session.setAttribute("LOGIN_USER", userInfo);
                 String RoleID = user.getRoleID();
                 if ("AD".equals(RoleID)) {

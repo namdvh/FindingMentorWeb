@@ -38,6 +38,15 @@
         <c:if test="${sessionScope.LOGIN_USER == null}">
             <c:redirect url="login.jsp"/>
         </c:if>
+        <c:if test="${empty sessionScope.LOGIN_USER_NAME}">
+            <script>
+                window.onload = function sweetalertclick() {
+                Swal({
+                text: 'Please update Name, Email before learing in subject',
+                        confirmButtonText: 'Ok'
+                })
+                }</script>
+            </c:if>
         <form action="UpdateUserController" method="POST" enctype="multipart/form-data"  >
             <div class="container">
                 <div class="row gutters">
@@ -230,7 +239,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="sweetalert2.all.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.2/dist/sweetalert2.min.js"></script>
-
         <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 
         <script>
@@ -238,7 +246,7 @@
                 $('#myInput').trigg                    er('focus')
                 })
         </scrip                    t>
-        <script>
+            <script>
                         document.addEventListener("DOMContent                        Loaded", function (event) {
                         navAc                    tivePage();
                         });

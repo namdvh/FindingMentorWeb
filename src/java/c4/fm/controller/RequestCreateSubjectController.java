@@ -53,6 +53,7 @@ public class RequestCreateSubjectController extends HttpServlet {
                 check = dao.RequestSubject(subject);
                 if (check) {
                     url = SUCCESS;
+                    request.setAttribute("ADD", "add");
                 }
             }
 

@@ -138,7 +138,13 @@
             </section>
         </c:if>
         <c:if test="${requestScope.search == null}">
-            <p>asdasd</p>
+            <p style="text-align:center;font-size: 30px;color: red">No Result</p>
+            <div style="text-align: center">
+                <form action="MainController" method="POST">
+                    <input style="height: 35px; width: 20%;" type="text" name="txtSearch" placeholder="Search mentor">
+                    <button type="submit" name="action" value="Search" style="height: 40px; width: 40px; font-size: 20px; border-radius: 10px"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
         </c:if>
         <jsp:include page="footerTemplate.jsp"></jsp:include>
 

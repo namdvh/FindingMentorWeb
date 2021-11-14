@@ -272,6 +272,7 @@
                 var modal = $(this);
             });
         </script>
+        <script src="ckeditor_4.16.2_basic/ckeditor/ckeditor.js"></script>
         <script type="text/javascript" src="New folder/main.41beeca9.js"></script>
 
     </body>

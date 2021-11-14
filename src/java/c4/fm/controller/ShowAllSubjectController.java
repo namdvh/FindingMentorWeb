@@ -38,6 +38,9 @@ public class ShowAllSubjectController extends HttpServlet {
             List<CategoryDTO> listCate = cateDAO.loadListCate();
             List<SubjectDTO> listEnrolled = dao.ShowEnrollSubject(userID);
             List<SubjectDTO> listSubjectMentor = dao.listSubjectMentor(userID);
+            if(request.getAttribute("ADD") != null){
+                request.setAttribute("MESS_SUCCESS", "ADD");
+            }
             
             request.setAttribute("listcate", listCate);
             session.setAttribute("listEnrolled", listEnrolled);

@@ -15,6 +15,8 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Sign Up Form by Colorlib</title>
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.2/dist/sweetalert2.min.css">
+        <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
         <link rel="stylesheet" href="LoginUser/Login/fonts/material-icon/css/material-design-iconic-font.min.css">
 
         <link rel="stylesheet" href="LoginUser/Login/css/style.css">
@@ -27,7 +29,7 @@
                         <div class="signin-image">
                             <figure><img src="LoginUser/Login/images/signin-image.jpg" alt="sing up image"></figure>
                             <a href="MainController?action=CreatePage" class="signup-image-link">Create an account</a>
-                              <a style="text-decoration: none; font-weight: bold" href="MainController?action=Load" class="signup-image-link">Home Page</a>
+                            <a style="text-decoration: none; font-weight: bold" href="MainController?action=Load" class="signup-image-link">Home Page</a>
                         </div>
 
                         <div class="signin-form">
@@ -54,7 +56,7 @@
 
                             </form>
                             <div class="social-login" >
-                               
+
                                 <span class="social-label">Or login with</span>
                                 <ul class="socials">
 
@@ -67,9 +69,40 @@
                 </div>
             </section>
         </div>
+        <c:if test="${not empty requestScope.CREATE_SUCCESS}">
+            <script>
 
+                window.onload = function sweetalertclick() {
+                    Swal({
+                        title: 'Success',
+                        text: 'Create Accout Succesfull',
+                        type: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                }
+            </script>
+        </c:if>
+        <c:if test="${not empty requestScope.REQUEST_MENTOR}">
+            <script>
+
+                window.onload = function sweetalertclick() {
+                    Swal({
+                        title: 'Success',
+                        text: 'Sent Request Succesfull',
+                        type: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                }
+            </script>
+        </c:if>
         <!-- JS -->
         <script src="LoginUser/Login/vendor/jquery/jquery.min.js"></script>
         <script src="LoginUser/Login/js/main.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="sweetalert2.all.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.2/dist/sweetalert2.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
     </body>
 </html>
