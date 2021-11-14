@@ -96,17 +96,23 @@
                     </button>
                     <button>
                         <a href="MainController?action=ShowEnrolled" style="font-size: 17px">My Course</a>
+                    </button>     
+                    <c:if test="${sessionScope.LOGIN_USER.roleID eq 'Mentor'}">   
+                    <button>
+                        <a data-toggle="modal" data-target="#requestAdminCreateCourse" style="font-size: 17px;color: #007BFF">Add subject</a>
                     </button>
+                    </c:if>
                     <div class="search-container">
                         <form action="MainController" method="POST">
                             <input type="text" placeholder="search..." name="txtSearch" />
                             <button type="submit" name="action" value="SearchCourse"><i class="fa fa-search"></i></button>
-                            <c:if test="${sessionScope.LOGIN_USER.roleID eq 'Mentor'}">   
-                            <button style="background-color: #ccc;width: 150px" type="button" data-toggle="modal" data-target="#requestAdminCreateCourse">Add Subject</button>
-                        </c:if>
-                    </form>
-                </div>
+                        </form>
+                    
+                    </div>
+
+                
             </div>
+                
             <c:if test="${MESSAGE != null}">
                 <div class="alert">
                     <span class="closebtn" onclick="this.parentElement.style.display = 'none';">&times;</span> 
@@ -223,7 +229,7 @@
                                 </div>
                                 <div class="form-group" style="padding-bottom: 20px">
                                     <label for="fullName">Description: </label>
-                                    <input maxlength="50" type="text" class="form-control" placeholder="max 50 letter" name="Description" required="" ">
+                                    <textarea maxlength="100" type="text" class="form-control ckeditor"  placeholder="max 100 letter" name="Description" required=""></textarea>
                                 </div>
                             </div>
                             <div class="modal-footer" style="padding-bottom: 20px">
@@ -272,6 +278,7 @@
                             evt.currentTarget.className += " active";
                         }
         </script>
+        <script src="ckeditor_4.16.2_basic/ckeditor/ckeditor.js"></script>
         <script>
             $('#exampleModal').on('show.bs.modal', event => {
                 var button = $(event.relatedTarget);

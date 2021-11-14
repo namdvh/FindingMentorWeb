@@ -5,7 +5,7 @@
  */
 package c4.fm.admin.controller;
 
-import c4.fm.dao.UserDAO;
+import c4.fm.user.UserDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

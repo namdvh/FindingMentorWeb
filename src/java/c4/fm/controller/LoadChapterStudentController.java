@@ -5,8 +5,8 @@
  */
 package c4.fm.controller;
 
-import c4.fm.dao.ChapterDAO;
-import c4.fm.dao.ContentDAO;
+import c4.fm.subject.ChapterDAO;
+import c4.fm.subject.ContentDAO;
 import c4.fm.subject.ChapterDTO;
 import c4.fm.subject.ContentDTO;
 import c4.fm.subject.SubjectDAO;

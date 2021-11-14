@@ -95,19 +95,21 @@
                     <button>
                         <a href="MainController?action=ShowAll" style="font-size: 17px">All subject</a>
                     </button>
-                    <button>
+                    <button onclick="sweetalertclick()" >
                         <a href="MainController?action=ShowEnrolled" style="font-size: 17px">My Course</a>
                     </button>
-                    <div class="search-container">
-                        <form action="MainController" method="POST">
-                            <input type="text" placeholder="search..." name="txtSearch" />
-                            <button type="submit" name="action" value="SearchCourse"><i class="fa fa-search"></i></button>
-                            <c:if test="${sessionScope.LOGIN_USER.roleID eq 'Mentor'}" >   
-                            <button style="background-color: #ccc;width: 150px" type="button" data-toggle="modal" data-target="#requestAdminCreateCourse">Add Subject</button>
-                        </c:if>
-                        </form>
-                    </div>
+                <c:if test="${sessionScope.LOGIN_USER.roleID eq 'Mentor'}">   
+                    <button>
+                        <a data-toggle="modal" data-target="#requestAdminCreateCourse" style="font-size: 17px;color: #007BFF">Add subject</a>
+                    </button>
+                </c:if>
+                <div class="search-container">
+                    <form action="MainController" method="POST">
+                        <input type="text" placeholder="search..." name="txtSearch" />
+                        <button type="submit" name="action" value="SearchCourse"><i class="fa fa-search"></i></button>
+                    </form>
                 </div>
+            </div>
             <c:if test="${MESSAGE != null}">
                 <div class="alert">
                     <span class="closebtn" onclick="this.parentElement.style.display = 'none';">&times;</span> 
@@ -215,7 +217,7 @@
                                 </div>
                                 <div class="form-group" style="padding-bottom: 20px">
                                     <label for="fullName">Description: </label>
-                                    <input maxlength="50" type="text" class="form-control" placeholder="max 50 letter" name="Description" required="" ">
+                                    <textarea maxlength="100" type="text" class="form-control ckeditor"  placeholder="max 100 letter" name="Description" required=""></textarea>
                                 </div>
                             </div>
                             <div class="modal-footer" style="padding-bottom: 20px">
@@ -247,22 +249,22 @@
         ></script>
         <script type="text/javascript"  src="Subject/MyCourse.js"></script>
         <script>
-                        document.addEventListener("DOMContentLoaded", function (event) {
-                            navActivePage();
-                        });
-                        function openCity(evt, cityName) {
-                            var i, tabcontent, tablinks;
-                            tabcontent = document.getElementsByClassName("tabcontent");
-                            for (i = 0; i < tabcontent.length; i++) {
-                                tabcontent[i].style.display = "none";
-                            }
-                            tablinks = document.getElementsByClassName("tablinks");
-                            for (i = 0; i < tablinks.length; i++) {
-                                tablinks[i].className = tablinks[i].className.replace(" active", "");
-                            }
-                            document.getElementById(cityName).style.display = "block";
-                            evt.currentTarget.className += " active";
+                    document.addEventListener("DOMContentLoaded", function (event) {
+                        navActivePage();
+                    });
+                    function openCity(evt, cityName) {
+                        var i, tabcontent, tablinks;
+                        tabcontent = document.getElementsByClassName("tabcontent");
+                        for (i = 0; i < tabcontent.length; i++) {
+                            tabcontent[i].style.display = "none";
                         }
+                        tablinks = document.getElementsByClassName("tablinks");
+                        for (i = 0; i < tablinks.length; i++) {
+                            tablinks[i].className = tablinks[i].className.replace(" active", "");
+                        }
+                        document.getElementById(cityName).style.display = "block";
+                        evt.currentTarget.className += " active";
+                    }
         </script>
         <script>
             $('#exampleModal').on('show.bs.modal', event => {
@@ -271,5 +273,6 @@
             });
         </script>
         <script type="text/javascript" src="New folder/main.41beeca9.js"></script>
+
     </body>
 </html>

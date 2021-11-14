@@ -5,7 +5,7 @@
  */
 package c4.fm.controller;
 
-import c4.fm.dao.UserDAO;
+import c4.fm.user.UserDAO;
 import c4.fm.user.UserDTO;
 import c4.fm.user.UserError;
 import c4.fm.validation.CheckValidation;
@@ -65,7 +65,7 @@ public class CreateController extends HttpServlet {
             if (check) {
                 UserDAO dao = new UserDAO();
 
-                UserDTO user=new UserDTO(UserID, Email, Email, "US", "", "", Password, "CV" + File.separator + filename, "1", "", "");
+                UserDTO user=new UserDTO(UserID, Email, "", "US", "", "", Password, "CV" + File.separator + filename, "1", "", "");
                 boolean checkInsert = dao.insertUseNew(user);
                 if (checkInsert) {
                     url = SUCCESS;

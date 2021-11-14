@@ -5,7 +5,7 @@
  */
 package c4.fm.controller;
 
-import c4.fm.dao.ChapterDAO;
+import c4.fm.subject.ChapterDAO;
 import c4.fm.subject.ChapterDTO;
 import c4.fm.user.UserDTO;
 import java.io.IOException;

@@ -205,7 +205,7 @@
                                 <a class="nav-link" href="MainController?action=Logout" class="choose">Log out</a>
                             </li>
                             <li>
-                                <button style="border: none;">
+                                <button style="border: none;background-color: white">
                                     <a href="MainController?action=LoadInfor">
                                         <i>
                                             <img style="border-radius: 50%; width: 45px; height: 45px; font-size: 30px;" src="${sessionScope.LOGIN_USER.images}" alt="photo2">
