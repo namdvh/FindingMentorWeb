@@ -393,18 +393,11 @@
                         </div>
                         <div class="col-12 col-md-7 pl-3 pl-md-4 mt-4 mt-md-0">
                             <h5>
-                                <a href="#" data-toggle="modal" data-target="#myModal">Sit amet justo vitae</a>
+                                <a href="#" data-toggle="modal" data-target="#myModal">Build the Skills to Get Job Ready</a>
                             </h5>
-                            <h6>3/11/2021</h6>
+                            <h6>11/11/2021</h6>
                             <p>
-                                Proin euismod vehicula vestibulum. Fusce
-                                ullamcorper aliquet dolor id egestas. Nulla leo
-                                purus, facilisis non cursus ut, egestas sed
-                                ipsum.Fusce ullamcorper aliquet dolor id
-                                egestas. Nulla leo purus, facilisis non cursus
-                                ut, egestas sed ipsum.Fusce ullamcorper aliquet
-                                dolor id egestas. Nulla leo purus, facilisis non
-                                cursus ut, egestas sed ipsum.
+                               Whether you?re looking to start a new career, or change your current one, Professional Certificates on c4findingmentor help you become job ready. Learn at your own pace, whenever and wherever it?s most convenient for you. Enroll today and explore a new career path with a 7 day free trial. You can pause your learning or end your subscription at any time.
                             </p>
                         </div>
                     </div>
@@ -414,18 +407,11 @@
                     <div class="row">
                         <div class="col-12 col-md-7 pl-3 pl-md-4 mb-4 mb-md-0">
                             <h5>
-                                <a href="#" data-toggle="modal" data-target="#myModal">Fusce scelerisque</a>
+                                <a href="#" data-toggle="modal" data-target="#myModal">Earn a Career Credential</a>
                             </h5>
-                            <h6>5/11/2021</h6>
+                            <h6>11/11/2021</h6>
                             <p>
-                                Proin euismod vehicula vestibulum. Fusce
-                                ullamcorper aliquet dolor id egestas. Nulla leo
-                                purus, facilisis non cursus ut, egestas sed
-                                ipsum.Fusce ullamcorper aliquet dolor id
-                                egestas. Nulla leo purus, facilisis non cursus
-                                ut, egestas sed ipsum.Fusce ullamcorper aliquet
-                                dolor id egestas. Nulla leo purus, facilisis non
-                                cursus ut, egestas sed ipsum.
+                                When you complete all of the courses in the program, you'll earn a Certificate to share with your professional network as well as unlock access to career support resources to help you kickstart your new career. Many Professional Certificates have hiring partners that recognize the Professional Certificate credential and others can help prepare you for a certification exam. You can find more information on individual Professional Certificate pages where it applies..
                             </p>
                         </div>
 

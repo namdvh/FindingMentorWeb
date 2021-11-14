@@ -156,7 +156,13 @@
                     <div class="col-lg-4">
                         <h3>About Us</h3>
                         <p style="font-size: 16px">
-                            Learning every day. Training your skill, make it easy and try your best!
+                            Learning is the source of human progress.
+
+                            It has the power to transform our world
+                            from illness to health,
+                            from poverty to prosperity,
+                            from conflict to peace.
+
                         </p>
                     </div>
                     <div class="col-lg-4">
