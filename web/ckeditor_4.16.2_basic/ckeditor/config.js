@@ -61,7 +61,7 @@ CKEDITOR.editorConfig = function (config) {
         maxWordCount: -1,
 
         // Maximum allowed Char Count, -1 is default for unlimited
-        maxCharCount: 250,
+        maxCharCount: 150,
 
         // Maximum allowed Paragraphs Count, -1 is default for unlimited
         maxParagraphs: -1,

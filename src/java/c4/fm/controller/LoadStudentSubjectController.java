@@ -52,6 +52,9 @@ public class LoadStudentSubjectController extends HttpServlet {
                 subjectDTO.setList(listInfor);
                 session.setAttribute("LIST_STUDENT_ENROLL_SUBJECT", subjectDTO);
                 url = PAGE;
+            } else {
+                String msg = "NO STUDENT ENROLLER";
+                request.setAttribute("MSG_NO_STUDENT", msg);
             }
         } catch (Exception e) {
             log("Error at LoadStudentSubjectController: " + e.toString());
