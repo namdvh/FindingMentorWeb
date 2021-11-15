@@ -194,12 +194,12 @@
                         <div class="wrapper row">
                             <div class="preview col-md-6">
                                 <div class="preview-pic tab-content">
-                                    <div class="tab-pane active" id="pic-1"><img style="width: 80%" src="${ViewPage.images}" /></div>
+                                    <div class="tab-pane active" id="pic-1"><img style="width: 400px;height: 300px" src="${ViewPage.images}" /></div>
                             </div>
                         </div>
-                        <div style="margin-top: 15px; margin-left: -70px" class="details col-md-3">
+                        <div style="margin-top: 15px;margin-left: -70px" class="details col-md-3">
                             <h3 class="product-title" style="font-size: 17px">Subject Name: ${ViewPage.subjectName}</h3>
-                            <p style="font-size: 12px; margin-top: 10px;text-align: left" class="product-description">${ViewPage.description}</p>
+                            <p style="font-size: 12px; margin-top: 10px;text-align: left" class="product-description"><h4>Description :</h4>${ViewPage.description}</p>
                             <p style="font-size: 15px; margin-top: 10px" class="price">Mentor Name: ${LoadMentor.name}</p>
                             <p style="font-size: 20px; margin-top: 10px" class="stars">Total <img src="assets/images/star.png" width="17px" height="17px" alt="icon"/>
                                 : ${LoadMentor.stars}</p>

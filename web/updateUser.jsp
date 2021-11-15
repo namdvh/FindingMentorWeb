@@ -141,7 +141,7 @@
 
                 window.onload = function sweetalertclick() {
                 Swal({
-                title: 'NO STUDENT ENROLLER',
+                title: 'Update Successfull',
                         text: 'Do you want to continue',
                         type: 'success',
                         timer: 3000,
