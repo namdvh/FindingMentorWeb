@@ -68,7 +68,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="fullName">Blog:</label>
-                                            <textarea type="text" class="form-control ckeditor" id="fullName" placeholder="max 250 letter" name="UpdateBlog" value="${itemContent.blog}" style="height: 240px">${itemContent.blog}</textarea>
+                                            <textarea type="text" class="form-control" id="fullName" placeholder="max 250 letter" name="UpdateBlog" value="${itemContent.blog}" style="height: 240px">${itemContent.blog}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -165,7 +165,7 @@
 
                                                             <div class="form-group">
                                                                 <label for="fullName">Blog:</label>
-                                                                <textarea maxlength="250" type="text" class="form-control ckeditor" id="fullName" name="blog" value="" placeholder="max 250 letter" style="height: 240px"></textarea>
+                                                                <textarea maxlength="250" type="text" class="form-control" id="fullName" name="blog" value="" placeholder="max 250 letter" style="height: 240px"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>

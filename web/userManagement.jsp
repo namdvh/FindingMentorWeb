@@ -68,8 +68,6 @@
                                         <th>name</th>
                                         <th>email</th>
                                         <th>role ID</th>
-                                        <th>phone Number</th>
-                                        <th>address</th>
                                         <th>status</th>
                                         <th>birthday</th>
                                         <th>images</th>
@@ -83,8 +81,6 @@
                                             <th>${s.name}</th>
                                             <th>${s.email}</th>
                                             <th>${s.roleID}</th>
-                                            <th>${s.phoneNumber}</th>
-                                            <th>${s.address}</th>
                                             <th>${s.status}</th>
                                             <th>${s.birthday}</th>
                                             <th>
@@ -123,7 +119,7 @@
             </div>
         </div>
         <div id="footer">
-            <div class="shell"> <span class="left">&copy; 2021 - Company Four Class</span> <span class="right"> Design by <a href="http://chocotemplates.com">Chocotemplates.com</a> </span> </div>
+            <div class="shell"> <span class="left">&copy; 2021 - Company Four Class</span>  </div>
         </div>
     </body>
 </html>

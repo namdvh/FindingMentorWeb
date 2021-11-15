@@ -140,37 +140,42 @@
                                         </thead>
                                         <tbody>
                                             <c:forEach items="${ListCourseMentor}" var="list">
-                                                <tr class="candidates-list">
-                                                    <td class="title">
-                                                        <div class="thumb">
+                                                <tr class="candidates-list ">
+                                                    <td class=" title">
+                                                        <div class="thumb" style="position: relative">
                                                             <img
                                                                 class="img-fluid"
                                                                 src="${list.images}"
                                                                 alt=""
+                                                               style="float: left"
                                                                 />
+                                                          <span style="float: right" ><a href="#">${list.subjectName}</a></span>   
+                                                          <span  class="fas fa-filter" style="position: absolute;left: 5rem;display: flex;top: 2rem;white-space: nowrap; width: 350px; overflow: hidden; text-overflow: ellipsis;">Description: ${list.description} </span>     
+                                                         
                                                         </div>
-                                                        <div class="candidate-list-details">
-                                                            <div class="candidate-list-info">
-                                                                <div class="candidate-list-title">
-                                                                    <h5 class="mb-0"><a href="#">${list.subjectName}</a></h5>
+                                                          <div style="margin-left: 25rem" >
+                                                            
+                                                            
+                                                             <button  style="float: right; margin-top: 30px" type="button" class="btn btn-primary">   
+                                                                        <a style="color: white" href="MainController?action=Enroll&subjectId=${list.subjectId}">  Join class  </a>                          
+                                                                    </button> 
+                                                                    
+                                                                    <button  style="float: right ; margin-top: 30px; margin-right: 10px;" class="btn btn-primary" type="button" >                          
+                                                                        <a style="color: white" href="MainController?action=LoadSubjectPage&subjectId=${list.subjectId}">Detail</a>
+                                                                    </button>
+<!--                                                                <div class="candidate-list-title">
+                                                                  
+                                                                   
                                                                 </div>
                                                                 <div class="candidate-list-option">
-                                                                    <ul class="list-unstyled">
-                                                                        <li>
-                                                                            <i class="fas fa-filter pr-1"></i>Description ${list.description}
-                                                                        </li>
-                                                                        <li>
-                                                                    </ul>
-                                                                </div>
-                                                                <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
-                                                                    <a style="color: white" href="MainController?action=Enroll&subjectId=${list.subjectId}">  Join class  </a>                          
-                                                                </button> 
-                                                                <!--button Detail-->
-                                                                <button  style="float: right ; margin-top: 30px; margin-right: 10px;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">                          
-                                                                    <a style="color: white" href="MainController?action=LoadSubjectPage&subjectId=${list.subjectId}">  Detail  </a>
-                                                                </button>
-                                                            </div>
+
+                                                                    
+
+                                                                </div>-->
+
+                                                       
                                                         </div>
+                                                          </td>          
                                                 </tr>      
                                             </c:forEach>
                                         </tbody>

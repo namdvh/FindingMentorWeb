@@ -62,8 +62,6 @@
                                     <tr>
                                         <th>name</th>
                                         <th>email</th>
-                                        <th>phone Number</th>
-                                        <th>address</th>
                                         <th>status</th>
                                         <th>birthday</th>
                                         <th>images</th>
@@ -74,8 +72,6 @@
                                         <tr>
                                             <th>${s.name}</th>
                                             <th>${s.email}</th>
-                                            <th>${s.phoneNumber}</th>
-                                            <th>${s.address}</th>
                                             <th>${s.status}</th>
                                             <th>${s.birthday}</th>
                                             <th>

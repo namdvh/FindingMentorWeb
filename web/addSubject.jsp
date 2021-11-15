@@ -175,9 +175,6 @@
                     </div>
                 </div>
             </div>
-            <div id="footer">
-                <div class="shell"> <span class="left">&copy; 2021 - Company Four Class</span> <span class="right"> Design by <a href="http://chocotemplates.com">Chocotemplates.com</a> </span> </div>
-            </div>
             <script src="ckeditor_4.16.2_basic/ckeditor/ckeditor.js"></script>
     </body>
      
