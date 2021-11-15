@@ -14,7 +14,7 @@ public class Constant {
 
 	public static String GOOGLE_CLIENT_SECRET = "QhYrVXXX38o3rwWF5UG9XS1m";
 
-	public static String GOOGLE_REDIRECT_URI = "http://c4findingmentor.xyz/FindingMentor/LoginGoogleHandler";
+	public static String GOOGLE_REDIRECT_URI = "http://c4findingmentor.online/FindingMentor/LoginGoogleHandler";
 
 	public static String GOOGLE_LINK_GET_TOKEN = "https://accounts.google.com/o/oauth2/token";
 

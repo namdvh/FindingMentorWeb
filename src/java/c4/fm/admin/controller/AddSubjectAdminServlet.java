@@ -49,17 +49,17 @@ public class AddSubjectAdminServlet extends HttpServlet {
 
             check = subjectDao.checkDuplicateSubject(UserId, SubjectName);
             if (check) {
-                String filename = SubjectName + UserId + ".jpg";
+                String SubjectName1=SubjectName.replace("#", "a");
+                String filename = SubjectName1 + UserId + ".jpg";
                 String realPath = request.getServletContext().getRealPath("/") + "SubjectImage" + File.separator + filename;
                 System.out.println(realPath);
                 File file = new File(realPath);
                 FileUtils.copyInputStreamToFile(part.getInputStream(), file);
-
                 SubjectDTO subject = new SubjectDTO(SubjectName, "SubjectImage" + File.separator + filename, UserId, CategoryId, Description, status);
                 check = subjectDao.insertSubjectAdmin(subject);
                 if (check) {
                     msg = "Insert Success!";
-                }else{
+                } else {
                     msg = "Duplicate Subject for this mentor";
                 }
             }

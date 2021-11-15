@@ -79,7 +79,7 @@
                                         <tbody>
                                             <c:forEach items="${ListCourseMentor}" var="list">
                                                 <tr class="candidates-list">
-                                                    <td class="title">
+                                                    <td class="title" style="max-width: 1000px">
                                                         <div class="thumb">
                                                             <img
                                                                 class="img-fluid"
@@ -91,24 +91,20 @@
                                                             <div class="candidate-list-info">
                                                                 <div class="candidate-list-title">
                                                                     <h5 class="mb-0"><a href="#">${list.subjectName}</a></h5>
+                                                                    <p class="fas fa-filter pr-1">Description ${list.description}</p>
                                                                 </div>
                                                                 <div class="candidate-list-option">
-                                                                    <ul class="list-unstyled">
-                                                                        <li>
-                                                                            <i class="fas fa-filter pr-1"></i>Description ${list.description}
-                                                                        </li>
-                                                                        <li>
-                                                                    </ul>
+                                                                    <button  style="float: right;margin-top: 30p;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
+                                                                        <a style="color: white" href="MainController?action=Enroll&subjectId=${list.subjectId}">  Join class  </a>                          
+                                                                    </button> 
+                                                                    <!--button Detail-->
+                                                                    <button  style="float: right;margin-top: 30px;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">                          
+                                                                        <a style="color: white" href="MainController?action=LoadSubjectPage&subjectId=${list.subjectId}">  Detail  </a>
+                                                                    </button>          
                                                                 </div>
-                                                                <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
-                                                                    <a style="color: white" href="MainController?action=Enroll&subjectId=${list.subjectId}">  Join class  </a>                          
-                                                                </button> 
-                                                                <!--button Detail-->
-                                                                <button  style="float: right ; margin-top: 30px; margin-right: 10px;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">                          
-                                                                    <a style="color: white" href="MainController?action=LoadSubjectPage&subjectId=${list.subjectId}">  Detail  </a>
-                                                                </button>
                                                             </div>
                                                         </div>
+                                                    </td>
                                                 </tr>      
                                             </c:forEach>
                                         </tbody>

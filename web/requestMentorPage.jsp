@@ -166,7 +166,7 @@
                                                 <th>${s.name}</th>
                                                 <!--<th> <img src="${s.certificate}" width="150px"> </th>-->
                                                 <th> <img src="${s.certificate}" id="myImg" src="img_snow.jpg" style="width:100%;max-width:150px"></th>
-                                                <th>${s.description}</th>
+                                                <th style="max-width: 100px;overflow: hidden;">${s.description}</th>
                                                 <th>${s.status}</th>
                                                 <th>
                                                     <c:if test="${s.status eq 'true'}">
