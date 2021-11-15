@@ -221,7 +221,7 @@
                                     <input maxlength="50" type="text" class="form-control" placeholder="max 50 letter" name="courseName"  required="">
                                 </div>
                                 <div class="form-group" style="padding-bottom: 20px">
-                                    <label>Image<span>(Required Field)</span></label><br/>
+                                    <label>Image</label><br/>
                                     <input type="file" name="images" class="form-submit" required="" accept="image/*"/>
                                 </div>
                                 <div class="form-group" style="padding-bottom: 20px">

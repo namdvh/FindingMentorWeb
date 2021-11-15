@@ -479,20 +479,19 @@
             // });
             $('.owl-carousel').owlCarousel({
                 loop: true,
+                time: 2000,
                 margin: 10,
                 responsiveClass: true,
                 dots: true,
                 responsive: {
                     0: {
                         items: 2,
-
-                    },
-                    600: {
-                        items: 2,
                     },
                     1000: {
+                        items: 2,
+                    },
+                    2000: {
                         items: 3,
-
                         loop: false
                     }
                 }

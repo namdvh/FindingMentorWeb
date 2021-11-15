@@ -75,7 +75,9 @@
                                                 <th>
                                                     <img src="${s.images}" width="150px"> 
                                                 </th>
-                                                <th>${s.description}</th>
+                                                <th style="max-width: 100px;overflow: hidden;">
+                                                    ${s.description}
+                                                </th>
                                                 <th>${s.status}</th>
                                                 <th>
                                                     <c:if test="${s.status eq 'false'}">

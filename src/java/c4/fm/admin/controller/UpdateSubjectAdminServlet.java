@@ -53,10 +53,11 @@ public class UpdateSubjectAdminServlet extends HttpServlet {
 
             SubjectDTO subjectDTO = sjdao.LoadSubjectInactive(subjectId);
             String msg = "";
-            check = subjectDao.checkDuplicateUpdateSubject(userId, subjectName,subjectId);
+            check = subjectDao.checkDuplicateUpdateSubject(userId, subjectName, subjectId);
             if (check) {
                 if (!newPart.getSubmittedFileName().isEmpty()) {
-                    String filename = subjectName + userId + ".jpg";
+                    String SubjectName1 = subjectName.replace("#", "a");
+                    String filename = SubjectName1 + userId + ".jpg";
                     pathImage = "SubjectImage" + File.separator + filename;
                     String realPath = request.getServletContext().getRealPath("/") + pathImage;
                     File file = new File(realPath);

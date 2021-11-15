@@ -84,7 +84,9 @@ public class UpdateUserController extends HttpServlet {
                 if (checkupdate) {
                     url = SUCCESS;
                     String msg = ("Update Successful");
+                    String userName = usdto.getName();
                     request.setAttribute("UPDATE_SUCCESS", msg);
+                    session.setAttribute("LOGIN_USER_NAME", userName);
                 } else {
                     url = ERROR;
                     request.setAttribute("UPDATE_ERROR", userError);

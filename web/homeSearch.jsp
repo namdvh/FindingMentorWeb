@@ -65,7 +65,7 @@
                                     <table class="table manage-candidates-top mb-0">
                                         <thead>
                                             <tr>
-                                                <th>Candidate Name</th>
+                                                <th>Mentor Name</th>
                                                 <th class="text-center">Rating</th>
                                                 <th class="action text-right">Action</th>
                                             </tr>

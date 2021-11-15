@@ -64,7 +64,6 @@
                                         <th>email</th>
                                         <th>phone Number</th>
                                         <th>address</th>
-                                        <th>password</th>
                                         <th>status</th>
                                         <th>birthday</th>
                                         <th>images</th>
@@ -77,7 +76,6 @@
                                             <th>${s.email}</th>
                                             <th>${s.phoneNumber}</th>
                                             <th>${s.address}</th>
-                                            <th>${s.password}</th>
                                             <th>${s.status}</th>
                                             <th>${s.birthday}</th>
                                             <th>
