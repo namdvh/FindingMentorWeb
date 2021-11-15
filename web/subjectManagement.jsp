@@ -246,6 +246,16 @@
                 </div>
             </div>
         </section>
+        <c:if test="${not empty requestScope.MSG_NO_STUDENT}">
+            <script>
+                window.onload = function sweetalertclick() {
+                    Swal({
+                        title: 'THERE ARE NO STUDENTS IN THIS COURSE',
+                        confirmButtonText: 'Ok'
+                    })
+                }
+            </script>
+        </c:if>
         <c:if test="${not empty requestScope.MESS_SUCCESS}">
             <script>
 
@@ -256,9 +266,10 @@
                         type: 'success',
                         confirmButtonText: 'Ok'
                     })
-                }</script>
-            </c:if>
-            <jsp:include page="footerTemplate.jsp"></jsp:include>      
+                }
+            </script>
+        </c:if>
+        <jsp:include page="footerTemplate.jsp"></jsp:include>      
         <script src="MyCourse.js"></script>
         <script
             src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
