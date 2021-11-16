@@ -64,11 +64,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="fullName">Video Url:</label>
-                                            <input type="text" class="form-control" id="fullName" placeholder="max 50 letter" name="UpdateVideoURL" value="${itemContent.videoURL}" required="">
+                                            <input type="text" class="form-control" id="fullName" name="UpdateVideoURL" value="${itemContent.videoURL}" required="">
                                         </div>
                                         <div class="form-group">
                                             <label for="fullName">Blog:</label>
-                                            <textarea type="text" class="form-control" id="fullName" placeholder="max 250 letter" name="UpdateBlog" value="${itemContent.blog}" style="height: 240px">${itemContent.blog}</textarea>
+                                            <textarea type="text" class="form-control ckeditor" id="fullName" placeholder="max 250 letter" name="UpdateBlog" value="${itemContent.blog}" style="height: 240px">${itemContent.blog}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -160,12 +160,12 @@
 
                                                             <div class="form-group">
                                                                 <label for="fullName">Video Url:</label>
-                                                                <input maxlength="50" type="url" class="form-control" id="fullName" placeholder="max 50 letter" name="videoURL" value="" required="">
+                                                                <input maxlength="50" type="url" class="form-control" id="fullName" name="videoURL" value="" required="">
                                                             </div>
 
                                                             <div class="form-group">
                                                                 <label for="fullName">Blog:</label>
-                                                                <textarea maxlength="250" type="text" class="form-control" id="fullName" name="blog" value="" placeholder="max 250 letter" style="height: 240px"></textarea>
+                                                                <textarea maxlength="250" type="text" class="form-control ckeditor" id="fullName" name="blog" value="" placeholder="max 250 letter" style="height: 240px"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -212,7 +212,7 @@
                                         <c:set var="listContent" value="${chapter.list}"/>
                                         <c:forEach var="itemContent" items="${listContent}" varStatus="i">
                                             <div style="border-radius: 0rem;" class=" m-0 pb-1 card card-body border-bottom ">
-                                                <a style="text-decoration: none; color: black" href="#" onclick="loadVideoURL('${itemContent.videoURL}', '${itemContent.blog}')">
+                                                <a style="text-decoration: none; color: black" href="#" onclick="loadVideoURL('${itemContent.videoURL}', `${itemContent.blog}`)">
                                                     Lesson ${i.count}: ${itemContent.contentName}
                                                 </a>
                                                 <p class="card-text"><a href="#" class="badge badge-warning" data-toggle="modal" data-target="#editContent${itemContent.contentID}">Edit</a></p>
