@@ -212,7 +212,7 @@
                                         <c:set var="listContent" value="${chapter.list}"/>
                                         <c:forEach var="itemContent" items="${listContent}" varStatus="i">
                                             <div style="border-radius: 0rem;" class=" m-0 pb-1 card card-body border-bottom ">
-                                                <a style="text-decoration: none; color: black" href="#" onclick="loadVideoURL('${itemContent.videoURL}', '${itemContent.blog}')">
+                                                <a style="text-decoration: none; color: black" href="#" onclick="loadVideoURL('${itemContent.videoURL}', `${itemContent.blog}`)">
                                                     Lesson ${i.count}: ${itemContent.contentName}
                                                 </a>
                                                 <p class="card-text"><a href="#" class="badge badge-warning" data-toggle="modal" data-target="#editContent${itemContent.contentID}">Edit</a></p>
@@ -249,7 +249,7 @@
             </div>
         </div>
         <jsp:include page="footerTemplate.jsp"></jsp:include>
-        <script src="ckeditor_4.16.2_basic/ckeditor/ckeditor.js"></script>
+        <script src="ckeditor_4.16.2_basic - Custom/ckeditor/ckeditor.js"></script>
         <script
             src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
