@@ -259,11 +259,7 @@
 
                             <div class="testimonials__picture">
                                 <div class="img">
-                                    <img src="${rank1.images}" alt="" />
-                                </div>
-
-                                <div class="infor">
-                                    <h5>${rank1.name}</h5>
+                                    <img  style="height: 100px;width: 150px;" src="${rank1.images}" alt="" />
                                 </div>
                             </div>
                         </div>
@@ -281,11 +277,7 @@
 
                             <div class="testimonials__picture">
                                 <div class="img">
-                                    <img src="${rank2.images}" alt="" />
-                                </div>
-
-                                <div class="infor">
-                                    <h5>${rank2.name}</h5>
+                                    <img  style="height: 100px;width: 150px;" src="${rank2.images}" alt="" />
                                 </div>
                             </div>
                         </div>
@@ -295,19 +287,13 @@
                         <div class="tetstimonials__card">
                             <div class="testimonials__content">
                                 <p>
-                                    Never stop learning because life never stop teaching.
-
-
+                                    The more that you read, the more things you will know, the more that you learn, the more places you will go
                                 </p>
                             </div>
 
                             <div class="testimonials__picture">
                                 <div class="img">
-                                    <img src="${rank3.images}" alt="" />
-                                </div>
-
-                                <div class="infor">
-                                    <h5>${rank3.name}</h5>
+                                    <img  style="height: 100px;width: 150px;" src="${rank3.images}" alt="" />
                                 </div>
                             </div>
                         </div>
@@ -321,18 +307,12 @@
                             <div class="testimonials__content">
                                 <p>
                                     A wise man can learn from a foolish question, and then a fool can learn more from a wise answer.
-
-
                                 </p>
                             </div>
 
                             <div class="testimonials__picture">
-                                <div class="img">
-                                    <img src="${rank4.images}" alt="" />
-                                </div>
-
-                                <div class="infor">
-                                    <h5>${rank4.name}</h5>
+                                <div class="img" >
+                                    <img  style="height: 100px;width: 150px;" src="${rank4.images}" alt="" />
                                 </div>
                             </div>
                         </div>
@@ -345,19 +325,13 @@
                         <div class="tetstimonials__card">
                             <div class="testimonials__content">
                                 <p>
-                                    What we learn with pleasure we will never forget.
-
-                                    .
+                                    Education is the ability to listen to almost anything without losing your temper or your self-confidence
                                 </p>
                             </div>
 
                             <div class="testimonials__picture">
                                 <div class="img">
-                                    <img src="${rank5.images}" alt="" />
-                                </div>
-
-                                <div class="infor">
-                                    <h5>${rank5.name}</h5>
+                                    <img  style="height: 100px;width: 150px;" src="${rank5.images}" alt="" />
                                 </div>
                             </div>
                         </div>
@@ -371,18 +345,12 @@
                             <div class="testimonials__content">
                                 <p>
                                     Live as if you were to die tomorrow, learn as if you were to live forever.
-
-
                                 </p>
                             </div>
 
                             <div class="testimonials__picture">
                                 <div class="img">
-                                    <img src="${rank6.images}" alt="" />
-                                </div>
-
-                                <div class="infor">
-                                    <h5>${rank6.name}</h5>
+                                    <img  style="height: 100px;width: 150px;" src="${rank6.images}" alt="" />
                                 </div>
                             </div>
                         </div>

@@ -183,10 +183,6 @@
                     transform: scale(1); } }
                 </style>
             </head>
-            <c:if test="${sessionScope.LOGIN_USER eq null}">
-                <c:redirect url="MainController?action=LoginPage"></c:redirect>
-            </c:if>
-
             <body style="font-family: 'Open Sans', sans-serif;">
         <jsp:include page="headerTemplate.jsp"></jsp:include>
             <div class="container">
