@@ -287,7 +287,7 @@ public class SubjectDAO implements Serializable {
             if (con != null) {
                 String sql = "Select SubjectID, SubjectName, Images, UserID, CategoryID, Description, Status \n"
                         + " from tblSubject "
-                        + " where SubjectID = ? ";
+                        + " where SubjectID = ? AND Status = 0";
                 pst = con.prepareStatement(sql);
                 pst.setInt(1, subjectID);
                 rs = pst.executeQuery();
@@ -328,7 +328,7 @@ public class SubjectDAO implements Serializable {
             if (con != null) {
                 String sql = "select SubjectID,SubjectName,Images,UserID,CategoryID,Description,Status \n"
                         + "from tblSubject \n "
-                        + "Where Status = '1' ";
+                        + "Where Status = 1 ";
                 pst = con.prepareStatement(sql);
                 rs = pst.executeQuery();
                 while (rs.next()) {
@@ -369,7 +369,7 @@ public class SubjectDAO implements Serializable {
             if (con != null) {
                 String sql = "select SubjectID,SubjectName,Images,UserID,CategoryID,Description,Status \n"
                         + " from tblSubject \n "
-                        + " Where SubjectName like ? and Status='1'";
+                        + " Where SubjectName like ? and Status= 1";
                 pst = con.prepareStatement(sql);
                 pst.setString(1, "%" + searchValue + "%");
                 rs = pst.executeQuery();
@@ -454,7 +454,7 @@ public class SubjectDAO implements Serializable {
             if (con != null) {
                 String sql = "Select SubjectID, SubjectName, Images, CategoryID, Description, Status \n"
                         + "from tblSubject \n"
-                        + "Where UserID = ? ";
+                        + "Where UserID = ? AND Status = 1";
                 pst = con.prepareStatement(sql);
                 pst.setString(1, userID);
                 rs = pst.executeQuery();
@@ -495,7 +495,7 @@ public class SubjectDAO implements Serializable {
             if (con != null) {
                 String sql = "select tblSubject.SubjectID, SubjectName, Images, tblSubject.UserID, CategoryID, [Description], tblSubject.Status \n"
                         + " from tblSubject,tblRegister  \n "
-                        + " where tblRegister.SubjectID = tblSubject.SubjectID and tblRegister.UserID = ? ";
+                        + " where tblRegister.SubjectID = tblSubject.SubjectID and tblRegister.UserID = ? and tblSubject.Status = 1";
                 pst = con.prepareStatement(sql);
                 pst.setString(1, userID);
                 rs = pst.executeQuery();

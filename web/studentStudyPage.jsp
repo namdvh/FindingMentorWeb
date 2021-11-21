@@ -34,6 +34,8 @@
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous"
             />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.2/dist/sweetalert2.min.css">
+        <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
         <title>Find Mentor</title>  
         <link rel="stylesheet" href="Content-after/app.css">
         <style>
@@ -102,7 +104,7 @@
                                         <c:set var="listContent" value="${chapter.list}"/>
                                         <c:forEach var="itemContent" items="${listContent}" varStatus="i">
                                             <div style="border-radius: 0rem;" class=" m-0 pb-1 card card-body border-bottom ">
-                                                <a style="text-decoration: none; color: black" href="#" onclick="loadVideoURL('${itemContent.videoURL}',`${itemContent.blog}`)">
+                                                <a style="text-decoration: none; color: black" href="#" onclick="loadVideoURL('${itemContent.videoURL}', `${itemContent.blog}`)">
                                                     Lesson ${i.count}: ${itemContent.contentName}
                                                 </a>
                                             </div>
@@ -128,12 +130,12 @@
                              border: 1px solid #8bc34a;
                              box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, .25);
                          }">
-                            <!--blog khong hien-->
+                        <!--blog khong hien-->
                         <div class="form-group purple-border" >
                             <label for="exampleFormControlTextarea4">Blog</label>
                             <div readonly="" class="form-control card" id="exampleFormControlTextarea4" style="width: 852px; height: auto"></div>
                         </div>
-                            <!--khong hien-->
+                        <!--khong hien-->
                     </div>
                     <button
                         type="button"
@@ -225,10 +227,15 @@
         </div>
         <c:if test="${not empty requestScope.MESS}">
             <script>
-                alert("Thanks for voting");
-            </script>
-        </c:if>
-        <jsp:include page="footerTemplate.jsp"></jsp:include>
+                window.onload = function sweetalertclick() {
+                    Swal({
+                        text: 'Thank you for voting',
+                        type: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                }</script>
+            </c:if>
+            <jsp:include page="footerTemplate.jsp"></jsp:include>
         <script
             src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -239,6 +246,12 @@
             integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
             crossorigin="anonymous"
         ></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="sweetalert2.all.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.2/dist/sweetalert2.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
         <script>
                 $('#exampleModal').on('show.bs.modal', event => {
                     var button = $(event.relatedTarget);
@@ -247,7 +260,7 @@
         </script>
         <!--load video-->
         <script>
-            function loadVideoURL(url,blog) {
+            function loadVideoURL(url, blog) {
                 var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
                 var match = url.match(regExp);
                 if (match && match[7].length === 11) {

@@ -42,7 +42,7 @@
             <script>
                 window.onload = function sweetalertclick() {
                 Swal({
-                text: 'Please update Name, Email before learing in subject',
+                text: 'Please update Name, Email before learning in subject',
                         confirmButtonText: 'Ok'
                 })
                 }</script>

@@ -143,6 +143,9 @@
             footer a:hover {
                 color: #fff;
             }
+            .addess li {
+                font-size: 25px;
+            }
             /******************************* END INSTRUCTION__FOOTER *******************************/
 
 

@@ -69,14 +69,12 @@
                 </div>
             </section>
         </div>
-        <c:if test="${not empty requestScope.CREATE_SUCCESS}">
+        <c:if test="${not empty requestScope.USER}">
             <script>
 
                 window.onload = function sweetalertclick() {
                     Swal({
-                        title: 'Success',
-                        text: 'Create Accout Succesfull',
-                        type: 'success',
+                        text: 'Need Login to see detail subject',
                         confirmButtonText: 'Ok'
                     })
                 }
