@@ -79,9 +79,11 @@
     <c:if test="${sessionScope.LOGIN_USER eq null}">
         <c:redirect url="login.jsp"></c:redirect>
     </c:if>
+    <c:if test="${empty sessionScope.LOGIN_USER_NAME}">
+        <c:redirect url="MainController?action=LoadInfor"></c:redirect>
+    </c:if>
     <body style="margin-top: 0px;">
         <jsp:include page="headerTemplate.jsp"></jsp:include>
-
         <c:if test="${sessionScope.LOGIN_USER eq null}">
             <c:redirect url="login.html"></c:redirect>
         </c:if>
