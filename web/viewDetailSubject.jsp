@@ -184,8 +184,9 @@
                 </style>
             </head>
             <c:if test="${sessionScope.LOGIN_USER eq null}">
-                <c:redirect url="login.jsp"></c:redirect>
+                <c:redirect url="MainController?action=LoginPage"></c:redirect>
             </c:if>
+
             <body style="font-family: 'Open Sans', sans-serif;">
         <jsp:include page="headerTemplate.jsp"></jsp:include>
             <div class="container">
@@ -200,7 +201,7 @@
                         <div style="margin-top: 15px;margin-left: -70px" class="details col-md-3">
                             <h3 class="product-title" style="font-size: 17px">Subject Name: ${ViewPage.subjectName}</h3>
                             <p style="font-size: 12px; margin-top: 10px;text-align: left" class="product-description"><h4>Description :</h4>${ViewPage.description}</p>
-                            <p style="font-size: 15px; margin-top: 10px" class="price">Mentor Name: ${LoadMentor.name}</p>
+                            <a href="MainController?action=LoadInfoMentor&UserID=${LoadMentor.userID}" style="font-size: 15px; margin-top: 10px" class="price">Mentor Name: ${LoadMentor.name}</a>
                             <p style="font-size: 20px; margin-top: 10px" class="stars">Total <img src="assets/images/star.png" width="17px" height="17px" alt="icon"/>
                                 : ${LoadMentor.stars}</p>
                         </div>

@@ -97,7 +97,7 @@
             <section class="MyCourse" style="margin-top: 20px">
                 <div class="tab">
                     <button>
-                        <a href="MainController?action=ShowAll" style="font-size: 17px">All subject</a>
+                        <a href="MainController?action=ShowAll" style="font-size: 17px">All Subject</a>
                     </button>
                     <button>
                         <a href="MainController?action=ShowEnrolled" style="font-size: 17px">My Course</a>

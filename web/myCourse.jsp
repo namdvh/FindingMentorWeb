@@ -93,7 +93,7 @@
             <section class="MyCourse" style="margin-top: 20px">
                 <div class="tab">
                     <button>
-                        <a href="MainController?action=ShowAll" style="font-size: 17px">All subject</a>
+                        <a href="MainController?action=ShowAll" style="font-size: 17px">All Subject</a>
                     </button>
                     <button onclick="sweetalertclick()" >
                         <a href="MainController?action=ShowEnrolled" style="font-size: 17px">My Course</a>
@@ -132,12 +132,12 @@
                                         style="width: 100px; height: 100px"
                                         />
                                     <ul style="margin-left: 10px">                
-                                        <p>${list.subjectName}</p>                         
-                                        <p>${list.description}</p>
+                                        <p style="font-size: 20px;font-weight: bold;">${list.subjectName}</p>                         
+                                        <p style="font-size: 15px">${list.description}</p>
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div><hr>
                     </c:forEach>
                 </c:if>
                 <c:if test="${sessionScope.LOGIN_USER.roleID eq 'Mentor'}" >   
@@ -178,8 +178,8 @@
                                         style="width: 100px; height: 100px"
                                         />
                                     <ul style="margin-left: 10px">                
-                                        <p>${list.subjectName}</p>                         
-                                        <p>${list.description}</p>
+                                        <p style="font-size: 20px;font-weight: bold;">${list.subjectName}</p>                         
+                                        <p style="font-size: 15px">${list.description}</p>
                                     </ul>
                                 </div>
                             </div>
@@ -249,22 +249,22 @@
         ></script>
         <script type="text/javascript"  src="Subject/MyCourse.js"></script>
         <script>
-                    document.addEventListener("DOMContentLoaded", function (event) {
-                        navActivePage();
-                    });
-                    function openCity(evt, cityName) {
-                        var i, tabcontent, tablinks;
-                        tabcontent = document.getElementsByClassName("tabcontent");
-                        for (i = 0; i < tabcontent.length; i++) {
-                            tabcontent[i].style.display = "none";
+                        document.addEventListener("DOMContentLoaded", function (event) {
+                            navActivePage();
+                        });
+                        function openCity(evt, cityName) {
+                            var i, tabcontent, tablinks;
+                            tabcontent = document.getElementsByClassName("tabcontent");
+                            for (i = 0; i < tabcontent.length; i++) {
+                                tabcontent[i].style.display = "none";
+                            }
+                            tablinks = document.getElementsByClassName("tablinks");
+                            for (i = 0; i < tablinks.length; i++) {
+                                tablinks[i].className = tablinks[i].className.replace(" active", "");
+                            }
+                            document.getElementById(cityName).style.display = "block";
+                            evt.currentTarget.className += " active";
                         }
-                        tablinks = document.getElementsByClassName("tablinks");
-                        for (i = 0; i < tablinks.length; i++) {
-                            tablinks[i].className = tablinks[i].className.replace(" active", "");
-                        }
-                        document.getElementById(cityName).style.display = "block";
-                        evt.currentTarget.className += " active";
-                    }
         </script>
         <script>
             $('#exampleModal').on('show.bs.modal', event => {

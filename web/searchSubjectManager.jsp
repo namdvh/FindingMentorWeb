@@ -170,68 +170,14 @@
                                 style="width: 100px; height: 100px"
                                 />
                             <ul style="margin-left: 10px">                
-                                <p>${load.subjectName}</p>                         
+                                <p style="font-size: 20px;font-weight: bold;">${load.subjectName}</p>                         
                                 <p>${load.description}</p>
                             </ul>
                         </div>
                     </div> <hr>
                 </c:forEach>
             </div>  
-            <div id="myCourse" class="tabcontent">
-                <c:if test="${sessionScope.LOGIN_USER.roleID eq 'User'}" >
-                    <c:forEach items="${listEnrolled}" var="list">
-                        <div>
-                            <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
-                                <a style="color: white" href="MainController?action=Enroll&subjectId=${list.subjectId}">  Join class  </a>
-                            </button>
-                            <div style="display: flex;">
-                                <img
-                                    src="${list.images}"
-                                    alt=""
-                                    style="width: 100px; height: 100px"
-                                    />
-                                <ul style="margin-left: 10px">                
-                                    <p>${list.subjectName}</p>                         
-                                    <p>${list.description}</p>
-                                </ul>
-                            </div>
-                        </div> <hr>
-                    </c:forEach>
-                </c:if>
-                <c:if test="${sessionScope.LOGIN_USER.roleID eq 'Mentor'}" >   
-                    <c:set var="listSubject" value="${sessionScope.LIST_MENTOR_SUBJECT}"/>
-                    <c:forEach var="subject" items="${listSubject}">
-                        <div>
-                            <form action="MainMentorController" method="POST">
-                                <button type="submit" class="join" style="float: right; margin-top: 30px" name="action" value="EditSubject">Edit Subject</button>
-                                <button type="submit" class="join" style="float: right; margin-top: 30px" name="action" value="ViewListStudent">View List Student</button>
-                                <input type="hidden" name="SubjectID" value="${subject.subjectId}" />
-                                <input type="hidden" name="SubjectName" value="${subject.subjectName}" />
-                                <img src="${subject.images}" alt="" style="width: 100px; height: 100px"/>
-                                <span>${subject.subjectName}</span>
-                            </form>
-                        </div>
-                    </c:forEach>
-                    <c:forEach items="${listEnrolled}" var="list">
-                        <div>
-                            <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
-                                <a style="color: white" href="MainController?action=Enroll&subjectId=${list.subjectId}">  Join class  </a>
-                            </button>
-                            <div style="display: flex;">
-                                <img
-                                    src="${list.images}"
-                                    alt=""
-                                    style="width: 100px; height: 100px"
-                                    />
-                                <ul style="margin-left: 10px">                
-                                    <p>${list.subjectName}</p>                         
-                                    <p>${list.description}</p>
-                                </ul>
-                            </div>
-                        </div> <hr>
-                    </c:forEach>
-                </c:if>
-            </div>
+
         </section>
         <jsp:include page="footerTemplate.jsp"></jsp:include>      
         <script src="MyCourse.js"></script>
