@@ -156,7 +156,7 @@
         <section class="instruction__information" style="background-color: #141415; margin-top: 150px">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-lg-4" style="padding-right: 50px">
                         <h3>About Us</h3>
                         <p style="font-size: 16px">
                             Learning is the source of human progress.
@@ -169,27 +169,27 @@
                         </p>
                     </div>
                     <div class="col-lg-4">
-                        <h3>Latest News</h3>
+                        <h3>Links</h3>
                         <ul class="list">
                             <li>
                                 <i class="fas fa-long-arrow-alt-right"></i>
-                                <a href=""> Lorem ipsum neque vulputate</a>
+                                <a href="https://www.w3schools.com"> W3School</a>
                             </li>
                             <li>
                                 <i class="fas fa-long-arrow-alt-right"></i>
-                                <a href=""> Dolor amet sed quam vitae</a>
+                                <a href="https://codelearn.io"> Code Learn</a>
                             </li>
                             <li>
                                 <i class="fas fa-long-arrow-alt-right"></i>
-                                <a href=""> Lorem ipsum neque, vulputate</a>
+                                <a href="https://www.hackerrank.com"> Hacker Rank</a>
                             </li>
                             <li>
                                 <i class="fas fa-long-arrow-alt-right"></i>
-                                <a href=""> Dolor amet sed quam vitae</a>
+                                <a href="https://www.udemy.com"> Udemy</a>
                             </li>
                             <li>
                                 <i class="fas fa-long-arrow-alt-right"></i>
-                                <a href="">Lorem ipsum neque, vulputate</a>
+                                <a href="https://www.coursera.org"> Coursera</a>
                             </li>
                         </ul>
                     </div>
