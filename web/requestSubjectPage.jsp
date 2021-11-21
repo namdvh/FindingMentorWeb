@@ -73,10 +73,15 @@
                                                 <th>${s.categoryName}</th>
                                                 <th>${s.courseName}</th>
                                                 <th>
-                                                    <img src="${s.images}" width="150px"> 
-                                                </th>
-                                                <th style="max-width: 100px;overflow: hidden;">
-                                                    ${s.description}
+                                                    <img style="width: 120px;height: 100px" src="${s.images}" > 
+                                                </th>                                         
+                                                <th  style="max-width: 100px;overflow: hidden;">
+                                                    <div style=" border: 1px solid #cc0000;
+                                                         overflow: hidden;
+                                                         text-overflow: '...v.v...';
+                                                         white-space: nowrap;
+                                                         width: 200px;" ><p>${s.description}</p></div>
+
                                                 </th>
                                                 <th>${s.status}</th>
                                                 <th>

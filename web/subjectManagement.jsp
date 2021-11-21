@@ -234,7 +234,7 @@
                                 </div>
                                 <div class="form-group" style="padding-bottom: 20px">
                                     <label for="courseName">Description: </label>
-                                    <textarea type="text" class="form-control ckeditor"  placeholder="max 100 letter" name="courseName" required="" maxlength="100"></textarea>
+                                    <textarea type="text" class="form-control ckeditor" name="Description" required=""></textarea>
                                 </div>
                             </div>
                             <div class="modal-footer" style="padding-bottom: 20px">
