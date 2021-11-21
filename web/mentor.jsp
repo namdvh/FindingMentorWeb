@@ -66,7 +66,7 @@
                                             <label for="fullName">Video Url:</label>
                                             <input type="text" class="form-control" id="fullName" name="UpdateVideoURL" value="${itemContent.videoURL}" required="">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" style="width: 200px;">
                                             <label for="fullName">Blog:</label>
                                             <textarea type="text" class="form-control ckeditor" id="fullName" placeholder="max 250 letter" name="UpdateBlog" value="${itemContent.blog}" style="height: 240px">${itemContent.blog}</textarea>
                                         </div>

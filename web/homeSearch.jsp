@@ -48,7 +48,7 @@
         <jsp:include page="headerTemplate.jsp"></jsp:include>
         <c:if test="${requestScope.search != null}">
             <section>
-                <div class="container mt-3 mb-4">
+                <div class="container mt-3 mb-4" style="display: flex; align-items: center; justify-content: center">
                     <div class="col-lg-9 mt-4 mt-lg-0">
                         <div class="row">
                             <div class="col-md-12">

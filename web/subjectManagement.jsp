@@ -47,7 +47,7 @@
         <title>User Study</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.2/dist/sweetalert2.min.css">
         <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
-        <link  href="New folder/main.a3f694c0.css" />
+        <link href="New folder/main.a3f694c0.css" />
         <link rel="stylesheet" href="Subject/AllCourse.css" />
 
         <style>
@@ -102,7 +102,7 @@
                     <button>
                         <a href="MainController?action=ShowEnrolled" style="font-size: 17px">My Course</a>
                     </button>     
-                <c:if test="${sessionScope.LOGIN_USER.roleID eq 'Mentor'}">   
+                <c:if test="${sessionScope.LOGIN_USER.roleID eq 'Mentor'}">
                     <button>
                         <a data-toggle="modal" data-target="#requestAdminCreateCourse" style="font-size: 17px;color: #007BFF">Add subject</a>
                     </button>
