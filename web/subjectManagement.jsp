@@ -44,6 +44,12 @@
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous"
             />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+            />
         <title>User Study</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.2/dist/sweetalert2.min.css">
         <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
@@ -126,84 +132,34 @@
             </c:if>  
             <div id="allCourse" class="tabcontent" style="display: block">
                 <c:forEach items="${allSubject}" var="load">
-                    <div class="container-fluid">
-                        <div>
-                            <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
-                                <a style="color: white" href="MainController?action=Enroll&subjectId=${load.subjectId}&SubjectName=${load.subjectName}">  Join class  </a>                          
-                            </button> 
-                            <button  style="float: right ; margin-top: 30px; margin-right: 10px;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">                          
-                                <a style="color: white" href="MainController?action=LoadSubjectPage&subjectId=${load.subjectId}">  Detail  </a>
-                            </button>
+                    <div class="container-fluid" id="jar">
+                        <div class="row mx-auto content">
+                            <div class="col">
+                                <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg">   
+                                    <a style="color: white" href="MainController?action=Enroll&subjectId=${load.subjectId}&SubjectName=${load.subjectName}">  Join class  </a>                          
+                                </button> 
+                                <button  style="float: right ; margin-top: 30px; margin-right: 10px;" type="button" class="btn btn-primary btn-lg">                          
+                                    <a style="color: white" href="MainController?action=LoadSubjectPage&subjectId=${load.subjectId}">  Detail  </a>
+                                </button>
+                                <div style="display: flex">
+                                    <img
+                                        src="${load.images}"
+                                        alt=""
+                                        style="width: 100px; height: 100px;padding-bottom: 10px"
+                                        />
+                                    <ul style="margin-left: 10px">                
+                                        <p style="font-size: 20px;font-weight: bold;">${load.subjectName}</p>                         
+                                        <p style="font-size: 15px">${load.description}</p>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <div  style="display: flex;">
-                            <img
-                                src="${load.images}"
-                                alt=""
-                                style="width: 100px; height: 100px"
-                                />
-                            <ul style="margin-left: 10px">                
-                                <p style="font-size: 20px;font-weight: bold;">${load.subjectName}</p>                         
-                                <p style="font-size: 15px">${load.description}</p>
-                            </ul>
-                        </div>
-                    </div><hr>
+                    </div>
                 </c:forEach>
             </div> 
-            <div id="myCourse" class="tabcontent">
-                <c:if test="${sessionScope.LOGIN_USER.roleID eq 'User'}" >
-                    <c:forEach items="${listEnrolled}" var="list">
-                        <div>
-                            <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
-                                <a style="color: white" href="MainController?action=Enroll&subjectId=${list.subjectId}">  Join class  </a>
-                            </button>
-                            <div style="display: flex;">
-                                <img
-                                    src="${list.images}"
-                                    alt=""
-                                    style="width: 100px; height: 100px"
-                                    />
-                                <ul style="margin-left: 10px">                
-                                    <p>${list.subjectName}</p>                         
-                                    <p>${list.description}</p>
-                                </ul>
-                            </div>
-                        </div> <hr>
-                    </c:forEach>
-                </c:if>
-                <c:if test="${sessionScope.LOGIN_USER.roleID eq 'Mentor'}" >   
-                    <c:set var="listSubject" value="${sessionScope.LIST_MENTOR_SUBJECT}"/>
-                    <c:forEach var="subject" items="${listSubject}">
-                        <div>
-                            <form action="MainMentorController" method="POST">
-                                <button type="submit" class="join" style="float: right; margin-top: 30px" name="action" value="EditSubject">Edit Subject</button>
-                                <button type="submit" class="join" style="float: right; margin-top: 30px; margin-right: 10px" name="action" value="ViewListStudent">View List Student</button>
-                                <input type="hidden" name="SubjectID" value="${subject.subjectId}" />
-                                <input type="hidden" name="SubjectName" value="${subject.subjectName}" />
-                                <img src="${subject.images}" alt="" style="width: 100px; height: 100px"/>
-                                <span>${subject.subjectName}</span>
-                            </form>
-                        </div>
-                    </c:forEach>
-                    <c:forEach items="${listEnrolled}" var="list">
-                        <div>
-                            <button  style="float: right ; margin-top: 30px" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelIdDetail">   
-                                <a style="color: white" href="MainController?action=Enroll&subjectId=${list.subjectId}">  Join class  </a>
-                            </button>
-                            <div style="display: flex;">
-                                <img
-                                    src="${list.images}"
-                                    alt=""
-                                    style="width: 100px; height: 100px"
-                                    />
-                                <ul style="margin-left: 10px">                
-                                    <p>${list.subjectName}</p>                         
-                                    <p>${list.description}</p>
-                                </ul>
-                            </div>
-                        </div> <hr>
-                    </c:forEach>
-                </c:if>
-            </div>
+            <nav>
+                <ul class="pagination justify-content-center pagination-sm"></ul>
+            </nav>
             <div class="modal fade" id="requestAdminCreateCourse" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content" style="font-size: 20px">
@@ -321,5 +277,139 @@
                 });
         </script>
         <script type="text/javascript" src="New folder/main.41beeca9.js"></script>
+        <script>
+                function getPageList(totalPages, page, maxLength) {
+                    if (maxLength < 5)
+                        throw "maxLength must be at least 5";
+
+                    function range(start, end) {
+                        return Array.from(Array(end - start + 1), (_, i) => i + start);
+                    }
+
+                    var sideWidth = maxLength < 9 ? 1 : 2;
+                    var leftWidth = (maxLength - sideWidth * 2 - 3) >> 1;
+                    var rightWidth = (maxLength - sideWidth * 2 - 2) >> 1;
+                    if (totalPages <= maxLength) {
+                        // no breaks in list
+                        return range(1, totalPages);
+                    }
+                    if (page <= maxLength - sideWidth - 1 - rightWidth) {
+                        // no break on left of page
+                        return range(1, maxLength - sideWidth - 1)
+                                .concat([0])
+                                .concat(range(totalPages - sideWidth + 1, totalPages));
+                    }
+                    if (page >= totalPages - sideWidth - 1 - rightWidth) {
+                        // no break on right of page
+                        return range(1, sideWidth)
+                                .concat([0])
+                                .concat(
+                                        range(
+                                                totalPages - sideWidth - 1 - rightWidth - leftWidth,
+                                                totalPages
+                                                )
+                                        );
+                    }
+                    // Breaks on both sides
+                    return range(1, sideWidth)
+                            .concat([0])
+                            .concat(range(page - leftWidth, page + rightWidth))
+                            .concat([0])
+                            .concat(range(totalPages - sideWidth + 1, totalPages));
+                }
+
+                $(function () {
+                    // Number of items and limits the number of items per page
+                    var numberOfItems = $("#jar .content").length;
+                    var limitPerPage = 5;
+                    // Total pages rounded upwards
+                    var totalPages = Math.ceil(numberOfItems / limitPerPage);
+                    // Number of buttons at the top, not counting prev/next,
+                    // but including the dotted buttons.
+                    // Must be at least 5:
+                    var paginationSize = 7;
+                    var currentPage;
+
+                    function showPage(whichPage) {
+                        if (whichPage < 1 || whichPage > totalPages)
+                            return false;
+                        currentPage = whichPage;
+                        $("#jar .content")
+                                .hide()
+                                .slice((currentPage - 1) * limitPerPage, currentPage * limitPerPage)
+                                .show();
+                        // Replace the navigation items (not prev/next):
+                        $(".pagination li").slice(1, -1).remove();
+                        getPageList(totalPages, currentPage, paginationSize).forEach(
+                                (item) => {
+                            $("<li>")
+                                    .addClass(
+                                            "page-item " +
+                                            (item ? "current-page " : "") +
+                                            (item === currentPage ? "active " : "")
+                                            )
+                                    .append(
+                                            $("<a>")
+                                            .addClass("page-link")
+                                            .attr({
+                                                href: "javascript:void(0)",
+                                            })
+                                            .text(item || "...")
+                                            )
+                                    .insertBefore("#next-page");
+                        }
+                        );
+                        return true;
+                    }
+
+                    // Include the prev/next buttons:
+                    $(".pagination").append(
+                            $("<li>")
+                            .addClass("page-item")
+                            .attr({id: "previous-page"})
+                            .append(
+                                    $("<a>")
+                                    .addClass("page-link")
+                                    .attr({
+                                        href: "javascript:void(0)",
+                                    })
+                                    .text("Prev")
+                                    ),
+                            $("<li>")
+                            .addClass("page-item")
+                            .attr({id: "next-page"})
+                            .append(
+                                    $("<a>")
+                                    .addClass("page-link")
+                                    .attr({
+                                        href: "javascript:void(0)",
+                                    })
+                                    .text("Next")
+                                    )
+                            );
+                    // Show the page links
+                    $("#jar").show();
+                    showPage(1);
+
+                    // Use event delegation, as these items are recreated later
+                    $(document).on(
+                            "click",
+                            ".pagination li.current-page:not(.active)",
+                            function () {
+                                return showPage(+$(this).text());
+                            }
+                    );
+                    $("#next-page").on("click", function () {
+                        return showPage(currentPage + 1);
+                    });
+
+                    $("#previous-page").on("click", function () {
+                        return showPage(currentPage - 1);
+                    });
+                    $(".pagination").on("click", function () {
+                        $("html,body").animate({scrollTop: 0}, 0);
+                    });
+                });
+        </script>
     </body>
 </html>
