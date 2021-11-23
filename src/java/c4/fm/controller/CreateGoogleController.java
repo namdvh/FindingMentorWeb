@@ -50,7 +50,7 @@ public class CreateGoogleController extends HttpServlet {
             if (check) {
                 UserDAO dao = new UserDAO();
                 UserDTO user = new UserDTO(UserID, "", Email, RoleID, "", "", Password, Certificate, "", "", "");
-                boolean checkInsert = dao.insertUseNew(user);
+                boolean checkInsert = dao.insertUserGoogle(user);
                 if (checkInsert) {
                     url = SUCCESS;
                 }

@@ -66,7 +66,7 @@
                                             <label for="fullName">Video Url:</label>
                                             <input type="text" class="form-control" id="fullName" name="UpdateVideoURL" value="${itemContent.videoURL}" required="">
                                         </div>
-                                        <div class="form-group" style="width: 200px;">
+                                        <div class="form-group">
                                             <label for="fullName">Blog:</label>
                                             <textarea type="text" class="form-control ckeditor" id="fullName" placeholder="max 250 letter" name="UpdateBlog" value="${itemContent.blog}" style="height: 240px">${itemContent.blog}</textarea>
                                         </div>
@@ -86,10 +86,10 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="d-flex justify-content-between mb-3">
-                        <a  class="btn btn-success btn-sm rounded-0" href="MainController?action=ShowAll">Back</a>
+                    <div class="d-flex justify-content-between" style="margin-bottom: 15px;">
+                        <a  class="btn btn-success" href="MainController?action=ShowAll">Back</a>
                         <span><h2>Lesson content</h2></span>   
-                        <button  type="button" class="btn btn-success btn-sm rounded-0" data-toggle="modal" data-target="#createChapter" >
+                        <button  type="button" class="btn btn-success" data-toggle="modal" data-target="#createChapter" >
                             Creater Chapter
                         </button>
                     </div>

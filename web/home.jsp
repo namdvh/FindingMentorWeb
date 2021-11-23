@@ -110,7 +110,7 @@
                     <div class="row">
                         <div class="col-lg-4 mb-4 col-sm-6">
                             <div class="card" >
-                                <img style="height: 380px;width: 349px" src="${rank1.images}" class="card-img-top" alt="...">
+                                <img style="height: 380px;width: 349px; object-fit: cover" src="${rank1.images}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title" style="text-align: center"> ${rank1.name}</h5>
                                 <p class="card-text" style="text-align: center"><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank1.stars}</p>
@@ -123,7 +123,7 @@
                     </div>
                     <div class="col-lg-4 mb-4 col-sm-6">
                         <div class="card" >
-                            <img style="height: 380px;width: 349px" src="${rank2.images}" class="card-img-top" alt="...">
+                            <img style="height: 380px;width: 349px; object-fit: cover" src="${rank2.images}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title" style="text-align: center"> ${rank2.name}</h5>
                                 <p class="card-text" style="text-align: center"><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank2.stars}</p>
@@ -136,7 +136,7 @@
                     </div>
                     <div class="col-lg-4 mb-4 col-sm-6">
                         <div class="card" >
-                            <img style="height: 380px;width: 349px" src="${rank3.images}" class="card-img-top" alt="...">
+                            <img style="height: 380px;width: 349px; object-fit: cover" src="${rank3.images}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title" style="text-align: center"> ${rank3.name}</h5>
                                 <p class="card-text" style="text-align: center"><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank3.stars}</p>
@@ -149,7 +149,7 @@
                     </div>
                     <div class="col-lg-4 mb-4 col-sm-6">
                         <div class="card" >
-                            <img style="height: 380px;width: 349px" src="${rank4.images}" class="card-img-top" alt="...">
+                            <img style="height: 380px;width: 349px; object-fit: cover" src="${rank4.images}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title" style="text-align: center"> ${rank4.name}</h5>
                                 <p class="card-text" style="text-align: center"><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank4.stars}</p>
@@ -162,7 +162,7 @@
                     </div>
                     <div class="col-lg-4 mb-4 col-sm-6">
                         <div class="card" >
-                            <img style="height: 380px;width: 349px" src="${rank5.images}" class="card-img-top" alt="...">
+                            <img style="height: 380px;width: 349px; object-fit: cover" src="${rank5.images}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title" style="text-align: center"> ${rank5.name}</h5>
                                 <p class="card-text" style="text-align: center"><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank5.stars}</p>
@@ -175,7 +175,7 @@
                     </div>
                     <div class="col-lg-4 mb-4 col-sm-6">
                         <div class="card" >
-                            <img style="height: 380px;width: 349px" src="${rank6.images}" class="card-img-top" alt="...">
+                            <img style="height: 380px;width: 349px; object-fit: cover" src="${rank6.images}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title" style="text-align: center"> ${rank6.name}</h5>
                                 <p class="card-text" style="text-align: center"><img src="assets/images/star.png" style="width: 18px;height: 18px;">${rank6.stars}</p>

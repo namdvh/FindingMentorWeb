@@ -61,18 +61,12 @@ public class LoginGoogleHandler extends HttpServlet {
                 if (user != null) {
                     HttpSession session = request.getSession();
                     session.setAttribute("LOGIN_USER", user);
-                    session.setAttribute("LOGIN_USER_NAME", googlePojo.getName());
+                    session.setAttribute("LOGIN_USER_NAME", googlePojo.getEmail());
                     String RoleID = user.getRoleID();
-                    if ("AD".equals(RoleID)) {
-                        RequestDispatcher dis = request.getRequestDispatcher("admin.jsp");
-                        dis.forward(request, response);
-                    } else if ("US".equals(RoleID)) {
+                     if ("US".equals(RoleID)) {
                         RequestDispatcher dis = request.getRequestDispatcher("home.jsp");
-                        dis.forward(request, response);
-                    } else if ("MT".equals(RoleID)) {
-                        RequestDispatcher dis = request.getRequestDispatcher("mentor.jsp");
-                        dis.forward(request, response);
-                    } else {
+                        dis.forward(request, response);           
+                   } else {
                         session.setAttribute("ERROR_MESSAGE", "Your role is not support");
                     }
                 } else {
