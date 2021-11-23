@@ -113,8 +113,7 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="col candidate-list-favourite-time text-center"
-                                                    >
+                                                <td class="col candidate-list-favourite-time text-center" style="padding-top: 50px">
                                                     <a
                                                         class="candidate-list-favourite order-2 text-danger"
                                                         href="#"
@@ -123,7 +122,7 @@
                                                           >${mentor.stars}</span
                                                     >
                                                 </td>
-                                                <td class="col">
+                                                <td class="col" style="padding-top: 50px">
                                                     <ul
                                                         class="list-unstyled mb-0 d-flex justify-content-end"
                                                         >
