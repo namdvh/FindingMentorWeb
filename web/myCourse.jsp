@@ -199,9 +199,7 @@
                     </c:forEach>
                 </c:if>
             </div>
-            <nav>
-                <ul class="pagination justify-content-center pagination-sm"></ul>
-            </nav>
+            
             <div class="modal fade" id="requestAdminCreateCourse" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content" style="font-size: 20px">
@@ -244,6 +242,9 @@
                 </div>
             </div>
         </section>
+                            <nav style="font-size: 18px">
+                <ul class="pagination justify-content-center"></ul>
+            </nav>
         <jsp:include page="footerTemplate.jsp"></jsp:include>      
         <script src="MyCourse.js"></script>
         <script

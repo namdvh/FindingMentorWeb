@@ -93,6 +93,19 @@
                 }
             </script>
         </c:if>
+            <c:if test="${not empty requestScope.CREATE_SUCCESS}">
+            <script>
+
+                window.onload = function sweetalertclick() {
+                    Swal({
+                        title: 'Success',
+                        text: 'Create Successful',
+                        type: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                }
+            </script>
+        </c:if>
         <!-- JS -->
         <script src="LoginUser/Login/vendor/jquery/jquery.min.js"></script>
         <script src="LoginUser/Login/js/main.js"></script>

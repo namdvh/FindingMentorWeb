@@ -115,7 +115,7 @@
             </div>
         </section>
         <nav>
-            <ul class="pagination justify-content-center pagination-sm"></ul>
+            <ul class="pagination justify-content-center"></ul>
         </nav>
         <jsp:include page="footerTemplate.jsp"></jsp:include>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
