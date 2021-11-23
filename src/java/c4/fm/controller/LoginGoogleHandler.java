@@ -61,6 +61,7 @@ public class LoginGoogleHandler extends HttpServlet {
                 if (user != null) {
                     HttpSession session = request.getSession();
                     session.setAttribute("LOGIN_USER", user);
+                    session.setAttribute("LOGIN_USER_NAME", googlePojo.getName());
                     String RoleID = user.getRoleID();
                     if ("AD".equals(RoleID)) {
                         RequestDispatcher dis = request.getRequestDispatcher("admin.jsp");

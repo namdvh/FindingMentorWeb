@@ -9,9 +9,9 @@
             <file>file:/D:/GIT%20HUB%20SWP391/ok/FindingMentorWeb/web/footerTemplate.jsp</file>
         </group>
         <group>
-            <file>file:/E:/Homework/SWP/Code/ver%2031/FindingMentorWeb/web/subjectManagement.jsp</file>
-            <file>file:/E:/Homework/SWP/Code/ver%2031/FindingMentorWeb/web/myCourse.jsp</file>
-            <file>file:/E:/Homework/SWP/Code/ver%2031/FindingMentorWeb/web/searchSubjectManager.jsp</file>
+            <file>file:/E:/Homework/SWP/Code/ver%2035/FindingMentorWeb/src/java/c4/fm/controller/RatingController.java</file>
+            <file>file:/E:/Homework/SWP/Code/ver%2035/FindingMentorWeb/src/java/c4/fm/controller/RequestCreateSubjectController.java</file>
+            <file>file:/E:/Homework/SWP/Code/ver%2035/FindingMentorWeb/src/java/c4/fm/admin/controller/UpdateSubjectAdminServlet.java</file>
         </group>
     </open-files>
 </project-private>

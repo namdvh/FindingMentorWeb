@@ -50,8 +50,13 @@ public class UpdateSubjectAdminServlet extends HttpServlet {
             SubjectDTO sj = (SubjectDTO) session.getAttribute("SUB");
             SubjectDAO sjdao = new SubjectDAO();
             String pathImage = "";
-
-            SubjectDTO subjectDTO = sjdao.LoadSubjectInactive(subjectId);
+            SubjectDTO subjectDTO = null;
+            if(status == true){
+                subjectDTO = sjdao.loadSubject(subjectId);
+            }else{
+                subjectDTO = sjdao.LoadSubjectInactive(subjectId);
+            }
+            
             String msg = "";
             check = subjectDao.checkDuplicateUpdateSubject(userId, subjectName, subjectId);
             if (check) {

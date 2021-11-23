@@ -21,11 +21,11 @@ import javax.servlet.http.HttpServletResponse;
 public class RatingController extends HttpServlet {
 
     private static final String SUCCESS = "LoadChapterStudentController";
-    private static final String ERROR = "error.jsp";
+    private static final String ERROR = "LoadChapterStudentController";
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR;
+        String url = SUCCESS;
         try {
             String userID = request.getParameter("MentorName");
             String rating = request.getParameter("rating");
@@ -36,9 +36,8 @@ public class RatingController extends HttpServlet {
             int total = point + prePoint;
             boolean check = dao.Rating(userID, total);
             if(check == true){
-                url = SUCCESS;
+                request.setAttribute("MESS","Thanks for Voting");
             }
-            request.setAttribute("MESS","Thanks for Voting");
         } catch (Exception e) {
             log("Error at rating controller"+ e.getMessage());
         }finally{

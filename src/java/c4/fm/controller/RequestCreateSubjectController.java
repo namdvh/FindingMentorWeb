@@ -44,7 +44,8 @@ public class RequestCreateSubjectController extends HttpServlet {
             check = dao.checkDuplicateRequest(userID, CourseName);
 
             if (check) {
-                String filename = CourseName + userID + ".jpg";
+                String courseName1 = CourseName.replace("#", "a");
+                String filename = courseName1 + userID + ".jpg";
                 String realPath = request.getServletContext().getRealPath("/") + "IM" + File.separator + filename;
                 System.out.println(realPath);
                 File file = new File(realPath);
