@@ -137,7 +137,7 @@ public class UserDAO {
                         + " values(?,?,?,?,?,?,?,?,?,?,?)";
                 stm = conn.prepareStatement(sql);
                 stm.setString(1, user.getUserID());
-                stm.setString(2, user.getName());
+                stm.setString(2, "");
                 stm.setString(3, user.getEmail());
                 stm.setString(4, user.getRoleID());
                 stm.setString(5, "");

@@ -157,8 +157,8 @@
                     </div>
                 </c:forEach>
             </div> 
-            <nav>
-                <ul class="pagination justify-content-center pagination-sm"></ul>
+                <nav style="font-size: 25px" >
+                <ul class="pagination justify-content-center pagination-sm" ></ul>
             </nav>
             <div class="modal fade" id="requestAdminCreateCourse" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
