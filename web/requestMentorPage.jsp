@@ -151,9 +151,8 @@
                                         <tr>
                                             <th></th>
                                             <th>User ID</th>
-                                            <th>Name</th>
+                                            <th> </th>
                                             <th>Certificate</th>
-                                            <th>Description</th>
                                             <th>Status</th>
                                             <th width="110" class="ac">Content Control</th>
                                         </tr>
@@ -166,7 +165,6 @@
                                                 <th>${s.name}</th>
                                                 <!--<th> <img src="${s.certificate}" width="150px"> </th>-->
                                                 <th> <img src="${s.certificate}" id="myImg" src="img_snow.jpg" style="width:100%;max-width:150px"></th>
-                                                <th style="max-width: 100px;overflow: hidden;">${s.description}</th>
                                                 <th>${s.status}</th>
                                                 <th>
                                                     <c:if test="${s.status eq 'true'}">

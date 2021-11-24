@@ -49,14 +49,9 @@ public class UpdateSubjectAdminServlet extends HttpServlet {
             HttpSession session = request.getSession();
             SubjectDTO sj = (SubjectDTO) session.getAttribute("SUB");
             SubjectDAO sjdao = new SubjectDAO();
-            String pathImage = "";
-            SubjectDTO subjectDTO = null;
-            if(status == true){
-                subjectDTO = sjdao.loadSubject(subjectId);
-            }else{
-                subjectDTO = sjdao.LoadSubjectInactive(subjectId);
-            }
-            
+
+            SubjectDTO subjectDTO = sjdao.loadSubjectForUpdate(subjectId);
+            String pathImage = null;
             String msg = "";
             check = subjectDao.checkDuplicateUpdateSubject(userId, subjectName, subjectId);
             if (check) {
@@ -76,9 +71,9 @@ public class UpdateSubjectAdminServlet extends HttpServlet {
                 if (check) {
                     msg = "Update Success!";
                 }
-
+                request.setAttribute("Update_Success", "a");
             } else {
-                msg = "Duplicate Name in this Mentor";
+                request.setAttribute("Update_False", "a");
             }
             request.setAttribute("UPDATE_MSG", msg);
 

@@ -157,7 +157,7 @@
                     </div>
                 </c:forEach>
             </div> 
-                
+
             <div class="modal fade" id="requestAdminCreateCourse" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content" style="font-size: 20px">
@@ -200,9 +200,9 @@
                 </div>
             </div>
         </section>
-                            <nav style="font-size: 18px" >
-                <ul class="pagination justify-content-center" ></ul>
-            </nav>
+        <nav style="font-size: 18px" >
+            <ul class="pagination justify-content-center" ></ul>
+        </nav>
         <c:if test="${not empty requestScope.MSG_NO_STUDENT}">
             <script>
                 window.onload = function sweetalertclick() {
@@ -221,6 +221,18 @@
                         title: 'Success',
                         text: 'Your request has been sent',
                         type: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                }
+            </script>
+        </c:if>
+        <c:if test="${not empty requestScope.duplicate}">
+            <script>
+
+                window.onload = function sweetalertclick() {
+                    Swal({
+                        text: 'this course already have in your list',
+                        type: 'warning',
                         confirmButtonText: 'Ok'
                     })
                 }

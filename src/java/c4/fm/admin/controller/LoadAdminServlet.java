@@ -47,6 +47,14 @@ public class LoadAdminServlet extends HttpServlet {
             List<UserDTO> listUser = null;
             listUser = userDao.loadListUser();
             session.setAttribute("LIST_USER", listUser);
+            session.removeAttribute("Update_False");
+            session.removeAttribute("Update_Success");
+            if(request.getAttribute("Update_False") != null){
+                session.setAttribute("Update_False", "aaa");
+            }
+            if(request.getAttribute("Update_Success") != null){
+                session.setAttribute("Update_Success", "aaa");
+            }
 
             CategoryDAO cateDao = new CategoryDAO();
             List<CategoryDTO> listCate = null;

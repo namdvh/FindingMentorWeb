@@ -12,14 +12,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Admin Page</title>
         <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.2/dist/sweetalert2.min.css">
+        <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
         <div id="header">
             <div class="shell">
                 <div id="top">
-                    <h1><a href="#">Administrator</a></h1>
+                    <h1><a href="MainController?action=LoadAdminPage">Administrator</a></h1>
                     <c:if test="${sessionScope.LOGIN_USER == null}">
                         <c:redirect url="user.jsp"/>
                     </c:if>
@@ -109,13 +110,14 @@
                                             <input type="hidden" name="oldImage" class="field size1" value="${requestScope.UPDATE_SUBJECT.images}"/>
                                         </p>
                                         <p class="inline-field">
-                                            <label>Select Mentor</label>
-                                            <select class="field size5" name="userId">
-                                                <option value="${requestScope.UPDATE_SUBJECT.userId}">${requestScope.UPDATE_SUBJECT.userId}</option>
-                                                <c:forEach var="user" items="${sessionScope.LIST_USER}">
-                                                    <option value="${user.userID}">${user.userID}</option>
-                                                </c:forEach>
-                                            </select>
+                                            <label>Mentor owner</label>
+                                            <input type="text" name="userId" value="${requestScope.UPDATE_SUBJECT.userId}" readonly="">
+                                            <!--                                            <select class="field size5" name="userId">
+                                                                                            <option value="${requestScope.UPDATE_SUBJECT.userId}">${requestScope.UPDATE_SUBJECT.userId}</option>
+                                            <c:forEach var="user" items="${sessionScope.LIST_USER}">
+                                                <option value="${user.userID}">${user.userID}</option>
+                                            </c:forEach>
+                                        </select>-->
 
                                         </p>
                                         <p class="inline-field">
@@ -180,5 +182,34 @@
             <div class="shell"> <span class="left">&copy; 2021 - Company Four Class</span> <span class="right"> Design by C4 Team </span> </div>
         </div>
         <script src="ckeditor_4.16.2_basic/ckeditor/ckeditor.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="sweetalert2.all.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.2/dist/sweetalert2.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+        <c:if test="${not empty sessionScope.Update_False}">
+            <script>
+                window.onload = function sweetalertclick() {
+                    Swal({
+                        text: 'False , please try again !!!',
+                        type: 'warning',
+                        confirmButtonText: 'Ok'
+                    })
+                }
+            </script>
+        </c:if>
+        <c:if test="${not empty sessionScope.Update_Success}">
+            <script>
+                window.onload = function sweetalertclick() {
+                    Swal({
+                        text: 'Update succesful',
+                        type: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                }
+            </script>
+        </c:if>
     </body>
+
 </html>

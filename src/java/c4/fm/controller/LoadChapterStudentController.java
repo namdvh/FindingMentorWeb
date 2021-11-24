@@ -11,6 +11,8 @@ import c4.fm.subject.ChapterDTO;
 import c4.fm.subject.ContentDTO;
 import c4.fm.subject.SubjectDAO;
 import c4.fm.subject.SubjectDTO;
+import c4.fm.user.UserDAO;
+import c4.fm.user.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -39,6 +41,9 @@ public class LoadChapterStudentController extends HttpServlet {
             SubjectDAO subdao = new SubjectDAO();
             SubjectDTO sub = subdao.getSubjectAdmin(subjectID);
             String userID = sub.getUserId();
+            UserDAO userdao = new UserDAO();
+            UserDTO info = userdao.LoadMentor(userID);
+            String MentorName = info.getName();
             ChapterDAO chapterDAO = new ChapterDAO();
             List<ChapterDTO> listChapter = chapterDAO.LoadListChapter(subjectID);
             ContentDAO contentDAO = new ContentDAO();
@@ -49,7 +54,7 @@ public class LoadChapterStudentController extends HttpServlet {
                 }
             }
             request.setAttribute("subject", subjectID);
-            request.setAttribute("UserID", userID);
+            request.setAttribute("MentorName", MentorName);
             request.setAttribute("LIST_CHAPTER", listChapter);
         } catch (Exception e) {
             log("Error at load detail subject" + e.toString());

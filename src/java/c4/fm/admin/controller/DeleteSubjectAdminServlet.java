@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -27,6 +28,10 @@ public class DeleteSubjectAdminServlet extends HttpServlet {
             String subjectId = request.getParameter("subjectId");
             SubjectDAO subjectDao = new SubjectDAO();
             subjectDao.deleteSubject(subjectId);
+            HttpSession session = request.getSession();
+            session.setAttribute("Update_False", null);
+            session.setAttribute("Update_Success", null);
+
         } catch (Exception e) {
             log("Error at Delete Subject Admin" + e.toString());
         } finally {

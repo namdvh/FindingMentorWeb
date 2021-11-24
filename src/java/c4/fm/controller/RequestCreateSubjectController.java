@@ -24,14 +24,13 @@ import org.apache.commons.io.FileUtils;
 @MultipartConfig
 public class RequestCreateSubjectController extends HttpServlet {
 
-    private static final String ERROR = "error.jsp";
     private static final String SUCCESS = "ShowAllSubjectController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         boolean check = false;
-        String url = ERROR;
+        String url = SUCCESS;
         try {
             String userID = request.getParameter("userID");
             String CourseName = request.getParameter("courseName");
@@ -41,20 +40,29 @@ public class RequestCreateSubjectController extends HttpServlet {
 
             requestSubjectDAO dao = new requestSubjectDAO();
 
-            check = dao.checkDuplicateRequest(userID, CourseName);
-
+            check = dao.checkDupliCourse(CourseName);
             if (check) {
-                String courseName1 = CourseName.replace("#", "a");
-                String filename = courseName1 + userID + ".jpg";
-                String realPath = request.getServletContext().getRealPath("/") + "IM" + File.separator + filename;
-                System.out.println(realPath);
-                File file = new File(realPath);
-                FileUtils.copyInputStreamToFile(part.getInputStream(), file);
-                requestSubjectDTO subject = new requestSubjectDTO(userID, CourseName, categoryID, "IM" + File.separator + filename, description, false);
-                check = dao.RequestSubject(subject);
+                check = dao.checkDupliCourseinMentor(CourseName, userID);
                 if (check) {
+                    check = dao.checkDuplicateRequest(userID, CourseName);
+                    if (check) {
+                        String courseName1 = CourseName.replace("#", "a");
+                        String filename = courseName1 + userID + ".jpg";
+                        String realPath = request.getServletContext().getRealPath("/") + "IM" + File.separator + filename;
+                        System.out.println(realPath);
+                        File file = new File(realPath);
+                        FileUtils.copyInputStreamToFile(part.getInputStream(), file);
+                        requestSubjectDTO subject = new requestSubjectDTO(userID, CourseName, categoryID, "IM" + File.separator + filename, description, false);
+                        check = dao.RequestSubject(subject);
+                        if (check) {
+                            url = SUCCESS;
+                            request.setAttribute("ADD", "add");
+                        }
+                    }
+                }
+                else{
                     url = SUCCESS;
-                    request.setAttribute("ADD", "add");
+                    request.setAttribute("duplicate", "a");
                 }
             }
 
