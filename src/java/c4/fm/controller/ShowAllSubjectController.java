@@ -41,6 +41,9 @@ public class ShowAllSubjectController extends HttpServlet {
             if(request.getAttribute("ADD") != null){
                 request.setAttribute("MESS_SUCCESS", "ADD");
             }
+            if(request.getAttribute("duplicate")!= null){
+                request.setAttribute("duplicate", "add");
+            } 
             
             request.setAttribute("listcate", listCate);
             session.setAttribute("listEnrolled", listEnrolled);

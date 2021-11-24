@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -32,6 +33,10 @@ public class UpdateSubjectPageAdminServlet extends HttpServlet {
             SubjectDAO subjectDao = new SubjectDAO();
             SubjectDTO subject = subjectDao.getSubjectAdmin(subjectId);
             request.setAttribute("UPDATE_SUBJECT", subject);
+            HttpSession session = request.getSession();
+            session.setAttribute("Update_False", null);
+            session.setAttribute("Update_Success", null);
+
         } catch (Exception e) {
             log("Errot at UpdateSubjectPageAdminServlet:" + e.toString());
         } finally {

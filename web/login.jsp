@@ -86,7 +86,7 @@
                 window.onload = function sweetalertclick() {
                     Swal({
                         title: 'Success',
-                        text: 'Sent Request Succesfull',
+                        text: 'Sent Request Succesful',
                         type: 'success',
                         confirmButtonText: 'Ok'
                     })

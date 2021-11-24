@@ -316,6 +316,46 @@ public class SubjectDAO implements Serializable {
         }
         return subject;
     }
+
+    public SubjectDTO loadSubjectForUpdate(int subjectID) throws SQLException, ClassNotFoundException {
+        SubjectDTO subject = null;
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            con = DBUtils.getConnection();
+            if (con != null) {
+                String sql = "Select SubjectID, SubjectName, Images, UserID, CategoryID, Description, Status \n"
+                        + " from tblSubject "
+                        + " where SubjectID = ?";
+                pst = con.prepareStatement(sql);
+                pst.setInt(1, subjectID);
+                rs = pst.executeQuery();
+                while (rs.next()) {
+                    int subjectId = Integer.parseInt(rs.getString("SubjectID"));
+                    String subjectName = rs.getString("SubjectName");
+                    String images = rs.getString("Images");
+                    String userId = rs.getString("UserID");
+                    String categoryId = rs.getString("CategoryID");
+                    String description = rs.getString("Description");
+                    boolean status = rs.getBoolean("Status");
+                    subject = new SubjectDTO(subjectId, subjectName, images, userId, categoryId, description, status);
+                }
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+
+        }
+        return subject;
+    }
     ///////////////////////////////////
 
     public List<SubjectDTO> ShowAllSubject() throws ClassNotFoundException, SQLException {
@@ -694,14 +734,15 @@ public class SubjectDAO implements Serializable {
         }
         return check;
     }
-    public boolean checkDuplicateUpdateSubject(String MentorID, String courseName,int SubjectID) throws SQLException, ClassNotFoundException {
+
+    public boolean checkDuplicateUpdateSubject(String MentorID, String courseName, int SubjectID) throws SQLException, ClassNotFoundException {
         Connection con = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
         boolean check = true;
         try {
             con = DBUtils.getConnection();
-            String sql = "select UserID from tblSubject where UserID = ? AND SubjectName = ? except select UserID from tblSubject where SubjectID= ?";
+            String sql = "select Description from tblSubject where UserID = ? AND SubjectName = ? except select Description from tblSubject where SubjectID= ?";
             pst = con.prepareStatement(sql);
             pst.setString(1, MentorID);
             pst.setString(2, courseName);

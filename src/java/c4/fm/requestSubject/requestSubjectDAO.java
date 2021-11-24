@@ -194,7 +194,70 @@ public class requestSubjectDAO {
             pst.setString(1, MentorID);
             pst.setString(2, courseName);
             rs = pst.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
+                check = false;
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return check;
+    }
+
+    public boolean checkDupliCourse(String courseName) throws SQLException, ClassNotFoundException {
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        boolean check = false;
+        try {
+            con = DBUtils.getConnection();
+            String sql = "select SubjectName \n"
+                    + "from tblSubject \n"
+                    + "where SubjectName = ?";
+            pst = con.prepareStatement(sql);
+            pst.setString(1, courseName);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                check = true;
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+
+            if (pst != null) {
+                pst.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return check;
+    }
+
+    public boolean checkDupliCourseinMentor(String courseName, String userID) throws SQLException, ClassNotFoundException {
+        Connection con = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        boolean check = true;
+        try {
+            con = DBUtils.getConnection();
+            String sql = "select SubjectName \n"
+                    + "from tblSubject \n"
+                    + "where SubjectName = ? AND UserID = ?";
+            pst = con.prepareStatement(sql);
+            pst.setString(1, courseName);
+            pst.setString(2, userID);
+            rs = pst.executeQuery();
+            if (rs.next()) {
                 check = false;
             }
         } finally {
