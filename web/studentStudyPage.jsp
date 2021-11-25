@@ -173,7 +173,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-group">
-                                            <label for="fullName">Mentor Name: ${MentorName}</label>
+                                            <label for="fullName">Mentor Name: ${requestScope.MentorName}</label>
                                         </div>
                                         <div id="rating">
                                             <input type="radio" id="star5" name="rating" value="5" />
