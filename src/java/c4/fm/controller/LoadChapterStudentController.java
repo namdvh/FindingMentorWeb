@@ -53,6 +53,7 @@ public class LoadChapterStudentController extends HttpServlet {
                     chapter.setList(listContent);
                 }
             }
+            request.setAttribute("UserID", userID);
             request.setAttribute("subject", subjectID);
             request.setAttribute("MentorName", MentorName);
             request.setAttribute("LIST_CHAPTER", listChapter);
