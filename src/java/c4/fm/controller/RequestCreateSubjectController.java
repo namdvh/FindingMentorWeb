@@ -55,14 +55,26 @@ public class RequestCreateSubjectController extends HttpServlet {
                         requestSubjectDTO subject = new requestSubjectDTO(userID, CourseName, categoryID, "IM" + File.separator + filename, description, false);
                         check = dao.RequestSubject(subject);
                         if (check) {
-                            url = SUCCESS;
                             request.setAttribute("ADD", "add");
                         }
+                    } else {
+                        request.setAttribute("duplicate_request", "a");
                     }
-                }
-                else{
-                    url = SUCCESS;
+                } else {
                     request.setAttribute("duplicate", "a");
+                }
+            } else {
+                String courseName1 = CourseName.replace("#", "a");
+                String filename = courseName1 + userID + ".jpg";
+                String realPath = request.getServletContext().getRealPath("/") + "IM" + File.separator + filename;
+                System.out.println(realPath);
+                File file = new File(realPath);
+                FileUtils.copyInputStreamToFile(part.getInputStream(), file);
+                requestSubjectDTO subject = new requestSubjectDTO(userID, CourseName, categoryID, "IM" + File.separator + filename, description, false);
+                check = dao.RequestSubject(subject);
+                if (check) {
+                    url = SUCCESS;
+                    request.setAttribute("ADD", "add");
                 }
             }
 

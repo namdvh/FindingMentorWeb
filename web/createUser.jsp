@@ -46,10 +46,9 @@
                                 </div>
                                 <div style="margin-left: -13px;" >
                                     <div >
-                                        <input name="RoleID" onclick="onInputChange()"  type="radio" name="RoleID" value="User" style="width: 10%; display: inline;" >
+                                        <input name="RoleID" onclick="onInputChange()" checked="" type="radio" name="RoleID" value="User" style="width: 10%; display: inline;" >
                                                                         <label for="html" style="position: unset"><span style="font-size: 15px;">Student</span></label><br>
                                     </div>
-
                                     <div >
                                         <input name="RoleID" onclick="onInputChangeBlock()"  type="radio" name="RoleID" value="Mentor" style="width: 10%; display: inline;">
                                                                         <label  for="html" style="position: unset"><span style="font-size: 15px;">Mentor</span></label><br>

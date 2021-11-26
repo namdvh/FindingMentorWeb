@@ -231,7 +231,19 @@
 
                 window.onload = function sweetalertclick() {
                     Swal({
-                        text: 'this course already have in your list',
+                        text: 'Your accout already have this course',
+                        type: 'warning',
+                        confirmButtonText: 'Ok'
+                    })
+                }
+            </script>
+        </c:if>
+        <c:if test="${not empty requestScope.duplicate_request}">
+            <script>
+
+                window.onload = function sweetalertclick() {
+                    Swal({
+                        text: 'This request already have in list',
                         type: 'warning',
                         confirmButtonText: 'Ok'
                     })

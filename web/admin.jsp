@@ -123,7 +123,7 @@
                                         <p class="inline-field">
                                             <label>Category</label>
                                             <select class="field size5" name="categoryId">
-                                                <option value="${requestScope.UPDATE_SUBJECT.categoryId}">${requestScope.UPDATE_SUBJECT.categoryId}</option>
+                                               
 
                                                 <c:forEach var="cate" items="${sessionScope.LIST_CATE}">
                                                     <option value="${cate.categoryId}">${cate.categoryName}</option>
@@ -132,13 +132,23 @@
                                         </p>
                                         <p class="inline-field">
                                             <label>Status</label>
-
-                                            <select class="field size5" name="status">
-                                                <option value="${requestScope.UPDATE_SUBJECT.status}">${requestScope.UPDATE_SUBJECT.status}</option>
-
-                                                <option value="True">Active</option>
-                                                <option value="False">InActive</option>
-                                            </select>
+                                     <select class="field size5" name="status">
+       
+                                           <option value="${requestScope.UPDATE_SUBJECT.status}">
+                                                    <c:if test="${requestScope.UPDATE_SUBJECT.status ==true}">
+                                                        True
+                                                    </c:if>             
+                                                    <c:if test="${requestScope.UPDATE_SUBJECT.status ==false}">
+                                                        False
+                                                    </c:if>
+                                                </option>
+                                                <c:if test="${requestScope.UPDATE_SUBJECT.status ==false}">
+                                                    <option value="True">True</option>
+                                                </c:if>
+                                                    <c:if test="${requestScope.UPDATE_SUBJECT.status ==true}">
+                                                    <option value="False">False</option>
+                                                </c:if>
+                                                    </select>   
                                         </p>
                                         <p> <span class="req">max 100 symbols</span>
                                             <label>Description <span>(Required Field)</span></label>

@@ -44,7 +44,7 @@
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous"
             />
-        <title>Title page</title>
+        <title>Search Page</title>
         <link  href="New folder/main.a3f694c0.css" />
         <link rel="stylesheet" href="Subject/MyCourse.css" />
 

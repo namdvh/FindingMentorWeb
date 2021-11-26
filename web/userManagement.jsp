@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>User Management</title>
         <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -22,7 +22,7 @@
         <div id="header">
             <div class="shell">
                 <div id="top">
-                    <h1><a href="#">SpringTime</a></h1>
+                    <h1><a href="MainController?action=LoadAdminPage">Administrator</a></h1>
                     <c:if test="${sessionScope.LOGIN_USER == null}">
                         <c:redirect url="user.jsp"/>
                     </c:if>

@@ -23,7 +23,7 @@
             <div class="shell">
                 <!-- Logo + Top Nav -->
                 <div id="top">
-                    <h1><a href="#">SpringTime</a></h1>
+                    <h1><a href="MainController?action=LoadAdminPage">Administrator</a></h1>
                     <c:if test="${sessionScope.LOGIN_USER == null}">
                         <c:redirect url="user.jsp"/>
                     </c:if>

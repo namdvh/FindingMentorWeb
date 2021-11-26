@@ -36,7 +36,7 @@
             />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.29.2/dist/sweetalert2.min.css">
         <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
-        <title>Find Mentor</title>  
+        <title>Study Page</title>  
         <link rel="stylesheet" href="Content-after/app.css">
         <style>
             @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
